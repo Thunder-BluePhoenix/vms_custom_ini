@@ -1,0 +1,347 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-27 12:14:35.611299",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "vendor_type",
+  "account_group",
+  "department",
+  "material_to_be_supplied",
+  "search_term",
+  "nature_of_business",
+  "payee_in_document",
+  "gr_based_inv_ver",
+  "service_based_inv_ver",
+  "check_double_invoice",
+  "order_currency",
+  "terms_of_payment",
+  "incoterms",
+  "purchase_groupm",
+  "registered_date",
+  "column_break_azqd",
+  "purchase_organization",
+  "type_of_business",
+  "size_of_company",
+  "website",
+  "registered_office_number",
+  "telephone_number",
+  "established_year",
+  "office_email_primary",
+  "office_email_secondary",
+  "corporate_identification_number",
+  "cin_date",
+  "nature_of_company",
+  "business_nature",
+  "section_break_qjrl",
+  "office_address_line_1",
+  "office_address_line_2",
+  "city",
+  "state",
+  "country",
+  "column_break_hboq",
+  "office_address_line_3",
+  "office_address_line_4",
+  "district",
+  "pincode",
+  "section_break_udaq",
+  "manufacturing_address_line_1",
+  "manufacturing_address_line_2",
+  "registered_by",
+  "column_break_ourn",
+  "manufacturing_address_line_3",
+  "manufacturing_address_line_4",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Name",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "vendor_type",
+   "fieldtype": "Link",
+   "label": "Vendor Type",
+   "options": "Vendor Type Master"
+  },
+  {
+   "fieldname": "account_group",
+   "fieldtype": "Link",
+   "label": "Account Group",
+   "options": "Account Group Master"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department Master"
+  },
+  {
+   "fieldname": "search_term",
+   "fieldtype": "Data",
+   "label": "Search Term"
+  },
+  {
+   "fieldname": "nature_of_business",
+   "fieldtype": "Link",
+   "label": "Nature of Business",
+   "options": "Business Nature Master"
+  },
+  {
+   "default": "0",
+   "fieldname": "payee_in_document",
+   "fieldtype": "Check",
+   "label": "Payee in Document"
+  },
+  {
+   "default": "0",
+   "fieldname": "gr_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "GR Based Inv. Ver."
+  },
+  {
+   "default": "0",
+   "fieldname": "service_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "Service Based Inv. Ver."
+  },
+  {
+   "default": "0",
+   "fieldname": "check_double_invoice",
+   "fieldtype": "Check",
+   "label": "Check Double Invoice"
+  },
+  {
+   "fieldname": "order_currency",
+   "fieldtype": "Link",
+   "label": "Order Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "terms_of_payment",
+   "fieldtype": "Link",
+   "label": "Terms Of Payment ",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Link",
+   "label": "Incoterms",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "purchase_groupm",
+   "fieldtype": "Link",
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "registered_date",
+   "fieldtype": "Datetime",
+   "label": "Registered Date"
+  },
+  {
+   "fieldname": "purchase_organization",
+   "fieldtype": "Data",
+   "label": "Purchase Organization"
+  },
+  {
+   "fieldname": "type_of_business",
+   "fieldtype": "Select",
+   "label": "Type of Business",
+   "options": "Type 1\nType 2\nType 3"
+  },
+  {
+   "fieldname": "size_of_company",
+   "fieldtype": "Data",
+   "label": "Size of Company"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "registered_office_number",
+   "fieldtype": "Phone",
+   "label": "Registered Office Number"
+  },
+  {
+   "fieldname": "telephone_number",
+   "fieldtype": "Phone",
+   "label": "Telephone Number"
+  },
+  {
+   "fieldname": "established_year",
+   "fieldtype": "Data",
+   "label": "Established Year"
+  },
+  {
+   "fieldname": "office_email_primary",
+   "fieldtype": "Data",
+   "label": "Office Email Primary"
+  },
+  {
+   "fieldname": "office_email_secondary",
+   "fieldtype": "Data",
+   "label": "Office Email Secondary"
+  },
+  {
+   "fieldname": "corporate_identification_number",
+   "fieldtype": "Data",
+   "label": "Corporate Identification Number"
+  },
+  {
+   "fieldname": "cin_date",
+   "fieldtype": "Date",
+   "label": "CIN Date"
+  },
+  {
+   "fieldname": "nature_of_company",
+   "fieldtype": "Link",
+   "label": "Nature of Company",
+   "options": "Company Nature Master"
+  },
+  {
+   "fieldname": "business_nature",
+   "fieldtype": "Link",
+   "label": "Nature of Business",
+   "options": "Business Nature Master"
+  },
+  {
+   "fieldname": "column_break_azqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qjrl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "office_address_line_1",
+   "fieldtype": "Data",
+   "label": "Office Address Line 1"
+  },
+  {
+   "fieldname": "office_address_line_2",
+   "fieldtype": "Data",
+   "label": "Office Address Line 2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State Master"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "column_break_hboq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "office_address_line_3",
+   "fieldtype": "Data",
+   "label": "Office Address Line 3"
+  },
+  {
+   "fieldname": "office_address_line_4",
+   "fieldtype": "Data",
+   "label": "Office Address Line 4"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District Master"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Link",
+   "label": "Pincode",
+   "options": "Pincode Master"
+  },
+  {
+   "fieldname": "section_break_udaq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "manufacturing_address_line_1",
+   "fieldtype": "Data",
+   "label": "Manufacturing Address Line 1"
+  },
+  {
+   "fieldname": "manufacturing_address_line_2",
+   "fieldtype": "Data",
+   "label": "Manufacturing Address Line 2"
+  },
+  {
+   "fieldname": "column_break_ourn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturing_address_line_3",
+   "fieldtype": "Data",
+   "label": "Manufacturing Address Line 3"
+  },
+  {
+   "fieldname": "manufacturing_address_line_4",
+   "fieldtype": "Data",
+   "label": "Manufacturing Address Line 4"
+  },
+  {
+   "fieldname": "material_to_be_supplied",
+   "fieldtype": "Link",
+   "label": "Material to be Supplied",
+   "options": "Material Master"
+  },
+  {
+   "fieldname": "registered_by",
+   "fieldtype": "Data",
+   "label": "Registered By"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-10 15:50:30.716600",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Vendor Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

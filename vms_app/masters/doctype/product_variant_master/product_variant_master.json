@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-27 11:13:16.988767",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "product_variant_code",
+  "product_variant_name",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_variant_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Variant Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "product_variant_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Variant Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Decription"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-27 11:14:23.527553",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Product Variant Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

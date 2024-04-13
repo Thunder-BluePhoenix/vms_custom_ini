@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-27 11:07:50.293495",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "incoterm_code",
+  "incoterm_name",
+  "delivery_point",
+  "transportation_costs",
+  "risk_transfer",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "incoterm_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Incoterm Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incoterm_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Incoterm Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "delivery_point",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Delivery Point",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transportation_costs",
+   "fieldtype": "Data",
+   "label": "Transportation Costs"
+  },
+  {
+   "fieldname": "risk_transfer",
+   "fieldtype": "Data",
+   "label": "Risk Transfer"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text",
+   "label": "Note"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-27 11:09:29.866489",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Incoterm Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

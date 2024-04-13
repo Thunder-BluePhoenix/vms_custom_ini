@@ -122,13 +122,45 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"*": {
+		# "on_update": "method",
+		# "on_cancel": "method",
+		# "on_trash": "method"
+
+	},
+	"Vendor Master": {
+
+		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
+		#"validate": "vms_app.api.api.send_email"
+		"after_insert": "vms_app.api.api.send_email"
+	},
+	"Vendor Onboarding": {
+
+	"validate": "vms_app.api.api.send_email_on_onboarding"
+
+	},
+	"Request For Quotation":{
+
+		"validate": "vms_app.api.api.hitt"
+
+	},
+	"Import Entry":{
+	#"after_insert": "vms_app.api.api.calculate",
+	"after_insert": "vms_app.api.api.extract_text_from_pdf",
+	#"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
+
+	
+	},
+
+	"Export Entry Vendor": {
+
+	"after_insert": "vms_app.api.api.calculate_export_entry"
+
+	}
+
+
+}
 
 # Scheduled Tasks
 # ---------------

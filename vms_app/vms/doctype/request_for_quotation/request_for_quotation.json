@@ -1,0 +1,204 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "prompt",
+ "creation": "2024-04-03 11:54:14.564494",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "select_service",
+  "division",
+  "rfq_cutoff_date",
+  "mode_of_shipment",
+  "destination_port",
+  "port_of_loading",
+  "ship_to_address",
+  "no_of_pkg_units",
+  "vol_weight",
+  "invoice_date",
+  "shipment_date",
+  "remarks",
+  "column_break_akhk",
+  "consignee_name",
+  "sr_no",
+  "rfq_date",
+  "country",
+  "port_code",
+  "inco_terms",
+  "package_type",
+  "product_category",
+  "actual_weight",
+  "invoice_no",
+  "shipment_type",
+  "file",
+  "rfq_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_service",
+   "fieldtype": "Link",
+   "label": "Select Service",
+   "options": "Vendor Type Master"
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "label": "Division",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "rfq_cutoff_date",
+   "fieldtype": "Datetime",
+   "label": "RFQ CutOff"
+  },
+  {
+   "fieldname": "mode_of_shipment",
+   "fieldtype": "Select",
+   "label": "Mode Of Shipment",
+   "options": "By Road\nBy Sea\nBy Air"
+  },
+  {
+   "fieldname": "destination_port",
+   "fieldtype": "Link",
+   "label": "Destination Port",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "port_of_loading",
+   "fieldtype": "Link",
+   "label": "Port Of Loading",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "ship_to_address",
+   "fieldtype": "Small Text",
+   "label": "Ship To Address"
+  },
+  {
+   "fieldname": "no_of_pkg_units",
+   "fieldtype": "Data",
+   "label": "No. Of Pkg Units"
+  },
+  {
+   "fieldname": "vol_weight",
+   "fieldtype": "Data",
+   "label": "Vol Weight (KG)"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "label": "Shipment Date"
+  },
+  {
+   "fieldname": "consignee_name",
+   "fieldtype": "Data",
+   "label": "Consignee Name"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "sr_no",
+   "fieldtype": "Data",
+   "label": "Sr. No."
+  },
+  {
+   "fieldname": "rfq_date",
+   "fieldtype": "Date",
+   "label": "RFQ Date"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "port_code",
+   "fieldtype": "Link",
+   "label": "Port Code",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "inco_terms",
+   "fieldtype": "Link",
+   "label": "Inco Terms",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "package_type",
+   "fieldtype": "Link",
+   "label": "Package Type",
+   "options": "Package Type Master"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "actual_weight",
+   "fieldtype": "Data",
+   "label": "Actual Weight (KG)"
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No."
+  },
+  {
+   "fieldname": "shipment_type",
+   "fieldtype": "Link",
+   "label": "Shipment Type",
+   "options": "Shipment Type Master"
+  },
+  {
+   "fieldname": "column_break_akhk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "file",
+   "fieldtype": "Attach",
+   "label": "File"
+  },
+  {
+   "fieldname": "rfq_type",
+   "fieldtype": "Link",
+   "label": "RFQ Type",
+   "options": "RFQ Type Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-09 15:41:05.023337",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Request For Quotation",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

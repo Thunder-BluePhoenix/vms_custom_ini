@@ -1,0 +1,284 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-09 09:02:03.675563",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rfq_number",
+  "rfq_date",
+  "freight_forwarder",
+  "ff_ref_number",
+  "freight_mode",
+  "origin_country",
+  "destination_port",
+  "port_code",
+  "freight_basis",
+  "meril_invoice_number",
+  "invoice_date",
+  "shipper_name",
+  "package_type",
+  "pkg_units",
+  "product_category",
+  "vol_weight",
+  "actual_weight",
+  "shipment_date_meril",
+  "statutory_permission",
+  "file_name",
+  "details_need_to_be_filled_by_service_provider_section",
+  "shipment_mode",
+  "name1",
+  "chargable_weight",
+  "ratekg",
+  "fuel_sur_charge",
+  "sur_charge",
+  "xray",
+  "pickuporigin",
+  "ex_works",
+  "total_freight",
+  "from_currency",
+  "to_currency",
+  "xrxecom",
+  "total_freight_inr",
+  "destination_charges_inr",
+  "shipping_line_charges",
+  "cfs_charges",
+  "total_landing_priceinr",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "rfq_number",
+   "fieldtype": "Link",
+   "label": "RFQ Number",
+   "options": "Request For Quotation"
+  },
+  {
+   "fieldname": "rfq_date",
+   "fieldtype": "Data",
+   "label": "RFQ Date"
+  },
+  {
+   "fieldname": "freight_forwarder",
+   "fieldtype": "Link",
+   "label": "Freight Forwarder",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "ff_ref_number",
+   "fieldtype": "Data",
+   "label": "FF Ref Number"
+  },
+  {
+   "fieldname": "freight_mode",
+   "fieldtype": "Select",
+   "label": "Freight Mode",
+   "options": "Air\nOcean\nRoad"
+  },
+  {
+   "fieldname": "origin_country",
+   "fieldtype": "Link",
+   "label": "Origin Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "destination_port",
+   "fieldtype": "Link",
+   "label": "Destination Port",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "port_code",
+   "fieldtype": "Data",
+   "label": "Port Code"
+  },
+  {
+   "fieldname": "freight_basis",
+   "fieldtype": "Link",
+   "label": "Freight Basis",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "meril_invoice_number",
+   "fieldtype": "Data",
+   "label": "Meril Invoice Number"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Data",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "shipper_name",
+   "fieldtype": "Data",
+   "label": "Shipper Name"
+  },
+  {
+   "fieldname": "package_type",
+   "fieldtype": "Data",
+   "label": "Package Type"
+  },
+  {
+   "fieldname": "pkg_units",
+   "fieldtype": "Data",
+   "label": "PKG Units"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "vol_weight",
+   "fieldtype": "Data",
+   "label": "Vol Weight"
+  },
+  {
+   "fieldname": "actual_weight",
+   "fieldtype": "Data",
+   "label": "Actual Weight"
+  },
+  {
+   "fieldname": "shipment_date_meril",
+   "fieldtype": "Data",
+   "label": "Shipment Date Meril"
+  },
+  {
+   "fieldname": "statutory_permission",
+   "fieldtype": "Data",
+   "label": "Statutory Permission"
+  },
+  {
+   "fieldname": "file_name",
+   "fieldtype": "Attach",
+   "label": "File Name"
+  },
+  {
+   "fieldname": "details_need_to_be_filled_by_service_provider_section",
+   "fieldtype": "Section Break",
+   "label": "Details need to be filled by Service Provider"
+  },
+  {
+   "fieldname": "shipment_mode",
+   "fieldtype": "Data",
+   "label": "Shipment Mode"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "ratekg",
+   "fieldtype": "Data",
+   "label": "Rate/KG"
+  },
+  {
+   "fieldname": "xray",
+   "fieldtype": "Data",
+   "label": "Xray"
+  },
+  {
+   "fieldname": "pickuporigin",
+   "fieldtype": "Data",
+   "label": "Pickup/Origin"
+  },
+  {
+   "fieldname": "ex_works",
+   "fieldtype": "Data",
+   "label": "Ex Works"
+  },
+  {
+   "fieldname": "total_freight",
+   "fieldtype": "Data",
+   "label": "Total Freight"
+  },
+  {
+   "fieldname": "from_currency",
+   "fieldtype": "Link",
+   "label": "From Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "to_currency",
+   "fieldtype": "Link",
+   "label": "To Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "xrxecom",
+   "fieldtype": "Data",
+   "label": "XR(xe.com)"
+  },
+  {
+   "fieldname": "total_freight_inr",
+   "fieldtype": "Data",
+   "label": "Total Freight INR"
+  },
+  {
+   "fieldname": "shipping_line_charges",
+   "fieldtype": "Data",
+   "label": "Shipping Line Charges"
+  },
+  {
+   "fieldname": "cfs_charges",
+   "fieldtype": "Data",
+   "label": "CFS Charges"
+  },
+  {
+   "fieldname": "total_landing_priceinr",
+   "fieldtype": "Data",
+   "label": "Total Landing Price(INR)"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "chargable_weight",
+   "fieldtype": "Data",
+   "label": "Chargable Weight"
+  },
+  {
+   "fieldname": "fuel_sur_charge",
+   "fieldtype": "Data",
+   "label": "Fuel Sur Charge"
+  },
+  {
+   "fieldname": "sur_charge",
+   "fieldtype": "Data",
+   "label": "Sur Charge"
+  },
+  {
+   "fieldname": "destination_charges_inr",
+   "fieldtype": "Data",
+   "label": "Destination Charges(INR)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-09 17:26:02.144736",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Import Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

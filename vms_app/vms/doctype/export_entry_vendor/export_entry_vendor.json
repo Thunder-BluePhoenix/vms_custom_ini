@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-10 14:56:13.922885",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shipment_mode",
+  "airlinevessel_name",
+  "ratekg",
+  "fuel_surcharge",
+  "sc",
+  "xray",
+  "other_charges_in_total",
+  "chargeable_weight",
+  "total_freight",
+  "expected_delivery_in_no_of_days",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "shipment_mode",
+   "fieldtype": "Select",
+   "label": "Shipment Mode",
+   "options": "Air\nOcean\nRoad"
+  },
+  {
+   "fieldname": "airlinevessel_name",
+   "fieldtype": "Data",
+   "label": "Airline/Vessel Name"
+  },
+  {
+   "fieldname": "ratekg",
+   "fieldtype": "Data",
+   "label": "Rate/Kg"
+  },
+  {
+   "fieldname": "fuel_surcharge",
+   "fieldtype": "Data",
+   "label": "Fuel Surcharge"
+  },
+  {
+   "fieldname": "sc",
+   "fieldtype": "Data",
+   "label": "SC"
+  },
+  {
+   "fieldname": "xray",
+   "fieldtype": "Data",
+   "label": "XRay"
+  },
+  {
+   "fieldname": "other_charges_in_total",
+   "fieldtype": "Data",
+   "label": "Other Charges in Total"
+  },
+  {
+   "fieldname": "chargeable_weight",
+   "fieldtype": "Data",
+   "label": "Chargeable Weight"
+  },
+  {
+   "fieldname": "total_freight",
+   "fieldtype": "Data",
+   "label": "Total Freight"
+  },
+  {
+   "fieldname": "expected_delivery_in_no_of_days",
+   "fieldtype": "Data",
+   "label": "Expected Delivery in No of Days"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-10 15:00:10.258697",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Export Entry Vendor",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

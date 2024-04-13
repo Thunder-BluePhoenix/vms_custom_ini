@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-09 10:12:05.152401",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rfq_ref_number",
+  "rfq_cutoff_date_time",
+  "rfq_date",
+  "freight_mode",
+  "destination_country",
+  "destination_port",
+  "shipment_pickup_from",
+  "port_code",
+  "freight_basis",
+  "ship_to_address",
+  "meril_invoice_number",
+  "invoice_date",
+  "package_type",
+  "pkg_units",
+  "product_category",
+  "shipment_date_meril",
+  "vol_weight",
+  "actual_weight",
+  "freight_forwarder_ref_number",
+  "freight_forwarder_name",
+  "remarks",
+  "section_break_ssqg",
+  "table_ydvy"
+ ],
+ "fields": [
+  {
+   "fieldname": "rfq_ref_number",
+   "fieldtype": "Link",
+   "label": "RFQ Ref Number",
+   "options": "Request For Quotation"
+  },
+  {
+   "fieldname": "rfq_cutoff_date_time",
+   "fieldtype": "Datetime",
+   "label": "RFQ Cutoff Date Time"
+  },
+  {
+   "fieldname": "rfq_date",
+   "fieldtype": "Datetime",
+   "label": "RFQ Date"
+  },
+  {
+   "fieldname": "freight_mode",
+   "fieldtype": "Select",
+   "label": "Freight Mode",
+   "options": "Air\nOcean\nRoad"
+  },
+  {
+   "fieldname": "destination_country",
+   "fieldtype": "Link",
+   "label": "Destination Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "destination_port",
+   "fieldtype": "Link",
+   "label": "Destination Port",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "port_code",
+   "fieldtype": "Link",
+   "label": "Port Code",
+   "options": "Port Master"
+  },
+  {
+   "fieldname": "freight_basis",
+   "fieldtype": "Link",
+   "label": "Freight Basis",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "ship_to_address",
+   "fieldtype": "Data",
+   "label": "Ship To Address"
+  },
+  {
+   "fieldname": "meril_invoice_number",
+   "fieldtype": "Data",
+   "label": "Meril Invoice Number"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "package_type",
+   "fieldtype": "Link",
+   "label": "Package Type",
+   "options": "Package Type Master"
+  },
+  {
+   "fieldname": "pkg_units",
+   "fieldtype": "Data",
+   "label": "PKG Units"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "shipment_date_meril",
+   "fieldtype": "Date",
+   "label": "Shipment Date Meril"
+  },
+  {
+   "fieldname": "vol_weight",
+   "fieldtype": "Data",
+   "label": "Vol Weight"
+  },
+  {
+   "fieldname": "actual_weight",
+   "fieldtype": "Data",
+   "label": "Actual Weight"
+  },
+  {
+   "fieldname": "freight_forwarder_ref_number",
+   "fieldtype": "Data",
+   "label": "Freight Forwarder Ref Number"
+  },
+  {
+   "fieldname": "freight_forwarder_name",
+   "fieldtype": "Data",
+   "label": "Freight Forwarder Name"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "shipment_pickup_from",
+   "fieldtype": "Data",
+   "label": "Shipment Pickup From"
+  },
+  {
+   "fieldname": "section_break_ssqg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_ydvy",
+   "fieldtype": "Table",
+   "options": "Export Entry Vendor"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-10 15:01:04.898316",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Export Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
