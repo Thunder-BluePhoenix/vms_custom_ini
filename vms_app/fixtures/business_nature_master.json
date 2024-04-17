@@ -1,0 +1,29 @@
+[
+ {
+  "business_nature_code": "BN3",
+  "business_nature_name": "BNature3",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Business Nature Master",
+  "modified": "2024-03-28 09:44:23.055016",
+  "name": "d7581b9267"
+ },
+ {
+  "business_nature_code": "BN1",
+  "business_nature_name": "BNature 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Business Nature Master",
+  "modified": "2024-03-28 09:44:04.316281",
+  "name": "7d92fdcab5"
+ },
+ {
+  "business_nature_code": "BN2",
+  "business_nature_name": "BNature2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Business Nature Master",
+  "modified": "2024-03-28 09:44:13.497541",
+  "name": "bd5b364897"
+ }
+]

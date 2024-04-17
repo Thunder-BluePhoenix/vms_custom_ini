@@ -1,0 +1,32 @@
+[
+ {
+  "bank_code": "BK1",
+  "bank_name": "Bank 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Bank Master",
+  "ifsc_code": "1234",
+  "modified": "2024-03-28 09:27:58.762955",
+  "name": "15bff82532"
+ },
+ {
+  "bank_code": "BK2",
+  "bank_name": "Bank 2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Bank Master",
+  "ifsc_code": "5678",
+  "modified": "2024-03-28 09:28:10.791173",
+  "name": "ca83df5c2d"
+ },
+ {
+  "bank_code": "BK3",
+  "bank_name": "Bank 3",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Bank Master",
+  "ifsc_code": "5855",
+  "modified": "2024-03-28 09:28:23.958761",
+  "name": "5ec4bbb7d2"
+ }
+]

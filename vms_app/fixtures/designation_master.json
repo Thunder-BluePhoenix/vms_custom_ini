@@ -1,0 +1,38 @@
+[
+ {
+  "description": null,
+  "designation_code": "DG2",
+  "designation_name": "Purchase Head",
+  "docstatus": 0,
+  "doctype": "Designation Master",
+  "modified": "2024-03-28 10:56:48.490501",
+  "name": "54c1f09b8e"
+ },
+ {
+  "description": null,
+  "designation_code": "DG3",
+  "designation_name": "Accounts Team",
+  "docstatus": 0,
+  "doctype": "Designation Master",
+  "modified": "2024-03-28 10:57:02.893211",
+  "name": "ab1350ff18"
+ },
+ {
+  "description": null,
+  "designation_code": "DG1",
+  "designation_name": "Purchase Team",
+  "docstatus": 0,
+  "doctype": "Designation Master",
+  "modified": "2024-03-28 10:56:35.330240",
+  "name": "d6cbb04a38"
+ },
+ {
+  "description": null,
+  "designation_code": "DG4",
+  "designation_name": "Vendor",
+  "docstatus": 0,
+  "doctype": "Designation Master",
+  "modified": "2024-03-28 10:57:17.856800",
+  "name": "2e0b13974e"
+ }
+]

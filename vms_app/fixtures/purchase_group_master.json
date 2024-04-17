@@ -1,0 +1,29 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-03-28 09:45:13.509872",
+  "name": "e9f153c282",
+  "purchase_group_code": "PG1",
+  "purchase_group_name": "PGroup1"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-03-28 09:45:25.220306",
+  "name": "ccab8db87c",
+  "purchase_group_code": "PG2",
+  "purchase_group_name": "PGroup2"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-03-28 09:45:33.637871",
+  "name": "b919e0566f",
+  "purchase_group_code": "PG3",
+  "purchase_group_name": "PGroup3"
+ }
+]

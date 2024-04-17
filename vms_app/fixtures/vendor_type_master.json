@@ -1,0 +1,29 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-03-28 09:47:53.545256",
+  "name": "4832a6074a",
+  "vendor_type_code": "VT3",
+  "vendor_type_name": "Vendor Type 3"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-03-28 09:47:35.264161",
+  "name": "b5cf2f7820",
+  "vendor_type_code": "VT1",
+  "vendor_type_name": "Vendor type1"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-03-28 09:47:43.648610",
+  "name": "81a01f77d7",
+  "vendor_type_code": "VT2",
+  "vendor_type_name": "Vendor Type 2"
+ }
+]

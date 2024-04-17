@@ -1,0 +1,90 @@
+[
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS1",
+  "district_name": "District 1",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:36:48.739843",
+  "name": "ba724f487e",
+  "pincode": null,
+  "state": "54cd78fcac"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS5",
+  "district_name": "District 5",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:37:57.518721",
+  "name": "c85814fac2",
+  "pincode": null,
+  "state": "76103e2d71"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS6",
+  "district_name": "District 6",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:38:14.749999",
+  "name": "bf097d1232",
+  "pincode": null,
+  "state": "9e816feadf"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS8",
+  "district_name": "District 8",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:38:45.170893",
+  "name": "aa1610cf42",
+  "pincode": null,
+  "state": "76103e2d71"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS2",
+  "district_name": "District 2",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:37:04.288700",
+  "name": "a51175f3e0",
+  "pincode": null,
+  "state": "54cd78fcac"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS4",
+  "district_name": "District 4",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:37:39.914059",
+  "name": "58e04cae91",
+  "pincode": null,
+  "state": "76103e2d71"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS7",
+  "district_name": "District 7",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:38:29.905130",
+  "name": "44dd5e8076",
+  "pincode": null,
+  "state": "9e816feadf"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS3",
+  "district_name": "District 3",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:37:24.375579",
+  "name": "51c3d0ebdf",
+  "pincode": null,
+  "state": "76103e2d71"
+ }
+]

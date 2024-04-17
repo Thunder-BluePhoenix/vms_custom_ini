@@ -13,6 +13,45 @@ app_license = "mit"
 # app_include_css = "/assets/vms_app/css/vms_app.css"
 # app_include_js = "/assets/vms_app/js/vms_app.js"
 
+fixtures = [ 
+'Export Entry',
+'Export Entry Vendor',
+'Import Entry',
+'Request For Quotation',
+'Vendor Onboarding',
+'Vendor Master',
+'Tax Master',
+'Shipment Type Master',
+'RFQ Type Master',
+'Port Master',
+'Package Type Master',
+'Company Master',
+'City Master',
+'District Master',
+'Certificate Master',
+'Product Master',
+'Vendor Type Master',
+'Department Master',
+'Material Master',
+'Currency Master',
+'Terms Of Payment Master',
+'Purchase Group Master',
+'Account Master',
+'Company Nature Master',
+'Business Nature Master',
+'Pincode Master',
+'State Master',
+'Country Master',
+'Bank Master',
+'GST Registration Type Master',
+'Designation Master',
+'Product Category Master',
+'Brand Master',
+'Product Variant Master',
+'UOM Master',
+'Account Group Master',
+'Incoterm Master']
+
 # include js, css files in header of web template
 # web_include_css = "/assets/vms_app/css/vms_app.css"
 # web_include_js = "/assets/vms_app/js/vms_app.js"
@@ -23,6 +62,7 @@ app_license = "mit"
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
 # webform_include_css = {"doctype": "public/css/doctype.css"}
+
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

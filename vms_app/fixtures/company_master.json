@@ -1,0 +1,20 @@
+[
+ {
+  "company_code": "C2",
+  "company_name": "Company 2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-03-28 13:43:07.916352",
+  "name": "7f6a8eb2aa"
+ },
+ {
+  "company_code": "C1",
+  "company_name": "Company 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-03-28 13:42:59.207965",
+  "name": "368b008a78"
+ }
+]

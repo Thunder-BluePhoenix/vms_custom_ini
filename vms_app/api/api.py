@@ -284,63 +284,63 @@ def test_method(self, method):
 #             text += page.get_text()
 #         print(text)
 
-@frappe.whitelist(allow_guest=True)
-def extract_text_from_pdf(data, method):
-    pdf_path = data.get("file_name")
-    #pdf_path = frappe.request.files.get("file_name")
+# @frappe.whitelist(allow_guest=True)
+# def extract_text_from_pdf(data, method):
+#     pdf_path = data.get("file_name")
+#     #pdf_path = frappe.request.files.get("file_name")
     
-    with fitz.open(pdf_path) as doc:
-        text = ""
-        for page in doc:
-            text += page.get_text()
+#     with fitz.open(pdf_path) as doc:
+#         text = ""
+#         for page in doc:
+#             text += page.get_text()
    
 
-    lines = text.split('\n')
-    resume_dict = {}
+#     lines = text.split('\n')
+#     resume_dict = {}
 
-    current_section = None
-    for line in lines:
-        if line.strip() == "":
-            continue
-        if ":" in line:
-            key, value = line.split(':', 1)
-            key = key.strip()
-            value = value.strip()
+#     current_section = None
+#     for line in lines:
+#         if line.strip() == "":
+#             continue
+#         if ":" in line:
+#             key, value = line.split(':', 1)
+#             key = key.strip()
+#             value = value.strip()
            
-            if current_section is not None:
+#             if current_section is not None:
                
-                if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
-                    resume_dict[current_section] = {}
-                resume_dict[current_section][key] = value
-            else:
-                resume_dict[key] = value
-        else:
+#                 if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
+#                     resume_dict[current_section] = {}
+#                 resume_dict[current_section][key] = value
+#             else:
+#                 resume_dict[key] = value
+#         else:
            
-            if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
-                current_section = line.strip()
+#             if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
+#                 current_section = line.strip()
               
-                if current_section in resume_dict and isinstance(resume_dict[current_section], list):
-                    continue
-                else:
-                    resume_dict[current_section] = []  
-            else:
-                resume_dict[current_section].append(line.strip())
+#                 if current_section in resume_dict and isinstance(resume_dict[current_section], list):
+#                     continue
+#                 else:
+#                     resume_dict[current_section] = []  
+#             else:
+#                 resume_dict[current_section].append(line.strip())
    
-    text = extract_text_from_pdf(pdf_path)
-    resume_dict = parse_resume_text(text)
-    for key, value in resume_dict.items():
-        if isinstance(value, dict):
-            print(f"{key}:")
-        for sub_key, sub_value in value.items():
-            print(f"  {sub_key}: {sub_value}")
-        if isinstance(value, list):
-            print(f"{key}:")
-        for item in value:
-            print(f"  - {item}")
-    else:
-        print(f"{key}: {value}")
-    print()  
-    print(type(resume_dict))
+#     text = extract_text_from_pdf(pdf_path)
+#     resume_dict = parse_resume_text(text)
+#     for key, value in resume_dict.items():
+#         if isinstance(value, dict):
+#             print(f"{key}:")
+#         for sub_key, sub_value in value.items():
+#             print(f"  {sub_key}: {sub_value}")
+#         if isinstance(value, list):
+#             print(f"{key}:")
+#         for item in value:
+#             print(f"  - {item}")
+#     else:
+#         print(f"{key}: {value}")
+#     print()  
+#     print(type(resume_dict))
 
 
 
