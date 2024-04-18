@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{company_code}",
  "creation": "2024-03-28 13:42:11.353388",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,7 +14,8 @@
   {
    "fieldname": "company_code",
    "fieldtype": "Data",
-   "label": "Company Code"
+   "label": "Company Code",
+   "unique": 1
   },
   {
    "fieldname": "company_name",
@@ -28,10 +30,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-28 13:42:41.062339",
+ "modified": "2024-04-18 09:54:26.815693",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -47,7 +50,10 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "company_code",
+ "translated_doctype": 1
 }

@@ -1,47 +1,37 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-03-27 11:43:01.285875",
+ "creation": "2024-04-18 17:14:53.262220",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "material_code",
-  "material_name",
-  "material_category",
+  "material_category_code",
+  "material_category_name",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "material_code",
+   "fieldname": "material_category_code",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Material Code"
+   "label": "Material Category Code"
   },
   {
-   "fieldname": "material_name",
+   "fieldname": "material_category_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "material_name"
+   "label": "Material Category Name"
   },
   {
    "fieldname": "description",
-   "fieldtype": "Text",
-   "in_list_view": 1,
+   "fieldtype": "Data",
    "label": "Description"
-  },
-  {
-   "fieldname": "material_category",
-   "fieldtype": "Link",
-   "label": "Material Category",
-   "options": "Material Category Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 17:21:14.109379",
+ "modified": "2024-04-18 17:15:33.967941",
  "modified_by": "Administrator",
  "module": "Masters",
- "name": "Material Master",
+ "name": "Material Category Master",
  "owner": "Administrator",
  "permissions": [
   {

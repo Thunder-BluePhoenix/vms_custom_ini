@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-18 11:55:58.036755",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "quotation_data_section",
+  "rfq_number",
+  "company_name",
+  "vendor_code",
+  "rfq_date",
+  "quotation_deadline",
+  "delivery_date",
+  "vendor_name",
+  "vendor_contact",
+  "contact_person",
+  "quote_amount",
+  "column_break_tiys",
+  "contact_email",
+  "product_code",
+  "product_category",
+  "material_code",
+  "material_category",
+  "material_name",
+  "rfq_quantity",
+  "storage_location",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "quotation_data_section",
+   "fieldtype": "Section Break",
+   "label": "Quotation Data"
+  },
+  {
+   "fieldname": "rfq_number",
+   "fieldtype": "Link",
+   "label": "RFQ Number",
+   "options": "Request For Quotation"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Link",
+   "label": "Vendor Code",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "rfq_date",
+   "fieldtype": "Date",
+   "label": "RFQ Date"
+  },
+  {
+   "fieldname": "quotation_deadline",
+   "fieldtype": "Date",
+   "label": "Quotation Deadline"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "vendor_contact",
+   "fieldtype": "Data",
+   "label": "Vendor Contact"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "label": "Company Name",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "product_code",
+   "fieldtype": "Data",
+   "label": "Product Code"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "label": "Product Category"
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Link",
+   "label": "Material Code",
+   "options": "Material Master"
+  },
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Link",
+   "label": "Material Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "material_name",
+   "fieldtype": "Data",
+   "label": "Material Name"
+  },
+  {
+   "fieldname": "rfq_quantity",
+   "fieldtype": "Data",
+   "label": "RFQ Quantity"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Storage Location"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_tiys",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quote_amount",
+   "fieldtype": "Data",
+   "label": "Quote Amount"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-18 17:13:45.201440",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Quotation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

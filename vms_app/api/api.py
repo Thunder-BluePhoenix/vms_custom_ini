@@ -197,7 +197,95 @@ def hitt(data, method):
             print(f"Failed to send email to {to_address}: {e}")
    
 
+@frappe.whitelist(allow_guest=True)
+def set_vendor_onboarding_status(**kwargs):
+    name = kwargs.get("name")
+    current_user = frappe.session.user
+    current_user_designation_key = frappe.db.get_value("User", filters={'email': current_user}, fieldname='designation')
+    current_user_designation_name = frappe.db.get_value("Designation Master", filters={'name': current_user_designation_key}, fieldname=['designation_name'])
+    print("*******************************************")
+    vendor_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='office_email_primary')
+    print(vendor_email)
+    
+    if current_user_designation_name == "Accounts Team":
+        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Accounts Team' """ )
+        frappe.db.commit()
+        registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
+        smtp_server = "smtp.transmail.co.in"
+        smtp_port = 587
+        smtp_user = "emailapikey"  
+        smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+        from_address = registered_by_email 
+        to_address = vendor_email  
+        subject = "Test email"
+        body = "Your request has been approved Accounts Team ."
+        msg = MIMEMultipart()
+        msg["From"] = from_address
+        msg["To"] = to_address
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+        try:
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()  
+                server.login(smtp_user, smtp_password)  
+                server.sendmail(from_address, to_address, msg.as_string()) 
+                print("Email sent successfully!")
+        except Exception as e:
+            print(f"Failed to send email: {e}")
 
+    if current_user_designation_name == "Purchase Team":
+        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Purchase Team' """ )
+        frappe.db.commit()
+        registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
+        smtp_server = "smtp.transmail.co.in"
+        smtp_port = 587
+        smtp_user = "emailapikey"  
+        smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+        from_address = registered_by_email 
+        to_address = vendor_email  
+        subject = "Test email"
+        body = "Your request has been approved Purchase Team ."
+        msg = MIMEMultipart()
+        msg["From"] = from_address
+        msg["To"] = to_address
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+        try:
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()  
+                server.login(smtp_user, smtp_password)  
+                server.sendmail(from_address, to_address, msg.as_string()) 
+                print("Email sent successfully!")
+        except Exception as e:
+            print(f"Failed to send email: {e}")
+
+    if current_user_designation_name == "Purchase Head":
+        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Purchase Head' """ )
+        frappe.db.commit()
+        registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
+        smtp_server = "smtp.transmail.co.in"
+        smtp_port = 587
+        smtp_user = "emailapikey"  
+        smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+        from_address = registered_by_email 
+        to_address = vendor_email  
+        subject = "Test email"
+        body = "Yourequest has been approved Purchase Head ."
+        msg = MIMEMultipart()
+        msg["From"] = from_address
+        msg["To"] = to_address
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+        try:
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()  
+                server.login(smtp_user, smtp_password)  
+                server.sendmail(from_address, to_address, msg.as_string()) 
+                print("Email sent successfully!")
+        except Exception as e:
+            print(f"Failed to send email: {e}")
+
+        return registered_by_email
 
 
 @frappe.whitelist(allow_guest=True)
@@ -244,7 +332,14 @@ def calculate_export_entry(data, method):
     frappe.db.sql(""" update `tabExport Entry Vendor` set total_freight=%s where name=%s""",(total_freight, name))
     frappe.db.commit()
 
+@frappe.whitelist(allow_guest=True)
+def compare_quotation(**kwargs):
 
+    rfq_number = kwargs.get("rfq_number")
+    ordered_list_of_quotations = frappe.db.sql(""" select * from   `tabQuotation` where rfq_number=%s ORDER BY quote_amount ASC """,(rfq_number),as_dict=True)
+    for i in ordered_list_of_quotations:
+        print(i)
+    return ordered_list_of_quotations
 
 # @frappe.whitelist(allow_guest=True)
 # def test_method(self, method):
@@ -254,21 +349,21 @@ def calculate_export_entry(data, method):
             
 
 
-@frappe.whitelist(allow_guest=True)
-def test_method(self, method):
-    if self.file_name:
+# @frappe.whitelist(allow_guest=True)
+# def test_method(self, method):
+#     if self.file_name:
        
-        file_path = frappe.get_site_path(self.file_name.lstrip("/"))
+#         file_path = frappe.get_site_path(self.file_name.lstrip("/"))
 
     
-        if os.path.exists(file_path):
-            frappe.msgprint("File exists.")
-        else:
-            frappe.msgprint("File does not exist.")
+#         if os.path.exists(file_path):
+#             frappe.msgprint("File exists.")
+#         else:
+#             frappe.msgprint("File does not exist.")
 
         
-        file_doc = frappe.get_doc("File", {"file_url": self.file_name})
-        frappe.msgprint(f"File URL: {file_doc.file_url}")
+#         file_doc = frappe.get_doc("File", {"file_url": self.file_name})
+#         frappe.msgprint(f"File URL: {file_doc.file_url}")
 
 
 # @frappe.whitelist(allow_guest=True)

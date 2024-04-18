@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:VMS/{company_name}/{####}",
  "creation": "2024-03-27 12:14:35.611299",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -322,10 +323,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-10 15:50:30.716600",
+ "modified": "2024-04-18 09:56:32.430770",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
