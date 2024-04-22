@@ -187,7 +187,7 @@ doc_events = {
 	},
 	"Import Entry":{
 	#"after_insert": "vms_app.api.api.calculate",
-	"after_insert": "vms_app.api.api.extract_text_from_pdf",
+	#"after_insert": "vms_app.api.api.extract_text_from_pdf",
 	#"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
 
 	

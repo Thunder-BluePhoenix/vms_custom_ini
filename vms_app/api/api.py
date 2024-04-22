@@ -332,110 +332,125 @@ def calculate_export_entry(data, method):
     frappe.db.sql(""" update `tabExport Entry Vendor` set total_freight=%s where name=%s""",(total_freight, name))
     frappe.db.commit()
 
+
+
 @frappe.whitelist(allow_guest=True)
 def compare_quotation(**kwargs):
 
     rfq_number = kwargs.get("rfq_number")
-    ordered_list_of_quotations = frappe.db.sql(""" select * from   `tabQuotation` where rfq_number=%s ORDER BY quote_amount ASC """,(rfq_number),as_dict=True)
-    for i in ordered_list_of_quotations:
-        print(i)
+    ordered_list_of_quotations = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number=%s ORDER BY quote_amount ASC """, (rfq_number), as_dict=True)
+
+    for quotation in ordered_list_of_quotations:
+        
+        product_code = frappe.db.get_value("Product Master", filters={"name": quotation.product_code}, fieldname="product_code")
+        
+        quotation["product_code"] = product_code
+
     return ordered_list_of_quotations
 
-# @frappe.whitelist(allow_guest=True)
-# def test_method(self, method):
-#     if self.file_name:
-#         file_doc = frappe.get_doc("File", {"file_url": self.file_name})
-#         frappe.msgprint(f"File URL: {file_doc.file_url}")
+
+
+
+
+
+#RFQ/MIPL/####
+
+
+@frappe.whitelist(allow_guest=True)
+def test_method(self, method):
+    if self.file_name:
+        file_doc = frappe.get_doc("File", {"file_url": self.file_name})
+        frappe.msgprint(f"File URL: {file_doc.file_url}")
             
 
 
-# @frappe.whitelist(allow_guest=True)
-# def test_method(self, method):
-#     if self.file_name:
+@frappe.whitelist(allow_guest=True)
+def test_method(self, method):
+    if self.file_name:
        
-#         file_path = frappe.get_site_path(self.file_name.lstrip("/"))
+        file_path = frappe.get_site_path(self.file_name.lstrip("/"))
 
     
-#         if os.path.exists(file_path):
-#             frappe.msgprint("File exists.")
-#         else:
-#             frappe.msgprint("File does not exist.")
+        if os.path.exists(file_path):
+            frappe.msgprint("File exists.")
+        else:
+            frappe.msgprint("File does not exist.")
 
         
-#         file_doc = frappe.get_doc("File", {"file_url": self.file_name})
-#         frappe.msgprint(f"File URL: {file_doc.file_url}")
+        file_doc = frappe.get_doc("File", {"file_url": self.file_name})
+        frappe.msgprint(f"File URL: {file_doc.file_url}")
 
 
-# @frappe.whitelist(allow_guest=True)
-# def main_function(data, method):
-#     #time.sleep(3)
-#     print("*****************************Hi From Main**************************************")
-#     name = data.get("name")
-#     file = frappe.db.sql(""" select file_name from `tabImport Entry` where name=%s """,(name))
-#     print(file)
-#     with fitz.open(file) as doc:
-#         text = ""
-#         for page in doc:
-#             text += page.get_text()
-#         print(text)
+@frappe.whitelist(allow_guest=True)
+def main_function(data, method):
+    #time.sleep(3)
+    print("*****************************Hi From Main**************************************")
+    name = data.get("name")
+    file = frappe.db.sql(""" select file_name from `tabImport Entry` where name=%s """,(name))
+    print(file)
+    with fitz.open(file) as doc:
+        text = ""
+        for page in doc:
+            text += page.get_text()
+        print(text)
 
-# @frappe.whitelist(allow_guest=True)
-# def extract_text_from_pdf(data, method):
-#     pdf_path = data.get("file_name")
-#     #pdf_path = frappe.request.files.get("file_name")
+@frappe.whitelist(allow_guest=True)
+def extract_text_from_pdf(data, method):
+    pdf_path = data.get("file_name")
+    #pdf_path = frappe.request.files.get("file_name")
     
-#     with fitz.open(pdf_path) as doc:
-#         text = ""
-#         for page in doc:
-#             text += page.get_text()
+    with fitz.open(pdf_path) as doc:
+        text = ""
+        for page in doc:
+            text += page.get_text()
    
 
-#     lines = text.split('\n')
-#     resume_dict = {}
+    lines = text.split('\n')
+    resume_dict = {}
 
-#     current_section = None
-#     for line in lines:
-#         if line.strip() == "":
-#             continue
-#         if ":" in line:
-#             key, value = line.split(':', 1)
-#             key = key.strip()
-#             value = value.strip()
+    current_section = None
+    for line in lines:
+        if line.strip() == "":
+            continue
+        if ":" in line:
+            key, value = line.split(':', 1)
+            key = key.strip()
+            value = value.strip()
            
-#             if current_section is not None:
+            if current_section is not None:
                
-#                 if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
-#                     resume_dict[current_section] = {}
-#                 resume_dict[current_section][key] = value
-#             else:
-#                 resume_dict[key] = value
-#         else:
+                if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
+                    resume_dict[current_section] = {}
+                resume_dict[current_section][key] = value
+            else:
+                resume_dict[key] = value
+        else:
            
-#             if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
-#                 current_section = line.strip()
+            if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
+                current_section = line.strip()
               
-#                 if current_section in resume_dict and isinstance(resume_dict[current_section], list):
-#                     continue
-#                 else:
-#                     resume_dict[current_section] = []  
-#             else:
-#                 resume_dict[current_section].append(line.strip())
+                if current_section in resume_dict and isinstance(resume_dict[current_section], list):
+                    continue
+                else:
+                    resume_dict[current_section] = []  
+            else:
+                resume_dict[current_section].append(line.strip())
    
-#     text = extract_text_from_pdf(pdf_path)
-#     resume_dict = parse_resume_text(text)
-#     for key, value in resume_dict.items():
-#         if isinstance(value, dict):
-#             print(f"{key}:")
-#         for sub_key, sub_value in value.items():
-#             print(f"  {sub_key}: {sub_value}")
-#         if isinstance(value, list):
-#             print(f"{key}:")
-#         for item in value:
-#             print(f"  - {item}")
-#     else:
-#         print(f"{key}: {value}")
-#     print()  
-#     print(type(resume_dict))
+    text = extract_text_from_pdf(pdf_path)
+    resume_dict = parse_resume_text(text)
+    for key, value in resume_dict.items():
+        if isinstance(value, dict):
+            print(f"{key}:")
+        for sub_key, sub_value in value.items():
+            print(f"  {sub_key}: {sub_value}")
+        if isinstance(value, list):
+            print(f"{key}:")
+        for item in value:
+            print(f"  - {item}")
+    else:
+        print(f"{key}: {value}")
+    print()  
+    print(type(resume_dict))
 
 
 

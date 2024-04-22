@@ -43,14 +43,12 @@
    "fieldname": "product_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Product Code",
-   "reqd": 1
+   "label": "Product Code"
   },
   {
    "fieldname": "product_name",
    "fieldtype": "Data",
-   "label": "Product Name",
-   "reqd": 1
+   "label": "Product Name"
   },
   {
    "fieldname": "product_details_section",
@@ -61,8 +59,7 @@
    "fieldname": "product_category",
    "fieldtype": "Link",
    "label": "Product Category",
-   "options": "Product Category Master",
-   "reqd": 1
+   "options": "Product Category Master"
   },
   {
    "fieldname": "model_number",
@@ -78,14 +75,12 @@
   {
    "fieldname": "manufacturing_date",
    "fieldtype": "Date",
-   "label": "Manufacturing Date",
-   "reqd": 1
+   "label": "Manufacturing Date"
   },
   {
    "fieldname": "product_license_number",
    "fieldtype": "Data",
-   "label": "Product License Number",
-   "reqd": 1
+   "label": "Product License Number"
   },
   {
    "fieldname": "column_break_qabb",
@@ -95,8 +90,7 @@
    "fieldname": "material_type",
    "fieldtype": "Link",
    "label": "Material Type",
-   "options": "Material Master",
-   "reqd": 1
+   "options": "Material Master"
   },
   {
    "fieldname": "established_year",
@@ -117,8 +111,7 @@
   {
    "fieldname": "product_license",
    "fieldtype": "Attach",
-   "label": "Upload Product license",
-   "reqd": 1
+   "label": "Upload Product license"
   },
   {
    "fieldname": "technical_specifications_section",
@@ -149,8 +142,7 @@
   {
    "fieldname": "product_image_and_video",
    "fieldtype": "Attach",
-   "label": "Upload Product Images & Videos",
-   "reqd": 1
+   "label": "Upload Product Images & Videos"
   },
   {
    "fieldname": "column_break_fzyw",
@@ -199,8 +191,7 @@
   {
    "fieldname": "product_user_manual",
    "fieldtype": "Attach",
-   "label": "Upload Product User Manual",
-   "reqd": 1
+   "label": "Upload Product User Manual"
   },
   {
    "fieldname": "column_break_jybs",
@@ -210,13 +201,12 @@
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
-   "options": "UOM Master",
-   "reqd": 1
+   "options": "UOM Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 12:12:05.295039",
+ "modified": "2024-04-19 10:35:47.523492",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Product Master",

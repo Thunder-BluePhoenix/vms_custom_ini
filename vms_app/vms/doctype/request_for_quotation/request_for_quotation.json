@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "prompt",
+ "autoname": "format:RFQ/{division}/{####}",
  "creation": "2024-04-03 11:54:14.564494",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -178,11 +178,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-09 15:41:05.023337",
+ "modified": "2024-04-19 10:42:02.930141",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",
- "naming_rule": "Set by user",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
