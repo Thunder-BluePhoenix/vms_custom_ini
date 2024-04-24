@@ -173,6 +173,9 @@ def hitt(data, method):
     print("****************Hi there!*******************")
     vendor_type_id = data.get('select_service')
     vendors = frappe.db.sql(""" select office_email_primary from `tabVendor Onboarding` where vendor_type=%s """,(vendor_type_id))
+    email_id_of_rfq_creator = frappe.session.user
+    print("*******************************************************")
+    print(email_id_of_rfq_creator)
     email_addresses = [vendor[0] for vendor in vendors]
     print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&",email_addresses)
     smtp_server = "smtp.transmail.co.in"
@@ -197,6 +200,77 @@ def hitt(data, method):
         except Exception as e:
             print(f"Failed to send email to {to_address}: {e}")
    
+
+def set_rfq_raisers_name(data, method):
+
+    email_id_of_rfq_creator = frappe.session.user
+    frappe.db.sql("update `tabRequest For Quotation` SET raised_by=%s",(email_id_of_rfq_creator))
+    frappe.db.commit()
+
+
+def send_email_on_quotation_creation(data, method):
+
+    rfq_number = data.get('rfq_number')
+    reciever_address = frappe.db.get_value("Request For Quotation", filters={'name': rfq_number}, fieldname=['raised_by'])
+    sender_address = frappe.session.user
+    print("******************************************")
+    print(reciever_address, sender_address)
+    print(rfq_number)
+    smtp_server = "smtp.transmail.co.in"
+    smtp_port = 587
+    smtp_user = "emailapikey"  
+    smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+    from_address = sender_address 
+    to_address = reciever_address
+    subject = "Test email"
+    body = "Quoatation has been submitted by Vendor ."
+    msg = MIMEMultipart()
+    msg["From"] = from_address
+    msg["To"] = to_address
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()  
+            server.login(smtp_user, smtp_password)  
+            server.sendmail(from_address, to_address, msg.as_string()) 
+            print("Email sent successfully!")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+  
+@frappe.whitelist(allow_guest=True)
+def send_email_on_po_creation(data, method):
+
+    po_creator = frappe.session.user
+    rfq_number = data.get("rfq_code")
+    vendor_code= data.get("purchase_organization")
+    vendor_email = frappe.db.get_value("Vendor Master", filters={'name': vendor_code}, fieldname=['office_email_primary'])
+    print("********************************************")
+    print(po_creator, vendor_email, vendor_code)
+    smtp_server = "smtp.transmail.co.in"
+    smtp_port = 587
+    smtp_user = "emailapikey"  
+    smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+    from_address = po_creator
+    to_address = vendor_email
+    subject = "Test email"
+    body = "Purchase Order has been created please check on the VMS Portal for more details ."
+    msg = MIMEMultipart()
+    msg["From"] = from_address
+    msg["To"] = to_address
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()  
+            server.login(smtp_user, smtp_password)  
+            server.sendmail(from_address, to_address, msg.as_string()) 
+            print("Email sent successfully!")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+
 
 @frappe.whitelist(allow_guest=True)
 def set_vendor_onboarding_status(**kwargs):

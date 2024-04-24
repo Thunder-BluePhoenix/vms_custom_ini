@@ -189,7 +189,8 @@ doc_events = {
 	},
 	"Request For Quotation":{
 
-		"validate": "vms_app.api.api.hitt"
+		"validate": "vms_app.api.api.hitt",
+		"after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
 	},
 	"Import Entry":{
@@ -198,6 +199,16 @@ doc_events = {
 	#"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
 
 	
+	},
+	"Quotation": {
+
+	"validate": "vms_app.api.api.send_email_on_quotation_creation"
+
+	},
+	"Purchase Order": {
+
+	"validate": "vms_app.api.api.send_email_on_po_creation"
+
 	},
 
 	"Export Entry Vendor": {

@@ -35,25 +35,27 @@
   "status",
   "billing_address_section",
   "street_1",
-  "street_2",
-  "street_3",
   "street_4",
   "city",
   "district",
   "state",
+  "column_break_dnod",
+  "street_2",
+  "street_3",
   "country",
   "pincode",
   "shipping_address_section",
   "shipping_street1",
-  "shipping_street2",
-  "shipping_street3",
   "shipping_street4",
   "shipping_city",
   "shipping_district",
   "shipping_state",
   "shipping_country",
-  "shipping_pincode",
   "description",
+  "column_break_zyit",
+  "shipping_street2",
+  "shipping_street3",
+  "shipping_pincode",
   "instructions"
  ],
  "fields": [
@@ -67,7 +69,7 @@
    "fieldname": "purchase_organization",
    "fieldtype": "Link",
    "label": "Purchase Organization",
-   "options": "Company Master"
+   "options": "Vendor Master"
   },
   {
    "fieldname": "purchase_group",
@@ -326,11 +328,19 @@
    "fieldname": "instructions",
    "fieldtype": "Long Text",
    "label": "Instructions"
+  },
+  {
+   "fieldname": "column_break_dnod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zyit",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 10:43:14.603941",
+ "modified": "2024-04-24 11:57:40.723797",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",
