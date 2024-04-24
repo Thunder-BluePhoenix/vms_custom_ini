@@ -5,6 +5,13 @@ app_description = "vms"
 app_email = "vms@vms.com"
 app_license = "mit"
 # required_apps = []
+#from vms_app.api.api import cron_method
+import frappe
+
+
+# def schedule_cron_method():
+# 	frappe.enqueue("vms_app.vms_app.api.api.cron_method", queue='short')
+
 
 # Includes in <head>
 # ------------------

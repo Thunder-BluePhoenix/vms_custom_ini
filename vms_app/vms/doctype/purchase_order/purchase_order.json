@@ -1,0 +1,355 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-24 10:05:09.997484",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_to_rfq_section",
+  "rfq_code",
+  "purchase_organization",
+  "purchase_group",
+  "company_code",
+  "collection_number",
+  "product_code",
+  "product_category",
+  "material_code",
+  "material_category",
+  "delivery_date",
+  "product_quantity",
+  "quantity_unit",
+  "short_text",
+  "column_break_aeka",
+  "product_variants",
+  "storage_location",
+  "coll_number",
+  "plant",
+  "lead_time",
+  "packaging_shipping_details",
+  "warranty_support_details",
+  "return_refund_policy",
+  "vendor",
+  "quote_vol_per_unit",
+  "total_order_pricing",
+  "rfq_date",
+  "status",
+  "billing_address_section",
+  "street_1",
+  "street_2",
+  "street_3",
+  "street_4",
+  "city",
+  "district",
+  "state",
+  "country",
+  "pincode",
+  "shipping_address_section",
+  "shipping_street1",
+  "shipping_street2",
+  "shipping_street3",
+  "shipping_street4",
+  "shipping_city",
+  "shipping_district",
+  "shipping_state",
+  "shipping_country",
+  "shipping_pincode",
+  "description",
+  "instructions"
+ ],
+ "fields": [
+  {
+   "fieldname": "rfq_code",
+   "fieldtype": "Link",
+   "label": "RFQ Code",
+   "options": "Request For Quotation"
+  },
+  {
+   "fieldname": "purchase_organization",
+   "fieldtype": "Link",
+   "label": "Purchase Organization",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "purchase_group",
+   "fieldtype": "Link",
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "collection_number",
+   "fieldtype": "Data",
+   "label": "Collection Number"
+  },
+  {
+   "fieldname": "product_code",
+   "fieldtype": "Link",
+   "label": "Product Code",
+   "options": "Product Master"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Link",
+   "label": "Material Code",
+   "options": "Material Master"
+  },
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Link",
+   "label": "Material Category",
+   "options": "Material Category Master"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "product_quantity",
+   "fieldtype": "Data",
+   "label": "Product Quantity"
+  },
+  {
+   "fieldname": "quantity_unit",
+   "fieldtype": "Link",
+   "label": "Quantity Unit",
+   "options": "UOM Master"
+  },
+  {
+   "fieldname": "short_text",
+   "fieldtype": "Small Text",
+   "label": "Short Text"
+  },
+  {
+   "fieldname": "product_variants",
+   "fieldtype": "Select",
+   "label": "Product Variants"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Storage Location"
+  },
+  {
+   "fieldname": "coll_number",
+   "fieldtype": "Date",
+   "label": "Coll Number"
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Link",
+   "label": "Plant",
+   "options": "Plant Master"
+  },
+  {
+   "fieldname": "lead_time",
+   "fieldtype": "Data",
+   "label": "Lead Time"
+  },
+  {
+   "fieldname": "packaging_shipping_details",
+   "fieldtype": "Data",
+   "label": "Packaging & Shipping Details"
+  },
+  {
+   "fieldname": "warranty_support_details",
+   "fieldtype": "Data",
+   "label": "Warranty & Support Details"
+  },
+  {
+   "fieldname": "return_refund_policy",
+   "fieldtype": "Data",
+   "label": "Return & Refund Policy"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "quote_vol_per_unit",
+   "fieldtype": "Data",
+   "label": "Quote Vol Per Unit"
+  },
+  {
+   "fieldname": "total_order_pricing",
+   "fieldtype": "Data",
+   "label": "Total Order Pricing"
+  },
+  {
+   "fieldname": "rfq_date",
+   "fieldtype": "Data",
+   "label": "RFQ Date"
+  },
+  {
+   "fieldname": "reference_to_rfq_section",
+   "fieldtype": "Section Break",
+   "label": "Reference to RFQ"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "column_break_aeka",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billing_address_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Address "
+  },
+  {
+   "fieldname": "street_1",
+   "fieldtype": "Data",
+   "label": "Street 1"
+  },
+  {
+   "fieldname": "street_2",
+   "fieldtype": "Data",
+   "label": "Street 2"
+  },
+  {
+   "fieldname": "street_3",
+   "fieldtype": "Data",
+   "label": "Street 3"
+  },
+  {
+   "fieldname": "street_4",
+   "fieldtype": "Data",
+   "label": "Street 4"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District Master"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State Master"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Link",
+   "label": "Pincode",
+   "options": "Pincode Master"
+  },
+  {
+   "fieldname": "shipping_address_section",
+   "fieldtype": "Section Break",
+   "label": "Shipping Address"
+  },
+  {
+   "fieldname": "shipping_street1",
+   "fieldtype": "Data",
+   "label": "Street 1"
+  },
+  {
+   "fieldname": "shipping_street2",
+   "fieldtype": "Data",
+   "label": "Street 2"
+  },
+  {
+   "fieldname": "shipping_street3",
+   "fieldtype": "Data",
+   "label": "Street 3"
+  },
+  {
+   "fieldname": "shipping_street4",
+   "fieldtype": "Data",
+   "label": "Street 4"
+  },
+  {
+   "fieldname": "shipping_city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "shipping_district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District Master"
+  },
+  {
+   "fieldname": "shipping_state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State Master"
+  },
+  {
+   "fieldname": "shipping_country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "shipping_pincode",
+   "fieldtype": "Link",
+   "label": "Pincode",
+   "options": "Pincode Master"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Long Text",
+   "label": "Instructions"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-24 10:43:14.603941",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Purchase Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

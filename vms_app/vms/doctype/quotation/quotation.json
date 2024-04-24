@@ -25,7 +25,8 @@
   "material_name",
   "rfq_quantity",
   "storage_location",
-  "remark"
+  "remark",
+  "status"
  ],
  "fields": [
   {
@@ -139,11 +140,16 @@
    "fieldname": "quote_amount",
    "fieldtype": "Data",
    "label": "Quote Amount"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-19 10:33:35.367312",
+ "modified": "2024-04-23 10:26:24.725755",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Quotation",

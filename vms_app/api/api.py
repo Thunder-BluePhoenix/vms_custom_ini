@@ -16,6 +16,7 @@ import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 
+
 #****************************************************Login API******************************************************************************
 
 @frappe.whitelist( allow_guest=True )
@@ -453,11 +454,23 @@ def extract_text_from_pdf(data, method):
     print(type(resume_dict))
 
 
+# scheduler = sched.scheduler(time.time, time.sleep)
+
+# @frappe.whitelist(allow_guest=True)
+# def cron_method():
+
+#     print("********************************")
+#     print("Hi from Scheduler")
 
 
 
+# def periodic_task(sc):
+#     cron_method()  
+#     scheduler.enter(1, 1, periodic_task, (sc,))  
 
 
+# scheduler.enter(1, 1, periodic_task, (scheduler,))
+# scheduler.run()
 
 
 
