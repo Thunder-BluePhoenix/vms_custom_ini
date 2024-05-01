@@ -466,7 +466,6 @@ def calculate_export_entry(data, method):
 def compare_quotation(**kwargs):
 
     rfq_number = kwargs.get("rfq_number")
-   # ordered_list_of_quotations = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number=%s GROUP BY vendor_code ORDER BY quote_amount  ASC """, (rfq_number), as_dict=True)
     orderd_list = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number = %s AND creation IN (SELECT MAX(creation) FROM `tabQuotation` WHERE rfq_number = %s GROUP BY vendor_code) ORDER BY creation ASC""",(rfq_number, rfq_number), as_dict=True)
     for quotation in orderd_list:
         
