@@ -15,7 +15,11 @@ from email.message import EmailMessage
 import fitz
 import os
 from frappe.utils.file_manager import get_files_path
+from vms_app.api.send_email import SendEmail
 
+
+
+obj = SendEmail()
 
 #****************************************************Login API******************************************************************************
 
@@ -109,6 +113,8 @@ def send_email_on_onboarding(data, method):
     print(company_name)
     reciever_email = frappe.db.get_value("Vendor Master", filters={'company_name': company_name}, fieldname=['registered_by'])
     print(reciever_email)
+    subject = "Email sent successfully!"
+   # obj.send_email(reciever_email, current_user_email, subject)
     smtp_server = "smtp.transmail.co.in"
     smtp_port = 587
     smtp_user = "emailapikey"  
@@ -130,6 +136,7 @@ def send_email_on_onboarding(data, method):
             print("Email sent successfully!")
     except Exception as e:
         print(f"Failed to send email: {e}")
+
 
 
 
@@ -213,32 +220,64 @@ def send_email_on_quotation_creation(data, method):
     rfq_number = data.get('rfq_number')
     reciever_address = frappe.db.get_value("Request For Quotation", filters={'name': rfq_number}, fieldname=['raised_by'])
     sender_address = frappe.session.user
-    print("******************************************")
     print(reciever_address, sender_address)
     print(rfq_number)
-    smtp_server = "smtp.transmail.co.in"
-    smtp_port = 587
-    smtp_user = "emailapikey"  
-    smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-    from_address = sender_address 
-    to_address = reciever_address
-    subject = "Test email"
-    body = "Quoatation has been submitted by Vendor ."
-    msg = MIMEMultipart()
-    msg["From"] = from_address
-    msg["To"] = to_address
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-    try:
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()  
-            server.login(smtp_user, smtp_password)  
-            server.sendmail(from_address, to_address, msg.as_string()) 
-            print("Email sent successfully!")
-    except Exception as e:
-        print(f"Failed to send email: {e}")
+    print("******************************************************")
+    subject = "Hi there from SendEmail Class ...!"
+    obj.send_email(reciever_address, sender_address, subject)
+    #test_send_email()
+    # smtp_server = "smtp.transmail.co.in"
+    # smtp_port = 587
+    # smtp_user = "emailapikey"  
+    # smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+    # from_address = sender_address 
+    # to_address = reciever_address
+    # subject = "Test email"
+    # body = "Quoatation has been submitted by Vendor ."
+    # msg = MIMEMultipart()
+    # msg["From"] = from_address
+    # msg["To"] = to_address
+    # msg["Subject"] = subject
+    # msg.attach(MIMEText(body, "plain"))
+    # try:
+    #     with smtplib.SMTP(smtp_server, smtp_port) as server:
+    #         server.starttls()  
+    #         server.login(smtp_user, smtp_password)  
+    #         server.sendmail(from_address, to_address, msg.as_string()) 
+    #         print("Email sent successfully!")
+    # except Exception as e:
+    #     print(f"Failed to send email: {e}")
 
   
+# @frappe.whitelist(allow_guest=True)
+# def test_send_email(from_address, to_address, subject):
+
+#     smtp_server = "smtp.transmail.co.in"
+#     smtp_port = 587
+#     smtp_user = "emailapikey"  
+#     smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+#     from_address = from_address 
+#     to_address = to_address
+#     subject = subject
+#     body = "Quoatation has been submitted by Vendor ."
+#     msg = MIMEMultipart()
+#     msg["From"] = from_address
+#     msg["To"] = to_address
+#     msg["Subject"] = subject
+#     msg.attach(MIMEText(body, "plain"))
+#     try:
+#         with smtplib.SMTP(smtp_server, smtp_port) as server:
+#             server.starttls()  
+#             server.login(smtp_user, smtp_password)  
+#             server.sendmail(from_address, to_address, msg.as_string()) 
+#             print("Email sent successfully!")
+#     except Exception as e:
+#         print(f"Failed to send email: {e}")
+
+
+
+
+
 @frappe.whitelist(allow_guest=True)
 def send_email_on_po_creation(data, method):
 
@@ -409,22 +448,33 @@ def calculate_export_entry(data, method):
 
 
 
+# @frappe.whitelist(allow_guest=True)
+# def compare_quotation(**kwargs):
+
+#     rfq_number = kwargs.get("rfq_number")
+#     ordered_list_of_quotations = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number=%s ORDER BY quote_amount  ASC """, (rfq_number), as_dict=True)
+
+#     for quotation in ordered_list_of_quotations:
+        
+#         product_code = frappe.db.get_value("Product Master", filters={"name": quotation.product_code}, fieldname="product_code")
+        
+#         quotation["product_code"] = product_code
+
+#     return ordered_list_of_quotations
+
+
 @frappe.whitelist(allow_guest=True)
 def compare_quotation(**kwargs):
 
     rfq_number = kwargs.get("rfq_number")
-    ordered_list_of_quotations = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number=%s ORDER BY quote_amount ASC """, (rfq_number), as_dict=True)
-
-    for quotation in ordered_list_of_quotations:
+    orderd_list = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number = %s AND creation IN (SELECT MAX(creation) FROM `tabQuotation` WHERE rfq_number = %s GROUP BY vendor_code) ORDER BY creation ASC""",(rfq_number, rfq_number), as_dict=True)
+    for quotation in orderd_list:
         
         product_code = frappe.db.get_value("Product Master", filters={"name": quotation.product_code}, fieldname="product_code")
         
         quotation["product_code"] = product_code
 
-    return ordered_list_of_quotations
-
-
-
+    return orderd_list
 
 
 
