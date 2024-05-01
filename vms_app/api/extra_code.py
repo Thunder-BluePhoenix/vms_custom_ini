@@ -23,9 +23,7 @@ def set_vendor_onboarding_status(**kwargs):
 
        
         frappe.db.sql("""UPDATE `tabVendor Master` SET status=%s WHERE name=%s""", (status, name))
-        frappe.db.commit()
-
-       
+        frappe.db.commit()       
         smtp_server = "smtp.transmail.co.in"
         smtp_port = 587
         smtp_user = "emailapikey"  
@@ -49,3 +47,8 @@ def set_vendor_onboarding_status(**kwargs):
             print(f"Failed to send email: {e}")
 
         return registered_by_email
+
+
+
+
+

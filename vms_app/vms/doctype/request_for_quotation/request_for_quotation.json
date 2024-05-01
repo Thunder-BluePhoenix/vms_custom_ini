@@ -32,7 +32,8 @@
   "shipment_type",
   "file",
   "rfq_type",
-  "raised_by"
+  "raised_by",
+  "status"
  ],
  "fields": [
   {
@@ -180,11 +181,16 @@
    "fieldname": "raised_by",
    "fieldtype": "Data",
    "label": "Raised By"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 11:05:02.483589",
+ "modified": "2024-04-24 12:34:15.445938",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",
