@@ -140,7 +140,6 @@ def send_email_on_onboarding(data, method):
 
 
 
-
 @frappe.whitelist(allow_guest=True)
 def hit():
     print("****************Hi there!*******************")
