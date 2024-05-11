@@ -22,6 +22,11 @@ import frappe.sessions
 
 
 
+
+
+
+
+
 @frappe.whitelist(allow_guest=True)
 def token():
     print("*******************************************************")
