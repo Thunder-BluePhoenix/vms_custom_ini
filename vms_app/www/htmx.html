@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Create RFQ</title>
+	<!-- <link rel="stylesheet" href=""> -->
+	<script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+	  if (window.htmx) {
+	    console.log("HTMX is loaded and working!");
+	  } else {
+	    console.log("HTMX did not load.");
+	  }
+	</script>
+	<button hx-get="api/v1/method/pong">Ping</button>
+	<div id="response"></div>
+	
+</body>
+</html>

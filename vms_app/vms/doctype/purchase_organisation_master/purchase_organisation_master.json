@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-09 09:52:34.304814",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_organisation_code",
+  "company",
+  "purchase_organisation_name",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "purchase_organisation_code",
+   "fieldtype": "Data",
+   "label": "Purchase Organisation Code"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "purchase_organisation_name",
+   "fieldtype": "Data",
+   "label": "Purchase Organisation Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-10 10:28:33.997934",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Purchase Organisation Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

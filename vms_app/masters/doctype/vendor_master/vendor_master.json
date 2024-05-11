@@ -36,6 +36,7 @@
   "cin_date",
   "nature_of_company",
   "business_nature",
+  "vendor_name",
   "section_break_qjrl",
   "office_address_line_1",
   "office_address_line_2",
@@ -51,9 +52,12 @@
   "manufacturing_address_line_1",
   "manufacturing_address_line_2",
   "registered_by",
+  "purchase_head_approval",
   "column_break_ourn",
   "manufacturing_address_line_3",
   "manufacturing_address_line_4",
+  "purchase_team_approval",
+  "accounts_team_approval",
   "status"
  ],
  "fields": [
@@ -316,6 +320,26 @@
    "label": "Registered By"
   },
   {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "purchase_team_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Team Approval"
+  },
+  {
+   "fieldname": "purchase_head_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Head Approval"
+  },
+  {
+   "fieldname": "accounts_team_approval",
+   "fieldtype": "Data",
+   "label": "Accounts Team Approval"
+  },
+  {
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status"
@@ -323,7 +347,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 09:56:32.430770",
+ "modified": "2024-05-09 11:43:13.209370",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

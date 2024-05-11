@@ -4,8 +4,8 @@ app_publisher = "vms"
 app_description = "vms"
 app_email = "vms@vms.com"
 app_license = "mit"
-# required_apps = []
-#from vms_app.api.api import cron_method
+required_apps = []
+# from vms_app.api.api import cron_method
 import frappe
 
 
@@ -18,7 +18,12 @@ import frappe
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/vms_app/css/vms_app.css"
-# app_include_js = "/assets/vms_app/js/vms_app.js"
+#app_include_js = "/assets/vms_app/js/vms_app.js"
+app_include_js = "/vms_app/public/js/custom_keyboard_shortcuts.js"
+
+response_headers = [
+    {"fieldname": "Access-Control-Allow-Origin", "value": "*"}
+]
 
 fixtures = [ 
 'Export Entry',
@@ -213,7 +218,7 @@ doc_events = {
 
 	"Export Entry Vendor": {
 
-	"after_insert": "vms_app.api.api.calculate_export_entry"
+	#"after_insert": "vms_app.api.api.calculate_export_entry"
 
 	}
 

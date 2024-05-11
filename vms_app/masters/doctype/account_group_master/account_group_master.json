@@ -7,7 +7,8 @@
  "field_order": [
   "acccount_group_code",
   "account_group_name",
-  "description"
+  "description",
+  "purchase_organisation"
  ],
  "fields": [
   {
@@ -28,11 +29,17 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "purchase_organisation",
+   "fieldtype": "Link",
+   "label": "Purchase Organisation",
+   "options": "Purchase Organisation Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:10:47.379737",
+ "modified": "2024-05-09 09:54:43.839769",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Group Master",

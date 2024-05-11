@@ -1,7 +1,7 @@
 // Copyright (c) 2024, vms and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Vendor Onboarding", {
+// frappe.ui.form.on("Purchase Organisation Master", {
 // 	refresh(frm) {
 
 // 	},

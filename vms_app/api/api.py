@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import frappe
-from datetime import date
+from datetime import datetime
 from frappe.utils.file_manager import save_url
 import requests
 import json
@@ -16,15 +16,53 @@ import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail
+import frappe.sessions
+
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def token():
+    print("*******************************************************")
+    return frappe.local.session.data.csrf_token
 
 
 
 obj = SendEmail()
 
+
+
+@frappe.whitelist(allow_guest=True)
+def check_rfq_date(**kwargs):
+    name = kwargs.get("rfq_number")
+    rfq_cutoff_date = frappe.db.get_value("Request For Quotation", filters={'name': name}, fieldname='rfq_cutoff_date')
+    #datetime_obj = datetime.strptime(rfq_cutoff_date, '%d-%m%Y %H:%M:%S')
+    date = rfq_cutoff_date.date()
+    time = rfq_cutoff_date.time()
+    today_datetime = datetime.now()
+    print("************************************")
+    print(rfq_cutoff_date)
+    today_date = today_datetime.date()
+    today_time = today_datetime.time()
+    print(today_date , today_time)
+
+    return (date, time)
+
+    # current_user = frappe.session.user
+    # current_user_designation_id = frappe.db.get_value("User", filters={'name': current_user}, fieldname='designation')
+    # current_user_designation_name = frappe.db.get_value("Designation Master", filters={'name': current_user_designation_id}, fieldname='designation_name')
+
+
+
+
 #****************************************************Login API******************************************************************************
 
 @frappe.whitelist( allow_guest=True )
 def login(usr, pwd):
+
+
+
 
     try:
 
@@ -42,10 +80,16 @@ def login(usr, pwd):
 
     api_generate = generate_keys(frappe.session.user)
     user = frappe.get_doc('User', frappe.session.user)
+    print("***********************************************")
+    user_designation_id = frappe.db.get_value("User", filters={'email': user.email}, fieldname='designation')
+    print(user_designation_id)
+    user_designation_name = frappe.db.get_value("Designation Master", filters={'name': user_designation_id}, fieldname='designation_name')
+    print(user_designation_name)
     frappe.response["message"] = {
 
         "success_key":1,
         "message":"Authentication success",
+        'designation_name': user_designation_name,
         "sid":frappe.session.sid,
         "api_key":user.api_key,
         "api_secret":api_generate,
@@ -70,7 +114,11 @@ def generate_keys(user):
 
 @frappe.whitelist(allow_guest=True)
 def send_email(data, method):
-    frappe.db.sql(""" update `tabVendor Master` set status='In Process' """ )
+    frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='In Process' """ )
+    frappe.db.commit()
+    frappe.db.sql(""" update `tabVendor Master` set purchase_head_approval='In Process' """ )
+    frappe.db.commit()
+    frappe.db.sql(""" update `tabVendor Master` set accounts_team_approval='In Process' """ )
     frappe.db.commit()
     print("*********************Hi from Docevents*****************")
     print(frappe.session.user)
@@ -322,7 +370,7 @@ def set_vendor_onboarding_status(**kwargs):
     print(vendor_email)
     
     if current_user_designation_name == "Accounts Team":
-        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Accounts Team' """ )
+        frappe.db.sql(""" update `tabVendor Master` set accounts_team_approval='Approved' """ )
         frappe.db.commit()
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
         smtp_server = "smtp.transmail.co.in"
@@ -348,7 +396,7 @@ def set_vendor_onboarding_status(**kwargs):
             print(f"Failed to send email: {e}")
 
     if current_user_designation_name == "Purchase Team":
-        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Purchase Team' """ )
+        frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='Approved' """ )
         frappe.db.commit()
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
         smtp_server = "smtp.transmail.co.in"
@@ -374,7 +422,7 @@ def set_vendor_onboarding_status(**kwargs):
             print(f"Failed to send email: {e}")
 
     if current_user_designation_name == "Purchase Head":
-        frappe.db.sql(""" update `tabVendor Master` set status='Approved by Purchase Head' """ )
+        frappe.db.sql(""" update `tabVendor Master` set purchase_head_approval='Approved' """ )
         frappe.db.commit()
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
         smtp_server = "smtp.transmail.co.in"
@@ -430,21 +478,22 @@ def calculate(data, method):
         frappe.db.commit()
 
 
-@frappe.whitelist(allow_guest=True)
-def calculate_export_entry(data, method):
+# @frappe.whitelist(allow_guest=True)
+# def calculate_export_entry(data, method):
 
-    parent = data.get("parent")
-    shipment_mode = data.get("shipment_mode")
-    ratekg = data.get("ratekg")
-    fuel_surcharge = data.get("fuel_surcharge")
-    sc = data.get("sc")
-    xray = data.get("xray")
-    name = data.get("name")
-    other_charges_in_total = data.get("other_charges_in_total")
-    chargeable_weight = data.get("chargeable_weight")
-    total_freight = (ratekg + fuel_surcharge + sc + xray) * chargeable_weight + other_charges_in_total
-    frappe.db.sql(""" update `tabExport Entry Vendor` set total_freight=%s where name=%s""",(total_freight, name))
-    frappe.db.commit()
+#     parent = data.get("parent")
+#     shipment_mode = data.get("shipment_mode")
+#     ratekg = data.get("ratekg")
+#     fuel_surcharge = data.get("fuel_surcharge")
+#     sc = data.get("sc")
+#     xray = data.get("xray")
+#     name = data.get("name")
+#     other_charges_in_total = data.get("other_charges_in_total")
+#     chargeable_weight = data.get("chargeable_weight")
+#     total_freight = (ratekg + fuel_surcharge + sc + xray) * chargeable_weight + other_charges_in_total
+#     #total_freight = (ratekg + fuel_surcharge + sc + xray) * chargeable_weight + other_charges_in_total
+#     frappe.db.sql(""" update `tabExport Entry Vendor` set total_freight=%s where name=%s""",(total_freight, name))
+#     frappe.db.commit()
 
 
 
@@ -507,6 +556,22 @@ def test_method(self, method):
 
 
 
+@frappe.whitelist(allow_guest=True)
+def total_vendors():
+    total_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` """,as_dict=1)
+    return total_vendors
+
+@frappe.whitelist(allow_guest=True)
+def total_in_process_vendors():
+
+    total_in_process_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` where status='In Process' """,as_dict=1)
+    return total_in_process_vendors
+
+@frappe.whitelist(allow_guest=True)
+def total_onboarded_vendors():
+
+    total_in_process_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` where status='Onboarded' """,as_dict=1)
+    return total_in_process_vendors
 
 
 @frappe.whitelist(allow_guest=True)
@@ -601,3 +666,102 @@ def extract_text_from_pdf(data, method):
 
 
 
+@frappe.whitelist(allow_guest=True)
+def show_all_vendors():
+
+    all_vendors = frappe.db.sql(""" SELECT
+    vm.name AS name,
+    status AS status,
+    purchase_team_approval AS purchase_team_approval,
+    purchase_head_approval AS purchase_head_approval,
+    accounts_team_approval AS accounts_team_approval,
+    vendor_name AS vendor_name,
+    cm.company_name AS company_name 
+    
+  
+
+FROM 
+    `tabVendor Master` vm 
+LEFT JOIN 
+    `tabCompany Master` cm ON vm.company_name = cm.name 
+
+
+""", as_dict=1)
+
+    return all_vendors
+
+@frappe.whitelist(allow_guest=True)
+def show_in_process_vendors():
+
+    all_vendors = frappe.db.sql(""" SELECT
+    vm.name AS name,
+    status AS status,
+    purchase_team_approval AS purchase_team_approval,
+    purchase_head_approval AS purchase_head_approval,
+    accounts_team_approval AS accounts_team_approval,
+    vendor_name AS vendor_name,
+    cm.company_name AS company_name 
+    
+  
+
+FROM 
+    `tabVendor Master` vm 
+LEFT JOIN 
+    `tabCompany Master` cm ON vm.company_name = cm.name where status='In Process'
+
+
+""", as_dict=1)
+
+    return all_vendors
+
+@frappe.whitelist(allow_guest=True)
+def onboarded_vendors():
+
+    all_vendors = frappe.db.sql(""" SELECT
+    vm.name AS name,
+    status AS status,
+    purchase_team_approval AS purchase_team_approval,
+    purchase_head_approval AS purchase_head_approval,
+    accounts_team_approval AS accounts_team_approval,
+    vendor_name AS vendor_name,
+    cm.company_name AS company_name 
+    
+  
+
+FROM 
+    `tabVendor Master` vm 
+LEFT JOIN 
+    `tabCompany Master` cm ON vm.company_name = cm.name where status='Onboarded'
+
+
+""", as_dict=1)
+
+    return all_vendors
+
+
+
+
+
+
+# SELECT DISTINCT
+    # vm.name AS name,
+    # status AS status,
+    # vendor_name AS vendor_name,
+    # vm.company_name AS company_id, 
+    # cm.company_name AS company_name, 
+    # dm.department_name AS department_id, 
+    # dt.district_name AS district_name,
+    # ct.city_name AS city_name,
+    # st.state_name AS state_name
+# FROM 
+#     `tabVendor Master` vm 
+# LEFT JOIN 
+#     `tabCompany Master` cm ON vm.company_name = cm.name 
+# LEFT JOIN 
+#     `tabDepartment Master` dm ON vm.department = dm.name 
+# LEFT JOIN 
+#     `tabDistrict Master` dt ON dt.district_name = dt.district_name
+# LEFT JOIN 
+#     `tabCity Master` ct ON ct.city_name = ct.city_name
+# LEFT JOIN 
+#     `tabState Master` st ON st.state_name = st.state_name

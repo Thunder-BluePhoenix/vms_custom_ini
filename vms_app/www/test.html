@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap HTML Page with Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Welcome to My Bootstrap HTML Page with Form</h1>
+        <form id="myForm" method="POST" action="test.create_rfq">
+            <input type="hidden" name="csrf_token" value="061940ef4019166:362286f9d121a49">
+            
+            <div class="mb-3">
+                <label for="inputService" class="form-label">Select Service</label>
+                <input type="text" class="form-control" id="inputService" name="select_service">
+            </div>
+            <div class="mb-3">
+                <label for="inputConsignee" class="form-label">Consignee Name</label>
+                <input type="text" class="form-control" id="inputConsignee" name="consignee_name">
+            </div>
+            <div class="mb-3">
+                <label for="inputDivision" class="form-label">Division</label>
+                <input type="text" class="form-control" id="inputDivision" name="division">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $('#myForm').on('submit', function(e){
+                e.preventDefault();
+                var formData = $(this).serialize();
+                
+                $.ajax({
+                    url: 'test.create_rfq',
+                    type: 'POST',
+                    data: formData,
+                    headers: {
+                        'X-Frappe-CSRF-Token': '061940ef4019166:362286f9d121a49'
+                    },
+                    success: function(response) {
+                        alert('Request sent successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error occurred: ' + xhr.responseText + '\nStatus: ' + xhr.status);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<script>
+    document.body.addEventListener('data:forData', function (evt) {
+        evt.detail.headers['X-Frappe-CSRF-Token'] = "{{ frappe.session.csrf_token }}";
+    });
+</script>
+</html>
