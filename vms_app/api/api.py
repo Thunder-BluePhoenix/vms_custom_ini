@@ -17,10 +17,17 @@ import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail
 import frappe.sessions
+from datetime import datetime
+from frappe.auth import LoginManager
+from requests.auth import HTTPBasicAuth
 
 
 
 
+
+@frappe.whitelist(allow_guest=True)
+def get_all(**kwargs):
+    all = frappe.db.sql(""" select * from s """,allow_guest=True)
 
 
 
@@ -28,6 +35,15 @@ import frappe.sessions
 def token():
     print("*******************************************************")
     return frappe.local.session.data.csrf_token
+
+@frappe.whitelist(allow_guest=True)
+def is_user_logged_in(email):
+    user_session = frappe.db.exists('User', {'email': email, 'last_login': ['!=', None]})
+    if user_session:
+        return {"message": "User is logged in"}
+    else:
+        return {"message": "User is not logged in"}
+
 
 
 
@@ -56,15 +72,19 @@ def check_rfq_date(**kwargs):
     # current_user_designation_name = frappe.db.get_value("Designation Master", filters={'name': current_user_designation_id}, fieldname='designation_name')
 
 
+@frappe.whitelist(allow_guest=True)
+def onboarding_detail(**kwargs):
+
+    name = kwargs.get('name')
+    values = frappe.db.sql(""" select * from `tabVendor Onboarding` where name=%s """,(name),as_dict=True)
+    return values
+
 
 
 #****************************************************Login API******************************************************************************
 
 @frappe.whitelist( allow_guest=True )
 def login(usr, pwd):
-
-
-
 
     try:
 
@@ -529,6 +549,30 @@ def compare_quotation(**kwargs):
 
 
 
+@frappe.whitelist(allow_guest=True)
+def lowest_quoted_price(**kwargs):
+
+    rfq_number = kwargs.get("rfq_number")
+    lowest_quoted_price_list = frappe.db.sql(""" SELECT quote_amount FROM `tabQuotation` WHERE rfq_number=%s AND creation IN (SELECT MAX(creation) FROM `tabQuotation` WHERE rfq_number = %s GROUP BY vendor_code) ORDER BY creation ASC """,(rfq_number, rfq_number),as_dict=1)
+    
+    if lowest_quoted_price_list:
+        first_lowest_quoted_price = lowest_quoted_price_list[0]
+        return first_lowest_quoted_price
+    else:
+        return {}
+
+
+
+
+# @frappe.whitelist(allow_guest=True)
+# def lowest_quoted_price(**kwargs):
+
+#     rfq_number = kwargs.get("rfq_number")
+#     lowest_quoted_price = frappe.db.sql(""" SELECT * FROM `tabQuotation` WHERE rfq_number=%s AND creation IN (SELECT MAX(creation) FROM `tabQuotation` WHERE rfq_number = %s GROUP BY vendor_code) ORDER BY creation ASC """,(rfq_number, rfq_number),as_dict=1)
+#     return lowest_quoted_price[0]
+
+
+
 #RFQ/MIPL/####
 
 
@@ -570,10 +614,48 @@ def total_in_process_vendors():
     return total_in_process_vendors
 
 @frappe.whitelist(allow_guest=True)
+def inprocess_vendor_detail():
+    total_in_process_vendors = frappe.db.sql(""" select * from `tabVendor Master` where status='In Process' """,as_dict=1)
+    return total_in_process_vendors
+
+
+
+
+@frappe.whitelist(allow_guest=True)
 def total_onboarded_vendors():
 
     total_in_process_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` where status='Onboarded' """,as_dict=1)
     return total_in_process_vendors
+
+
+@frappe.whitelist(allow_guest=True)
+def total_rfq():
+
+    total_rfq = frappe.db.sql(""" select count(*) from `tabRequest For Quotation` """, as_dict=1)
+    return total_rfq
+
+
+@frappe.whitelist(allow_guest=True)
+def total_vendors_registerd_in_month():
+
+    current_month = datetime.now.strftime("%B")
+    current_year = datetime.now.year
+    return current_month, current_year
+
+@frappe.whitelist(allow_guest=True)
+def all_rfq_detail():
+
+    all_rfq = frappe.db.sql("""  SELECT 
+            rfq.name, 
+            rfq.rfq_date, 
+            rfq.required_by, 
+            mm.material_name, 
+            rfq.quantity 
+        FROM 
+            `tabRequest For Quotation` rfq
+        INNER JOIN 
+            `tabMaterial Master` mm ON rfq.material = mm.name """,as_dict=1)
+    return all_rfq
 
 
 @frappe.whitelist(allow_guest=True)
@@ -740,6 +822,197 @@ LEFT JOIN
 
     return all_vendors
 
+@frappe.whitelist(allow_guest=True)
+def show_single_vendor(**kwargs):
+
+    vendor_id = kwargs.get('name')
+    single_vendor = frappe.db.sql(""" SELECT
+    vm.name AS name,
+    status AS status,
+    purchase_team_approval AS purchase_team_approval,
+    purchase_head_approval AS purchase_head_approval,
+    accounts_team_approval AS accounts_team_approval,
+    vendor_name AS vendor_name,
+    cm.company_name AS company_name 
+    
+  
+
+FROM 
+    `tabVendor Master` vm 
+LEFT JOIN 
+    `tabCompany Master` cm ON vm.company_name = cm.name where vm.name=%s
+
+
+""",(vendor_id),as_dict=1)
+
+    return single_vendor
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def sap_fetch_token(data, method):
+
+
+    company_code = frappe.db.get_value("Company Master", filters={'name': data.get('company_name')}, fieldname='company_code')
+    purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_name')
+    pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('pincode')}, fieldname='pincode')
+    city = frappe.db.get_value("City Master", filters={'name': data.get('city')}, fieldname='city_name')
+    country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
+    state = frappe.db.get_value("State Master", filters={'name': data.get('state')}, fieldname='state_name')
+    currency = frappe.db.get_value("Currency Master", filters={'name': data.get('order_currency')}, fieldname='currency_name')
+    #terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('terms_of_payment')}, fieldname='terms_of_payment')
+    #incoterms = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm')}, fieldname='incoterm_name')
+    #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+    vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('vendor_type')}, fieldname='vendor_type_name')
+
+
+    vendor_details = {
+
+    'BUKRS': company_code,
+    'EKORG': purchase_organization,
+    'KTOKK': 'Null',
+    'TITLE': 'NULL',
+    'NAME1': '',
+    'NAME2': '',
+    'SORT1': data.get('search_term'),
+    'STREET': data.get('office_address_line_1'),
+    'STR_SUPPL1': data.get('office_address_line_2'),
+    'STR_SUPPL2': data.get('office_address_line_3'),
+    'STR_SUPPL3': data.get('office_address_line_4'),
+    'POST_CODE1': pincode,
+    'CITY1': city,
+    'COUNTRY': country,
+    'J_1KFTIND': data.get('type_of_business'),
+    'REGION': state,
+    'TEL_NUMBER': data.get('telephone_number'),
+    'MOB_NUMBER': data.get('mobile_number'),
+    'SMTP_ADDR': data.get('office_email_primary'),
+    'SMTP_ADDR1': data.get('office_email_secondary'),
+    'ZUAWA': '',
+    'AKONT': '',
+    'WAERS': currency,
+    'ZTERM':  '',
+    'INCO1': '',
+    'INCO2': '',
+    'KALSK': '',
+    'EKGRP': '',
+    'XZEMP': data.get('payee_in_document'),
+    'REPRF': data.get('check_double_invoice'),
+    'WEBRE': data.get('gr_based_inv_ver'),
+    'LEBRE': data.get('service_based_inv_ver'),
+    'STCD3': '',
+    'J_1IVTYP': vendor_type,
+    'J_1IPANNO': '',
+    'J_1IPANREF': '',
+    'NAMEV': '',
+    'NAME11': '',
+    'BANKL': '',
+    'BANKN': '',
+    'BANKN': '',
+    'BKREF': '',
+    'BANKA': '',
+    'XEZER': '',
+    'RefNo': data.get('name')
+   
+    }
+
+    url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+    #print(vendor_details)
+    headers = {
+    'X-CSRF-Token': 'Fetch'
+    }
+    auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+    response = requests.get(url, headers=headers, auth=auth)
+
+        #print(response)
+    if response.status_code == 200:
+        csrf_token = response.headers.get('x-csrf-token')
+        send_detail(data, vendor_details ,method, csrf_token)
+        #print("********************  Token ****************************************")
+        #print("x-csrf-token:", csrf_token)
+        #print(vendor_details)
+        return csrf_token
+    else:
+        print("Error:", response.status_code)
+        return "Error: " + str(response.status_code)
+    send_detail("*************************",csrf_token)
+
+
+
+    #*******************************************************************************
+
+    # headers = {
+    #     'X-CSRF-Token': csrf_token,
+    #     'Content-Type': 'application/json'
+    # }
+    # auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+    # #print("***********************************************")
+    
+    
+    # response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+    # print("***********************************************", response.status_code)
+    
+    
+    # if response.status_code == 200:  
+    #    # print("*****************************************")
+    #     print("Vendor details posted successfully.")
+    #     #return "************************Vendor details posted successfully.******************************"
+    # else:
+    #     print("Error in POST request:", response.status_code)
+    #     return "Error in POST request: " + str(response.status_code)
+
+
+@frappe.whitelist(allow_guest=True)
+def send_detail(csrf_token, vendor_details ,data, method):
+    url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+    print("*************************************")
+    print(type(csrf_token))
+    csrf_token_str = str(csrf_token)
+
+
+    headers = {
+        'X-CSRF-Token': csrf_token_str,
+        'Content-Type': 'application/json'
+    }
+    auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+    #print("***********************************************")
+    
+    
+    response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+    print("***********************************************", response.status_code)
+    
+    
+    if response.status_code == 200:  
+       # print("*****************************************")
+        print("Vendor details posted successfully.")
+        #return "************************Vendor details posted successfully.******************************"
+    else:
+        print("Error in POST request:", response.status_code)
+        return "Error in POST request: " + str(response.status_code)
+
+
+
+
+    #*******************************************************************************
+
+
+    # try:
+    #     response = requests.post(url, data=vendor_details)
+    #     response.raise_for_status()  
+    #     print("POST request successful")
+    # except requests.RequestException as e:
+    #     print(f"Failed to make POST request: {e}")
+
+
+
+@frappe.whitelist(allow_guest=True)
+def create_po(**kwargs):
+    pass
+
+
+
+
 
 
 
@@ -767,3 +1040,9 @@ LEFT JOIN
 #     `tabCity Master` ct ON ct.city_name = ct.city_name
 # LEFT JOIN 
 #     `tabState Master` st ON st.state_name = st.state_name
+
+
+@frappe.whitelist(allow_guest=True)
+def vendor_onboarding(**kwargs):
+
+    website = kwargs.get

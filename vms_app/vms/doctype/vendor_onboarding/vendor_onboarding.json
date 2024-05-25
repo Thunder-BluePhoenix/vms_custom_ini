@@ -59,8 +59,8 @@
   "documents_tab",
   "gst_details_section",
   "gst_number",
-  "gst_registration_date",
-  "gst_registration_typem",
+  "cind",
+  "gst_registration_type",
   "gst_proof_section",
   "gst_proof",
   "company_pan_details_section",
@@ -92,12 +92,20 @@
   "organisation_structure_document_section",
   "organisation_structure_document",
   "contact_details_tab",
+  "contact_person_1_section",
   "first_name",
   "last_name",
   "designation",
   "column_break_vokz",
   "email",
   "contact_number",
+  "contact_person_2_section",
+  "f_name",
+  "l_name",
+  "dnation",
+  "column_break_uiru",
+  "mail",
+  "cnot",
   "certificate_details_tab",
   "certificate_details_section",
   "certificate_name",
@@ -137,9 +145,8 @@
   },
   {
    "fieldname": "size_of_company",
-   "fieldtype": "Select",
-   "label": "Size of Company",
-   "options": "1 - 10\n1 - 50\n1 - 100"
+   "fieldtype": "Data",
+   "label": "Size of Company"
   },
   {
    "fieldname": "website",
@@ -148,12 +155,12 @@
   },
   {
    "fieldname": "registered_office_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Registered Office Number"
   },
   {
    "fieldname": "telephone_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Telephone Number"
   },
   {
@@ -267,7 +274,7 @@
    "fieldname": "type_of_account",
    "fieldtype": "Select",
    "label": "Type of Account",
-   "options": "Account Type 1\nAccount Type 2\nAccount type 3"
+   "options": "Account Type 1\nAccount Type 2\nAccount Type 3"
   },
   {
    "fieldname": "currency",
@@ -305,17 +312,6 @@
    "fieldname": "gst_number",
    "fieldtype": "Data",
    "label": "GST Number"
-  },
-  {
-   "fieldname": "gst_registration_date",
-   "fieldtype": "Date",
-   "label": "GST Registration Date"
-  },
-  {
-   "fieldname": "gst_registration_typem",
-   "fieldtype": "Link",
-   "label": "GST Registration Type",
-   "options": "GST Registration Type Master"
   },
   {
    "fieldname": "gst_proof",
@@ -507,11 +503,11 @@
    "fieldname": "type_of_premises",
    "fieldtype": "Select",
    "label": "Type of Premises ",
-   "options": "Premises Type 1\nPremises Type 2\nPremises Type 3"
+   "options": "Lease\nRented\nOwned"
   },
   {
    "fieldname": "working_hours",
-   "fieldtype": "Time",
+   "fieldtype": "Data",
    "label": "Working Hours"
   },
   {
@@ -565,9 +561,8 @@
   },
   {
    "fieldname": "designation",
-   "fieldtype": "Link",
-   "label": "Designation",
-   "options": "Designation Master"
+   "fieldtype": "Data",
+   "label": "Designation"
   },
   {
    "fieldname": "email",
@@ -576,7 +571,7 @@
   },
   {
    "fieldname": "contact_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Contact Number"
   },
   {
@@ -623,11 +618,61 @@
    "fieldtype": "Link",
    "label": "Vendor Type",
    "options": "Vendor Type Master"
+  },
+  {
+   "fieldname": "cind",
+   "fieldtype": "Date",
+   "label": "CIN Date"
+  },
+  {
+   "fieldname": "gst_registration_type",
+   "fieldtype": "Link",
+   "label": "GST Registration Type",
+   "options": "GST Registration Type Master"
+  },
+  {
+   "fieldname": "contact_person_1_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person 1"
+  },
+  {
+   "fieldname": "contact_person_2_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person 2"
+  },
+  {
+   "fieldname": "f_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "l_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "dnation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "mail",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_uiru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cnot",
+   "fieldtype": "Data",
+   "label": "Contact Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 15:19:24.640801",
+ "modified": "2024-05-21 12:58:05.023500",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

@@ -7,6 +7,15 @@ app_license = "mit"
 required_apps = []
 # from vms_app.api.api import cron_method
 import frappe
+from frappe import hooks
+
+def after_request(response):
+	response.headers["Access-Control-Allow-Origin"] = "*"
+	response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
+	response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+	return response
+
+hooks.after_request = [after_request]
 
 
 # def schedule_cron_method():
@@ -185,7 +194,8 @@ doc_events = {
 
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
-		"after_insert": "vms_app.api.api.send_email"
+		#isko uncomment karna hai "after_insert": "vms_app.api.api.send_email" 
+		"validate": "vms_app.api.api.sap_fetch_token"
 	},
 	"Vendor Onboarding": {
 
@@ -194,7 +204,7 @@ doc_events = {
 	},
 	"Request For Quotation":{
 
-		"validate": "vms_app.api.api.hitt",
+		#isko bhi uncomment karna hai "validate": "vms_app.api.api.hitt",
 		"after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
 	},

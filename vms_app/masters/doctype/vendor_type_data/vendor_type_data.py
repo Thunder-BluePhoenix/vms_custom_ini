@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PurchaseOrganisationMaster(Document):
+class VendorTypeData(Document):
 	pass

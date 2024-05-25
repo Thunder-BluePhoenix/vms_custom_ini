@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "logistics_section",
   "select_service",
   "division",
   "rfq_cutoff_date",
@@ -33,7 +34,31 @@
   "file",
   "rfq_type",
   "raised_by",
-  "status"
+  "status",
+  "material",
+  "quantity",
+  "required_by",
+  "material_section",
+  "pr_code",
+  "company_code",
+  "purchase_organization",
+  "purchase_group",
+  "currency",
+  "collection_number",
+  "column_break_pugn",
+  "quotation_deadline",
+  "validity_start_date",
+  "validity_end_date",
+  "requestor_name",
+  "materialitem_details_section",
+  "item_code",
+  "item_category",
+  "item_description",
+  "item_dimension",
+  "material_category",
+  "plant_code",
+  "reamrks",
+  "description"
  ],
  "fields": [
   {
@@ -186,11 +211,144 @@
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status"
+  },
+  {
+   "fieldname": "material",
+   "fieldtype": "Link",
+   "label": "Material",
+   "options": "Material Master"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "required_by",
+   "fieldtype": "Date",
+   "label": "Required By"
+  },
+  {
+   "fieldname": "logistics_section",
+   "fieldtype": "Section Break",
+   "label": "Logistics"
+  },
+  {
+   "fieldname": "material_section",
+   "fieldtype": "Section Break",
+   "label": "Material"
+  },
+  {
+   "fieldname": "pr_code",
+   "fieldtype": "Data",
+   "label": "PR Code"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "purchase_organization",
+   "fieldtype": "Link",
+   "label": "Purchase Organization",
+   "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "purchase_group",
+   "fieldtype": "Link",
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "collection_number",
+   "fieldtype": "Data",
+   "label": "Collection Number"
+  },
+  {
+   "fieldname": "quotation_deadline",
+   "fieldtype": "Date",
+   "label": "Quotation Deadline"
+  },
+  {
+   "fieldname": "validity_start_date",
+   "fieldtype": "Date",
+   "label": "Validity Start Date"
+  },
+  {
+   "fieldname": "validity_end_date",
+   "fieldtype": "Date",
+   "label": "Validity End Date"
+  },
+  {
+   "fieldname": "requestor_name",
+   "fieldtype": "Data",
+   "label": "Requestor Name"
+  },
+  {
+   "fieldname": "column_break_pugn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "materialitem_details_section",
+   "fieldtype": "Section Break",
+   "label": "Material/Item Details"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Product Master"
+  },
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "label": "Item Category",
+   "options": "Product Category Master"
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Data",
+   "label": "Item Description"
+  },
+  {
+   "fieldname": "item_dimension",
+   "fieldtype": "Data",
+   "label": "Item Dimension"
+  },
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Link",
+   "label": "Material Category",
+   "options": "Material Category Master"
+  },
+  {
+   "fieldname": "plant_code",
+   "fieldtype": "Link",
+   "label": "Plant Code",
+   "options": "Plant Master"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "reamrks",
+   "fieldtype": "Small Text",
+   "label": "Reamrks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-02 11:08:54.317066",
+ "modified": "2024-05-25 10:54:16.062308",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

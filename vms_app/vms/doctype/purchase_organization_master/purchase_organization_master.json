@@ -7,7 +7,7 @@
  "field_order": [
   "purchase_organisation_code",
   "company",
-  "purchase_organisation_name",
+  "purchase_organization_name",
   "description"
  ],
  "fields": [
@@ -28,17 +28,17 @@
    "label": "Description"
   },
   {
-   "fieldname": "purchase_organisation_name",
+   "fieldname": "purchase_organization_name",
    "fieldtype": "Data",
    "label": "Purchase Organisation Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-10 10:28:33.997934",
+ "modified": "2024-05-21 15:05:39.986507",
  "modified_by": "Administrator",
  "module": "vms",
- "name": "Purchase Organisation Master",
+ "name": "Purchase Organization Master",
  "owner": "Administrator",
  "permissions": [
   {

@@ -37,6 +37,8 @@
   "nature_of_company",
   "business_nature",
   "vendor_name",
+  "rfq_type",
+  "mobile_number",
   "section_break_qjrl",
   "office_address_line_1",
   "office_address_line_2",
@@ -152,8 +154,9 @@
   },
   {
    "fieldname": "purchase_organization",
-   "fieldtype": "Data",
-   "label": "Purchase Organization"
+   "fieldtype": "Link",
+   "label": "Purchase Organization",
+   "options": "Company Master"
   },
   {
    "fieldname": "type_of_business",
@@ -343,11 +346,22 @@
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status"
+  },
+  {
+   "fieldname": "rfq_type",
+   "fieldtype": "Link",
+   "label": "RFQ Type",
+   "options": "RFQ Type Master"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-09 11:43:13.209370",
+ "modified": "2024-05-24 15:51:28.142176",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",
