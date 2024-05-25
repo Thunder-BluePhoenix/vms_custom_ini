@@ -55,10 +55,36 @@
   "item_category",
   "item_description",
   "item_dimension",
+  "add_special_remarksif_any",
+  "column_break_ynfu",
   "material_category",
   "plant_code",
-  "reamrks",
-  "description"
+  "short_text",
+  "catalogue_number",
+  "make",
+  "pack_size",
+  "quantity_and_date_section",
+  "rfq_quantity",
+  "quantity_unit",
+  "delivery_date",
+  "add_attachmentfor_material_reference_section",
+  "uploadpdfjpeg_excel",
+  "deadline_monitoring_section",
+  "first_reminder",
+  "second_reminder",
+  "third_reminder",
+  "payment_terms_section",
+  "non_negotiable",
+  "column_break_fslg",
+  "negotiable",
+  "add_vendors_section",
+  "vendor_code",
+  "services_section",
+  "bidding_person",
+  "select_language",
+  "service_code",
+  "service_category",
+  "storage_location"
  ],
  "fields": [
   {
@@ -315,7 +341,7 @@
   },
   {
    "fieldname": "item_description",
-   "fieldtype": "Data",
+   "fieldtype": "Text",
    "label": "Item Description"
   },
   {
@@ -336,19 +362,152 @@
    "options": "Plant Master"
   },
   {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "Description"
+   "fieldname": "short_text",
+   "fieldtype": "Small Text",
+   "label": "Short Text"
   },
   {
-   "fieldname": "reamrks",
+   "fieldname": "catalogue_number",
+   "fieldtype": "Data",
+   "label": "Catalogue Number"
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fieldname": "pack_size",
+   "fieldtype": "Data",
+   "label": "Pack Size"
+  },
+  {
+   "fieldname": "add_special_remarksif_any",
    "fieldtype": "Small Text",
-   "label": "Reamrks"
+   "label": "Add Special Remarks(If any)"
+  },
+  {
+   "fieldname": "column_break_ynfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity_and_date_section",
+   "fieldtype": "Section Break",
+   "label": "Quantity and Date"
+  },
+  {
+   "fieldname": "rfq_quantity",
+   "fieldtype": "Data",
+   "label": "RFQ Quantity"
+  },
+  {
+   "fieldname": "quantity_unit",
+   "fieldtype": "Link",
+   "label": "Quantity Unit",
+   "options": "UOM Master"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "add_attachmentfor_material_reference_section",
+   "fieldtype": "Section Break",
+   "label": "Add Attachment(for material reference)"
+  },
+  {
+   "fieldname": "uploadpdfjpeg_excel",
+   "fieldtype": "Attach",
+   "label": "Upload(pdf,jpeg, excel)"
+  },
+  {
+   "fieldname": "deadline_monitoring_section",
+   "fieldtype": "Section Break",
+   "label": "Deadline Monitoring"
+  },
+  {
+   "fieldname": "first_reminder",
+   "fieldtype": "Date",
+   "label": "First Reminder"
+  },
+  {
+   "fieldname": "second_reminder",
+   "fieldtype": "Date",
+   "label": "Second Reminder"
+  },
+  {
+   "fieldname": "third_reminder",
+   "fieldtype": "Date",
+   "label": "Third Reminder"
+  },
+  {
+   "fieldname": "payment_terms_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms"
+  },
+  {
+   "default": "0",
+   "fieldname": "negotiable",
+   "fieldtype": "Check",
+   "label": "Negotiable"
+  },
+  {
+   "default": "0",
+   "fieldname": "non_negotiable",
+   "fieldtype": "Check",
+   "label": "Non Negotiable"
+  },
+  {
+   "fieldname": "column_break_fslg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_vendors_section",
+   "fieldtype": "Section Break",
+   "label": "Add Vendors"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Link",
+   "label": "Vendor Code",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "services_section",
+   "fieldtype": "Section Break",
+   "label": "Services"
+  },
+  {
+   "fieldname": "bidding_person",
+   "fieldtype": "Data",
+   "label": "Bidding Person"
+  },
+  {
+   "fieldname": "select_language",
+   "fieldtype": "Link",
+   "label": "Select Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "service_code",
+   "fieldtype": "Data",
+   "label": "Service Code"
+  },
+  {
+   "fieldname": "service_category",
+   "fieldtype": "Data",
+   "label": "Service Category"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Storage Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 10:54:16.062308",
+ "modified": "2024-05-25 14:35:03.107348",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",
