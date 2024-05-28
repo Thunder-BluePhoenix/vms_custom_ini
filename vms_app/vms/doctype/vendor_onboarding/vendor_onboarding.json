@@ -42,6 +42,10 @@
   "manufacturing_pincode",
   "address_proof_section",
   "address_proofattachment",
+  "status_section",
+  "purchase_team_approval",
+  "accounts_team_approval",
+  "purchase_head_approval",
   "payment_detail_tab",
   "bank_name",
   "ifsc_code",
@@ -668,11 +672,31 @@
    "fieldname": "cnot",
    "fieldtype": "Data",
    "label": "Contact Number"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "fieldname": "purchase_team_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Team Approval"
+  },
+  {
+   "fieldname": "accounts_team_approval",
+   "fieldtype": "Data",
+   "label": "Accounts Team Approval"
+  },
+  {
+   "fieldname": "purchase_head_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Head Approval"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-21 12:58:05.023500",
+ "modified": "2024-05-28 10:16:18.241143",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

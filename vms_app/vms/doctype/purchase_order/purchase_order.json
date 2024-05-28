@@ -11,7 +11,6 @@
   "purchase_group",
   "company_code",
   "collection_number",
-  "product_code",
   "product_category",
   "material_code",
   "material_category",
@@ -56,7 +55,9 @@
   "shipping_street2",
   "shipping_street3",
   "shipping_pincode",
-  "instructions"
+  "instructions",
+  "section_break_mqft",
+  "product_code"
  ],
  "fields": [
   {
@@ -336,11 +337,15 @@
   {
    "fieldname": "column_break_zyit",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_mqft",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 11:57:40.723797",
+ "modified": "2024-05-27 17:01:14.353596",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",
