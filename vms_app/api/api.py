@@ -775,7 +775,58 @@ LEFT JOIN
 
     return all_vendors
 
+@frappe.whitelist(allow_guest=True)
+def show_detailed_quotation(name):
 
+    quotation = frappe.db.sql(""" 
+
+
+        SELECT
+        rfq.name AS name,
+        co.company_name AS company_name,
+        vm.name AS name,
+        qo.rfq_date AS rfq_date,
+        qo.quotation_deadline AS quotation_deadline,
+        qo.delivery_date AS delivery_date,
+        qo.vendor_name AS vendor_name,
+        qo.vendor_contact AS vendor_contact,
+        qo.contact_person AS contact_person,
+        qo.quote_amount AS quote_amount,
+        qo.contact_email AS contact_email,
+        pm.product_code AS product_code,
+        pc.product_category_name AS product_category_name,
+        mm.material_code AS material_code,
+        mcm.material_category_name AS material_category_name,
+        m.material_name AS material_name,
+        qo.rfq_quantity AS rfq_quantity,
+        qo.storage_location AS storage_location,
+        qo.remark AS remark,
+        qo.status AS status
+
+
+        FROM
+        `tabQuotation` qo
+        LEFT JOIN
+        `tabRequest For Quotation` rfq ON qo.rfq_number = rfq.name
+        LEFT JOIN
+        `tabCompany Master` co ON qo.company_name = co.name
+        LEFT JOIN
+        `tabVendor Master` vm ON qo.vendor_code = vm.name
+        LEFT JOIN
+        `tabProduct Master` pm ON qo.product_code = pm.name
+        LEFT JOIN
+        `tabProduct Category Master` pc ON qo.product_category = pc.name
+        LEFT JOIN
+        `tabMaterial Master` mm ON qo.material_code = mm.name
+        LEFT JOIN
+        `tabMaterial Category Master` mcm ON qo.material_category = mcm.name
+        LEFT JOIN
+        `tabMaterial Master` m ON qo.material_name = m.name
+
+        where qo.name=%s
+
+     """,(name),as_dict=1)
+    return quotation
 
 # @frappe.whitelist(allow_guest=True)
 # def show_me(name):
@@ -802,6 +853,98 @@ LEFT JOIN
 #     """, (name,), as_dict=1)
 
 #     return vendor
+
+@frappe.whitelist(allow_guest=True)
+def import_entry_detail(name):
+
+    entry = frappe.db.sql("""
+
+        SELECT
+            ie.rfq_number AS rfq_number,
+            ie.rfq_date AS rfq_date,
+            vm3.vendor_name AS vendor_name,
+            ie.ff_ref_number AS fff_ref_number,
+            ie.freight_mode AS freight_mode,
+            cnt.country_name AS country_name,
+            pt.port_name AS port_name,
+            pt2.port_code AS port_code,
+            inc.incoterm_name AS incoterm_name,
+            ie.meril_invoice_number As meril_invoice_number,
+            ie.invoice_date AS invoice_date,
+            ie.shipper_name AS shipper_name,
+            ie.package_type AS package_type,
+            ie.pkg_units AS pkg_units,
+            pct.product_category_name AS product_category_name,
+            ie.vol_weight AS vol_weight,
+            ie.actual_weight AS actual_weight,
+            ie.shipment_date_meril AS shipment_date_meril,
+            ie.statutory_permission AS statutory_permission,
+            ie.shipment_mode AS shipment_mode,
+            ie.name1 AS name1,
+            ie.chargable_weight AS chargable_weight,
+            ie.ratekg AS ratekg,
+            ie.fuel_sur_charge AS fuel_sur_charge,
+            ie.sur_charge AS sur_charge,
+            ie.xray AS xray,
+            ie.pickuporigin AS pickuporigin,
+            ie.ex_works AS ex_works,
+            ie.total_freight AS total_freight,
+            cur.currency_name AS currency_name,
+            cur2.currency_name AS currency_name,
+            ie.xrxecom AS xrxecom,
+            ie.total_freight_inr AS total_freight_inr,
+            ie.destination_charges_inr AS destination_charges_inr,
+            ie.shipping_line_charges AS shipping_line_charges,
+            ie.cfs_charges AS cfs_charges,
+            ie.total_landing_priceinr,
+            ie.remarks AS remarks
+
+
+            
+
+            FROM
+            `tabImport Entry` ie
+            LEFT JOIN
+            `tabVendor Master` vm3 ON ie.freight_forwarder = vm3.name
+            LEFT JOIN
+            `tabCountry Master` cnt ON ie.origin_country = cnt.name
+            LEFT JOIN
+            `tabPort Master` pt ON ie.destination_port = pt.name
+            LEFT JOIN
+            `tabPort Master` pt2 ON ie.port_code = pt2.name
+            LEFT JOIN
+            `tabIncoterm Master` inc ON ie.freight_basis = inc.name
+            LEFT JOIN
+            `tabProduct Category Master` pct ON ie.product_category = pct.name
+            LEFT JOIN
+            `tabCurrency Master` cur ON ie.from_currency = cur.name
+            LEFT JOIN
+            `tabCurrency Master` cur2 ON ie.to_currency = cur2.name
+
+
+            WHERE ie.name=%s
+
+
+     """,(name), as_dict=1)
+
+    return entry
+
+
+# @frappe.whitelist(allow_guest=True)
+# def import_entry_detail(name):
+
+#     entry = frappe.db.sql(""" 
+
+#         SELECT
+
+#         ee.rfq_cutoff_date_time AS rfq_cutoff_date_time,
+        
+
+
+
+#      """,(name),as_dict=1)
+
+
 
 
 @frappe.whitelist(allow_guest=True)
@@ -878,10 +1021,11 @@ def show_me(name):
             vm.valid_till AS valid_till
 
 
+
         FROM 
             `tabVendor Onboarding` vm 
         LEFT JOIN 
-            `tabCompany Master` cm ON vm.company_name = cm.name 
+            `tabCompany Master` cm ON ie.freight_forwarder = cm.name 
         LEFT JOIN
             `tabState Master` sm ON vm.state = sm.name
         LEFT JOIN 
@@ -925,9 +1069,240 @@ def show_me(name):
 
 
 
-    # value = frappe.get_doc("Vendor Onboarding", name)
-    # nature_of_company = value.nature_of_company
-    # return nature_of_company
+@frappe.whitelist(allow_guest=True)
+def show_vendor_registration_details(name):
+
+    vendor = frappe.db.sql(""" 
+
+        SELECT
+            cm.company_name AS company_name,
+            vm.website AS website,
+            vt.vendor_type_name As vendor_type_name,
+            at.account_group_name AS account_group_name,
+            dp.department_name AS department_name,
+            mt.material_name AS material_name,
+            vm.search_term AS search_term,
+            bn.business_nature_name AS business_nature_name,
+            vm.payee_in_document AS payee_in_document,
+            vm.gr_based_inv_ver AS gr_based_inv_ver,
+            vm.service_based_inv_ver AS service_based_inv_ver,
+            vm.check_double_invoice AS check_double_invoice,
+            oc.currency_name AS currency_name,
+            tp.terms_of_payment_name As terms_of_payment_name,
+            inc.incoterm_name As incoterm_name,
+            pg.purchase_group_name AS purchase_group_name,
+            vm.registered_date AS registered_date,
+            vm.purchase_organization AS company_name,
+            vm.type_of_business AS type_of_business,
+            vm.size_of_company AS size_of_company,
+            vm.registered_office_number AS registered_office_number,
+            vm.telephone_number AS telephone_number,
+            vm.established_year AS established_year,
+            vm.office_email_primary AS office_email_primary,
+            vm.office_email_secondary AS office_email_secondary,
+            vm.corporate_identification_number As corporate_identification_number,
+            vm.cin_date AS cin_date,
+            con.company_nature_name AS company_nature_name,
+            vm.vendor_name AS vendor_name,
+            rfq.rfq_name AS rfq_name,
+            vm.mobile_number AS mobile_number,
+            vm.office_address_line_1 AS office_address_line_1,
+            vm.office_address_line_2 AS office_address_line_2,
+            vm.office_address_line_3 AS office_address_line_3,
+            vm.office_address_line_4 AS office_address_line_4,
+            cty.city_name AS city_name,
+            st.state_name AS state_name,
+            cnt.country_name AS country_name,
+            dst.district_name As district_name,
+            pin.pincode AS pincode,
+            vm.manufacturing_address_line_1 AS manufacturing_address_line_1,
+            vm.manufacturing_address_line_2 AS manufacturing_address_line_2,
+            vm.manufacturing_address_line_3 AS manufacturing_address_line_3,
+            vm.manufacturing_address_line_4 AS manufacturing_address_line_4,
+            vm.registered_by As registered_by,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            vm.status AS status
+
+
+
+
+            FROM `tabVendor Master` vm 
+            LEFT JOIN
+                `tabCompany Master` cm ON vm.company_name = cm.name
+            LEFT JOIN
+                `tabVendor Type Master` vt ON vm.vendor_type = vt.name
+            LEFT JOIN
+                `tabAccount Group Master` at ON vm.account_group = at.name
+            LEFT JOIN
+                `tabDepartment Master` dp ON vm.department = dp.name
+            LEFT JOIN
+                `tabMaterial Master` mt ON vm.material_to_be_supplied = mt.name
+            LEFT JOIN
+                `tabBusiness Nature Master` bn ON vm.nature_of_business = bn.name
+            LEFT JOIN
+                `tabCurrency Master` oc ON vm.order_currency = oc.name
+            LEFT JOIN
+                `tabTerms Of Payment Master` tp ON vm.terms_of_payment = tp.name
+            LEFT JOIN
+                `tabIncoterm Master` inc ON vm.incoterms = inc.name
+            LEFT JOIN
+                `tabPurchase Group Master` pg ON vm.purchase_groupm = pg.name
+            LEFT JOIN
+                `tabCompany Nature Master` con ON vm.nature_of_company = con.name
+            LEFT JOIN
+                `tabRFQ Type Master` rfq ON vm.rfq_type = rfq.name
+            LEFT JOIN
+                `tabCompany Master` ct ON vm.city = ct.name
+            LEFT JOIN
+                `tabState Master` st ON vm.state = st.name
+            LEFT JOIN
+                `tabCountry Master` cnt ON vm.country = cnt.name
+            LEFT JOIN
+                `tabDistrict Master` dst ON vm.district = dst.name
+            LEFT JOIN
+                `tabPincode Master` pin ON vm.pincode = pin.name
+            LEFT JOIN
+                `tabCity Master` cty ON vm.city = cty.name
+
+            where office_email_primary=%s
+
+
+
+        """,(name), as_dict=1)
+    return vendor
+
+
+
+@frappe.whitelist(allow_guest=True)
+def show_rfq_detail(rfq_number):
+
+    rfq = frappe.db.sql(""" 
+
+        SELECT
+        vt.vendor_type_name AS vendor_type_name,
+        rfq.rfq_cutoff_date AS rfq_cutoff_date,
+        comp.company_name AS division_name,
+        rfq.mode_of_shipment AS mode_of_shipment,
+        prt.port_name AS port_name,
+        rfq.ship_to_address AS ship_to_address,
+        rfq.no_of_pkg_units As no_of_pkg_units,
+        rfq.vol_weight AS vol_weight,
+        rfq.invoice_date AS invoice_date,
+        rfq.shipment_date AS shipment_date,
+        rfq.remarks AS remarks,
+        rfq.consignee_name AS consignee_name,
+        rfq.sr_no AS sr_no,
+        rfq.rfq_date AS rfq_date,
+        cnt.country_name AS country_name,
+        pt.port_code AS port_code,
+        inc.incoterm_name AS incoterm_name,
+        pty.package_name AS package_name,
+        pcat.product_category_name AS product_category_name,
+        rfq.actual_weight AS actual_weight,
+        rfq.invoice_no AS invoice_no,
+        sty.shipment_type_name AS shipment_type_name,
+        rft.rfq_name AS rfq_name,
+        rfq.raised_by AS raised_by,
+        rfq.status AS status,
+        mm.material_name AS material_name,
+        rfq.quantity AS quantity,
+        rfq.required_by AS required_by,
+        rfq.pr_code AS pr_code,
+        comp2.company_code AS company_code,
+        porg.purchase_organization_name AS purchase_organization_name,
+        pg.purchase_group_name AS purchase_group_name,
+        cur.currency_name AS currency_name,
+        rfq.collection_number AS collection_number,
+        rfq.quotation_deadline AS quotation_deadline,
+        rfq.validity_start_date AS validity_start_date,
+        rfq.validity_end_date AS validity_end_date,
+        rfq.requestor_name AS requestor_name,
+        pd.product_code AS product_code,
+        pdc.product_category_name AS product_category_name,
+        rfq.item_description AS item_description,
+        rfq.item_dimension AS item_dimension,
+        rfq.add_special_remarksif_any AS add_special_remarksif_any,
+        mtc.material_category_name AS material_category_name,
+        pltm.plant_code AS plant_code,
+        rfq.short_text AS short_text,
+        rfq.catalogue_number AS catalogue_number,
+        rfq.make AS make,
+        rfq.pack_size AS pack_size,
+        rfq.rfq_quantity AS rfq_quantity,
+        rfq.quantity_unit AS quantity_unit,
+        rfq.delivery_date AS delivery_date,
+        rfq.first_reminder AS first_reminder,
+        rfq.second_reminder AS second_reminder,
+        rfq.third_reminder AS third_reminder,
+        rfq.non_negotiable AS non_negotiable,
+        rfq.negotiable AS negotiable,
+        vm2.name AS name,
+        rfq.bidding_person AS bidding_person,
+        rfq.select_language AS select_language,
+        rfq.service_code AS service_code,
+        rfq.service_category AS service_category,
+        rfq.storage_location AS storage_location
+
+
+
+        FROM `tabRequest For Quotation` rfq
+        LEFT JOIN
+            `tabVendor Type Master` vt ON rfq.select_service = vt.name
+        LEFT JOIN
+            `tabCompany Master` comp ON rfq.division = comp.name
+        LEFT JOIN
+            `tabPort Master` prt ON rfq.destination_port = prt.name
+        LEFT JOIN
+            `tabPort Master` prt2 ON rfq.port_of_loading = prt2.name
+        LEFT JOIN
+            `tabPort Master` pt ON rfq.port_code = pt.name
+        LEFT JOIN
+            `tabCountry Master` cnt ON rfq.country = cnt.name
+        LEFT JOIN
+            `tabIncoterm Master` inc ON rfq.inco_terms = inc.name
+        LEFT JOIN
+            `tabPackage Type Master` pty ON rfq.package_type = pty.name
+        LEFT JOIN
+            `tabProduct Category Master` pcat ON rfq.product_category = pcat.name
+        LEFT JOIN
+            `tabShipment Type Master` sty ON rfq.shipment_type = sty.name
+        LEFT JOIN
+            `tabRFQ Type Master` rft ON rfq.rfq_type = rft.name
+        LEFT JOIN
+            `tabMaterial Master` mm ON rfq.material = mm.name
+        LEFT JOIN
+            `tabCompany Master` comp2 ON rfq.company_code = comp2.name
+        LEFT JOIN
+            `tabPurchase Organization Master` porg ON rfq.purchase_organization = porg.name
+        LEFT JOIN
+            `tabPurchase Group Master` pg ON rfq.purchase_group = pg.name
+        LEFT JOIN
+            `tabCurrency Master` cur ON rfq.currency = cur.name
+        LEFT JOIN
+            `tabProduct Master` pd ON rfq.item_code = pd.name
+        LEFT JOIN
+            `tabProduct Category Master` pdc ON rfq.item_code = pdc.name
+        LEFT JOIN
+            `tabMaterial Category Master` mtc ON rfq.material_category = mtc.name
+        LEFT JOIN
+            `tabPlant Master` pltm ON rfq.plant_code = pltm.name
+        LEFT JOIN
+            `tabVendor Master` vm2 ON rfq.vendor_code = vm2.name
+
+
+
+        WHERE rfq.name=%s
+
+
+        """,(rfq_number), as_dict=1)
+
+    return rfq 
+
+
+
+
 
 @frappe.whitelist(allow_guest=True)
 def show_in_process_vendors():
@@ -1213,3 +1588,6 @@ def show_vendor(data, method):
     name = data.get("name")
     values = frappe.db.sql(""" select * from `tabVendor Onboarding` where name=%s """,(name),as_dict=1)
     return values
+
+
+

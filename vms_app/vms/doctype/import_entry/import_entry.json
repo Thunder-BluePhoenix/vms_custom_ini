@@ -55,7 +55,7 @@
   },
   {
    "fieldname": "rfq_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "RFQ Date"
   },
   {
@@ -89,8 +89,9 @@
   },
   {
    "fieldname": "port_code",
-   "fieldtype": "Data",
-   "label": "Port Code"
+   "fieldtype": "Link",
+   "label": "Port Code",
+   "options": "Port Master"
   },
   {
    "fieldname": "freight_basis",
@@ -105,7 +106,7 @@
   },
   {
    "fieldname": "invoice_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Invoice Date"
   },
   {
@@ -141,7 +142,7 @@
   },
   {
    "fieldname": "shipment_date_meril",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Shipment Date Meril"
   },
   {
@@ -259,7 +260,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-09 17:26:02.144736",
+ "modified": "2024-05-28 15:56:37.752212",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Import Entry",

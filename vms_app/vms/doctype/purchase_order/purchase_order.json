@@ -57,7 +57,7 @@
   "shipping_pincode",
   "instructions",
   "section_break_mqft",
-  "product_code"
+  "table_jsfj"
  ],
  "fields": [
   {
@@ -88,12 +88,6 @@
    "fieldname": "collection_number",
    "fieldtype": "Data",
    "label": "Collection Number"
-  },
-  {
-   "fieldname": "product_code",
-   "fieldtype": "Link",
-   "label": "Product Code",
-   "options": "Product Master"
   },
   {
    "fieldname": "product_category",
@@ -340,12 +334,18 @@
   },
   {
    "fieldname": "section_break_mqft",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Add Items"
+  },
+  {
+   "fieldname": "table_jsfj",
+   "fieldtype": "Table",
+   "options": "Purchase Order Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-27 17:01:14.353596",
+ "modified": "2024-05-28 17:27:55.857072",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

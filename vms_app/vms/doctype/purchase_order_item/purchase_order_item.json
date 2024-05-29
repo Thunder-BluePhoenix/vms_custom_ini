@@ -6,7 +6,9 @@
  "engine": "InnoDB",
  "field_order": [
   "product_code",
-  "product_name"
+  "product_name",
+  "quantity",
+  "price"
  ],
  "fields": [
   {
@@ -20,12 +22,22 @@
    "fieldtype": "Link",
    "label": "Product Name",
    "options": "Product Master"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Data",
+   "label": "Price"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-30 10:56:14.369116",
+ "modified": "2024-05-28 17:29:06.401989",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order Item",
