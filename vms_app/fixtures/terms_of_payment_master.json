@@ -1,1 +1,29 @@
-[]
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Terms Of Payment Master",
+  "modified": "2024-05-21 14:48:07.104832",
+  "name": "7d19ecb4b7",
+  "terms_of_payment_code": "TP1",
+  "terms_of_payment_name": "Term1"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Terms Of Payment Master",
+  "modified": "2024-05-21 14:48:17.191582",
+  "name": "88873db260",
+  "terms_of_payment_code": "TP2",
+  "terms_of_payment_name": "Term2"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Terms Of Payment Master",
+  "modified": "2024-05-21 14:48:25.554557",
+  "name": "a8670e9713",
+  "terms_of_payment_code": "TP3",
+  "terms_of_payment_name": "Term3"
+ }
+]

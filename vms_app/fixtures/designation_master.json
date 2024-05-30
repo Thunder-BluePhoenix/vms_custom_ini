@@ -11,10 +11,10 @@
  {
   "description": null,
   "designation_code": "DG3",
-  "designation_name": "Accounts Team",
+  "designation_name": "Account Team",
   "docstatus": 0,
   "doctype": "Designation Master",
-  "modified": "2024-03-28 10:57:02.893211",
+  "modified": "2024-05-22 14:49:04.337695",
   "name": "ab1350ff18"
  },
  {
@@ -23,7 +23,7 @@
   "designation_name": "Purchase Team",
   "docstatus": 0,
   "doctype": "Designation Master",
-  "modified": "2024-03-28 10:56:35.330240",
+  "modified": "2024-05-23 14:00:20.179239",
   "name": "d6cbb04a38"
  },
  {

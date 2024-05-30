@@ -1,1 +1,38 @@
-[]
+[
+ {
+  "delivery_point": "test2",
+  "docstatus": 0,
+  "doctype": "Incoterm Master",
+  "incoterm_code": "INC2",
+  "incoterm_name": "INCO2",
+  "modified": "2024-05-21 14:49:25.202587",
+  "name": "e647badcb8",
+  "note": null,
+  "risk_transfer": null,
+  "transportation_costs": null
+ },
+ {
+  "delivery_point": "test",
+  "docstatus": 0,
+  "doctype": "Incoterm Master",
+  "incoterm_code": "IN1",
+  "incoterm_name": "Inco1",
+  "modified": "2024-05-21 14:49:13.603081",
+  "name": "5279c0b976",
+  "note": null,
+  "risk_transfer": null,
+  "transportation_costs": null
+ },
+ {
+  "delivery_point": "Test3",
+  "docstatus": 0,
+  "doctype": "Incoterm Master",
+  "incoterm_code": "INC3",
+  "incoterm_name": "INCO3",
+  "modified": "2024-05-21 14:49:36.087931",
+  "name": "dcad4c82df",
+  "note": null,
+  "risk_transfer": null,
+  "transportation_costs": null
+ }
+]

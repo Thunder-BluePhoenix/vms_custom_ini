@@ -3,10 +3,10 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Package Type Master",
-  "modified": "2024-04-03 11:53:26.662759",
-  "name": "2327e2855c",
-  "package_code": "PCK1",
-  "package_name": "Packagetype1"
+  "modified": "2024-04-03 11:53:15.588204",
+  "name": "bc05e38c62",
+  "package_code": "PCK3",
+  "package_name": "Packagetype3"
  },
  {
   "description": null,
@@ -21,9 +21,9 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Package Type Master",
-  "modified": "2024-04-03 11:53:15.588204",
-  "name": "bc05e38c62",
-  "package_code": "PCK3",
-  "package_name": "Packagetype3"
+  "modified": "2024-04-03 11:53:26.662759",
+  "name": "2327e2855c",
+  "package_code": "PCK1",
+  "package_name": "Packagetype1"
  }
 ]

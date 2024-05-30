@@ -36,16 +36,16 @@
   "state": "9e816feadf"
  },
  {
-  "city_code": "CT7",
-  "city_name": "City 7",
+  "city_code": "CT4",
+  "city_name": "City 4",
   "country": "ea35686ce8",
-  "district": "a51175f3e0",
+  "district": "51c3d0ebdf",
   "docstatus": 0,
   "doctype": "City Master",
-  "modified": "2024-03-28 09:41:24.443855",
-  "name": "2125552aec",
+  "modified": "2024-03-28 09:40:26.400204",
+  "name": "0f4b8d3d5c",
   "pincode": null,
-  "state": "9e816feadf"
+  "state": "76103e2d71"
  },
  {
   "city_code": "CT8",
@@ -72,18 +72,6 @@
   "state": "76103e2d71"
  },
  {
-  "city_code": "CT4",
-  "city_name": "City 4",
-  "country": "ea35686ce8",
-  "district": "51c3d0ebdf",
-  "docstatus": 0,
-  "doctype": "City Master",
-  "modified": "2024-03-28 09:40:26.400204",
-  "name": "0f4b8d3d5c",
-  "pincode": null,
-  "state": "76103e2d71"
- },
- {
   "city_code": "CT`1",
   "city_name": "City 1",
   "country": "ea35686ce8",
@@ -94,5 +82,17 @@
   "name": "145395b3ec",
   "pincode": "",
   "state": "54cd78fcac"
+ },
+ {
+  "city_code": "CT7",
+  "city_name": "City 7",
+  "country": "ea35686ce8",
+  "district": "a51175f3e0",
+  "docstatus": 0,
+  "doctype": "City Master",
+  "modified": "2024-03-28 09:41:24.443855",
+  "name": "2125552aec",
+  "pincode": null,
+  "state": "9e816feadf"
  }
 ]

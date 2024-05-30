@@ -23,17 +23,6 @@
  },
  {
   "country": "ea35686ce8",
-  "district_code": "DS6",
-  "district_name": "District 6",
-  "docstatus": 0,
-  "doctype": "District Master",
-  "modified": "2024-03-28 09:38:14.749999",
-  "name": "bf097d1232",
-  "pincode": null,
-  "state": "9e816feadf"
- },
- {
-  "country": "ea35686ce8",
   "district_code": "DS8",
   "district_name": "District 8",
   "docstatus": 0,
@@ -45,14 +34,14 @@
  },
  {
   "country": "ea35686ce8",
-  "district_code": "DS2",
-  "district_name": "District 2",
+  "district_code": "DS6",
+  "district_name": "District 6",
   "docstatus": 0,
   "doctype": "District Master",
-  "modified": "2024-03-28 09:37:04.288700",
-  "name": "a51175f3e0",
+  "modified": "2024-03-28 09:38:14.749999",
+  "name": "bf097d1232",
   "pincode": null,
-  "state": "54cd78fcac"
+  "state": "9e816feadf"
  },
  {
   "country": "ea35686ce8",
@@ -75,6 +64,17 @@
   "name": "44dd5e8076",
   "pincode": null,
   "state": "9e816feadf"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS2",
+  "district_name": "District 2",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:37:04.288700",
+  "name": "a51175f3e0",
+  "pincode": null,
+  "state": "54cd78fcac"
  },
  {
   "country": "ea35686ce8",

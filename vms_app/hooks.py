@@ -71,7 +71,17 @@ fixtures = [
 'Product Variant Master',
 'UOM Master',
 'Account Group Master',
-'Incoterm Master']
+'Incoterm Master',
+'Quotation',
+'Vendor Master',
+'Vendor Onboarding',
+'Request For Quotation', 
+'Import Entry',
+'Quotation',
+'Purchase Order',
+'Export Entry Vendor'
+
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/vms_app/css/vms_app.css"
@@ -194,12 +204,12 @@ doc_events = {
 
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
-		"after_insert": "vms_app.api.api.send_email" 
+		#iskouncommentkarnahai"after_insert": "vms_app.api.api.send_email" 
 		#"validate": "vms_app.api.api.sap_fetch_token"
 	},
 	"Vendor Onboarding": {
 
-	"validate": "vms_app.api.api.send_email_on_onboarding"
+	#"validate": "vms_app.api.api.send_email_on_onboarding"
 
 	},
 	"Request For Quotation":{
@@ -217,12 +227,12 @@ doc_events = {
 	},
 	"Quotation": {
 
-	"validate": "vms_app.api.api.send_email_on_quotation_creation"
+	#iskouncommentkarnahaibadmai"validate": "vms_app.api.api.send_email_on_quotation_creation"
 
 	},
 	"Purchase Order": {
 
-	"validate": "vms_app.api.api.send_email_on_po_creation"
+	#iskouncommentkarnahai"validate": "vms_app.api.api.send_email_on_po_creation"
 
 	},
 

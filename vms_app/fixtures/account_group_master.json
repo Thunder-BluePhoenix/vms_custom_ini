@@ -1,21 +1,23 @@
 [
  {
-  "acccount_group_code": "AG1",
-  "account_group_name": "AGroup1",
-  "description": null,
-  "docstatus": 0,
-  "doctype": "Account Group Master",
-  "modified": "2024-03-28 09:48:46.818779",
-  "name": "c86f7c5e93"
- },
- {
   "acccount_group_code": "AG3",
   "account_group_name": "AGroup3",
   "description": null,
   "docstatus": 0,
   "doctype": "Account Group Master",
   "modified": "2024-03-28 09:49:04.312269",
-  "name": "7477dd9e23"
+  "name": "7477dd9e23",
+  "purchase_organisation": null
+ },
+ {
+  "acccount_group_code": "AG1",
+  "account_group_name": "AGroup1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Group Master",
+  "modified": "2024-03-28 09:48:46.818779",
+  "name": "c86f7c5e93",
+  "purchase_organisation": null
  },
  {
   "acccount_group_code": "AG2",
@@ -24,6 +26,7 @@
   "docstatus": 0,
   "doctype": "Account Group Master",
   "modified": "2024-03-28 09:48:56.691469",
-  "name": "7da9e17b7a"
+  "name": "7da9e17b7a",
+  "purchase_organisation": null
  }
 ]
