@@ -116,7 +116,21 @@
   "column_break_uqit",
   "valid_till",
   "certificate_proof_section",
-  "certificate_proof"
+  "certificate_proof",
+  "purchasing_data_tab",
+  "payee_in_document",
+  "check_double_invoice",
+  "gr_based_inv_ver",
+  "service_based_inv_ver",
+  "order_currency",
+  "terms_of_payment",
+  "incoterms",
+  "purchase_group",
+  "purchase_team_remarks",
+  "purchase_head_remark",
+  "enterprise",
+  "reconciliation_account",
+  "accounts_team_remark"
  ],
  "fields": [
   {
@@ -692,11 +706,91 @@
    "fieldname": "purchase_head_approval",
    "fieldtype": "Data",
    "label": "Purchase Head Approval"
+  },
+  {
+   "fieldname": "purchasing_data_tab",
+   "fieldtype": "Tab Break",
+   "label": "Purchasing Data"
+  },
+  {
+   "default": "0",
+   "fieldname": "payee_in_document",
+   "fieldtype": "Check",
+   "label": "Payee in Document"
+  },
+  {
+   "default": "0",
+   "fieldname": "gr_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "GR Based Inv Ver"
+  },
+  {
+   "default": "0",
+   "fieldname": "service_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "Service Based Inv Ver"
+  },
+  {
+   "fieldname": "order_currency",
+   "fieldtype": "Link",
+   "label": "Order Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "terms_of_payment",
+   "fieldtype": "Link",
+   "label": "Terms of Payment",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Link",
+   "label": "Incoterms",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "purchase_group",
+   "fieldtype": "Link",
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "purchase_team_remarks",
+   "fieldtype": "Data",
+   "label": "Purchase Team Remarks"
+  },
+  {
+   "fieldname": "purchase_head_remark",
+   "fieldtype": "Data",
+   "label": "Purchase Head Remark"
+  },
+  {
+   "fieldname": "enterprise",
+   "fieldtype": "Select",
+   "label": "Enterprise",
+   "options": "e1\ne2\ne3"
+  },
+  {
+   "fieldname": "reconciliation_account",
+   "fieldtype": "Select",
+   "label": "Reconciliation Account",
+   "options": "1\n2\n3\n4"
+  },
+  {
+   "fieldname": "accounts_team_remark",
+   "fieldtype": "Data",
+   "label": "Accounts Team Remark"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_double_invoice",
+   "fieldtype": "Check",
+   "label": "Check Double"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 10:16:18.241143",
+ "modified": "2024-05-30 11:19:55.163486",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

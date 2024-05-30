@@ -1062,14 +1062,28 @@ def show_me(name):
             vm.mail AS mail,
             vm.cnot AS cnot,
             crt.certificate_name AS certificate_name,
-            vm.valid_till AS valid_till
+            vm.valid_till AS valid_till,
+            vm.payee_in_document AS payee_in_document,
+            vm.check_double_invoice AS check_double_invoice,
+            vm.gr_based_inv_ver AS gr_based_inv_ver,
+            vm.service_based_inv_ver AS service_based_inv_ver,
+            curn.currency_name AS order_currency,
+            term.terms_of_payment_name AS terms_of_payment,
+            incoterm.incoterm_name AS incoterms,
+            purchase.purchase_group_name AS purchase_group,
+            vm.purchase_team_remarks AS purchase_team_remarks,
+            vm.purchase_head_remark AS purchase_head_remark,
+            vm.enterprise AS enterprise,
+            vm.reconciliation_account AS reconciliation_account,
+            vm.accounts_team_remark AS accounts_team_remark
+
 
 
 
         FROM 
             `tabVendor Onboarding` vm 
         LEFT JOIN 
-            `tabCompany Master` cm ON ie.freight_forwarder = cm.name 
+            `tabCompany Master` cm ON vm.company_name = cm.name 
         LEFT JOIN
             `tabState Master` sm ON vm.state = sm.name
         LEFT JOIN 
@@ -1104,6 +1118,14 @@ def show_me(name):
             `tabGST Registration Type Master` gst ON vm.gst_registration_type = gst.name
         LEFT JOIN
             `tabCertificate Master` crt ON vm.certificate_name = crt.name
+        LEFT JOIN
+            `tabCurrency Master` curn ON vm.order_currency = curn.name
+        LEFT JOIN
+            `tabTerms Of Payment Master` term ON vm.terms_of_payment = term.name
+        LEFT JOIN
+            `tabIncoterm Master` incoterm ON vm.incoterms = incoterm.name
+        LEFT JOIN
+            `tabPurchase Group Master` purchase ON vm.purchase_group = purchase.name
         WHERE 
             vm.office_email_primary=%s
     """, (name), as_dict=1)
