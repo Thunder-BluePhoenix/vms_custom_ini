@@ -547,6 +547,41 @@ def calculate(data, method):
 
 #     return orderd_list
 
+
+@frappe.whitelist(allow_guest=True)
+def show_vendors_quotation(**kwargs):
+
+    vendor_code = kwargs.get("vendor_code")
+    rfq_number = kwargs.get("rfq_number")
+    quotation = frappe.db.sql(""" 
+        SELECT * FROM `tabQuotation`
+        where rfq_number =%s and vendor_code=%s
+        AND creation IN (
+            SELECT MAX(creation)
+            FROM `tabQuotation`
+            WHERE rfq_number=%s and vendor_code=%s
+
+            ) 
+
+
+     """,(rfq_number, vendor_code, rfq_number, vendor_code),as_dict=1)
+    quotation = quotation[0]
+    product_code = frappe.db.get_value("Product Master", filters={"name": quotation.product_code}, fieldname="product_code")
+    quotation["product_code"] = product_code
+    company_name = frappe.db.get_value("Company Master", filters={"name": quotation.company_name}, fieldname="company_name")
+    quotation["company_name"] = company_name
+    product_category_name = frappe.db.get_value("Product Category Master", filters={"name": quotation.product_category}, fieldname="product_category_name")
+    quotation["product_category"] = product_category_name
+    material_code = frappe.db.get_value("Material Master", filters={"name": quotation.material_code}, fieldname="material_code")
+    quotation["material_code"] = material_code
+    material_category_name = frappe.db.get_value("Material Category Master", filters={"name": quotation.material_category}, fieldname="material_category_name")
+    quotation["material_category"] = material_category_name
+    material_name = frappe.db.get_value("Material Master", filters={"name": quotation.material_name}, fieldname="material_name")
+    quotation["material_name"] = material_name
+    return quotation
+
+
+
 @frappe.whitelist(allow_guest=True)
 def compare_quotation(**kwargs):
 
