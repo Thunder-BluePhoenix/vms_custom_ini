@@ -1032,6 +1032,14 @@ def show_me(name):
         SELECT
             vm.name AS name,
             vm.office_email_primary AS office_email_primary,
+            vm.address_proofattachment AS address_proofattachment,
+            vm.bank_proof AS bank_proof,
+            vm.gst_proof AS gst_proof,
+            vm.pan_proof AS pan_proof,
+            vm.entity_proof AS entity_proof,
+            vm.iec_proof AS iec_proof,
+            vm.organisation_structure_document AS organisation_structure_document,
+            vm.certificate_proof AS certificate_proof,
             cm.company_name AS company_name,
             sm.state_name AS state_name,
             cnm.company_nature_name AS company_nature_name,
@@ -1282,6 +1290,8 @@ def show_rfq_detail(rfq_number):
     rfq = frappe.db.sql(""" 
 
         SELECT
+        rfq.name AS rfq_number,
+        prt4.port_name AS destination_port,
         vt.vendor_type_name AS vendor_type_name,
         rfq.rfq_cutoff_date AS rfq_cutoff_date,
         comp.company_name AS division_name,
@@ -1357,6 +1367,8 @@ def show_rfq_detail(rfq_number):
             `tabPort Master` prt ON rfq.destination_port = prt.name
         LEFT JOIN
             `tabPort Master` prt2 ON rfq.port_of_loading = prt2.name
+        LEFT JOIN
+            `tabPort Master` prt4 ON rfq.destination_port = prt4.name
         LEFT JOIN
             `tabPort Master` pt ON rfq.port_code = pt.name
         LEFT JOIN
