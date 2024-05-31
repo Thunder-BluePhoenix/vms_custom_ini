@@ -38,6 +38,7 @@
   "material",
   "quantity",
   "required_by",
+  "meril_invoice_date",
   "material_section",
   "pr_code",
   "company_code",
@@ -503,11 +504,16 @@
    "fieldname": "storage_location",
    "fieldtype": "Data",
    "label": "Storage Location"
+  },
+  {
+   "fieldname": "meril_invoice_date",
+   "fieldtype": "Date",
+   "label": "Meril Invoice Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 14:35:03.107348",
+ "modified": "2024-05-31 15:43:29.968489",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

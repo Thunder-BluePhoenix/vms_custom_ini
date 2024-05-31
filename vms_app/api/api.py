@@ -712,6 +712,11 @@ def total_rfq():
 
     total_rfq = frappe.db.sql(""" select count(*) from `tabRequest For Quotation` """, as_dict=1)
     return total_rfq
+@frappe.whitelist(allow_guest=True)
+def total_number_of_quotation():
+
+    count = frappe.db.sql(""" select count(*) from `tabQuotation` """,as_dict=1)
+    return count
 
 
 @frappe.whitelist(allow_guest=True)
@@ -1292,6 +1297,7 @@ def show_rfq_detail(rfq_number):
         SELECT
         rfq.name AS rfq_number,
         prt4.port_name AS destination_port,
+        rfq.meril_invoice_date AS meril_invoice_date,
         vt.vendor_type_name AS vendor_type_name,
         rfq.rfq_cutoff_date AS rfq_cutoff_date,
         comp.company_name AS division_name,
@@ -1354,7 +1360,8 @@ def show_rfq_detail(rfq_number):
         rfq.select_language AS select_language,
         rfq.service_code AS service_code,
         rfq.service_category AS service_category,
-        rfq.storage_location AS storage_location
+        rfq.storage_location AS storage_location,
+        productcat.product_category_name AS product_category
 
 
 
@@ -1403,6 +1410,8 @@ def show_rfq_detail(rfq_number):
             `tabPlant Master` pltm ON rfq.plant_code = pltm.name
         LEFT JOIN
             `tabVendor Master` vm2 ON rfq.vendor_code = vm2.name
+        LEFT JOIN
+            `tabProduct Category Master` productcat ON rfq.product_category = productcat.name
 
 
 
