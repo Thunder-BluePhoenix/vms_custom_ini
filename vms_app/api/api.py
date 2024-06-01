@@ -1321,8 +1321,11 @@ def show_me(name):
     """, (name), as_dict=1)
     xyz = frappe.db.get_value("Vendor Onboarding", filters={'name': name}, fieldname=["office_email_primary"])
     email = frappe.db.get_value("Vendor Master", filters={'office_email_primary': xyz}, fieldname=["name"])
+    dic = {
+        "id": email 
+    }
 
-    val = vendor + [email]
+    val = vendor + [dic]
 
     return val
 
