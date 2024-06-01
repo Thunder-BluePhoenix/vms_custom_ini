@@ -72,7 +72,7 @@ from requests.auth import HTTPBasicAuth
 #     return full_detail
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_purchase_order(**kwargs):
     rfq_number = kwargs.get("rfq_number")
     rfq = show_rfq_detail(rfq_number)
@@ -165,12 +165,12 @@ def show_purchase_order(**kwargs):
 
 #**********************************Purchase Order API Closed*******************************************************************
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def token():
     print("*******************************************************")
     return frappe.local.session.data.csrf_token
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def is_user_logged_in(email):
     user_session = frappe.db.exists('User', {'email': email, 'last_login': ['!=', None]})
     if user_session:
@@ -185,7 +185,7 @@ obj = SendEmail()
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def check_rfq_date(**kwargs):
     name = kwargs.get("rfq_number")
     rfq_cutoff_date = frappe.db.get_value("Request For Quotation", filters={'name': name}, fieldname='rfq_cutoff_date')
@@ -206,7 +206,7 @@ def check_rfq_date(**kwargs):
     # current_user_designation_name = frappe.db.get_value("Designation Master", filters={'name': current_user_designation_id}, fieldname='designation_name')
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def onboarding_detail(**kwargs):
 
     name = kwargs.get('name')
@@ -268,7 +268,7 @@ def generate_keys(user):
 
 #****************************************************Login API Closed************************************************************************************
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def send_email(data, method):
     frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='In Process' """ )
     frappe.db.commit()
@@ -307,7 +307,7 @@ def send_email(data, method):
     except Exception as e:
         print(f"Failed to send email: {e}")
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def send_email_on_onboarding(data, method):
 
     print("***********Details filled***********")
@@ -344,7 +344,7 @@ def send_email_on_onboarding(data, method):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def hit():
     print("****************Hi there!*******************")
     purchase_head_key = frappe.db.get_value("Designation Master", {"designation_name": "Purchase Head"}, "name")
@@ -379,7 +379,7 @@ def hit():
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def hitt(data, method):
     print("****************Hi there!*******************")
     vendor_type_id = data.get('select_service')
@@ -482,7 +482,7 @@ def send_email_on_quotation_creation(data, method):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def send_email_on_po_creation(data, method):
 
     po_creator = frappe.session.user
@@ -515,7 +515,7 @@ def send_email_on_po_creation(data, method):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def set_vendor_onboarding_status(**kwargs):
     name = kwargs.get("name")
     current_user = frappe.session.user
@@ -606,7 +606,7 @@ def set_vendor_onboarding_status(**kwargs):
         return registered_by_email
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def calculate(data, method):
     print("***********Calculated**********************")
     chargable_weight = data.get("chargable_weight")
@@ -688,7 +688,7 @@ def calculate(data, method):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_vendors_quotation(**kwargs):
 
     vendor_code = kwargs.get("vendor_code")
@@ -722,7 +722,7 @@ def show_vendors_quotation(**kwargs):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def compare_quotation(**kwargs):
 
     rfq_number = kwargs.get("rfq_number")
@@ -768,7 +768,7 @@ def compare_quotation(**kwargs):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def lowest_quoted_price(**kwargs):
 
     rfq_number = kwargs.get("rfq_number")
@@ -795,7 +795,7 @@ def lowest_quoted_price(**kwargs):
 #RFQ/MIPL/####
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def test_method(self, method):
     if self.file_name:
         file_doc = frappe.get_doc("File", {"file_url": self.file_name})
@@ -803,7 +803,7 @@ def test_method(self, method):
             
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def test_method(self, method):
     if self.file_name:
        
@@ -821,18 +821,18 @@ def test_method(self, method):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_vendors():
     total_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` """,as_dict=1)
     return total_vendors
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_in_process_vendors():
 
     total_in_process_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` where status='In Process' """,as_dict=1)
     return total_in_process_vendors
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def inprocess_vendor_detail():
     total_in_process_vendors = frappe.db.sql(""" select * from `tabVendor Master` where status='In Process' """,as_dict=1)
     return total_in_process_vendors
@@ -840,33 +840,33 @@ def inprocess_vendor_detail():
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_onboarded_vendors():
 
     total_in_process_vendors = frappe.db.sql(""" select count(*) from `tabVendor Master` where status='Onboarded' """,as_dict=1)
     return total_in_process_vendors
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_rfq():
 
     total_rfq = frappe.db.sql(""" select count(*) from `tabRequest For Quotation` """, as_dict=1)
     return total_rfq
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_number_of_quotation():
 
     count = frappe.db.sql(""" select count(*) from `tabQuotation` """,as_dict=1)
     return count
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def total_vendors_registerd_in_month():
 
     current_month = datetime.now.strftime("%B")
     current_year = datetime.now.year
     return current_month, current_year
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def all_rfq_detail():
 
     all_rfq = frappe.db.sql("""  SELECT 
@@ -882,7 +882,7 @@ def all_rfq_detail():
     return all_rfq
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def main_function(data, method):
     #time.sleep(3)
     print("*****************************Hi From Main**************************************")
@@ -895,7 +895,7 @@ def main_function(data, method):
             text += page.get_text()
         print(text)
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def extract_text_from_pdf(data, method):
     pdf_path = data.get("file_name")
     #pdf_path = frappe.request.files.get("file_name")
@@ -999,7 +999,7 @@ LEFT JOIN
 
     return all_vendors
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_detailed_quotation(name):
 
     quotation = frappe.db.sql(""" 
@@ -1078,7 +1078,7 @@ def show_detailed_quotation(name):
 
 #     return vendor
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def import_entry_detail(name):
 
     entry = frappe.db.sql("""
@@ -1171,7 +1171,7 @@ def import_entry_detail(name):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_me(name):
     vendor = frappe.db.sql("""
         SELECT
@@ -1323,7 +1323,7 @@ def show_me(name):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_vendor_registration_details(name):
 
     vendor = frappe.db.sql(""" 
@@ -1429,7 +1429,7 @@ def show_vendor_registration_details(name):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_rfq_detail(rfq_number):
 
     rfq = frappe.db.sql(""" 
@@ -1566,7 +1566,7 @@ def show_rfq_detail(rfq_number):
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_in_process_vendors():
 
     all_vendors = frappe.db.sql(""" SELECT
@@ -1590,7 +1590,7 @@ LEFT JOIN
 
     return all_vendors
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def onboarded_vendors():
 
     all_vendors = frappe.db.sql(""" SELECT
@@ -1614,7 +1614,7 @@ LEFT JOIN
 
     return all_vendors
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_single_vendor(**kwargs):
 
     vendor_id = kwargs.get('name')
@@ -1642,7 +1642,7 @@ LEFT JOIN
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def sap_fetch_token(data, method):
 
 
@@ -1752,7 +1752,7 @@ def sap_fetch_token(data, method):
     #     return "Error in POST request: " + str(response.status_code)
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def send_detail(csrf_token, vendor_details ,data, method):
     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
     print("*************************************")
@@ -1782,7 +1782,7 @@ def send_detail(csrf_token, vendor_details ,data, method):
         return "Error in POST request: " + str(response.status_code)
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def validate_aadhar_number():
     pass
 
@@ -1801,7 +1801,7 @@ def validate_aadhar_number():
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def create_po(**kwargs):
     pass
 
@@ -1837,14 +1837,14 @@ def create_po(**kwargs):
 #     `tabState Master` st ON st.state_name = st.state_name
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def vendor_onboarding(**kwargs):
     pass
 
 
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def show_vendor(data, method):
 
     name = data.get("name")
