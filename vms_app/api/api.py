@@ -600,10 +600,12 @@ def set_vendor_onboarding_status(**kwargs):
                 server.login(smtp_user, smtp_password)  
                 server.sendmail(from_address, to_address, msg.as_string()) 
                 print("Email sent successfully!")
+                print(registered_by_email)
         except Exception as e:
             print(f"Failed to send email: {e}")
 
-        return registered_by_email
+    return registered_by_email
+
 
 
 @frappe.whitelist()
@@ -1317,8 +1319,12 @@ def show_me(name):
         WHERE 
             vm.office_email_primary=%s
     """, (name), as_dict=1)
+    xyz = frappe.db.get_value("Vendor Onboarding", filters={'name': name}, fieldname=["office_email_primary"])
+    email = frappe.db.get_value("Vendor Master", filters={'office_email_primary': xyz}, fieldname=["name"])
 
-    return vendor
+    val = vendor + [email]
+
+    return val
 
 
 
