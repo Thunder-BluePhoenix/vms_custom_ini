@@ -25,11 +25,145 @@ from requests.auth import HTTPBasicAuth
 
 
 
+#*********************************Purchase Order API**************************************************
+
 # @frappe.whitelist(allow_guest=True)
-# def get_all(**kwargs):
-#     all = frappe.db.sql(""" select * from s """,allow_guest=True)
+# def show_purchase_order(**kwargs):
+
+#     rfq_number = kwargs.get("rfq_number")
+#     rfq = show_rfq_detail(rfq_number)
+#     purchase_detail = frappe.db.sql(""" select * from `tabPurchase Order` where rfq_code=%s """,(rfq_number), as_dict=1)
+#     parent = frappe.db.get_value("Purchase Order", filters={'rfq_code': rfq_number}, fieldname=["name"])
+#     purchase_items = frappe.db.sql(""" select * from `tabPurchase Order Item` where parent=%s  """,(parent),as_dict=1)
+#     full_detail = purchase_detail + purchase_items
+#     return full_detail
 
 
+# @frappe.whitelist(allow_guest=True)
+# def show_purchase_order(**kwargs):
+
+#     rfq_number = kwargs.get("rfq_number")
+#     rfq = show_rfq_detail(rfq_number)
+#     purchase_detail = frappe.db.sql(""" select * from `tabPurchase Order` where rfq_code=%s """,(rfq_number), as_dict=1)
+#     parent = frappe.db.get_value("Purchase Order", filters={'rfq_code': rfq_number}, fieldname=["name"])
+#     purchase_items = frappe.db.sql(""" select * from `tabPurchase Order Item` where parent=%s  """,(parent),as_dict=1)
+    
+#     # Replace material_code, product_code, and purchase_group with their respective names
+#     for detail in purchase_detail:
+#         if detail.get('material_code'):
+#             material_name = frappe.db.get_value("Material Master", detail['material_code'], "material_code")
+#             detail['material_code'] = material_code
+#         if detail.get('product_code'):
+#             product_name = frappe.db.get_value("Product Master", detail['product_code'], "product_name")
+#             detail['product_code'] = product_code
+#         if detail.get('purchase_group'):
+#             purchase_group_name = frappe.db.get_value("Purchase Group Master", detail['purchase_group'], "purchase_group_name")
+#             detail['purchase_group'] = purchase_group_name
+    
+#     for item in purchase_items:
+#         if item.get('material_code'):
+#             material_name = frappe.db.get_value("Material Master", item['material_code'], "material_name")
+#             item['material_code'] = material_code
+#         if item.get('product_code'):
+#             product_name = frappe.db.get_value("Product Master", item['product_code'], "product_name")
+#             item['product_code'] = product_code
+
+#     full_detail = purchase_detail + purchase_items
+#     return full_detail
+
+
+@frappe.whitelist(allow_guest=True)
+def show_purchase_order(**kwargs):
+    rfq_number = kwargs.get("rfq_number")
+    rfq = show_rfq_detail(rfq_number)
+    purchase_detail = frappe.db.sql("""SELECT * FROM `tabPurchase Order` WHERE rfq_code=%s""", (rfq_number), as_dict=1)
+    parent = frappe.db.get_value("Purchase Order", filters={'rfq_code': rfq_number}, fieldname=["name"])
+    purchase_items = frappe.db.sql("""SELECT * FROM `tabPurchase Order Item` WHERE parent=%s""", (parent), as_dict=1)
+
+    
+    for detail in purchase_detail:
+        if detail.get('material_code'):
+            material_code = frappe.db.get_value("Material Master", detail['material_code'], "material_code")
+            detail['material_code'] = material_code
+
+        if detail.get('purchase_group'):
+            purchase_group_name = frappe.db.get_value("Purchase Group Master", detail['purchase_group'], "purchase_group_name")
+            detail['purchase_group'] = purchase_group_name
+        if detail['company_code']:
+            company_code = frappe.db.get_value("Company Master", detail['company_code'], "company_code")
+            detail['company_code'] = company_code
+        if detail.get('product_category'):
+            product_category_name = frappe.db.get_value("Product Category Master", detail['product_category'], "product_category_name")
+            detail['product_category'] = product_category_name
+        if detail.get('material_category'):
+            material_category_name = frappe.db.get_value("Material Category Master", detail['material_category'], "material_category_name")
+            detail['material_category'] = material_category_name
+        if detail.get('quantity_unit'):
+            uom = frappe.db.get_value("UOM Master", detail['quantity_unit'], "uom")
+            detail['quantity_unit'] = uom
+        if detail.get('plant'):
+            plant_name = frappe.db.get_value("Plant Master", detail['plant'], "plant_name")
+            detail['plant'] = plant_name
+        if detail.get('city'):
+            city_name = frappe.db.get_value("City Master", detail['city'], "city_name")
+            detail['city'] = city_name
+        if detail.get('district'):
+            district_name = frappe.db.get_value("District Master", detail['district'], "district_name")
+            detail['district'] = district_name
+        if detail.get('state'):
+            state_name = frappe.db.get_value("State Master", detail['state'], "state_name")
+            detail['state'] = state_name
+        if detail.get('country'):
+            country_name = frappe.db.get_value("Country Master", detail['country'], "country_name")
+            detail['country'] = country_name
+        if detail.get('pincode'):
+            pincode = frappe.db.get_value("Pincode Master", detail['pincode'], "pincode")
+            detail['pincode'] = pincode
+        if detail.get('shipping_city'):
+            city_name = frappe.db.get_value("City Master", detail['shipping_city'], "city_name")
+            detail['shipping_city'] = city_name
+        if detail.get('shipping_district'):
+            district_name = frappe.db.get_value("District Master", detail['shipping_district'], "district_name")
+            detail['shipping_district'] = district_name
+        if detail.get('shipping_state'):
+            state_name = frappe.db.get_value("State Master", detail['shipping_state'], "state_name")
+            detail['shipping_state'] = state_name
+        if detail.get('shipping_country'):
+            country_name = frappe.db.get_value("Country Master", detail['shipping_country'], "country_name")
+            detail['shipping_country'] = country_name
+        if detail.get('shipping_pincode'):
+            pincode = frappe.db.get_value("Pincode Master", detail['shipping_pincode'], "pincode")
+            detail['shipping_pincode'] = pincode
+
+
+
+
+
+
+    
+    for item in purchase_items:
+        if item.get('material_code'):
+            material_code = frappe.db.get_value("Material Master", item['material_code'], "material_code")
+            item['material_code'] = material_code
+        if item.get('product_code'):
+            product_code = frappe.db.get_value("Product Master", item['product_code'], "product_code")
+            item['product_code'] = product_code
+        if item.get('product_name'):
+            product_name = frappe.db.get_value("Product Master", item['product_name'], "product_name")
+            item['product_name'] = product_name
+
+
+    full_detail = purchase_detail + purchase_items
+
+   
+    frappe.log_error(message=str(full_detail), title="Debug: Full Purchase Order Details")
+
+    return full_detail
+
+
+
+
+#**********************************Purchase Order API Closed*******************************************************************
 
 @frappe.whitelist(allow_guest=True)
 def token():
@@ -546,6 +680,12 @@ def calculate(data, method):
 #         quotation["product_code"] = product_code
 
 #     return orderd_list
+
+# @frappe.whitelist(allow_guest=True)
+# def show_all_detailed_quotaions():
+
+#     all_quotations = frappe.db.sql(""" SELECT * from `tabQuotations`  """,as_dict=1)
+
 
 
 @frappe.whitelist(allow_guest=True)
