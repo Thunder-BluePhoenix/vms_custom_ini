@@ -55,6 +55,7 @@
   "office_address_line_4",
   "district",
   "pincode",
+  "vendor_code",
   "section_break_udaq",
   "manufacturing_address_line_1",
   "manufacturing_address_line_2",
@@ -388,11 +389,16 @@
    "fieldname": "gst_number",
    "fieldtype": "Data",
    "label": "GST Number"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-05 19:22:52.392798",
+ "modified": "2024-06-06 11:19:49.884446",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

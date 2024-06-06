@@ -1693,6 +1693,7 @@ def sap_fetch_token(data, method):
     vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('vendor_type')}, fieldname='vendor_type_name')
     # purchasing_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('Ekgrp')},fieldname='' )
     bank1 = frappe.db.get_value("Bank Master", filters={'name': data.get('bank1')}, fieldname='bank_name')
+    name = data.get('name')
     print("********************", bank1)
     # bank2 = frappe.db.get_value("Bank Master", filters={'name': data.get('bank_name')}, fieldname='bank_name')
 
@@ -1938,7 +1939,7 @@ def sap_fetch_token(data, method):
         csrf_token = response.headers.get('x-csrf-token')
         key1 = response.cookies.get('SAP_SESSIONID_BHD_200')
         key2 = response.cookies.get('sap-usercontext')
-        send_detail(csrf_token, data, key1, key2)
+        send_detail(csrf_token, data, key1, key2, name)
         print("*******************KEYYYYY********", key1)
         print(key2)
 
@@ -1956,12 +1957,13 @@ def sap_fetch_token(data, method):
 
 
 @frappe.whitelist(allow_guest=True)
-def send_detail(csrf_token, data, key1, key2):
+def send_detail(csrf_token, data, key1, key2, name):
 
    
     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
     key1 = key1
     key2 = key2
+    name = name
     #pdb.set_trace()
     headers = {
 
@@ -1979,11 +1981,20 @@ def send_detail(csrf_token, data, key1, key2):
     try:
         response = requests.post(url, headers=headers, auth=auth ,json=data)
         print("**************************POST here*********************", response.json(), response.status_code)
-        return response.json()
+        #return response.json()
+        vendor_sap_code = response.json()
+        vendor_code = vendor_sap_code['d']['Vedno']
+        print("^&%^%^%^*&%%^^^^^^^^^^^^^^^^^^^^^^^^^^", vendor_code)
+        
+        print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",name)
+        frappe.db.sql(""" UPDATE `tabVendor Master` SET vendor_code=%s where name=%s """, (vendor_code, name))
         
         #return response.json()
     except ValueError:
         print("**************************POSTsdfsdf here*********************", response.json())
+
+
+
 
 
 
@@ -1996,7 +2007,11 @@ def send_detail(csrf_token, data, key1, key2):
     if response.status_code == 201:  
         print("*****************************************")
         print("Vendor details posted successfully.")
+        # vendor_sap_code = response.json()
+        # vendor_code = vendor_sap_code['d']['Vedno']
+        # print("^&%^%^%^*&%%^^^^^^^^^^^^^^^^^^^^^^^^^^", vendor_code)
         return response.json()
+
         
     else:
         print("******************************************")
