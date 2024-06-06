@@ -205,7 +205,8 @@ doc_events = {
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
 		#isko uncomment karna hai "after_insert": "vms_app.api.api.send_email" 
-		#"validate": "vms_app.api.api.sap_fetch_token"
+		"validate": "vms_app.api.api.sap_fetch_token"
+		#"validate": "vms_app.api.api.create_sap_so_from_po"
 	},
 	"Vendor Onboarding": {
 
@@ -341,4 +342,70 @@ doc_events = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+
+
+
+
+#     data =  {
+#     "Bukrs": company_code,
+#     "Ekorg": data.get("purchase_organization"),
+#     "Ktokk": "ZDOM",
+#     "Title": data.get("ZDOM"),
+#     "Name1": data.get('Name1'),
+#     "Name2": "",
+#     "Sort1": data.get('Sort1'),
+#     "Street": data.get('Street'),
+#     "StrSuppl1": data.get('StrSuppl1'),
+#     "StrSuppl2": data.get('StrSuppl2'),
+#     "StrSuppl3": data.get('StrSuppl3'),
+#     "PostCode1": pincode,
+#     "City1": city,
+#     "Country": country,
+#     "J1kftind": "",
+#     "Region": state,
+#     "TelNumber": "",
+#     "MobNumber": "1256651",
+#     "SmtpAddr": "hitesh.mahto@merillife.com",
+#     "SmtpAddr1": "hitesh@gmail.com",
+#     "Zuawa": "",
+#     "Akont": "16101020",
+#     "Waers": currency,
+#     "Zterm": terms_of_payment,
+#     "Inco1": incoterms1,
+#     "Inco2": incoterms2,
+#     "Kalsk": "",
+#     "Ekgrp": purchasing_group,
+#     "Xzemp": "X",
+#     "Reprf": "X",
+#     "Webre": "X",
+#     "Lebre": "",
+#     "Stcd3": "GST12345",
+#     "J1ivtyp": vendor_type,
+#     "J1ipanno": data.get('J1ipanno'),
+#     "J1ipanref": "Hitesh Mahto",
+#     "Namev": "Hitesh",
+#     "Name11": "Mahto",
+#     "Bankl": "HDFC0000170",
+#     "Bankn": "ac91201001898261",
+#     "Bkref": "2001",
+#     "Banka": "UTIB0019191",
+#     "Xezer": "",
+#     "Refno": "VMS/368b008a78/0101",
+#     "Vedno": "",
+#     "Zmsg": ""
+# }
+
+   # company_code = frappe.db.get_value("Company Master", filters={'name': data.get('Bukrs')}, fieldname='company_code')
+   #  purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('Ekorg')}, fieldname='company_code')
+   #  pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('PostCode1')}, fieldname='pincode')
+   #  city = frappe.db.get_value("City Master", filters={'name': data.get('City1')}, fieldname='city_name')
+   #  country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
+   #  state = frappe.db.get_value("State Master", filters={'name': data.get('Region')}, fieldname='state_name')
+   #  currency = frappe.db.get_value("Currency Master", filters={'name': data.get('Waers')}, fieldname='currency_code')
+   #  terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('Zterm')}, fieldname='terms_of_payment_name')
+   #  incoterms1 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('Inco1')}, fieldname='incoterm_name')
+   #  incoterms2 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('Inco1')}, fieldname='incoterm_name')
+   #  #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+   #  vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('J1ivtyp')}, fieldname='vendor_type_name')
+   #  purchasing_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('Ekgrp')},fieldname='' )
 

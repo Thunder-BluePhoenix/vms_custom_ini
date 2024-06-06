@@ -22,6 +22,8 @@ from frappe.auth import LoginManager
 from requests.auth import HTTPBasicAuth
 from cryptography.fernet import Fernet
 import base64
+from vms_app.api.config.api import SAP_BASE_URL
+from vms_app.utils.utils import get_token_from_sap, send_request
 
 
 
@@ -254,7 +256,10 @@ def login(usr, pwd):
     print("************** API KEY and API Secret ****************************************")
     token = f"Token {user.api_key}:{api_generate}"
     encoded_token = base64.b64encode(token.encode()).decode()
+    decoded_token = base64.b64decode(encoded_token.encode()).decode()
+
     print(encoded_token)
+    print(decoded_token)
     frappe.response["message"] = {
 
         "success_key":1,
@@ -1667,145 +1672,767 @@ LEFT JOIN
 
 
 
+#****************************************SAP DATA PUSH*********************************
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def sap_fetch_token(data, method):
-
-
     company_code = frappe.db.get_value("Company Master", filters={'name': data.get('company_name')}, fieldname='company_code')
-    purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_name')
+    purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_code')
+    account_group = frappe.db.get_value("Account Group Master", filters={'name': data.get('account_group')}, fieldname='account_group_name')
     pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('pincode')}, fieldname='pincode')
-    city = frappe.db.get_value("City Master", filters={'name': data.get('city')}, fieldname='city_name')
-    country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
-    state = frappe.db.get_value("State Master", filters={'name': data.get('state')}, fieldname='state_name')
-    currency = frappe.db.get_value("Currency Master", filters={'name': data.get('order_currency')}, fieldname='currency_name')
-    #terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('terms_of_payment')}, fieldname='terms_of_payment')
-    #incoterms = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm')}, fieldname='incoterm_name')
-    #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+    city = frappe.db.get_value("City Master", filters={'name': data.get('city_name')}, fieldname='city_name')
+    country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_code')
+    state = frappe.db.get_value("State Master", filters={'name': data.get('state')}, fieldname='state_code')
+    currency = frappe.db.get_value("Currency Master", filters={'name': data.get('order_currency')}, fieldname='currency_code')
+    terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('terms_of_payment')}, fieldname='terms_of_payment_name')
+    incoterms1 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm_name')}, fieldname='incoterm_name')
+    incoterms2 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm_name')}, fieldname='incoterm_name')
+    purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+
+
     vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('vendor_type')}, fieldname='vendor_type_name')
+    # purchasing_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('Ekgrp')},fieldname='' )
+    bank1 = frappe.db.get_value("Bank Master", filters={'name': data.get('bank1')}, fieldname='bank_name')
+    print("********************", bank1)
+    # bank2 = frappe.db.get_value("Bank Master", filters={'name': data.get('bank_name')}, fieldname='bank_name')
 
-
-    vendor_details = {
+    data =  {
     "Bukrs": company_code,
     "Ekorg": purchase_organization,
-    "Ktokk": "",
+    "Ktokk": account_group,
     "Title": "",
-    "Name1": "",
+    "Name1": data.get('vendor_name'),
     "Name2": "",
     "Sort1": data.get('search_term'),
     "Street": data.get('office_address_line_1'),
-    "StrSuppl1": data.get('office_address_line_2'),
-    "StrSuppl2": data.get('office_address_line_3'),
-    "StrSuppl3": data.get('office_address_line_4'),
+    "StrSuppl1": data.get('office_address_line_1'),
+    "StrSuppl2": "",
+    "StrSuppl3": "",
     "PostCode1": pincode,
     "City1": city,
     "Country": country,
-    "J1kftind": data.get('type_of_business'),
-    "Region": state,
-    "TelNumber": data.get('telephone_number'),
+    "J1kftind": "",
+    "Region": "6",
+    "TelNumber": "",
     "MobNumber": data.get('mobile_number'),
     "SmtpAddr": data.get('office_email_primary'),
     "SmtpAddr1": data.get('office_email_secondary'),
     "Zuawa": "",
-    "Akont": "",
+    "Akont": "16101020",
     "Waers": currency,
-    "Zterm": "",
-    "Inco1": "",
-    "Inco2": "",
+    "Zterm": "Z072",
+    "Inco1": incoterms1,
+    "Inco2": incoterms2,
     "Kalsk": "",
-    "Ekgrp": "",
-    "Xzemp": data.get('payee_in_document'),
-    "Reprf": data.get('check_double_invoice'),
-    "Webre": data.get('gr_based_inv_ver'),
-    "Lebre": data.get('service_based_inv_ver'),
-    "Stcd3": "",
-    "J1ivtyp": vendor_type,
-    "J1ipanno": "",
-    "J1ipanref": "",
-    "Namev": "",
-    "Name11": "",
-    "Bankl": "",
-    "Bankn": "",
-    "Bkref": "",
-    "Banka": "",
+    "Ekgrp": purchase_group,
+    "Xzemp": "X",
+    "Reprf": "X",
+    "Webre": "X",
+    "Lebre": "",
+    "Stcd3": data.get('get_number'),
+    "J1ivtyp": data.get('vendor_type'),
+    "J1ipanno": data.get('pan_number'),
+    "J1ipanref": "Hitesh Mahto",
+    "Namev": "Hitesh",
+    "Name11": "Mahto",
+    "Bankl": bank1,
+    "Bankn": data.get("account_number"),
+    "Bkref": "2001",
+    "Banka": "UTIB0019191",
     "Xezer": "",
-    "Refno": data.get('name')
-}
+    "Refno": "VMS/368b008a78/0101",
+    "Vedno": "",
+    "Zmsg": ""
+
+        }
+
+
+
+
+
+
+#     data =  {
+#     "Bukrs": "2000",
+#     "Ekorg": "2000",
+#     "Ktokk": "ZDOM",
+#     "Title": "NULL",
+#     "Name1": "MERIL-API12",
+#     "Name2": "",
+#     "Sort1": "Harin",
+#     "Street": "test",
+#     "StrSuppl1": "test",
+#     "StrSuppl2": "",
+#     "StrSuppl3": "",
+#     "PostCode1": "151617",
+#     "City1": "test",
+#     "Country": "IN",
+#     "J1kftind": "",
+#     "Region": "6",
+#     "TelNumber": "",
+#     "MobNumber": "1256651",
+#     "SmtpAddr": "hitesh.mahto@merillife.com",
+#     "SmtpAddr1": "hitesh@gmail.com",
+#     "Zuawa": "",
+#     "Akont": "16101020",
+#     "Waers": "INR",
+#     "Zterm": "Z072",
+#     "Inco1": "CFR",
+#     "Inco2": "CFR Costs and freight",
+#     "Kalsk": "",
+#     "Ekgrp": "P02",
+#     "Xzemp": "X",
+#     "Reprf": "X",
+#     "Webre": "X",
+#     "Lebre": "",
+#     "Stcd3": "GST12345",
+#     "J1ivtyp": "0",
+#     "J1ipanno": "PAN11010",
+#     "J1ipanref": "Hitesh Mahto",
+#     "Namev": "Hitesh",
+#     "Name11": "Mahto",
+#     "Bankl": "HDFC0000170",
+#     "Bankn": "ac91201001898261",
+#     "Bkref": "2001",
+#     "Banka": "UTIB0019191",
+#     "Xezer": "",
+#     "Refno": "VMS/368b008a78/0101",
+#     "Vedno": "",
+#     "Zmsg": ""
+# }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#     data = {
+#     "company_": company_code,
+#     "Ekorg": data.get("purchase_organization"),
+#     "Ktokk": data.get("ZDOM"),
+#     "Title": "",
+#     "Name1": data.get('Name1'),
+#     "Name2": "",
+#     "Sort1": data.get('Sort1'),
+#     "Street": data.get('office_address_line_1'),
+#     "StrSuppl1": data.get('StrSuppl1'),
+#     "StrSuppl2": data.get('StrSuppl2'),
+#     "StrSuppl3": data.get('StrSuppl3'),
+#     "PostCode1": pincode,
+#     "City1": city,
+#     "Country": "",
+#     "J1kftind": data.get('J1kftind'),
+#     "Region": state,
+#     "TelNumber": data.get('TelNumber'),
+#     "MobNumber": data.get('MobNumber'),
+#     "SmtpAddr": data.get('SmtpAddr'),
+#     "SmtpAddr1": data.get('SmtpAddr1'),
+#     "Zuawa": "",
+#     "Akont": "",
+#     "Waers": data.get('Waers'),
+#     "Zterm": data.get('Zterm'),
+#     "Inco1": "",
+#     "Inco2": "",
+#     "Kalsk": "",
+#     "Ekgrp": "",
+#     "Xzemp": data.get('Xzemp'),
+#     "Reprf": data.get('Reprf'),
+#     "Webre": data.get('Webre'),
+#     "Lebre": data.get('Lebre'),
+#     "Stcd3": "",
+#     "J1ivtyp": vendor_type,
+#     "J1ipanno": "",
+#     "J1ipanref": "",
+#     "Namev": "",
+#     "Name11": "",
+#     "Bankl": "",
+#     "Bankn": "",
+#     "Bkref": "",
+#     "Banka": "",
+#     "Xezer": "",
+#     "Refno": data.get('Refno'),
+#     "Vedno": "",
+#     "Zmsg": ""
+# }
+
+
+
+
+    # "Ekorg": data.get("purchase_organization"),
+    # "Ktokk": "ZDOM",
+    # "Title": data.get("ZDOM"),
+    # "Name1": data.get('Name1'),
+    # "Name2": "",
+    # "Sort1": data.get('Sort1'),
+    # "Street": data.get('Street'),
+    # "StrSuppl1": data.get('StrSuppl1'),
+    # "StrSuppl2": data.get('StrSuppl2'),
+    # "StrSuppl3": data.get('StrSuppl3'),
+    # "PostCode1": pincode,
+    # "City1": city,
+    # "Country": country,
+    # "J1kftind": "",
+    # "Region": state,
+    # "TelNumber": "",
+    # "MobNumber": "1256651",
+    # "SmtpAddr": "hitesh.mahto@merillife.com",
+    # "SmtpAddr1": "hitesh@gmail.com",
+    # "Zuawa": "",
+    # "Akont": "16101020",
+    # "Waers": currency,
+    # "Zterm": terms_of_payment,
+    # "Inco1": incoterms1,
+    # "Inco2": incoterms2,
+    # "Kalsk": "",
+    # "Ekgrp": purchasing_group,
+    # "Xzemp": "X",
+    # "Reprf": "X",
+    # "Webre": "X",
+    # "Lebre": "",
+    # "Stcd3": "GST12345",
+    # "J1ivtyp": vendor_type,
+    # "J1ipanno": data.get('J1ipanno'),
+    # "J1ipanref": "Hitesh Mahto",
+    # "Namev": "Hitesh",
+    # "Name11": "Mahto",
+    # "Bankl": "HDFC0000170",
+    # "Bankn": "ac91201001898261",
+    # "Bkref": "2001",
+    # "Banka": "UTIB0019191",
+    # "Xezer": "",
+    # "Refno": "VMS/368b008a78/0101",
+    # "Vedno": "",
+    # "Zmsg": ""
+# }
+
+
+
+
+
+
+
 
     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
-    #print(vendor_details)
     headers = {
-    'X-CSRF-TOKEN': 'Fetch'
+    'X-CSRF-TOKEN': 'Fetch',
+     'Authorization': 'Basic V0YtQkFUQ0g6TUB3YiMkJTIwMjQ=',
+     'Content-Type': 'application/json'
     }
-    auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
-    response = requests.get(url, headers=headers, auth=auth)
-
-        #print(response)
+    auth = HTTPBasicAuth('WF-BATCH ', 'M@wb#$%2024')
+    response = requests.get(url, headers=headers)
     if response.status_code == 200:
+        print("******GET CSRF TOKEN*********")
         csrf_token = response.headers.get('x-csrf-token')
-        send_detail(data, vendor_details ,method, csrf_token)
-        #print("********************  Token ****************************************")
-        #print("x-csrf-token:", csrf_token)
-        print(vendor_details)
-        return csrf_token
+        key1 = response.cookies.get('SAP_SESSIONID_BHD_200')
+        key2 = response.cookies.get('sap-usercontext')
+        send_detail(csrf_token, data, key1, key2)
+        print("*******************KEYYYYY********", key1)
+        print(key2)
+
+        print(csrf_token)
+        print(response.headers.get('x-csrf-token'))
+  
+        
+       # return csrf_token
     else:
         print("Error:", response.status_code)
-        return "Error: " + str(response.status_code)
-    send_detail("*************************",csrf_token)
+       # return "Error: " + str(response.status_code)
+        send_detail("*************************",csrf_token)
 
 
 
-    #*******************************************************************************
 
-    # headers = {
-    #     'X-CSRF-Token': csrf_token,
-    #     'Content-Type': 'application/json'
-    # }
-    # auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
-    # #print("***********************************************")
-    
-    
-    # response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
-    # print("***********************************************", response.status_code)
-    
-    
-    # if response.status_code == 200:  
-    #    # print("*****************************************")
-    #     print("Vendor details posted successfully.")
-    #     #return "************************Vendor details posted successfully.******************************"
-    # else:
-    #     print("Error in POST request:", response.status_code)
-    #     return "Error in POST request: " + str(response.status_code)
+@frappe.whitelist(allow_guest=True)
+def send_detail(csrf_token, data, key1, key2):
 
-
-@frappe.whitelist()
-def send_detail(csrf_token, vendor_details ,data, method):
+   
     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
-    print("*************************************")
-    print(type(csrf_token))
-    csrf_token_str = str(csrf_token)
-
-
+    key1 = key1
+    key2 = key2
+    #pdb.set_trace()
     headers = {
-        'X-CSRF-TOKEN': csrf_token_str,
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic V0YtQkFUQ0g6TUB3YiMkJTIwMjQ='
+
+        'X-CSRF-TOKEN': csrf_token,
+        'Content-Type': 'application/json;charset=utf-8',
+        'Accept': 'application/json',
+        'Authorization': 'Basic V0YtQkFUQ0g6TUB3YiMkJTIwMjQ=',
+        'Cookie': f"SAP_SESSIONID_BHD_200={key1}; sap-usercontext={key2}"
+
+        #'Cookie': "SAP_SESSIONID_BHD_700=wHpHljfZ0I1z-tzSV5pxUO4ejeojGxHvgjQADTo-At8%3d; sap-usercontext=sap-client=700"
     }
-    auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
-    #print("***********************************************")
+    auth = HTTPBasicAuth('WF-BATCH ', 'M@wb#$%2024')
+    #print("***********************************************" ,requests.headers)
+    
+    try:
+        response = requests.post(url, headers=headers, auth=auth ,json=data)
+        print("**************************POST here*********************", response.json(), response.status_code)
+        return response.json()
+        
+        #return response.json()
+    except ValueError:
+        print("**************************POSTsdfsdf here*********************", response.json())
+
+
+
+
+
+
+
     
     
-    response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
-    print("***********************************************", response.status_code)
-    
-    
-    if response.status_code == 200:  
-       # print("*****************************************")
+    if response.status_code == 201:  
+        print("*****************************************")
         print("Vendor details posted successfully.")
-        #return "************************Vendor details posted successfully.******************************"
+        return response.json()
+        
     else:
+        print("******************************************")
         print("Error in POST request:", response.status_code)
-        return "Error in POST request: " + str(response.status_code)
+        #return "Error in POST request: " + str(response.status_code)
+
+    #return response.json()
+
+#************SAP DATA Push Closed******************************************************
+
+# @frappe.whitelist()
+# def sap_fetch_token(data, method):
+
+
+    # company_code = frappe.db.get_value("Company Master", filters={'name': data.get('company_name')}, fieldname='company_code')
+    # purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_name')
+    # pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('pincode')}, fieldname='pincode')
+    # city = frappe.db.get_value("City Master", filters={'name': data.get('city')}, fieldname='city_name')
+    # country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
+    # state = frappe.db.get_value("State Master", filters={'name': data.get('state')}, fieldname='state_name')
+    # currency = frappe.db.get_value("Currency Master", filters={'name': data.get('order_currency')}, fieldname='currency_name')
+    # #terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('terms_of_payment')}, fieldname='terms_of_payment')
+    # #incoterms = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm')}, fieldname='incoterm_name')
+    # #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+    # vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('vendor_type')}, fieldname='vendor_type_name')
+
+
+#     vendor_details = {
+#     "Bukrs": company_code,
+#     "Ekorg": purchase_organization,
+#     "Ktokk": "",
+#     "Title": "",
+#     "Name1": "",
+#     "Name2": "",
+#     "Sort1": data.get('search_term'),
+#     "Street": data.get('office_address_line_1'),
+#     "StrSuppl1": data.get('office_address_line_2'),
+#     "StrSuppl2": data.get('office_address_line_3'),
+#     "StrSuppl3": data.get('office_address_line_4'),
+#     "PostCode1": pincode,
+#     "City1": city,
+#     "Country": country,
+#     "J1kftind": data.get('type_of_business'),
+#     "Region": state,
+#     "TelNumber": data.get('telephone_number'),
+#     "MobNumber": data.get('mobile_number'),
+#     "SmtpAddr": data.get('office_email_primary'),
+#     "SmtpAddr1": data.get('office_email_secondary'),
+#     "Zuawa": "",
+#     "Akont": "",
+#     "Waers": currency,
+#     "Zterm": "",
+#     "Inco1": "",
+#     "Inco2": "",
+#     "Kalsk": "",
+#     "Ekgrp": "",
+#     # "Xzemp": data.get('payee_in_document'),
+#     # "Reprf": data.get('check_double_invoice'),
+#     # "Webre": data.get('gr_based_inv_ver'),
+#     # "Lebre": data.get('service_based_inv_ver'),
+#     "Xzemp": "",
+#     "Reprf": "",
+#     "Webre": "",
+#     "Lebre": "",
+#     "Stcd3": "",
+#     "J1ivtyp": vendor_type,
+#     "J1ipanno": "",
+#     "J1ipanref": "",
+#     "Namev": "",
+#     "Name11": "",
+#     "Bankl": "",
+#     "Bankn": "",
+#     "Bkref": "",
+#     "Banka": "",
+#     "Xezer": "",
+#     "Refno": data.get('name')
+# }
+
+#     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+#     #print(vendor_details)
+#     headers = {
+#     'X-CSRF-TOKEN': 'Fetch'
+#     }
+#     auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     response = requests.get(url, headers=headers, auth=auth, json=vendor_details)
+
+#         #print(response)
+#     if response.status_code == 200:
+#         csrf_token = response.headers.get('x-csrf-token')
+#         send_detail(data, vendor_details ,method, csrf_token)
+#         print("********************  Token ****************************************")
+#         print("x-csrf-token:", csrf_token)
+#         print(vendor_details)
+#         return csrf_token
+#     else:
+#         print("Error:", response.status_code)
+#         return "Error: " + str(response.status_code)
+#     send_detail("*************************",csrf_token)
+
+
+
+#     #*******************************************************************************
+
+#     # headers = {
+#     #     'X-CSRF-Token': csrf_token,
+#     #     'Content-Type': 'application/json'
+#     # }
+#     # auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     # #print("***********************************************")
+    
+    
+#     # response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+#     # print("***********************************************", response.status_code)
+    
+    
+#     # if response.status_code == 200:  
+#     #    # print("*****************************************")
+#     #     print("Vendor details posted successfully.")
+#     #     #return "************************Vendor details posted successfully.******************************"
+#     # else:
+#     #     print("Error in POST request:", response.status_code)
+#     #     return "Error in POST request: " + str(response.status_code)
+
+
+# @frappe.whitelist()
+# def send_detail(csrf_token, vendor_details ,data, method):
+#     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+#     print("*************************************")
+#     print(type(csrf_token))
+#     csrf_token_str = str(csrf_token)
+
+
+#     headers = {
+#         'X-CSRF-TOKEN': csrf_token_str,
+#         'Content-Type': 'application/json',
+#         'Authorization': 'Basic V0YtQkFUQ0g6TUB3YiMkJTIwMjQ='
+#     }
+#     auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     #print("***********************************************")
+    
+    
+#     response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+#     print("***********************************************", response.status_code)
+    
+    
+#     if response.status_code == 200:  
+#        # print("*****************************************")
+#         print("Vendor details posted successfully.")
+#         #return "************************Vendor details posted successfully.******************************"
+#     else:
+#         print("Error in POST request:", response.status_code)
+#         return "Error in POST request: " + str(response.status_code)
+
+
+
+# @frappe.whitelist()
+# def sap_fetch_token(data, method):
+
+
+#     company_code = frappe.db.get_value("Company Master", filters={'name': data.get('company_name')}, fieldname='company_code')
+#   #  purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_name')
+#     pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('pincode')}, fieldname='pincode')
+#     city = frappe.db.get_value("City Master", filters={'name': data.get('city')}, fieldname='city_name')
+#     country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
+#     state = frappe.db.get_value("State Master", filters={'name': data.get('state')}, fieldname='state_name')
+#     currency = frappe.db.get_value("Currency Master", filters={'name': data.get('order_currency')}, fieldname='currency_name')
+#     #terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('terms_of_payment')}, fieldname='terms_of_payment')
+#     #incoterms = frappe.db.get_value("Incoterm Master", filters={'name': data.get('incoterm')}, fieldname='incoterm_name')
+#     #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
+#     vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('vendor_type')}, fieldname='vendor_type_name')
+
+
+#     vendor_details = {
+#     "Bukrs": company_code,
+#     "Ekorg": data.get("purchase_organization"),
+#     "Ktokk": "",
+#     "Title": "",
+#     "Name1": "",
+#     "Name2": "",
+#     "Sort1": data.get('search_term'),
+#     "Street": data.get('office_address_line_1'),
+#     "StrSuppl1": data.get('office_address_line_2'),
+#     "StrSuppl2": data.get('office_address_line_3'),
+#     "StrSuppl3": data.get('office_address_line_4'),
+#     "PostCode1": pincode,
+#     "City1": city,
+#     "Country": country,
+#     "J1kftind": data.get('type_of_business'),
+#     "Region": state,
+#     "TelNumber": data.get('telephone_number'),
+#     "MobNumber": data.get('mobile_number'),
+#     "SmtpAddr": data.get('office_email_primary'),
+#     "SmtpAddr1": data.get('office_email_secondary'),
+#     "Zuawa": "",
+#     "Akont": "",
+#     "Waers": currency,
+#     "Zterm": "",
+#     "Inco1": "",
+#     "Inco2": "",
+#     "Kalsk": "",
+#     "Ekgrp": "",
+#     "Xzemp": data.get('payee_in_document'),
+#     "Reprf": data.get('check_double_invoice'),
+#     "Webre": data.get('gr_based_inv_ver'),
+#     "Lebre": data.get('service_based_inv_ver'),
+#     "Stcd3": "",
+#     "J1ivtyp": vendor_type,
+#     "J1ipanno": "",
+#     "J1ipanref": "",
+#     "Namev": "",
+#     "Name11": "",
+#     "Bankl": "",
+#     "Bankn": "",
+#     "Bkref": "",
+#     "Banka": "",
+#     "Xezer": "",
+#     "Refno": data.get('name')
+# }
+
+
+#     vendor_details = {
+#     "Bukrs": "1000",
+#     "Ekorg": "2000",
+#     "Ktokk": "",
+#     "Title": "NULL",
+#     "Name1": "",
+#     "Name2": "",
+#     "Sort1": "None",
+#     "Street": "ADLY2",
+#     "StrSuppl1": "ADLY4",
+#     "StrSuppl2": "ADLY5",
+#     "StrSuppl3": "ADLY6",
+#     "PostCode1": "123",
+#     "City1": "City 1",
+#     "Country": "Country 1",
+#     "J1kftind": "Type 1",
+#     "Region": "State 3",
+#     "TelNumber": "65237486",
+#     "MobNumber": "8989143666",
+#     "SmtpAddr": "subodh.barche@merillife.com",
+#     "SmtpAddr1": "None",
+#     "Zuawa": "",
+#     "Akont": "",
+#     "Waers": "Currency1",
+#     "Zterm": "",
+#     "Inco1": "",
+#     "Inco2": "",
+#     "Kalsk": "",
+#     "Ekgrp": "",
+#     "Xzemp": "",
+#     "Reprf": "",
+#     "Webre": "",
+#     "Lebre": "",
+#     "Stcd3": "",
+#     "J1ivtyp": "Vendor Type 2",
+#     "J1ipanno": "",
+#     "J1ipanref": "",
+#     "Namev": "",
+#     "Name11": "",
+#     "Bankl": "",
+#     "Bankn": "",
+#     "Bkref": "",
+#     "Banka": "",
+#     "Xezer": "",
+#     "Refno": "VMS/368b008a78/0101"
+# }
+
+#     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+#     #print(vendor_details)
+#     headers = {
+#     'X-CSRF-TOKEN': 'Fetch'
+#     }
+#     auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     response = requests.get(url, headers=headers, auth=auth)
+
+#         #print(response)
+#     if response.status_code == 200:
+#         csrf_token = response.headers.get('x-csrf-token')
+#         send_detail(csrf_token, vendor_details ,data, method)
+#         #print("********************  Token ****************************************")
+#         #print("x-csrf-token:", csrf_token)
+#         print(vendor_details)
+#         return csrf_token
+#     else:
+#         print("Error:", response.status_code)
+#         return "Error: " + str(response.status_code)
+#     send_detail("*************************",csrf_token)
+
+
+
+#     #*******************************************************************************
+
+#     # headers = {
+#     #     'X-CSRF-Token': csrf_token,
+#     #     'Content-Type': 'application/json'
+#     # }
+#     # auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     # #print("***********************************************")
+    
+    
+#     # response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+#     # print("***********************************************", response.status_code)
+    
+    
+#     # if response.status_code == 200:  
+#     #    # print("*****************************************")
+#     #     print("Vendor details posted successfully.")
+#     #     #return "************************Vendor details posted successfully.******************************"
+#     # else:
+#     #     print("Error in POST request:", response.status_code)
+#     #     return "Error in POST request: " + str(response.status_code)
+
+
+# @frappe.whitelist()
+# def send_detail(csrf_token, vendor_details ,data, method):
+#     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+#     print("*************************************")
+#     print(csrf_token)
+#     csrf_token_str = str(csrf_token)
+#     print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", csrf_token)
+
+
+#     headers = {
+#         'X-CSRF-TOKEN': "722gVEt7-nV-J3R_vjRSJg==",
+#         'Content-Type': 'application/json',
+#         'Authorization': 'Basic V0YtQkFUQ0g6TUB3YiMkJTIwMjQ='
+#     }
+#     auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     #print("***********************************************")
+    
+    
+#     response = requests.post(url, headers=headers, auth=auth, json=vendor_details)
+#     print("***********************************************", response.status_code)
+    
+    
+#     if response.status_code == 200:  
+#        # print("*****************************************")
+#         print("Vendor details posted successfully.")
+#         #return "************************Vendor details posted successfully.******************************"
+#     else:
+#         print("Error in POST request:", response.status_code)
+#         return "Error in POST request: " + str(response.status_code)
+
+
+
+
+
+
+
+# #********************************************FROM GITHUB  *************************************************************
+
+# def create_sap_so_from_po(data, method):
+#     sap_user_data = frappe.cache.get_value("sap_user_data")
+
+#     if not sap_user_data:
+#         sap_user_data = get_token_from_sap()
+#         frappe.cache.set_value("sap_user_data", sap_user_data,
+#                                expires_in_sec=14*60*60)  # 14 mins
+
+#     # purchase_order_items = frappe.get_list(
+#     #     "Purchase Order Item", filters={"purchase_order": po_name})
+#     # purchase_order = frappe.get_doc("Purchase Order", po_name)
+#     # distributor = frappe.get_doc(
+#     #     "Distributor Master", purchase_order.get("distributor"))
+#     # company = frappe.get_doc("Company Master", purchase_order.get("company"))
+
+#     payload_data = {
+#         "ZTPA_REF_NO": "ODATATEST01",
+#         "HeadItem": []
+#     }
+#     data = {
+#     "Bukrs": "9000",
+#     "Ekorg": "2000",
+#     "Ktokk": "",
+#     "Title": "NULL",
+#     "Name1": "",
+#     "Name2": "",
+#     "Sort1": "None",
+#     "Street": "ADLY2",
+#     "StrSuppl1": "ADLY4",
+#     "StrSuppl2": "ADLY5",
+#     "StrSuppl3": "ADLY6",
+#     "PostCode1": "123",
+#     "City1": "City 1",
+#     "Country": "Country 1",
+#     "J1kftind": "Type 1",
+#     "Region": "State 4",
+#     "TelNumber": "65237486",
+#     "MobNumber": "8989143666",
+#     "SmtpAddr": "subodh.barche@merillife.com",
+#     "SmtpAddr1": "None",
+#     "Zuawa": "",
+#     "Akont": "",
+#     "Waers": "Currency1",
+#     "Zterm": "",
+#     "Inco1": "",
+#     "Inco2": "",
+#     "Kalsk": "",
+#     "Ekgrp": "",
+#     "Xzemp": "",
+#     "Reprf": "",
+#     "Webre": "",
+#     "Lebre": "",
+#     "Stcd3": "",
+#     "J1ivtyp": "Vendor Type 233333333",
+#     "J1ipanno": "",
+#     "J1ipanref": "",
+#     "Namev": "",
+#     "Name11": "",
+#     "Bankl": "",
+#     "Bankn": "",
+#     "Bkref": "",
+#     "Banka": "",
+#     "Xezer": "",
+#     "Refno": "VMS/368b008a78/0101"
+#     }
+#     payload_data["HeadItem"].append(data)
+#    # sr_no_counter += 1
+#     url = f"{SAP_BASE_URL}/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
+#     headers = {
+#         "Content-Type": "application/json;charset=utf-8",
+#         "Accept": "application/json",
+#         "X-CSRF-TOKEN": data.get("X-CSRF-TOKEN")
+#         }
+
+#     auth = HTTPBasicAuth('WF-BATCH', 'M@wb#$%2024')
+#     sales_order_data = send_request(url, payload=payload_data, headers=headers, auth=auth, method="POST")
+#     #sales_order_data = requests.post(url, headers=headers, auth=auth, json=data)
+#         #return sales_order_data
+
+
+
+
+
+#**********************************************************************************************************************
+
 
 
 @frappe.whitelist()

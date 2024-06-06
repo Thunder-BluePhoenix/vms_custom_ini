@@ -22,6 +22,9 @@
   "incoterms",
   "purchase_groupm",
   "registered_date",
+  "pan_number",
+  "incoterms2",
+  "bank1",
   "column_break_azqd",
   "purchase_organization",
   "type_of_business",
@@ -39,6 +42,8 @@
   "vendor_name",
   "rfq_type",
   "mobile_number",
+  "account_number",
+  "gst_number",
   "section_break_qjrl",
   "office_address_line_1",
   "office_address_line_2",
@@ -102,25 +107,25 @@
   {
    "default": "0",
    "fieldname": "payee_in_document",
-   "fieldtype": "Check",
+   "fieldtype": "Data",
    "label": "Payee in Document"
   },
   {
    "default": "0",
    "fieldname": "gr_based_inv_ver",
-   "fieldtype": "Check",
+   "fieldtype": "Data",
    "label": "GR Based Inv. Ver."
   },
   {
    "default": "0",
    "fieldname": "service_based_inv_ver",
-   "fieldtype": "Check",
+   "fieldtype": "Data",
    "label": "Service Based Inv. Ver."
   },
   {
    "default": "0",
    "fieldname": "check_double_invoice",
-   "fieldtype": "Check",
+   "fieldtype": "Data",
    "label": "Check Double Invoice"
   },
   {
@@ -154,7 +159,7 @@
   },
   {
    "fieldname": "purchase_organization",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Purchase Organization",
    "options": "Company Master"
   },
@@ -181,7 +186,7 @@
   },
   {
    "fieldname": "telephone_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Telephone Number"
   },
   {
@@ -357,11 +362,37 @@
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "PAN Number"
+  },
+  {
+   "fieldname": "incoterms2",
+   "fieldtype": "Data",
+   "label": "Incoterms2"
+  },
+  {
+   "fieldname": "bank1",
+   "fieldtype": "Link",
+   "label": "Bank1",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "gst_number",
+   "fieldtype": "Data",
+   "label": "GST Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-24 15:51:28.142176",
+ "modified": "2024-06-05 19:22:52.392798",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",
