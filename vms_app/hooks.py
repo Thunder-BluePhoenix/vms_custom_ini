@@ -211,7 +211,7 @@ doc_events = {
 	},
 	"Vendor Onboarding": {
 
-	#"validate": "vms_app.api.api.send_email_on_onboarding"
+	"validate": "vms_app.api.api.send_email_on_onboarding"
 
 	},
 	"Request For Quotation":{

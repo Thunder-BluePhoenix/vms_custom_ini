@@ -345,7 +345,8 @@ def send_email_on_onboarding(data, method):
     print(current_user_email)
     company_name = data.get('company_name')
     print(company_name)
-    reciever_email = frappe.db.get_value("Vendor Master", filters={'company_name': company_name}, fieldname=['registered_by'])
+    #reciever_email = frappe.db.get_value("Vendor Master", filters={'company_name': company_name}, fieldname=['registered_by'])
+    reciever_email = frappe.db.get_value("Vendor Master", filters={'office_email_primary': current_user_email}, fieldname=['registered_by'])
     print(reciever_email)
     subject = "Email sent successfully!"
    # obj.send_email(reciever_email, current_user_email, subject)
@@ -549,21 +550,26 @@ def send_email_on_po_creation(data, method):
 def set_vendor_onboarding_status(**kwargs):
     name = kwargs.get("name")
     current_user = frappe.session.user
+    print(current_user)
     current_user_designation_key = frappe.db.get_value("User", filters={'email': current_user}, fieldname='designation')
     current_user_designation_name = frappe.db.get_value("Designation Master", filters={'name': current_user_designation_key}, fieldname=['designation_name'])
     print("*******************************************")
     vendor_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='office_email_primary')
     print(vendor_email)
+    print(name)
     
     if current_user_designation_name == "Accounts Team":
         frappe.db.sql(""" update `tabVendor Master` set accounts_team_approval='Approved' """ )
         frappe.db.commit()
+        # if  check_approval_and_send_mail_on_all_3_approvals() == 1:
+        #     sap_fetch_token(name)
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
+
         smtp_server = "smtp.transmail.co.in"
         smtp_port = 587
         smtp_user = "emailapikey"  
         smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-        from_address = registered_by_email 
+        from_address = current_user 
         to_address = vendor_email  
         subject = "Test email"
         body = "Your request has been approved Accounts Team ."
@@ -582,14 +588,16 @@ def set_vendor_onboarding_status(**kwargs):
             print(f"Failed to send email: {e}")
 
     if current_user_designation_name == "Purchase Team":
+
         frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='Approved' """ )
         frappe.db.commit()
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
+        print("****************************",registered_by_email)
         smtp_server = "smtp.transmail.co.in"
         smtp_port = 587
         smtp_user = "emailapikey"  
         smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-        from_address = registered_by_email 
+        from_address = current_user 
         to_address = vendor_email  
         subject = "Test email"
         body = "Your request has been approved Purchase Team ."
@@ -607,15 +615,17 @@ def set_vendor_onboarding_status(**kwargs):
         except Exception as e:
             print(f"Failed to send email: {e}")
 
-    if current_user_designation_name == "Purchase Head":
+    if current_user_designation_name == "Purchase Head":        
         frappe.db.sql(""" update `tabVendor Master` set purchase_head_approval='Approved' """ )
         frappe.db.commit()
+        # if check_approval_and_send_mail_on_all_3_approvals() == 1:
+        #     sap_fetch_token(name)
         registered_by_email = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname='registered_by')
         smtp_server = "smtp.transmail.co.in"
         smtp_port = 587
         smtp_user = "emailapikey"  
         smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-        from_address = registered_by_email 
+        from_address = current_user 
         to_address = vendor_email  
         subject = "Test email"
         body = "Yourequest has been approved Purchase Head ."
@@ -1369,6 +1379,7 @@ def show_vendor_registration_details(name):
 
         SELECT
             cm.company_name AS company_name,
+            -- cm.company_code AS company_code,
             vm.website AS website,
             vt.vendor_type_name As vendor_type_name,
             at.account_group_name AS account_group_name,
@@ -1459,6 +1470,8 @@ def show_vendor_registration_details(name):
                 `tabPincode Master` pin ON vm.pincode = pin.name
             LEFT JOIN
                 `tabCity Master` cty ON vm.city = cty.name
+            -- LEFT JOIN
+            --     `tabCompany Master` cm on 
 
             where office_email_primary=%s
 
@@ -1771,8 +1784,6 @@ def on_vendor_onboarding_page_load(**kwargs):
 #*****************************************Vendor Onboarding Page Load Closed########################
 
 
-
-#****************************************SAP DATA PUSH*********************************
 
 @frappe.whitelist(allow_guest=True)
 def sap_fetch_token(data, method):
@@ -2176,6 +2187,7 @@ def send_detail(csrf_token, data, key1, key2, name):
     #return response.json()
 
 #************SAP DATA Push Closed******************************************************
+
 
 
 
