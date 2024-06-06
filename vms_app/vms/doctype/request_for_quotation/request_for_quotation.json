@@ -85,7 +85,9 @@
   "select_language",
   "service_code",
   "service_category",
-  "storage_location"
+  "storage_location",
+  "section_break_affd",
+  "table_dyey"
  ],
  "fields": [
   {
@@ -509,11 +511,20 @@
    "fieldname": "meril_invoice_date",
    "fieldtype": "Date",
    "label": "Meril Invoice Date"
+  },
+  {
+   "fieldname": "section_break_affd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_dyey",
+   "fieldtype": "Table",
+   "options": "RFQ Items"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-31 15:43:29.968489",
+ "modified": "2024-06-06 12:04:35.461040",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

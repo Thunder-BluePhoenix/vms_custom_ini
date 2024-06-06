@@ -56,6 +56,7 @@
   "district",
   "pincode",
   "vendor_code",
+  "uuid",
   "section_break_udaq",
   "manufacturing_address_line_1",
   "manufacturing_address_line_2",
@@ -377,7 +378,7 @@
   {
    "fieldname": "bank1",
    "fieldtype": "Link",
-   "label": "Bank1",
+   "label": "Bank",
    "options": "Bank Master"
   },
   {
@@ -394,11 +395,16 @@
    "fieldname": "vendor_code",
    "fieldtype": "Data",
    "label": "Vendor Code"
+  },
+  {
+   "fieldname": "uuid",
+   "fieldtype": "Data",
+   "label": "UUID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-06 11:19:49.884446",
+ "modified": "2024-06-06 15:03:56.378491",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

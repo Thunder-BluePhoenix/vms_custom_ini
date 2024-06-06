@@ -24,6 +24,12 @@ from cryptography.fernet import Fernet
 import base64
 from vms_app.api.config.api import SAP_BASE_URL
 from vms_app.utils.utils import get_token_from_sap, send_request
+import uuid
+
+
+
+
+
 
 
 
@@ -291,6 +297,7 @@ def generate_keys(user):
 @frappe.whitelist()
 def send_email(data, method):
     name = data.get("name")
+
     print("*********************************", name)
     frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='In Process' where name=%s """, (name))
     frappe.db.commit()
@@ -307,14 +314,15 @@ def send_email(data, method):
     frappe.db.commit()
     reciever_email = data.get("office_email_primary")
     print(reciever_email)
+    print("****************EMAIL******************", current_user, reciever_email)
     smtp_server = "smtp.transmail.co.in"
     smtp_port = 587
     smtp_user = "emailapikey"  
     smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-    from_address = current_user_email 
+    from_address = current_user
     to_address = reciever_email  
-    subject = "Test email"
-    body = "You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on thi link http://localhost:3000/onboarding"
+    subject = "Request for Vendor Onboarding ."
+    body = "You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding"
     msg = MIMEMultipart()
     msg["From"] = from_address
     msg["To"] = to_address
@@ -1408,7 +1416,8 @@ def show_vendor_registration_details(name):
             vm.purchase_head_approval AS purchase_head_approval,
             vm.purchase_team_approval AS purchase_team_approval,
             vm.accounts_team_approval AS accounts_team_approval,
-            vm.status AS status
+            vm.status AS status,
+            vm.vendor_code AS vendor_code
 
 
 
@@ -1671,11 +1680,149 @@ LEFT JOIN
     return single_vendor
 
 
+#*********************************On Vendor Onboarding Page load####################################
+
+@frappe.whitelist()
+def on_vendor_onboarding_page_load(**kwargs):
+
+    name = kwargs.get('name')
+    print("*********", name)
+
+    vendor = frappe.db.sql(""" 
+
+        SELECT
+            cm.company_name AS company_name,  
+            vt.vendor_type_name As vendor_type_name,
+            at.account_group_name AS account_group_name,                       
+            bn.business_nature_name AS business_nature_name,
+            oc.currency_name AS currency_name,
+            pg.purchase_group_name AS purchase_group_name,
+            vm.purchase_organization AS company_name,
+            vm.type_of_business AS type_of_business,
+            vm.registered_office_number AS registered_office_number,
+            vm.telephone_number AS telephone_number,
+            vm.office_email_primary AS office_email_primary,
+            vm.office_email_secondary AS office_email_secondary,
+            vm.corporate_identification_number As corporate_identification_number,
+            vm.cin_date AS cin_date,
+            con.company_nature_name AS company_nature_name,
+            vm.office_address_line_1 AS office_address_line_1,
+            vm.office_address_line_2 AS office_address_line_2,
+            vm.office_address_line_3 AS office_address_line_3,
+            vm.office_address_line_4 AS office_address_line_4,
+            cty.city_name AS city_name,
+            st.state_name AS state_name,
+            cnt.country_name AS country_name,
+            dst.district_name As district_name,
+            pin.pincode AS pincode
+
+
+            FROM `tabVendor Master` vm 
+            LEFT JOIN
+                `tabCompany Master` cm ON vm.company_name = cm.name
+            LEFT JOIN
+                `tabVendor Type Master` vt ON vm.vendor_type = vt.name
+            LEFT JOIN
+                `tabAccount Group Master` at ON vm.account_group = at.name
+            LEFT JOIN
+                `tabBusiness Nature Master` bn ON vm.nature_of_business = bn.name
+            LEFT JOIN
+                `tabCurrency Master` oc ON vm.order_currency = oc.name
+            LEFT JOIN
+                `tabTerms Of Payment Master` tp ON vm.terms_of_payment = tp.name
+            LEFT JOIN
+                `tabIncoterm Master` inc ON vm.incoterms = inc.name
+            LEFT JOIN
+                `tabPurchase Group Master` pg ON vm.purchase_groupm = pg.name
+            LEFT JOIN
+                `tabCompany Nature Master` con ON vm.nature_of_company = con.name
+
+            LEFT JOIN
+                `tabCompany Master` ct ON vm.city = ct.name
+            LEFT JOIN
+                `tabState Master` st ON vm.state = st.name
+            LEFT JOIN
+                `tabCountry Master` cnt ON vm.country = cnt.name
+            LEFT JOIN
+                `tabDistrict Master` dst ON vm.district = dst.name
+            LEFT JOIN
+                `tabPincode Master` pin ON vm.pincode = pin.name
+            LEFT JOIN
+                `tabCity Master` cty ON vm.city = cty.name
+
+            where vm.name=%s
+
+
+
+        """,(name), as_dict=1)
+    return vendor
+
+
+
+    # company_name,vendor_type,nature_of_business,order_currency,bank,city,district,state,country,office_email_primary,office_address_line_1,2,3,4,pincode,name,
+    #office_email_secondary
+    # telephone_number,cin_date
+
+
+
+
+
+
+#*****************************************Vendor Onboarding Page Load Closed########################
+
+
 
 #****************************************SAP DATA PUSH*********************************
 
 @frappe.whitelist(allow_guest=True)
 def sap_fetch_token(data, method):
+
+    #*******************************Send Email*************************
+    name = data.get("name")
+    print("*********************************", name)
+    frappe.db.sql(""" update `tabVendor Master` set purchase_team_approval='In Process' where name=%s """, (name))
+    frappe.db.commit()
+    frappe.db.sql(""" update `tabVendor Master` set purchase_head_approval='In Process' where name=%s """, (name) )
+    frappe.db.commit()
+    frappe.db.sql(""" update `tabVendor Master` set accounts_team_approval='In Process' where name=%s """, (name) )
+    frappe.db.commit()
+    print("*********************Hi from Docevents*****************")
+    print(frappe.session.user)
+    current_user = frappe.session.user
+    current_user_email = frappe.db.get_value("User", filters={'full_name': current_user}, fieldname='email')
+    print(current_user_email)
+    frappe.db.sql(" update `tabVendor Master` set registered_by=%s ",(current_user_email))
+    frappe.db.commit()
+    reciever_email = data.get("office_email_primary")
+    print(reciever_email)
+    print("****************EMAIL******************", current_user, reciever_email)
+    smtp_server = "smtp.transmail.co.in"
+    smtp_port = 587
+    smtp_user = "emailapikey"  
+    smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+    from_address = current_user
+    to_address = reciever_email  
+    subject = "Request for Vendor Onboarding ."
+    body = f"You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding/{name}"
+    msg = MIMEMultipart()
+    msg["From"] = from_address
+    msg["To"] = to_address
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()  
+            server.login(smtp_user, smtp_password)  
+            server.sendmail(from_address, to_address, msg.as_string()) 
+            print("Email sent successfully!")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+
+
+#***************************Send Email Close*********************************************************************************
+
+
     company_code = frappe.db.get_value("Company Master", filters={'name': data.get('company_name')}, fieldname='company_code')
     purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('purchase_organization')}, fieldname='company_code')
     account_group = frappe.db.get_value("Account Group Master", filters={'name': data.get('account_group')}, fieldname='account_group_name')
@@ -1956,6 +2103,10 @@ def sap_fetch_token(data, method):
 
 
 
+
+#******************************* SAP PUSH  ************************************************************
+
+
 @frappe.whitelist(allow_guest=True)
 def send_detail(csrf_token, data, key1, key2, name):
 
@@ -1987,6 +2138,7 @@ def send_detail(csrf_token, data, key1, key2, name):
         print("^&%^%^%^*&%%^^^^^^^^^^^^^^^^^^^^^^^^^^", vendor_code)
         
         print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",name)
+
         frappe.db.sql(""" UPDATE `tabVendor Master` SET vendor_code=%s where name=%s """, (vendor_code, name))
         frappe.db.commit()
         
@@ -2022,6 +2174,53 @@ def send_detail(csrf_token, data, key1, key2, name):
     #return response.json()
 
 #************SAP DATA Push Closed******************************************************
+
+
+
+
+
+#*********************** Onboarding Link ************************************************************************************
+
+# @frappe.whitelist()
+# def generate_onboarding_link(data, method):
+
+#     random_uuid = str(uuid.uuid4())
+#     # name = data.get('name')
+#     # frappe.db.sql(""" UPDATE `tabVendor Master` SET uuid=%s WHERE name=%s """, (random_uuid, name))
+#     # frappe.db.commit()
+#     return "random: ", random_uuid
+
+
+#************************** Onboarding Link Closed **************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # @frappe.whitelist()
 # def sap_fetch_token(data, method):

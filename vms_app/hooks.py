@@ -204,8 +204,9 @@ doc_events = {
 
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
-		#isko uncomment karna hai "after_insert": "vms_app.api.api.send_email" 
+		#"after_insert": "vms_app.api.api.send_email",
 		"after_insert": "vms_app.api.api.sap_fetch_token"
+		#"after_insert": "vms_app.api.api.generate_onboarding_link"
 		#"validate": "vms_app.api.api.create_sap_so_from_po"
 	},
 	"Vendor Onboarding": {
