@@ -1373,7 +1373,9 @@ def show_me(name):
 
 
 @frappe.whitelist()
-def show_vendor_registration_details(name):
+def show_vendor_registration_details(**kwargs):
+
+    name= kwargs.get('name')
 
     vendor = frappe.db.sql(""" 
 
@@ -1473,7 +1475,7 @@ def show_vendor_registration_details(name):
             -- LEFT JOIN
             --     `tabCompany Master` cm on 
 
-            where office_email_primary=%s
+            where vm.name=%s
 
 
 
