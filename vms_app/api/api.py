@@ -1988,6 +1988,7 @@ def send_detail(csrf_token, data, key1, key2, name):
         
         print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",name)
         frappe.db.sql(""" UPDATE `tabVendor Master` SET vendor_code=%s where name=%s """, (vendor_code, name))
+        frappe.db.commit()
         
         #return response.json()
     except ValueError:
