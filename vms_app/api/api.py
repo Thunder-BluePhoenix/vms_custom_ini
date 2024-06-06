@@ -1803,7 +1803,9 @@ def sap_fetch_token(data, method):
     from_address = current_user
     to_address = reciever_email  
     subject = "Request for Vendor Onboarding ."
-    body = f"You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding/{name}"
+    body = "You have been Successfully Registered on the VMS Portal. Please complete the Onboarding process on this link http://localhost:3000/onboarding?Refno=" + str(name)
+
+    #body = "You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding/{}".format(name)
     msg = MIMEMultipart()
     msg["From"] = from_address
     msg["To"] = to_address
