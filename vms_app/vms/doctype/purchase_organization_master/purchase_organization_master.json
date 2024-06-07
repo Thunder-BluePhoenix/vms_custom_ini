@@ -5,17 +5,12 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "purchase_organisation_code",
+  "purchase_organization_code",
   "company",
   "purchase_organization_name",
   "description"
  ],
  "fields": [
-  {
-   "fieldname": "purchase_organisation_code",
-   "fieldtype": "Data",
-   "label": "Purchase Organisation Code"
-  },
   {
    "fieldname": "company",
    "fieldtype": "Link",
@@ -30,12 +25,17 @@
   {
    "fieldname": "purchase_organization_name",
    "fieldtype": "Data",
-   "label": "Purchase Organisation Name"
+   "label": "Purchase Organization Name"
+  },
+  {
+   "fieldname": "purchase_organization_code",
+   "fieldtype": "Data",
+   "label": "Purchase Organization Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-21 15:05:39.986507",
+ "modified": "2024-06-07 11:03:00.794779",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Organization Master",

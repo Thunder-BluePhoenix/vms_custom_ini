@@ -44,6 +44,7 @@
   "mobile_number",
   "account_number",
   "gst_number",
+  "company_code",
   "section_break_qjrl",
   "office_address_line_1",
   "office_address_line_2",
@@ -161,9 +162,9 @@
   },
   {
    "fieldname": "purchase_organization",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Purchase Organization",
-   "options": "Company Master"
+   "options": "Purchase Organization Master"
   },
   {
    "fieldname": "type_of_business",
@@ -372,8 +373,9 @@
   },
   {
    "fieldname": "incoterms2",
-   "fieldtype": "Data",
-   "label": "Incoterms2"
+   "fieldtype": "Link",
+   "label": "Incoterms2",
+   "options": "Incoterm Master"
   },
   {
    "fieldname": "bank1",
@@ -400,11 +402,17 @@
    "fieldname": "uuid",
    "fieldtype": "Data",
    "label": "UUID"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-06 15:03:56.378491",
+ "modified": "2024-06-07 11:58:29.814168",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",
