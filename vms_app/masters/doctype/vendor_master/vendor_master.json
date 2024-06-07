@@ -13,7 +13,7 @@
   "material_to_be_supplied",
   "search_term",
   "nature_of_business",
-  "payee_in_document",
+  "payee",
   "gr_based_inv_ver",
   "service_based_inv_ver",
   "check_double_invoice",
@@ -109,26 +109,20 @@
   },
   {
    "default": "0",
-   "fieldname": "payee_in_document",
-   "fieldtype": "Data",
-   "label": "Payee in Document"
-  },
-  {
-   "default": "0",
    "fieldname": "gr_based_inv_ver",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "GR Based Inv. Ver."
   },
   {
    "default": "0",
    "fieldname": "service_based_inv_ver",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "Service Based Inv. Ver."
   },
   {
    "default": "0",
    "fieldname": "check_double_invoice",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "Check Double Invoice"
   },
   {
@@ -408,11 +402,17 @@
    "fieldtype": "Link",
    "label": "Company Code",
    "options": "Company Master"
+  },
+  {
+   "default": "0",
+   "fieldname": "payee",
+   "fieldtype": "Check",
+   "label": "Payee in Document"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-07 11:58:29.814168",
+ "modified": "2024-06-07 17:17:48.691915",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

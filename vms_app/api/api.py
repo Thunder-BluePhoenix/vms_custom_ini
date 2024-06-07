@@ -652,8 +652,10 @@ def set_vendor_onboarding_status(**kwargs):
                     server.login(smtp_user, smtp_password)  
                     server.sendmail(from_address, to_address, msg.as_string()) 
                     print("Email sent successfully!")
+                    return 200 ,'ok'
             except Exception as e:
                 print(f"Failed to send email: {e}")
+                return 500
 
 
     if current_user_designation_name == "Purchase Team":
@@ -683,8 +685,10 @@ def set_vendor_onboarding_status(**kwargs):
                 server.login(smtp_user, smtp_password)  
                 server.sendmail(from_address, to_address, msg.as_string()) 
                 print("Email sent successfully!")
+                return 200 ,'ok' 
         except Exception as e:
             print(f"Failed to send email: {e}")
+            return 500
 
     if current_user_designation_name == "Purchase Head":
         frappe.db.sql(""" update `tabVendor Master` set purchase_head_approval='Approved' where office_email_primary=%s """,(vendor_email) )
@@ -717,8 +721,10 @@ def set_vendor_onboarding_status(**kwargs):
                     server.login(smtp_user, smtp_password)  
                     server.sendmail(from_address, to_address, msg.as_string()) 
                     print("Email sent successfully!")
+                    return 200 ,'ok'
             except Exception as e:
                 print(f"Failed to send email: {e}")
+                return 500
 
     #return registered_by_email
 
@@ -1875,7 +1881,18 @@ def on_vendor_onboarding_page_load(**kwargs):
 
 
 
+@frappe.whitelist()
+def converttox(name):
 
+    json_data = frappe.db.sql(""" SELECT payee, gr_based_inv_ver, service_based_inv_ver, check_double_invoice  FROM `tabVendor Master` where name=%s """, (name), as_dict=1)
+    payee = 'X' if json_data[0]['payee'] == 1 else ''
+    gr_based_inv_ver = 'X' if json_data[0]['gr_based_inv_ver'] == 1 else ''
+    service_based_inv_ver = 'X' if json_data[0]['service_based_inv_ver'] == 1 else ''
+    check_double_invoice = 'X' if json_data[0]['check_double_invoice'] == 1 else ''
+    
+    mylist = [payee, gr_based_inv_ver, service_based_inv_ver, check_double_invoice, ]
+
+    return mylist, json_data
 
 
 #*****************************************Vendor Onboarding Page Load Closed########################
