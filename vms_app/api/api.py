@@ -361,7 +361,7 @@ def send_email(data, method):
     from_address = current_user
     to_address = reciever_email  
     subject = "Request for Vendor Onboarding ."
-    body = "You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding"
+    body = "You have been Successfully Registered on the VMS Portal. Please complete the On boarding process on this link http://localhost:3000/onboarding?Refno=" + str(name)
     msg = MIMEMultipart()
     msg["From"] = from_address
     msg["To"] = to_address
@@ -728,6 +728,17 @@ def set_vendor_onboarding_status(**kwargs):
 # def create_user(*kwargs):
 
 #     email = kwargs.get('email')
+#     doc = frappe.get_doc({
+
+
+#         'doctype': 'User',
+#         'enabled': 1,
+#         'first_name': 'first_name',
+#         'middle_name': 'middle_name',
+#         'last_name': 'last_name',
+
+
+#         })
 
 
 

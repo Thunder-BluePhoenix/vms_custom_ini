@@ -46,6 +46,7 @@
   "purchase_team_approval",
   "accounts_team_approval",
   "purchase_head_approval",
+  "vendor_onboarding_link",
   "payment_detail_tab",
   "bank_name",
   "ifsc_code",
@@ -786,11 +787,17 @@
    "fieldname": "check_double_invoice",
    "fieldtype": "Check",
    "label": "Check Double"
+  },
+  {
+   "fieldname": "vendor_onboarding_link",
+   "fieldtype": "Link",
+   "label": "Vendor Onboarding Link",
+   "options": "Vendor Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 11:19:55.163486",
+ "modified": "2024-06-07 16:42:01.402185",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",
