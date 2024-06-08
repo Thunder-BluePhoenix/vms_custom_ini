@@ -223,64 +223,119 @@ def show_purchase_order(**kwargs):
 
 
 
-#***********************************Show Product Master Details  FULL***********************************************************************
-
+#***********************************Show Product Master Details  FULL SINGLE/ALL***********************************************************************
 @frappe.whitelist()
 def show_full_product_detail(**kwargs):
-
     name = kwargs.get('name')
-    product = frappe.db.sql("""
-
+    query = """
         SELECT 
-
-        pd.product_code AS product_code,
-        pd.product_name AS product_name,
-        pdc.product_category_name AS product_category_name,
-        pd.model_number AS model_number,
-        bm.brand_name AS brand_name,
-        pd.manufacturing_date AS manufacturing_date,
-        pd.product_license_number AS product_license_number,
-        uom.uom AS uom,
-        mm.material_name AS material_name,
-        pd.established_year AS established_year,
-        cm.country_name AS company_name,
-        pd.description AS description,
-        pd.product_license_number AS product_license_number,
-        pd.product_dimension AS product_dimension,
-        pd.product_weight AS product_weight,
-        mm2.material_name AS material_name,
-        pd.product_variants AS product_variants,
-        pd.product_image_and_video AS product_image_and_video,
-        pd.certificates_and_approval AS certificates_and_approval,
-        pd.product_pricing AS product_pricing,
-        pd.stocks AS stocks,
-        pd.lead_time AS lead_time,
-        pd.packaging_and_shipping_detail AS packaging_and_shipping_detail,
-        pd.warranty_and_support_detail AS warranty_and_support_detail,
-        pd.return_and_refund_policy_detail AS return_and_refund_policy_detail,
-        pd.product_user_manual AS product_user_manual
-
-
+            pd.product_code AS product_code,
+            pd.product_name AS product_name,
+            pdc.product_category_name AS product_category_name,
+            pd.model_number AS model_number,
+            bm.brand_name AS brand_name,
+            pd.manufacturing_date AS manufacturing_date,
+            pd.product_license_number AS product_license_number,
+            uom.uom AS uom,
+            mm.material_name AS material_name,
+            pd.established_year AS established_year,
+            cm.country_name AS company_name,
+            pd.description AS description,
+            pd.product_dimension AS product_dimension,
+            pd.product_weight AS product_weight,
+            mm2.material_name AS material_name,
+            pd.product_variants AS product_variants,
+            pd.product_image_and_video AS product_image_and_video,
+            pd.certificates_and_approval AS certificates_and_approval,
+            pd.product_pricing AS product_pricing,
+            pd.stocks AS stocks,
+            pd.lead_time AS lead_time,
+            pd.packaging_and_shipping_detail AS packaging_and_shipping_detail,
+            pd.warranty_and_support_detail AS warranty_and_support_detail,
+            pd.return_and_refund_policy_detail AS return_and_refund_policy_detail,
+            pd.product_user_manual AS product_user_manual
         FROM
-        `tabProduct Master` pd
-        LEFT JOIN
-            `tabProduct Category Master` pdc ON pd.product_category = pdc.name
-        LEFT JOIN
-            `tabBrand Master` bm ON pd.brand = bm.name
-        LEFT JOIN
-            `tabUOM Master` uom ON pd.uom = uom.name
-        LEFT JOIN
-            `tabMaterial Master` mm ON pd.material_type = mm.name
-        LEFT JOIN
-            `tabCountry Master` cm ON pd.country_of_origin = cm.name
-        LEFT JOIN
-            `tabMaterial Master` mm2 ON pd.material_used = mm2.name
+            `tabProduct Master` pd
+            LEFT JOIN `tabProduct Category Master` pdc ON pd.product_category = pdc.name
+            LEFT JOIN `tabBrand Master` bm ON pd.brand = bm.name
+            LEFT JOIN `tabUOM Master` uom ON pd.uom = uom.name
+            LEFT JOIN `tabMaterial Master` mm ON pd.material_type = mm.name
+            LEFT JOIN `tabCountry Master` cm ON pd.country_of_origin = cm.name
+            LEFT JOIN `tabMaterial Master` mm2 ON pd.material_used = mm2.name
+    """
 
-        WHERE 
-        pd.name=%s
+    if name:
+        query += " WHERE pd.name=%s"
+        product = frappe.db.sql(query, (name,), as_dict=1)
+    else:
+        product = frappe.db.sql(query, as_dict=1)
 
-     """, (name), as_dict=1)
     return product
+
+# @frappe.whitelist()
+# def show_full_product_detail(**kwargs):
+
+#     name = kwargs.get('name')
+#     query = frappe.db.sql("""
+
+#         SELECT 
+
+#         pd.product_code AS product_code,
+#         pd.product_name AS product_name,
+#         pdc.product_category_name AS product_category_name,
+#         pd.model_number AS model_number,
+#         bm.brand_name AS brand_name,
+#         pd.manufacturing_date AS manufacturing_date,
+#         pd.product_license_number AS product_license_number,
+#         uom.uom AS uom,
+#         mm.material_name AS material_name,
+#         pd.established_year AS established_year,
+#         cm.country_name AS company_name,
+#         pd.description AS description,
+#         pd.product_license_number AS product_license_number,
+#         pd.product_dimension AS product_dimension,
+#         pd.product_weight AS product_weight,
+#         mm2.material_name AS material_name,
+#         pd.product_variants AS product_variants,
+#         pd.product_image_and_video AS product_image_and_video,
+#         pd.certificates_and_approval AS certificates_and_approval,
+#         pd.product_pricing AS product_pricing,
+#         pd.stocks AS stocks,
+#         pd.lead_time AS lead_time,
+#         pd.packaging_and_shipping_detail AS packaging_and_shipping_detail,
+#         pd.warranty_and_support_detail AS warranty_and_support_detail,
+#         pd.return_and_refund_policy_detail AS return_and_refund_policy_detail,
+#         pd.product_user_manual AS product_user_manual
+
+
+#         FROM
+#         `tabProduct Master` pd
+#         LEFT JOIN
+#             `tabProduct Category Master` pdc ON pd.product_category = pdc.name
+#         LEFT JOIN
+#             `tabBrand Master` bm ON pd.brand = bm.name
+#         LEFT JOIN
+#             `tabUOM Master` uom ON pd.uom = uom.name
+#         LEFT JOIN
+#             `tabMaterial Master` mm ON pd.material_type = mm.name
+#         LEFT JOIN
+#             `tabCountry Master` cm ON pd.country_of_origin = cm.name
+#         LEFT JOIN
+#             `tabMaterial Master` mm2 ON pd.material_used = mm2.name
+
+#         WHERE 
+#         pd.name=%s
+
+#      """, (name), as_dict=1)
+#     if name:
+#         query += "WHERE pd.name=%s"
+#         product = frappe.db.sql(query, (name), as_dict=1)
+#     else:
+#         product = frappe.db.sql(query, as_dict=1)
+#         return product
+
+
+
 
 
 #***********************************Show Product Master Details  FULL CLOSED*****************************************************************
