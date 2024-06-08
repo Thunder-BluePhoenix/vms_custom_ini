@@ -12,7 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 from email.message import EmailMessage
-import fitz
+#import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail

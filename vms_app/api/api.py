@@ -399,10 +399,10 @@ def onboarding_detail(**kwargs):
 #****************************************************Login API******************************************************************************
 
 
-def deobfuscate_data(data):
-    decoded_bytes = base64.b64decode(data.encode('utf-8'))
-    print("decode******************************")
-    return str(decoded_bytes, 'utf-8')
+# def deobfuscate_data(data):
+#     decoded_bytes = base64.b64decode(data.encode('utf-8'))
+#     print("decode******************************")
+#     return str(decoded_bytes, 'utf-8')
 
 
 
@@ -425,27 +425,13 @@ def login(usr, pwd):
 
     api_generate = generate_keys(frappe.session.user)
     user = frappe.get_doc('User', frappe.session.user)
-    print("***********************************************")
-    user_designation_id = frappe.db.get_value("User", filters={'email': user.email}, fieldname='designation')
-    print(user_designation_id)
-    user_designation_name = frappe.db.get_value("Designation Master", filters={'name': user_designation_id}, fieldname='designation_name')
-    print(user_designation_name)
-    print("************** API KEY and API Secret ****************************************")
-    token = f"Token {user.api_key}:{api_generate}"
-    encoded_token = base64.b64encode(token.encode()).decode()
-    decoded_token = base64.b64decode(encoded_token.encode()).decode()
-
-    print(encoded_token)
-    print(decoded_token)
     frappe.response["message"] = {
 
         "success_key":1,
         "message":"Authentication success",
-        'designation_name': user_designation_name,
         "sid":frappe.session.sid,
-        #"api_key":user.api_key,
-        #"api_secret":api_generate,
-        "token": encoded_token,
+        "api_key":user.api_key,
+        "api_secret":api_generate,
         "username":user.username,
         "email":user.email
 
