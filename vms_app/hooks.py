@@ -216,7 +216,7 @@ doc_events = {
 	},
 	"Request For Quotation":{
 
-		#isko bhi uncomment karna hai "validate": "vms_app.api.api.hitt",
+		"validate": "vms_app.api.api.hitt",
 		"after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
 	},

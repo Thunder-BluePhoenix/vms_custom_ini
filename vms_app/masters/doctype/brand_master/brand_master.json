@@ -6,7 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "brand_code",
-  "brnad_name",
+  "brand_name",
   "description"
  ],
  "fields": [
@@ -18,21 +18,21 @@
    "reqd": 1
   },
   {
-   "fieldname": "brnad_name",
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "brand_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Brand Name",
    "reqd": 1
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:15:34.513231",
+ "modified": "2024-06-08 11:57:58.762096",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Brand Master",

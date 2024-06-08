@@ -12,7 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 from email.message import EmailMessage
-import fitz
+#import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail
@@ -212,7 +212,84 @@ def show_purchase_order(**kwargs):
 
 
 
+
+
+
+
+
 #**********************************Purchase Order API Closed*******************************************************************
+
+
+
+
+
+#***********************************Show Product Master Details  FULL***********************************************************************
+
+@frappe.whitelist()
+def show_full_product_detail(**kwargs):
+
+    name = kwargs.get('name')
+    product = frappe.db.sql("""
+
+        SELECT 
+
+        pd.product_code AS product_code,
+        pd.product_name AS product_name,
+        pdc.product_category_name AS product_category_name,
+        pd.model_number AS model_number,
+        bm.brand_name AS brand_name,
+        pd.manufacturing_date AS manufacturing_date,
+        pd.product_license_number AS product_license_number,
+        uom.uom AS uom,
+        mm.material_name AS material_name,
+        pd.established_year AS established_year,
+        cm.country_name AS company_name,
+        pd.description AS description,
+        pd.product_license_number AS product_license_number,
+        pd.product_dimension AS product_dimension,
+        pd.product_weight AS product_weight,
+        mm2.material_name AS material_name,
+        pd.product_variants AS product_variants,
+        pd.product_image_and_video AS product_image_and_video,
+        pd.certificates_and_approval AS certificates_and_approval,
+        pd.product_pricing AS product_pricing,
+        pd.stocks AS stocks,
+        pd.lead_time AS lead_time,
+        pd.packaging_and_shipping_detail AS packaging_and_shipping_detail,
+        pd.warranty_and_support_detail AS warranty_and_support_detail,
+        pd.return_and_refund_policy_detail AS return_and_refund_policy_detail,
+        pd.product_user_manual AS product_user_manual
+
+
+        FROM
+        `tabProduct Master` pd
+        LEFT JOIN
+            `tabProduct Category Master` pdc ON pd.product_category = pdc.name
+        LEFT JOIN
+            `tabBrand Master` bm ON pd.brand = bm.name
+        LEFT JOIN
+            `tabUOM Master` uom ON pd.uom = uom.name
+        LEFT JOIN
+            `tabMaterial Master` mm ON pd.material_type = mm.name
+        LEFT JOIN
+            `tabCountry Master` cm ON pd.country_of_origin = cm.name
+        LEFT JOIN
+            `tabMaterial Master` mm2 ON pd.material_used = mm2.name
+
+        WHERE 
+        pd.name=%s
+
+     """, (name), as_dict=1)
+    return product
+
+
+#***********************************Show Product Master Details  FULL CLOSED*****************************************************************
+
+
+
+
+
+
 
 @frappe.whitelist()
 def token():
@@ -1024,77 +1101,77 @@ def all_rfq_detail():
             `tabMaterial Master` mm ON rfq.material = mm.name """,as_dict=1)
     return all_rfq
 
+#####ISKO UNCOMMENT KARNA HAI ******************************************************************************
+# @frappe.whitelist()
+# def main_function(data, method):
+#     #time.sleep(3)
+#     print("*****************************Hi From Main**************************************")
+#     name = data.get("name")
+#     file = frappe.db.sql(""" select file_name from `tabImport Entry` where name=%s """,(name))
+#     print(file)
+#     with fitz.open(file) as doc:
+#         text = ""
+#         for page in doc:
+#             text += page.get_text()
+#         print(text)
 
-@frappe.whitelist()
-def main_function(data, method):
-    #time.sleep(3)
-    print("*****************************Hi From Main**************************************")
-    name = data.get("name")
-    file = frappe.db.sql(""" select file_name from `tabImport Entry` where name=%s """,(name))
-    print(file)
-    with fitz.open(file) as doc:
-        text = ""
-        for page in doc:
-            text += page.get_text()
-        print(text)
-
-@frappe.whitelist()
-def extract_text_from_pdf(data, method):
-    pdf_path = data.get("file_name")
-    #pdf_path = frappe.request.files.get("file_name")
+# @frappe.whitelist()
+# def extract_text_from_pdf(data, method):
+#     pdf_path = data.get("file_name")
+#     #pdf_path = frappe.request.files.get("file_name")
     
-    with fitz.open(pdf_path) as doc:
-        text = ""
-        for page in doc:
-            text += page.get_text()
+#     with fitz.open(pdf_path) as doc:
+#         text = ""
+#         for page in doc:
+#             text += page.get_text()
    
 
-    lines = text.split('\n')
-    resume_dict = {}
+#     lines = text.split('\n')
+#     resume_dict = {}
 
-    current_section = None
-    for line in lines:
-        if line.strip() == "":
-            continue
-        if ":" in line:
-            key, value = line.split(':', 1)
-            key = key.strip()
-            value = value.strip()
+#     current_section = None
+#     for line in lines:
+#         if line.strip() == "":
+#             continue
+#         if ":" in line:
+#             key, value = line.split(':', 1)
+#             key = key.strip()
+#             value = value.strip()
            
-            if current_section is not None:
+#             if current_section is not None:
                
-                if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
-                    resume_dict[current_section] = {}
-                resume_dict[current_section][key] = value
-            else:
-                resume_dict[key] = value
-        else:
+#                 if current_section not in resume_dict or isinstance(resume_dict[current_section], list):
+#                     resume_dict[current_section] = {}
+#                 resume_dict[current_section][key] = value
+#             else:
+#                 resume_dict[key] = value
+#         else:
            
-            if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
-                current_section = line.strip()
+#             if current_section is None or isinstance(resume_dict.get(current_section, None), dict):
+#                 current_section = line.strip()
               
-                if current_section in resume_dict and isinstance(resume_dict[current_section], list):
-                    continue
-                else:
-                    resume_dict[current_section] = []  
-            else:
-                resume_dict[current_section].append(line.strip())
+#                 if current_section in resume_dict and isinstance(resume_dict[current_section], list):
+#                     continue
+#                 else:
+#                     resume_dict[current_section] = []  
+#             else:
+#                 resume_dict[current_section].append(line.strip())
    
-    text = extract_text_from_pdf(pdf_path)
-    resume_dict = parse_resume_text(text)
-    for key, value in resume_dict.items():
-        if isinstance(value, dict):
-            print(f"{key}:")
-        for sub_key, sub_value in value.items():
-            print(f"  {sub_key}: {sub_value}")
-        if isinstance(value, list):
-            print(f"{key}:")
-        for item in value:
-            print(f"  - {item}")
-    else:
-        print(f"{key}: {value}")
-    print()  
-    print(type(resume_dict))
+#     text = extract_text_from_pdf(pdf_path)
+#     resume_dict = parse_resume_text(text)
+#     for key, value in resume_dict.items():
+#         if isinstance(value, dict):
+#             print(f"{key}:")
+#         for sub_key, sub_value in value.items():
+#             print(f"  {sub_key}: {sub_value}")
+#         if isinstance(value, list):
+#             print(f"{key}:")
+#         for item in value:
+#             print(f"  - {item}")
+#     else:
+#         print(f"{key}: {value}")
+#     print()  
+#     print(type(resume_dict))
 
 
 # scheduler = sched.scheduler(time.time, time.sleep)
@@ -1582,6 +1659,173 @@ def show_vendor_registration_details(**kwargs):
 
         """,(name), as_dict=1)
     return vendor
+
+
+#*********************This API will show RFQ with its items*****************************
+@frappe.whitelist()
+def show_rfq_detail_with_items(name):
+    rfq = frappe.db.sql(""" 
+
+        SELECT
+        rfq.name AS rfq_number,
+        prt4.port_name AS destination_port,
+        rfq.meril_invoice_date AS meril_invoice_date,
+        vt.vendor_type_name AS vendor_type_name,
+        rfq.rfq_cutoff_date AS rfq_cutoff_date,
+        comp.company_name AS division_name,
+        rfq.mode_of_shipment AS mode_of_shipment,
+        prt.port_name AS port_name,
+        rfq.ship_to_address AS ship_to_address,
+        rfq.no_of_pkg_units As no_of_pkg_units,
+        rfq.vol_weight AS vol_weight,
+        rfq.invoice_date AS invoice_date,
+        rfq.shipment_date AS shipment_date,
+        rfq.remarks AS remarks,
+        rfq.consignee_name AS consignee_name,
+        rfq.sr_no AS sr_no,
+        rfq.rfq_date AS rfq_date,
+        cnt.country_name AS country_name,
+        pt.port_code AS port_code,
+        inc.incoterm_name AS incoterm_name,
+        pty.package_name AS package_name,
+        pcat.product_category_name AS product_category_name,
+        rfq.actual_weight AS actual_weight,
+        rfq.invoice_no AS invoice_no,
+        sty.shipment_type_name AS shipment_type_name,
+        rft.rfq_name AS rfq_name,
+        rfq.raised_by AS raised_by,
+        rfq.status AS status,
+        mm.material_name AS material_name,
+        rfq.quantity AS quantity,
+        rfq.required_by AS required_by,
+        rfq.pr_code AS pr_code,
+        comp2.company_code AS company_code,
+        porg.purchase_organization_name AS purchase_organization_name,
+        pg.purchase_group_name AS purchase_group_name,
+        cur.currency_name AS currency_name,
+        rfq.collection_number AS collection_number,
+        rfq.quotation_deadline AS quotation_deadline,
+        rfq.validity_start_date AS validity_start_date,
+        rfq.validity_end_date AS validity_end_date,
+        rfq.requestor_name AS requestor_name,
+        pd.product_code AS product_code,
+        pdc.product_category_name AS product_category_name,
+        rfq.item_description AS item_description,
+        rfq.item_dimension AS item_dimension,
+        rfq.add_special_remarksif_any AS add_special_remarksif_any,
+        mtc.material_category_name AS material_category_name,
+        pltm.plant_code AS plant_code,
+        rfq.short_text AS short_text,
+        rfq.catalogue_number AS catalogue_number,
+        rfq.make AS make,
+        rfq.pack_size AS pack_size,
+        rfq.rfq_quantity AS rfq_quantity,
+        rfq.quantity_unit AS quantity_unit,
+        rfq.delivery_date AS delivery_date,
+        rfq.first_reminder AS first_reminder,
+        rfq.second_reminder AS second_reminder,
+        rfq.third_reminder AS third_reminder,
+        rfq.non_negotiable AS non_negotiable,
+        rfq.negotiable AS negotiable,
+        vm2.name AS name,
+        rfq.bidding_person AS bidding_person,
+        rfq.select_language AS select_language,
+        rfq.service_code AS service_code,
+        rfq.service_category AS service_category,
+        rfq.storage_location AS storage_location,
+        productcat.product_category_name AS product_category
+
+
+
+        FROM `tabRequest For Quotation` rfq
+        LEFT JOIN
+            `tabVendor Type Master` vt ON rfq.select_service = vt.name
+        LEFT JOIN
+            `tabCompany Master` comp ON rfq.division = comp.name
+        LEFT JOIN
+            `tabPort Master` prt ON rfq.destination_port = prt.name
+        LEFT JOIN
+            `tabPort Master` prt2 ON rfq.port_of_loading = prt2.name
+        LEFT JOIN
+            `tabPort Master` prt4 ON rfq.destination_port = prt4.name
+        LEFT JOIN
+            `tabPort Master` pt ON rfq.port_code = pt.name
+        LEFT JOIN
+            `tabCountry Master` cnt ON rfq.country = cnt.name
+        LEFT JOIN
+            `tabIncoterm Master` inc ON rfq.inco_terms = inc.name
+        LEFT JOIN
+            `tabPackage Type Master` pty ON rfq.package_type = pty.name
+        LEFT JOIN
+            `tabProduct Category Master` pcat ON rfq.product_category = pcat.name
+        LEFT JOIN
+            `tabShipment Type Master` sty ON rfq.shipment_type = sty.name
+        LEFT JOIN
+            `tabRFQ Type Master` rft ON rfq.rfq_type = rft.name
+        LEFT JOIN
+            `tabMaterial Master` mm ON rfq.material = mm.name
+        LEFT JOIN
+            `tabCompany Master` comp2 ON rfq.company_code = comp2.name
+        LEFT JOIN
+            `tabPurchase Organization Master` porg ON rfq.purchase_organization = porg.name
+        LEFT JOIN
+            `tabPurchase Group Master` pg ON rfq.purchase_group = pg.name
+        LEFT JOIN
+            `tabCurrency Master` cur ON rfq.currency = cur.name
+        LEFT JOIN
+            `tabProduct Master` pd ON rfq.item_code = pd.name
+        LEFT JOIN
+            `tabProduct Category Master` pdc ON rfq.item_code = pdc.name
+        LEFT JOIN
+            `tabMaterial Category Master` mtc ON rfq.material_category = mtc.name
+        LEFT JOIN
+            `tabPlant Master` pltm ON rfq.plant_code = pltm.name
+        LEFT JOIN
+            `tabVendor Master` vm2 ON rfq.vendor_code = vm2.name
+        LEFT JOIN
+            `tabProduct Category Master` productcat ON rfq.product_category = productcat.name
+
+
+
+        WHERE rfq.name=%s
+
+
+        """,(name), as_dict=1)
+
+    rfq_items = frappe.db.sql("""
+
+        SELECT 
+
+        pd.product_code AS product_code,
+        pd2.product_name AS product_name,
+        rqi.quantity AS quantity,
+        rqi.price AS price 
+
+        FROM `tabRFQ Items` rqi
+
+        LEFT JOIN
+            `tabProduct Master` pd ON rqi.product_code = pd.name
+        LEFT JOIN
+            `tabProduct Master` pd2 ON rqi.product_name = pd2.name
+
+        WHERE rqi.name=%s
+
+        """,(name), as_dict=1)
+
+    all_values = {
+
+        "rfq_details": rfq[0],
+        "rfq_items": rfq_items
+
+    }
+    print("*******************************")
+    print(rfq)
+    print(rfq_items)
+
+    return rfq, rfq_items
+
+
+#*******************************************show rfq with its items CLOSED**************************************
 
 
 
