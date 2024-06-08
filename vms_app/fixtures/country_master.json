@@ -8,6 +8,14 @@
   "name": "63f86d84f2"
  },
  {
+  "country_code": "CO3",
+  "country_name": "Country 3",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-04-18 12:45:30.029008",
+  "name": "42348d7d21"
+ },
+ {
   "country_code": "CO5",
   "country_name": "Country 5",
   "docstatus": 0,
@@ -16,19 +24,11 @@
   "name": "23d1261948"
  },
  {
-  "country_code": "CO1",
+  "country_code": "IN",
   "country_name": "Country 1",
   "docstatus": 0,
   "doctype": "Country Master",
-  "modified": "2024-03-29 10:58:49.968134",
+  "modified": "2024-06-05 16:56:14.435920",
   "name": "ea35686ce8"
- },
- {
-  "country_code": "CO3",
-  "country_name": "Country 3",
-  "docstatus": 0,
-  "doctype": "Country Master",
-  "modified": "2024-04-18 12:45:30.029008",
-  "name": "42348d7d21"
  }
 ]

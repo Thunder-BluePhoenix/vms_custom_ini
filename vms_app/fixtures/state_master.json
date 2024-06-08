@@ -3,15 +3,6 @@
   "country": "ea35686ce8",
   "docstatus": 0,
   "doctype": "State Master",
-  "modified": "2024-03-28 09:32:06.203543",
-  "name": "54cd78fcac",
-  "state_code": "ST6",
-  "state_name": "State 6"
- },
- {
-  "country": "ea35686ce8",
-  "docstatus": 0,
-  "doctype": "State Master",
   "modified": "2024-03-28 09:31:54.011988",
   "name": "9e816feadf",
   "state_code": "ST5",
@@ -21,9 +12,18 @@
   "country": "ea35686ce8",
   "docstatus": 0,
   "doctype": "State Master",
-  "modified": "2024-03-28 09:36:27.572113",
+  "modified": "2024-03-28 09:32:06.203543",
+  "name": "54cd78fcac",
+  "state_code": "ST6",
+  "state_name": "State 6"
+ },
+ {
+  "country": "ea35686ce8",
+  "docstatus": 0,
+  "doctype": "State Master",
+  "modified": "2024-06-05 17:40:34.729399",
   "name": "76103e2d71",
-  "state_code": "ST3",
-  "state_name": "State 3"
+  "state_code": "6",
+  "state_name": "6"
  }
 ]

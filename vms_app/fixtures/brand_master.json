@@ -1,1 +1,11 @@
-[]
+[
+ {
+  "brand_code": "BR1",
+  "brand_name": "Brand 1",
+  "description": "sdf",
+  "docstatus": 0,
+  "doctype": "Brand Master",
+  "modified": "2024-06-08 11:58:13.563784",
+  "name": "61dc8991e9"
+ }
+]

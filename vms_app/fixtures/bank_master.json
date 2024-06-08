@@ -1,12 +1,12 @@
 [
  {
-  "bank_code": "BK2",
-  "bank_name": "Bank 2",
+  "bank_code": "sdf",
+  "bank_name": "ALLAHABAD",
   "description": null,
   "docstatus": 0,
   "doctype": "Bank Master",
   "ifsc_code": "5678",
-  "modified": "2024-03-28 09:28:10.791173",
+  "modified": "2024-06-05 19:34:43.232466",
   "name": "ca83df5c2d"
  },
  {
@@ -21,12 +21,12 @@
  },
  {
   "bank_code": "BK3",
-  "bank_name": "Bank 3",
+  "bank_name": "HDFC0000170",
   "description": null,
   "docstatus": 0,
   "doctype": "Bank Master",
   "ifsc_code": "5855",
-  "modified": "2024-03-28 09:28:23.958761",
+  "modified": "2024-06-05 18:17:27.352075",
   "name": "5ec4bbb7d2"
  }
 ]

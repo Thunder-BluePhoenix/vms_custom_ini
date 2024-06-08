@@ -1,14 +1,5 @@
 [
  {
-  "company_nature_code": "CN3",
-  "company_nature_name": "CNature3",
-  "description": null,
-  "docstatus": 0,
-  "doctype": "Company Nature Master",
-  "modified": "2024-03-28 09:44:59.039588",
-  "name": "05f994dfe8"
- },
- {
   "company_nature_code": "CN1",
   "company_nature_name": "CNature1",
   "description": null,
@@ -25,5 +16,14 @@
   "doctype": "Company Nature Master",
   "modified": "2024-03-28 09:44:46.867496",
   "name": "1644c35b37"
+ },
+ {
+  "company_nature_code": "CN3",
+  "company_nature_name": "CNature3",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Nature Master",
+  "modified": "2024-03-28 09:44:59.039588",
+  "name": "05f994dfe8"
  }
 ]

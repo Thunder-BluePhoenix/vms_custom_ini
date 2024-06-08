@@ -1,15 +1,5 @@
 [
  {
-  "acccount_group_code": "AG3",
-  "account_group_name": "AGroup3",
-  "description": null,
-  "docstatus": 0,
-  "doctype": "Account Group Master",
-  "modified": "2024-03-28 09:49:04.312269",
-  "name": "7477dd9e23",
-  "purchase_organisation": null
- },
- {
   "acccount_group_code": "AG1",
   "account_group_name": "AGroup1",
   "description": null,
@@ -27,6 +17,16 @@
   "doctype": "Account Group Master",
   "modified": "2024-03-28 09:48:56.691469",
   "name": "7da9e17b7a",
+  "purchase_organisation": null
+ },
+ {
+  "acccount_group_code": "ZDOM",
+  "account_group_name": "ZDOM",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Group Master",
+  "modified": "2024-06-05 18:45:46.318480",
+  "name": "7477dd9e23",
   "purchase_organisation": null
  }
 ]

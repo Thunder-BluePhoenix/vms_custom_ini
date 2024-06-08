@@ -56,17 +56,6 @@
  },
  {
   "country": "ea35686ce8",
-  "district_code": "DS7",
-  "district_name": "District 7",
-  "docstatus": 0,
-  "doctype": "District Master",
-  "modified": "2024-03-28 09:38:29.905130",
-  "name": "44dd5e8076",
-  "pincode": null,
-  "state": "9e816feadf"
- },
- {
-  "country": "ea35686ce8",
   "district_code": "DS2",
   "district_name": "District 2",
   "docstatus": 0,
@@ -75,6 +64,17 @@
   "name": "a51175f3e0",
   "pincode": null,
   "state": "54cd78fcac"
+ },
+ {
+  "country": "ea35686ce8",
+  "district_code": "DS7",
+  "district_name": "District 7",
+  "docstatus": 0,
+  "doctype": "District Master",
+  "modified": "2024-03-28 09:38:29.905130",
+  "name": "44dd5e8076",
+  "pincode": null,
+  "state": "9e816feadf"
  },
  {
   "country": "ea35686ce8",
