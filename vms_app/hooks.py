@@ -204,7 +204,7 @@ doc_events = {
 
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
-		"after_insert": "vms_app.api.api.send_email",
+		"validate": "vms_app.api.api.send_email",
 		#"after_insert": "vms_app.api.api.sap_fetch_token"
 		#"after_insert": "vms_app.api.api.generate_onboarding_link"
 		#"validate": "vms_app.api.api.create_sap_so_from_po"
@@ -216,8 +216,8 @@ doc_events = {
 	},
 	"Request For Quotation":{
 
-		"validate": "vms_app.api.api.hitt",
-		"after_insert": "vms_app.api.api.set_rfq_raisers_name"
+		"after_insert": "vms_app.api.api.hitt",
+		#"after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
 	},
 	"Import Entry":{

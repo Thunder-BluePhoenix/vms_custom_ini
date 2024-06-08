@@ -47,6 +47,7 @@
   "accounts_team_approval",
   "purchase_head_approval",
   "vendor_onboarding_link",
+  "onboarding_form_status",
   "payment_detail_tab",
   "bank_name",
   "ifsc_code",
@@ -793,11 +794,16 @@
    "fieldtype": "Link",
    "label": "Vendor Onboarding Link",
    "options": "Vendor Master"
+  },
+  {
+   "fieldname": "onboarding_form_status",
+   "fieldtype": "Data",
+   "label": "Onboarding Form Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-07 16:42:01.402185",
+ "modified": "2024-06-08 16:30:38.216494",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",
