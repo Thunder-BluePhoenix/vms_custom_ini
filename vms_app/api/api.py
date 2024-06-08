@@ -1448,165 +1448,165 @@ def import_entry_detail(name):
 
 
 
-# @frappe.whitelist()
-# def show_me(name):
-#     vendor = frappe.db.sql("""
-#         SELECT
-#             vm.name AS name,
-#             vm.office_email_primary AS office_email_primary,
-#             vm.address_proofattachment AS address_proofattachment,
-#             vm.bank_proof AS bank_proof,
-#             vm.gst_proof AS gst_proof,
-#             vm.pan_proof AS pan_proof,
-#             vm.entity_proof AS entity_proof,
-#             vm.iec_proof AS iec_proof,
-#             vm.organisation_structure_document AS organisation_structure_document,
-#             vm.certificate_proof AS certificate_proof,
-#             cm.company_name AS company_name,
-#             sm.state_name AS state_name,
-#             cnm.company_nature_name AS company_nature_name,
-#             bnm.business_nature_name AS business_nature_name,
-#             vt.vendor_type_name AS vendor_type_name,
-#             cn.country_name AS country_name,
-#             vm.type_of_business AS type_of_business,
-#             vm.size_of_company AS size_of_company,
-#             vm.website AS website,
-#             vm.telephone_number AS telephone_number,
-#             vm.office_email_secondary AS office_email_secondary,
-#             vm.corporate_identification_number AS corporate_identification_number,
-#             vm.cin_date AS cin_date,
-#             vm.registered_office_number AS registered_office_number,
-#             vm.established_year AS established_year,
-#             vm.address_line_1 AS address_line_1,
-#             vm.address_line_2 AS address_line_2,
-#             ct.city_name AS city_name,
-#             dst.district_name AS district_name,
-#             pin.pincode AS pincode,
-#             vm.street_1 AS street_1,
-#             vm.street_2 AS street_2,
-#             mfst.state_name AS manufacturing_state_name,
-#             mscty.country_name AS manufacturing_country_name,
-#             pi.pincode AS manufacturing_pincode,
-#             mfc.city_name AS manufacturing_city,
-#             mfd.district_name AS manufacturing_district,
-#             vm.purchase_team_approval AS purchase_team_approval,
-#             vm.purchase_head_approval AS purchase_head_approval,
-#             vm.accounts_team_approval AS accounts_team_approval,
-#             bk.bank_name As bank_name,
-#             vm.ifsc_code AS ifsc_code,
-#             vm.account_number AS account_number,
-#             vm.type_of_account AS type_of_account,
-#             cur.currency_name AS currency_name,
-#             vm.name_of_account_holder AS name_of_account_holder,
-#             vm.gst_number AS gst_number,
-#             vm.cind As cind,
-#             vm.company_pan_number AS company_pan_number,
-#             vm.name_on_company_pan AS name_on_company_pan,
-#             vm.enterprise_registration_number AS enterprise_registration_number,
-#             vm.iec As iec,
-#             vm.rtgs AS rtgs,
-#             vm.neft AS neft,
-#             gst.registration_type_name AS registration_type_name,
-#             vm.details_of_product_manufactured AS details_of_product_manufactured,
-#             vm.storage_capacity AS storage_capacity,
-#             vm.spare_capacity AS spare_capacity,
-#             vm.type_of_premises AS type_of_premises,
-#             vm.working_hours AS working_hours,
-#             vm.weekly_holiday AS weekly_holiday,
-#             vm.number_of_manpower AS number_of_manpower,
-#             vm.annual_revenue AS annual_revenue,
-#             vm.google_address_pin AS google_address_pin,
-#             vm.first_name AS first_name,
-#             vm.last_name As last_name,
-#             vm.designation AS designation,
-#             vm.email AS email,
-#             vm.contact_number AS contact_number,
-#             vm.f_name AS f_name,
-#             vm.l_name AS l_name,
-#             vm.dnation AS dnation,
-#             vm.mail AS mail,
-#             vm.cnot AS cnot,
-#             crt.certificate_name AS certificate_name,
-#             vm.valid_till AS valid_till,
-#             vm.payee_in_document AS payee_in_document,
-#             vm.check_double_invoice AS check_double_invoice,
-#             vm.gr_based_inv_ver AS gr_based_inv_ver,
-#             vm.service_based_inv_ver AS service_based_inv_ver,
-#             curn.currency_name AS order_currency,
-#             term.terms_of_payment_name AS terms_of_payment,
-#             incoterm.incoterm_name AS incoterms,
-#             purchase.purchase_group_name AS purchase_group,
-#             vm.purchase_team_remarks AS purchase_team_remarks,
-#             vm.purchase_head_remark AS purchase_head_remark,
-#             vm.enterprise AS enterprise,
-#             vm.reconciliation_account AS reconciliation_account,
-#             vm.accounts_team_remark AS accounts_team_remark
+@frappe.whitelist()
+def show_me(name):
+    vendor = frappe.db.sql("""
+        SELECT
+            vm.name AS name,
+            vm.office_email_primary AS office_email_primary,
+            vm.address_proofattachment AS address_proofattachment,
+            vm.bank_proof AS bank_proof,
+            vm.gst_proof AS gst_proof,
+            vm.pan_proof AS pan_proof,
+            vm.entity_proof AS entity_proof,
+            vm.iec_proof AS iec_proof,
+            vm.organisation_structure_document AS organisation_structure_document,
+            vm.certificate_proof AS certificate_proof,
+            cm.company_name AS company_name,
+            sm.state_name AS state_name,
+            cnm.company_nature_name AS company_nature_name,
+            bnm.business_nature_name AS business_nature_name,
+            vt.vendor_type_name AS vendor_type_name,
+            cn.country_name AS country_name,
+            vm.type_of_business AS type_of_business,
+            vm.size_of_company AS size_of_company,
+            vm.website AS website,
+            vm.telephone_number AS telephone_number,
+            vm.office_email_secondary AS office_email_secondary,
+            vm.corporate_identification_number AS corporate_identification_number,
+            vm.cin_date AS cin_date,
+            vm.registered_office_number AS registered_office_number,
+            vm.established_year AS established_year,
+            vm.address_line_1 AS address_line_1,
+            vm.address_line_2 AS address_line_2,
+            ct.city_name AS city_name,
+            dst.district_name AS district_name,
+            pin.pincode AS pincode,
+            vm.street_1 AS street_1,
+            vm.street_2 AS street_2,
+            mfst.state_name AS manufacturing_state_name,
+            mscty.country_name AS manufacturing_country_name,
+            pi.pincode AS manufacturing_pincode,
+            mfc.city_name AS manufacturing_city,
+            mfd.district_name AS manufacturing_district,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            bk.bank_name As bank_name,
+            vm.ifsc_code AS ifsc_code,
+            vm.account_number AS account_number,
+            vm.type_of_account AS type_of_account,
+            cur.currency_name AS currency_name,
+            vm.name_of_account_holder AS name_of_account_holder,
+            vm.gst_number AS gst_number,
+            vm.cind As cind,
+            vm.company_pan_number AS company_pan_number,
+            vm.name_on_company_pan AS name_on_company_pan,
+            vm.enterprise_registration_number AS enterprise_registration_number,
+            vm.iec As iec,
+            vm.rtgs AS rtgs,
+            vm.neft AS neft,
+            gst.registration_type_name AS registration_type_name,
+            vm.details_of_product_manufactured AS details_of_product_manufactured,
+            vm.storage_capacity AS storage_capacity,
+            vm.spare_capacity AS spare_capacity,
+            vm.type_of_premises AS type_of_premises,
+            vm.working_hours AS working_hours,
+            vm.weekly_holiday AS weekly_holiday,
+            vm.number_of_manpower AS number_of_manpower,
+            vm.annual_revenue AS annual_revenue,
+            vm.google_address_pin AS google_address_pin,
+            vm.first_name AS first_name,
+            vm.last_name As last_name,
+            vm.designation AS designation,
+            vm.email AS email,
+            vm.contact_number AS contact_number,
+            vm.f_name AS f_name,
+            vm.l_name AS l_name,
+            vm.dnation AS dnation,
+            vm.mail AS mail,
+            vm.cnot AS cnot,
+            crt.certificate_name AS certificate_name,
+            vm.valid_till AS valid_till,
+            vm.payee_in_document AS payee_in_document,
+            vm.check_double_invoice AS check_double_invoice,
+            vm.gr_based_inv_ver AS gr_based_inv_ver,
+            vm.service_based_inv_ver AS service_based_inv_ver,
+            curn.currency_name AS order_currency,
+            term.terms_of_payment_name AS terms_of_payment,
+            incoterm.incoterm_name AS incoterms,
+            purchase.purchase_group_name AS purchase_group,
+            vm.purchase_team_remarks AS purchase_team_remarks,
+            vm.purchase_head_remark AS purchase_head_remark,
+            vm.enterprise AS enterprise,
+            vm.reconciliation_account AS reconciliation_account,
+            vm.accounts_team_remark AS accounts_team_remark
 
 
 
 
-#         FROM 
-#             `tabVendor Onboarding` vm 
-#         LEFT JOIN 
-#             `tabCompany Master` cm ON vm.company_name = cm.name 
-#         LEFT JOIN
-#             `tabState Master` sm ON vm.state = sm.name
-#         LEFT JOIN 
-#             `tabCompany Nature Master` cnm ON vm.nature_of_company = cnm.name
-#         LEFT JOIN
-#             `tabBusiness Nature Master` bnm ON vm.nature_of_business = bnm.name
-#         LEFT JOIN 
-#             `tabVendor Type Master` vt ON vm.vendor_type = vt.name
-#         LEFT JOIN
-#             `tabCountry Master` cn ON vm.country = cn.country_name
-#         LEFT JOIN
-#             `tabCity Master` ct ON vm.city = ct.name
-#         LEFT JOIN
-#             `tabDistrict Master` dst ON vm.district = dst.name
-#         LEFT JOIN 
-#             `tabPincode Master` pin ON vm.pincode = pin.name
-#         LEFT JOIN
-#             `tabState Master` mfst ON vm.manufacturing_state = mfst.name
-#         LEFT JOIN
-#             `tabCountry Master` mscty ON vm.manufacturing_country = mscty.name
-#         LEFT JOIN
-#             `tabPincode Master` pi ON vm.manufacturing_pincode = pi.name
-#         LEFT JOIN
-#             `tabCity Master` mfc ON vm.manufacturing_city = mfc.name
-#         LEFT JOIN
-#             `tabDistrict Master` mfd ON vm.manufacturing_district = mfd.name
-#         LEFT JOIN
-#             `tabBank Master` bk ON vm.bank_name = bk.name
-#         LEFT JOIN
-#             `tabCurrency Master` cur ON vm.currency = cur.name
-#         LEFT JOIN
-#             `tabGST Registration Type Master` gst ON vm.gst_registration_type = gst.name
-#         LEFT JOIN
-#             `tabCertificate Master` crt ON vm.certificate_name = crt.name
-#         LEFT JOIN
-#             `tabCurrency Master` curn ON vm.order_currency = curn.name
-#         LEFT JOIN
-#             `tabTerms Of Payment Master` term ON vm.terms_of_payment = term.name
-#         LEFT JOIN
-#             `tabIncoterm Master` incoterm ON vm.incoterms = incoterm.name
-#         LEFT JOIN
-#             `tabPurchase Group Master` purchase ON vm.purchase_group = purchase.name
-#         WHERE 
-#             vm.office_email_primary=%s
-#     """, (name), as_dict=1)
+        FROM 
+            `tabVendor Onboarding` vm 
+        LEFT JOIN 
+            `tabCompany Master` cm ON vm.company_name = cm.name 
+        LEFT JOIN
+            `tabState Master` sm ON vm.state = sm.name
+        LEFT JOIN 
+            `tabCompany Nature Master` cnm ON vm.nature_of_company = cnm.name
+        LEFT JOIN
+            `tabBusiness Nature Master` bnm ON vm.nature_of_business = bnm.name
+        LEFT JOIN 
+            `tabVendor Type Master` vt ON vm.vendor_type = vt.name
+        LEFT JOIN
+            `tabCountry Master` cn ON vm.country = cn.country_name
+        LEFT JOIN
+            `tabCity Master` ct ON vm.city = ct.name
+        LEFT JOIN
+            `tabDistrict Master` dst ON vm.district = dst.name
+        LEFT JOIN 
+            `tabPincode Master` pin ON vm.pincode = pin.name
+        LEFT JOIN
+            `tabState Master` mfst ON vm.manufacturing_state = mfst.name
+        LEFT JOIN
+            `tabCountry Master` mscty ON vm.manufacturing_country = mscty.name
+        LEFT JOIN
+            `tabPincode Master` pi ON vm.manufacturing_pincode = pi.name
+        LEFT JOIN
+            `tabCity Master` mfc ON vm.manufacturing_city = mfc.name
+        LEFT JOIN
+            `tabDistrict Master` mfd ON vm.manufacturing_district = mfd.name
+        LEFT JOIN
+            `tabBank Master` bk ON vm.bank_name = bk.name
+        LEFT JOIN
+            `tabCurrency Master` cur ON vm.currency = cur.name
+        LEFT JOIN
+            `tabGST Registration Type Master` gst ON vm.gst_registration_type = gst.name
+        LEFT JOIN
+            `tabCertificate Master` crt ON vm.certificate_name = crt.name
+        LEFT JOIN
+            `tabCurrency Master` curn ON vm.order_currency = curn.name
+        LEFT JOIN
+            `tabTerms Of Payment Master` term ON vm.terms_of_payment = term.name
+        LEFT JOIN
+            `tabIncoterm Master` incoterm ON vm.incoterms = incoterm.name
+        LEFT JOIN
+            `tabPurchase Group Master` purchase ON vm.purchase_group = purchase.name
+        WHERE 
+            vm.office_email_primary=%s
+    """, (name), as_dict=1)
 
 
 
 
-#     xyz = frappe.db.get_value("Vendor Onboarding", filters={'name': name}, fieldname=["office_email_primary"])
-#     email = frappe.db.get_value("Vendor Master", filters={'office_email_primary': xyz}, fieldname=["name"])
-#     dic = {
-#         "id": email 
-#     }
+    xyz = frappe.db.get_value("Vendor Onboarding", filters={'name': name}, fieldname=["office_email_primary"])
+    email = frappe.db.get_value("Vendor Master", filters={'office_email_primary': xyz}, fieldname=["name"])
+    dic = {
+        "id": email 
+    }
 
-#     val = vendor + [dic]
+    val = vendor + [dic]
 
-#     return val
+    return val
 
 
 
