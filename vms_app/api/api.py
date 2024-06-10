@@ -1532,7 +1532,8 @@ def show_me(name):
             vm.purchase_head_remark AS purchase_head_remark,
             vm.enterprise AS enterprise,
             vm.reconciliation_account AS reconciliation_account,
-            vm.accounts_team_remark AS accounts_team_remark
+            vm.accounts_team_remark AS accounts_team_remark,
+            vm.ref_no AS ref_no
 
 
 
@@ -1540,7 +1541,7 @@ def show_me(name):
         FROM 
             `tabVendor Onboarding` vm 
         LEFT JOIN 
-            `tabVendor Master` cm ON vm.company_name = cm.name 
+            `tabVendor Master` cm ON vm.ref_no = cm.name 
         LEFT JOIN
             `tabState Master` sm ON vm.state = sm.name
         LEFT JOIN 

@@ -147,7 +147,7 @@
   },
   {
    "fieldname": "company_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Company Name",
    "options": "Vendor Master"
@@ -803,7 +803,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 16:11:47.300390",
+ "modified": "2024-06-10 16:27:44.613729",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",
