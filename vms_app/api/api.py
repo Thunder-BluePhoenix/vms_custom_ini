@@ -25,6 +25,7 @@ import base64
 from vms_app.api.config.api import SAP_BASE_URL
 from vms_app.utils.utils import get_token_from_sap, send_request
 import uuid
+from frappe.utils.file_manager import save_file
 
 
 
@@ -456,6 +457,48 @@ def generate_keys(user):
     return api_secret
 
 #****************************************************Login API Closed************************************************************************************
+
+
+@frappe.whitelist(allow_guest=True)
+def upload_file(docname, doctype, attachmentFieldName):
+    file = frappe.request.files['file']
+    is_private = frappe.form_dict.is_private or 0
+
+    # Save the file and link it to the specific document
+    saved_file = save_file(file.filename, file.stream.read(), doctype, docname, is_private=int(is_private))
+    
+    # Update the document field with the file URL
+    doc = frappe.get_doc(doctype, docname)
+
+    #attachmentFieldName = ['address_proofattachment','bank_proof','gst_proof','pan_proof','entity_proof','iec_proof','organisation_structure_document','certificate_proof']
+
+    if(attachmentFieldName == 'address_proofattachment'):
+        doc.address_proofattachment = saved_file.file_url
+    elif(attachmentFieldName == 'bank_proof'): 
+        doc.bank_proof =saved_file.file_url
+    elif(attachmentFieldName == 'gst_proof'): 
+        doc.gst_proof =saved_file.file_url
+    elif(attachmentFieldName == 'pan_proof'): 
+        doc.pan_proof =saved_file.file_url 
+    elif(attachmentFieldName == 'entity_proof'): 
+        doc.entity_proof =saved_file.file_url 
+    elif(attachmentFieldName == 'iec_proof'): 
+        doc.iec_proof =saved_file.file_url
+    elif(attachmentFieldName == 'organisation_structure_document'): 
+        doc.organisation_structure_document =saved_file.file_url
+    elif(attachmentFieldName == 'certificate_proof'): 
+        doc.certificate_proof =saved_file.file_url
+    else:
+        console.log("no field")
+
+    doc.save()
+
+    return {
+        'file_url': saved_file.file_url,
+        'file_name': saved_file.name
+    }
+
+
 
 @frappe.whitelist()
 def send_email(data, method):
