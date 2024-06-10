@@ -46,7 +46,7 @@
   "purchase_team_approval",
   "accounts_team_approval",
   "purchase_head_approval",
-  "vendor_onboarding_link",
+  "ref_no",
   "onboarding_form_status",
   "payment_detail_tab",
   "bank_name",
@@ -790,20 +790,20 @@
    "label": "Check Double"
   },
   {
-   "fieldname": "vendor_onboarding_link",
-   "fieldtype": "Link",
-   "label": "Vendor Onboarding Link",
-   "options": "Vendor Master"
-  },
-  {
    "fieldname": "onboarding_form_status",
    "fieldtype": "Data",
    "label": "Onboarding Form Status"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Link",
+   "label": "Ref no",
+   "options": "Vendor Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 11:08:35.261177",
+ "modified": "2024-06-10 16:11:47.300390",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

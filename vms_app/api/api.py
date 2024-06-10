@@ -435,8 +435,8 @@ def login(usr, pwd):
         "success_key":1,
         "message":"Authentication success",
         "sid":frappe.session.sid,
-        "api_key":user.api_key,
-        "api_secret":api_generate,
+      #  "api_key":user.api_key,
+       # "api_secret":api_generate,
         'designation_name': user_designation_name,
         "username":user.username,
         "email":user.email
