@@ -425,6 +425,11 @@ def login(usr, pwd):
 
     api_generate = generate_keys(frappe.session.user)
     user = frappe.get_doc('User', frappe.session.user)
+    print("***********************************************")
+    user_designation_id = frappe.db.get_value("User", filters={'email': user.email}, fieldname='designation')
+    print(user_designation_id)
+    user_designation_name = frappe.db.get_value("Designation Master", filters={'name': user_designation_id}, fieldname='designation_name')
+    print(user_designation_name)
     frappe.response["message"] = {
 
         "success_key":1,
@@ -1535,7 +1540,7 @@ def show_me(name):
         FROM 
             `tabVendor Onboarding` vm 
         LEFT JOIN 
-            `tabCompany Master` cm ON vm.company_name = cm.name 
+            `tabVendor Master` cm ON vm.company_name = cm.name 
         LEFT JOIN
             `tabState Master` sm ON vm.state = sm.name
         LEFT JOIN 

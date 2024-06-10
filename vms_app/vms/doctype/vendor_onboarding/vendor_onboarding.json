@@ -150,7 +150,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Company Name",
-   "options": "Company Master"
+   "options": "Vendor Master"
   },
   {
    "fieldname": "payment_detail_tab",
@@ -803,7 +803,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-08 16:30:38.216494",
+ "modified": "2024-06-10 11:08:35.261177",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",
