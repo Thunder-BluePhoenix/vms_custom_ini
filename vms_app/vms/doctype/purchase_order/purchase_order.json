@@ -7,6 +7,7 @@
  "field_order": [
   "reference_to_rfq_section",
   "rfq_code",
+  "purchase_order_type",
   "purchase_organization",
   "purchase_group",
   "company_code",
@@ -19,6 +20,7 @@
   "quantity_unit",
   "short_text",
   "column_break_aeka",
+  "vendor_code",
   "product_variants",
   "storage_location",
   "coll_number",
@@ -27,7 +29,6 @@
   "packaging_shipping_details",
   "warranty_support_details",
   "return_refund_policy",
-  "vendor",
   "quote_vol_per_unit",
   "total_order_pricing",
   "rfq_date",
@@ -169,12 +170,6 @@
    "fieldname": "return_refund_policy",
    "fieldtype": "Data",
    "label": "Return & Refund Policy"
-  },
-  {
-   "fieldname": "vendor",
-   "fieldtype": "Link",
-   "label": "Vendor",
-   "options": "Vendor Master"
   },
   {
    "fieldname": "quote_vol_per_unit",
@@ -342,11 +337,21 @@
    "fieldname": "table_jsfj",
    "fieldtype": "Table",
    "options": "Purchase Order Item"
+  },
+  {
+   "fieldname": "purchase_order_type",
+   "fieldtype": "Select",
+   "label": "Purchase Order Type"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:34:49.385253",
+ "modified": "2024-06-13 10:41:31.072336",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",
