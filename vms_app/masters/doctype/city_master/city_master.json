@@ -1,25 +1,16 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:26:21.742006",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "city_code",
   "city_name",
   "district",
-  "pincode",
-  "state",
-  "country"
+  "state"
  ],
  "fields": [
-  {
-   "fieldname": "city_code",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "City Code",
-   "reqd": 1
-  },
   {
    "fieldname": "city_name",
    "fieldtype": "Data",
@@ -36,30 +27,16 @@
    "reqd": 1
   },
   {
-   "fieldname": "pincode",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Pincode",
-   "options": "Pincode Master"
-  },
-  {
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
    "options": "State Master",
    "reqd": 1
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Link",
-   "label": "Country",
-   "options": "Country Master",
-   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-28 09:33:21.126908",
+ "modified": "2024-07-13 16:20:39.271660",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "City Master",

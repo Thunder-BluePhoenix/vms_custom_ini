@@ -494,18 +494,21 @@
   },
   {
    "fieldname": "service_code",
-   "fieldtype": "Data",
-   "label": "Service Code"
+   "fieldtype": "Select",
+   "label": "Service Code",
+   "options": "Service Code1\nService Code2\nService Code3\nService Code4"
   },
   {
    "fieldname": "service_category",
-   "fieldtype": "Data",
-   "label": "Service Category"
+   "fieldtype": "Select",
+   "label": "Service Category",
+   "options": "Category1\nCategory2\nCategory3\nCategory4"
   },
   {
    "fieldname": "storage_location",
-   "fieldtype": "Data",
-   "label": "Storage Location"
+   "fieldtype": "Select",
+   "label": "Storage Location",
+   "options": "Storage Location1\nStorage Location2\nStorage Location3\nStorage Location4"
   },
   {
    "fieldname": "meril_invoice_date",
@@ -525,7 +528,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-08 10:53:23.535931",
+ "modified": "2024-06-24 09:58:31.336213",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

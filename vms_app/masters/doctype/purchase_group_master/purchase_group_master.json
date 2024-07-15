@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company_code",
   "purchase_group_code",
   "purchase_group_name",
   "description"
@@ -28,11 +29,18 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Code",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:37:21.397669",
+ "modified": "2024-06-27 15:55:15.582556",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Purchase Group Master",

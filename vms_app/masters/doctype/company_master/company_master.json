@@ -1,11 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{company_code}",
+ "autoname": "format:{company_name}",
  "creation": "2024-03-28 13:42:11.353388",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "sap_client_code",
   "company_code",
   "company_name",
   "description"
@@ -14,8 +15,7 @@
   {
    "fieldname": "company_code",
    "fieldtype": "Data",
-   "label": "Company Code",
-   "unique": 1
+   "label": "Company Code"
   },
   {
    "fieldname": "company_name",
@@ -26,11 +26,16 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "sap_client_code",
+   "fieldtype": "Data",
+   "label": "SAP Client Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 09:54:26.815693",
+ "modified": "2024-07-01 16:23:02.915179",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Master",
@@ -54,6 +59,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "company_code",
+ "title_field": "company_name",
  "translated_doctype": 1
 }

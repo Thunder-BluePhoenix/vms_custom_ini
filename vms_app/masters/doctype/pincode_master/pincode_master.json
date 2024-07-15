@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:28:09.702832",
  "doctype": "DocType",
@@ -9,7 +10,8 @@
   "city",
   "district",
   "state",
-  "country"
+  "country",
+  "zone"
  ],
  "fields": [
   {
@@ -49,11 +51,16 @@
    "label": "Country",
    "options": "Country Master",
    "reqd": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "label": "Zone"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:29:35.984190",
+ "modified": "2024-07-13 16:21:23.578333",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Pincode Master",

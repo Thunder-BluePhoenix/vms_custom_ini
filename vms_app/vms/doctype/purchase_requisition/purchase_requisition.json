@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-05 10:52:02.670269",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "purchase_requisition_number",
+  "purchase_requisition_type",
+  "pr_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "purchase_requisition_number",
+   "fieldtype": "Data",
+   "label": "Purchase Requisition Number"
+  },
+  {
+   "fieldname": "pr_items",
+   "fieldtype": "Table",
+   "label": "PR Items",
+   "options": "Purchase Requisition Item"
+  },
+  {
+   "fieldname": "purchase_requisition_type",
+   "fieldtype": "Data",
+   "label": "Purchase Requisition Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-06 15:34:43.142643",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Purchase Requisition",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

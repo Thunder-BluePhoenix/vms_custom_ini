@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:VMS/{company_name}/{####}",
  "creation": "2024-03-27 12:14:35.611299",
@@ -162,9 +163,9 @@
   },
   {
    "fieldname": "type_of_business",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Type of Business",
-   "options": "Type 1\nType 2\nType 3"
+   "options": "Business Nature Master"
   },
   {
    "fieldname": "size_of_company",
@@ -412,7 +413,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-11 17:10:25.791622",
+ "modified": "2024-07-06 17:34:11.987419",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

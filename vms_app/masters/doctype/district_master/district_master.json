@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:24:01.041436",
  "doctype": "DocType",
@@ -7,8 +8,8 @@
  "field_order": [
   "district_code",
   "district_name",
-  "pincode",
   "state",
+  "pincode",
   "country"
  ],
  "fields": [
@@ -43,13 +44,12 @@
    "fieldname": "country",
    "fieldtype": "Link",
    "label": "Country",
-   "options": "Country Master",
-   "reqd": 1
+   "options": "Country Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-28 09:33:04.758078",
+ "modified": "2024-07-13 17:27:15.064574",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "District Master",

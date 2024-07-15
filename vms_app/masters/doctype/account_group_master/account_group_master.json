@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:10:02.067100",
  "doctype": "DocType",
@@ -15,8 +16,7 @@
    "fieldname": "acccount_group_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Account Group Code",
-   "reqd": 1
+   "label": "Account Group Code"
   },
   {
    "fieldname": "account_group_name",
@@ -26,20 +26,20 @@
    "reqd": 1
   },
   {
-   "fieldname": "description",
-   "fieldtype": "Data",
-   "label": "Description"
-  },
-  {
    "fieldname": "purchase_organisation",
    "fieldtype": "Link",
    "label": "Purchase Organisation",
    "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Account Group Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-21 14:54:22.100635",
+ "modified": "2024-07-06 15:59:57.141346",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Group Master",

@@ -6,18 +6,47 @@
  "engine": "InnoDB",
  "field_order": [
   "reference_to_rfq_section",
+  "supplier",
+  "bill_to_company",
+  "ship_to_company",
   "rfq_code",
+  "vendor_gst_no",
+  "contact_person",
+  "phonemobile_no",
+  "email",
+  "delivery_terms",
+  "dispatch_mode",
+  "currency",
+  "supplier_quote_ref",
+  "po_number",
+  "purchase_group",
+  "po_date",
+  "ref_pr_no",
+  "ref_pr_date",
+  "ref_pr_person",
+  "contact_person2",
+  "phone_no",
+  "email2",
+  "dl_no",
+  "gstin_no",
+  "msme_no",
+  "total_gross_amount",
+  "total_input_cgst",
+  "total_input_sgst",
+  "total_value_of_po__so",
+  "total_value_in_words",
+  "terms_of_payment",
+  "delivery_schedule",
+  "other_note",
+  "column_break_ynic",
   "purchase_order_type",
   "purchase_organization",
-  "purchase_group",
   "company_code",
   "collection_number",
   "product_category",
   "material_code",
   "material_category",
   "delivery_date",
-  "product_quantity",
-  "quantity_unit",
   "short_text",
   "column_break_aeka",
   "vendor_code",
@@ -114,17 +143,6 @@
    "label": "Delivery Date"
   },
   {
-   "fieldname": "product_quantity",
-   "fieldtype": "Data",
-   "label": "Product Quantity"
-  },
-  {
-   "fieldname": "quantity_unit",
-   "fieldtype": "Link",
-   "label": "Quantity Unit",
-   "options": "UOM Master"
-  },
-  {
    "fieldname": "short_text",
    "fieldtype": "Small Text",
    "label": "Short Text"
@@ -189,7 +207,7 @@
   {
    "fieldname": "reference_to_rfq_section",
    "fieldtype": "Section Break",
-   "label": "Reference to RFQ"
+   "label": "Reference to RFQ(Main Fields)"
   },
   {
    "fieldname": "status",
@@ -341,17 +359,178 @@
   {
    "fieldname": "purchase_order_type",
    "fieldtype": "Select",
-   "label": "Purchase Order Type"
+   "label": "Purchase Order Type",
+   "options": "Order Type 1\nOrder Type 2\nOrder Type 3"
   },
   {
    "fieldname": "vendor_code",
+   "fieldtype": "Link",
+   "label": "Vendor Code",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "supplier",
    "fieldtype": "Data",
-   "label": "Vendor Code"
+   "label": "Supplier"
+  },
+  {
+   "fieldname": "vendor_gst_no",
+   "fieldtype": "Data",
+   "label": "Vendor GST No."
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "phonemobile_no",
+   "fieldtype": "Data",
+   "label": "Phone/Mobile no."
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "delivery_terms",
+   "fieldtype": "Data",
+   "label": "Delivery Terms"
+  },
+  {
+   "fieldname": "dispatch_mode",
+   "fieldtype": "Select",
+   "label": "Dispatch Mode",
+   "options": "Mode 1\nMode 2\nMode3"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "supplier_quote_ref",
+   "fieldtype": "Data",
+   "label": "Supplier Quote Ref"
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number"
+  },
+  {
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "label": "PO Date"
+  },
+  {
+   "fieldname": "ref_pr_no",
+   "fieldtype": "Data",
+   "label": "Ref PR No"
+  },
+  {
+   "fieldname": "ref_pr_date",
+   "fieldtype": "Date",
+   "label": "Ref PR Date"
+  },
+  {
+   "fieldname": "ref_pr_person",
+   "fieldtype": "Data",
+   "label": "Ref PR Person"
+  },
+  {
+   "fieldname": "contact_person2",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No"
+  },
+  {
+   "fieldname": "email2",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "dl_no",
+   "fieldtype": "Data",
+   "label": "D/L No"
+  },
+  {
+   "fieldname": "gstin_no",
+   "fieldtype": "Data",
+   "label": "GSTIN No"
+  },
+  {
+   "fieldname": "column_break_ynic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "msme_no",
+   "fieldtype": "Data",
+   "label": "MSME No"
+  },
+  {
+   "fieldname": "total_gross_amount",
+   "fieldtype": "Data",
+   "label": "Total Gross Amount"
+  },
+  {
+   "fieldname": "total_input_cgst",
+   "fieldtype": "Data",
+   "label": "Total Input CGST"
+  },
+  {
+   "fieldname": "total_input_sgst",
+   "fieldtype": "Data",
+   "label": "Total Input SGST"
+  },
+  {
+   "fieldname": "total_value_of_po__so",
+   "fieldtype": "Data",
+   "label": "Total Value of PO / SO"
+  },
+  {
+   "fieldname": "total_value_in_words",
+   "fieldtype": "Data",
+   "label": "Total Value in Words"
+  },
+  {
+   "fieldname": "terms_of_payment",
+   "fieldtype": "Link",
+   "label": "Terms of Payment",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "delivery_schedule",
+   "fieldtype": "Data",
+   "label": "Delivery Schedule"
+  },
+  {
+   "fieldname": "other_note",
+   "fieldtype": "Small Text",
+   "label": "Other Note"
+  },
+  {
+   "fieldname": "bill_to_company",
+   "fieldtype": "Link",
+   "label": "Bill To Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "ship_to_company",
+   "fieldtype": "Link",
+   "label": "Ship To Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-13 10:41:31.072336",
+ "modified": "2024-07-03 13:57:17.772228",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

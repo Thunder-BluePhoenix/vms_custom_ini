@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-04-03 12:03:14.388962",
  "doctype": "DocType",
@@ -22,14 +23,13 @@
   },
   {
    "fieldname": "country",
-   "fieldtype": "Link",
-   "label": "Country",
-   "options": "Country Master"
+   "fieldtype": "Data",
+   "label": "Country"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-03 12:04:15.548501",
+ "modified": "2024-07-01 10:12:47.151100",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Port Master",
@@ -48,7 +48,10 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "port_name",
+ "translated_doctype": 1
 }

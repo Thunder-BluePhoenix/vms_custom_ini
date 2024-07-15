@@ -48,6 +48,14 @@
   "purchase_head_approval",
   "ref_no",
   "onboarding_form_status",
+  "section_break_anay",
+  "banker_details",
+  "materials_supplied",
+  "number_of_employee",
+  "machinery_detail",
+  "testing_detail",
+  "reputed_partners",
+  "certificates",
   "payment_detail_tab",
   "bank_name",
   "ifsc_code",
@@ -115,6 +123,7 @@
   "certificate_details_tab",
   "certificate_details_section",
   "certificate_name",
+  "certificate_code",
   "column_break_uqit",
   "valid_till",
   "certificate_proof_section",
@@ -124,15 +133,18 @@
   "check_double_invoice",
   "gr_based_inv_ver",
   "service_based_inv_ver",
+  "purchase_organization",
   "order_currency",
   "terms_of_payment",
-  "incoterms",
   "purchase_group",
+  "incoterms",
+  "account_group",
   "purchase_team_remarks",
   "purchase_head_remark",
   "enterprise",
   "reconciliation_account",
-  "accounts_team_remark"
+  "accounts_team_remark",
+  "changes_tab"
  ],
  "fields": [
   {
@@ -147,10 +159,10 @@
   },
   {
    "fieldname": "company_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Company Name",
-   "options": "Vendor Master"
+   "options": "Company Master"
   },
   {
    "fieldname": "payment_detail_tab",
@@ -768,15 +780,14 @@
   },
   {
    "fieldname": "enterprise",
-   "fieldtype": "Select",
-   "label": "Enterprise",
-   "options": "e1\ne2\ne3"
+   "fieldtype": "Data",
+   "label": "Enterprise"
   },
   {
    "fieldname": "reconciliation_account",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Reconciliation Account",
-   "options": "1\n2\n3\n4"
+   "options": "Reconciliation Account"
   },
   {
    "fieldname": "accounts_team_remark",
@@ -799,11 +810,80 @@
    "fieldtype": "Link",
    "label": "Ref no",
    "options": "Vendor Master"
+  },
+  {
+   "fieldname": "changes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Changes"
+  },
+  {
+   "fieldname": "section_break_anay",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "banker_details",
+   "fieldtype": "Table",
+   "label": "Banker Details",
+   "options": "Banker Details"
+  },
+  {
+   "fieldname": "materials_supplied",
+   "fieldtype": "Table",
+   "label": "Materials Supplied",
+   "options": "Supplied"
+  },
+  {
+   "fieldname": "number_of_employee",
+   "fieldtype": "Table",
+   "label": "Number of Employee",
+   "options": "Employee Number"
+  },
+  {
+   "fieldname": "machinery_detail",
+   "fieldtype": "Table",
+   "label": "Machinery Detail",
+   "options": "Machinery Detail"
+  },
+  {
+   "fieldname": "testing_detail",
+   "fieldtype": "Table",
+   "label": "Testing Detail",
+   "options": "Testing Facility"
+  },
+  {
+   "fieldname": "reputed_partners",
+   "fieldtype": "Table",
+   "label": "Reputed Partners",
+   "options": "Reputed Partners"
+  },
+  {
+   "fieldname": "certificates",
+   "fieldtype": "Table",
+   "label": "Certificates",
+   "options": "Onboarding Certificates"
+  },
+  {
+   "fieldname": "certificate_code",
+   "fieldtype": "Link",
+   "label": "Certificate Code",
+   "options": "Certificate Master"
+  },
+  {
+   "fieldname": "account_group",
+   "fieldtype": "Link",
+   "label": "Account Group",
+   "options": "Account Group Master"
+  },
+  {
+   "fieldname": "purchase_organization",
+   "fieldtype": "Link",
+   "label": "Purchase Organization",
+   "options": "Purchase Organization Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 16:27:44.613729",
+ "modified": "2024-07-11 09:57:51.897738",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

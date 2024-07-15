@@ -1,0 +1,888 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-27 12:57:53.451043",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_details_tab",
+  "company_details_section",
+  "company_name",
+  "type_of_business",
+  "size_of_company",
+  "website",
+  "telephone_number",
+  "office_email_secondary",
+  "corporate_identification_number",
+  "column_break_ydha",
+  "cin_date",
+  "nature_of_company",
+  "registered_office_number",
+  "office_email_primary",
+  "established_year",
+  "nature_of_business",
+  "vendor_type",
+  "office_address_section",
+  "address_line_1",
+  "address_line_2",
+  "city",
+  "district",
+  "column_break_gmfc",
+  "state",
+  "country",
+  "pincode",
+  "manufacturing_address_section",
+  "street_1",
+  "street_2",
+  "manufacturing_city",
+  "manufacturing_district",
+  "column_break_yoqv",
+  "manufacturing_state",
+  "manufacturing_country",
+  "manufacturing_pincode",
+  "address_proof_section",
+  "address_proofattachment",
+  "status_section",
+  "purchase_team_approval",
+  "accounts_team_approval",
+  "purchase_head_approval",
+  "ref_no",
+  "onboarding_form_status",
+  "section_break_anay",
+  "banker_details",
+  "materials_supplied",
+  "number_of_employee",
+  "machinery_detail",
+  "testing_detail",
+  "reputed_partners",
+  "payment_detail_tab",
+  "bank_name",
+  "ifsc_code",
+  "account_number",
+  "column_break_pexd",
+  "type_of_account",
+  "currency",
+  "name_of_account_holder",
+  "bank_proof_section",
+  "bank_proof",
+  "preferred_transaction_section",
+  "rtgs",
+  "column_break_akib",
+  "neft",
+  "documents_tab",
+  "gst_details_section",
+  "gst_number",
+  "cind",
+  "gst_registration_type",
+  "gst_proof_section",
+  "gst_proof",
+  "company_pan_details_section",
+  "company_pan_number",
+  "column_break_ksie",
+  "name_on_company_pan",
+  "company_pan_proof_section",
+  "pan_proof",
+  "entity_registration_number_section",
+  "enterprise_registration_number",
+  "entity_proof_section",
+  "entity_proof",
+  "iec_import__export_code_section",
+  "iec",
+  "iec_proof_section",
+  "iec_proof",
+  "manufacturing_details_tab",
+  "manufacturing_details_section",
+  "details_of_product_manufactured",
+  "storage_capacity",
+  "spare_capacity",
+  "type_of_premises",
+  "working_hours",
+  "column_break_pxos",
+  "weekly_holiday",
+  "number_of_manpower",
+  "annual_revenue",
+  "google_address_pin",
+  "organisation_structure_document_section",
+  "organisation_structure_document",
+  "contact_details_tab",
+  "contact_person_1_section",
+  "first_name",
+  "last_name",
+  "designation",
+  "column_break_vokz",
+  "email",
+  "contact_number",
+  "contact_person_2_section",
+  "f_name",
+  "l_name",
+  "dnation",
+  "column_break_uiru",
+  "mail",
+  "cnot",
+  "certificate_details_tab",
+  "certificate_details_section",
+  "certificate_name",
+  "certificate_code",
+  "column_break_uqit",
+  "valid_till",
+  "certificate_proof_section",
+  "certificate_proof",
+  "purchasing_data_tab",
+  "payee_in_document",
+  "check_double_invoice",
+  "gr_based_inv_ver",
+  "service_based_inv_ver",
+  "order_currency",
+  "terms_of_payment",
+  "incoterms",
+  "purchase_group",
+  "purchase_team_remarks",
+  "purchase_head_remark",
+  "enterprise",
+  "reconciliation_account",
+  "accounts_team_remark",
+  "changes_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Company Details"
+  },
+  {
+   "fieldname": "company_details_section",
+   "fieldtype": "Section Break",
+   "label": "Company Details"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "payment_detail_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payment Detail"
+  },
+  {
+   "fieldname": "type_of_business",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type of Business"
+  },
+  {
+   "fieldname": "size_of_company",
+   "fieldtype": "Data",
+   "label": "Size of Company"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "registered_office_number",
+   "fieldtype": "Data",
+   "label": "Registered Office Number"
+  },
+  {
+   "fieldname": "telephone_number",
+   "fieldtype": "Data",
+   "label": "Telephone Number"
+  },
+  {
+   "fieldname": "established_year",
+   "fieldtype": "Data",
+   "label": "Established Year"
+  },
+  {
+   "fieldname": "office_email_primary",
+   "fieldtype": "Data",
+   "label": "Office Email Primary"
+  },
+  {
+   "fieldname": "office_email_secondary",
+   "fieldtype": "Data",
+   "label": "Office Email Secondary"
+  },
+  {
+   "fieldname": "corporate_identification_number",
+   "fieldtype": "Data",
+   "label": "Corporate Identification Number"
+  },
+  {
+   "fieldname": "cin_date",
+   "fieldtype": "Date",
+   "label": "CIN Date"
+  },
+  {
+   "fieldname": "nature_of_company",
+   "fieldtype": "Link",
+   "label": "Nature of Company",
+   "options": "Company Nature Master"
+  },
+  {
+   "fieldname": "nature_of_business",
+   "fieldtype": "Link",
+   "label": "Nature of Business",
+   "options": "Business Nature Master"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District Master"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State Master"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Link",
+   "label": "Pincode",
+   "options": "Pincode Master"
+  },
+  {
+   "fieldname": "address_proofattachment",
+   "fieldtype": "Attach",
+   "label": "Address Proof"
+  },
+  {
+   "fieldname": "column_break_ydha",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "account_number",
+   "fieldtype": "Data",
+   "label": "Account Number"
+  },
+  {
+   "fieldname": "name_of_account_holder",
+   "fieldtype": "Data",
+   "label": "Name of Account Holder"
+  },
+  {
+   "fieldname": "type_of_account",
+   "fieldtype": "Select",
+   "label": "Type of Account",
+   "options": "Account Type 1\nAccount Type 2\nAccount Type 3"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "bank_proof",
+   "fieldtype": "Attach",
+   "label": "Bank Proof"
+  },
+  {
+   "default": "0",
+   "fieldname": "rtgs",
+   "fieldtype": "Check",
+   "label": "RTGS"
+  },
+  {
+   "default": "0",
+   "fieldname": "neft",
+   "fieldtype": "Check",
+   "label": "NEFT"
+  },
+  {
+   "fieldname": "column_break_pexd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "gst_number",
+   "fieldtype": "Data",
+   "label": "GST Number"
+  },
+  {
+   "fieldname": "gst_proof",
+   "fieldtype": "Attach",
+   "label": "Upload GST Proof"
+  },
+  {
+   "fieldname": "company_pan_number",
+   "fieldtype": "Data",
+   "label": "Company PAN Number"
+  },
+  {
+   "fieldname": "name_on_company_pan",
+   "fieldtype": "Data",
+   "label": "Name on Company PAN"
+  },
+  {
+   "fieldname": "pan_proof",
+   "fieldtype": "Attach",
+   "label": "Upload Company PAN Card"
+  },
+  {
+   "fieldname": "entity_proof",
+   "fieldtype": "Attach",
+   "label": "Upload Enterprise Registration File"
+  },
+  {
+   "fieldname": "iec",
+   "fieldtype": "Data",
+   "label": "Import / Export Code"
+  },
+  {
+   "fieldname": "iec_proof",
+   "fieldtype": "Attach",
+   "label": "Upload IEC File"
+  },
+  {
+   "fieldname": "office_address_section",
+   "fieldtype": "Section Break",
+   "label": "Office Address"
+  },
+  {
+   "fieldname": "column_break_gmfc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturing_address_section",
+   "fieldtype": "Section Break",
+   "label": "Manufacturing Address"
+  },
+  {
+   "fieldname": "street_1",
+   "fieldtype": "Data",
+   "label": "Street 1"
+  },
+  {
+   "fieldname": "street_2",
+   "fieldtype": "Data",
+   "label": "Street 2"
+  },
+  {
+   "fieldname": "manufacturing_city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "manufacturing_district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District Master"
+  },
+  {
+   "fieldname": "column_break_yoqv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturing_state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State Master"
+  },
+  {
+   "fieldname": "manufacturing_country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "manufacturing_pincode",
+   "fieldtype": "Link",
+   "label": "Pincode",
+   "options": "Pincode Master"
+  },
+  {
+   "fieldname": "address_proof_section",
+   "fieldtype": "Section Break",
+   "label": "Address Proof"
+  },
+  {
+   "fieldname": "gst_details_section",
+   "fieldtype": "Section Break",
+   "label": "GST Details"
+  },
+  {
+   "fieldname": "bank_proof_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Proof"
+  },
+  {
+   "fieldname": "preferred_transaction_section",
+   "fieldtype": "Section Break",
+   "label": "Preferred Transaction"
+  },
+  {
+   "fieldname": "column_break_akib",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gst_proof_section",
+   "fieldtype": "Section Break",
+   "label": "GST Proof"
+  },
+  {
+   "fieldname": "company_pan_details_section",
+   "fieldtype": "Section Break",
+   "label": "Company PAN Details"
+  },
+  {
+   "fieldname": "column_break_ksie",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_pan_proof_section",
+   "fieldtype": "Section Break",
+   "label": "Company PAN Proof"
+  },
+  {
+   "fieldname": "entity_registration_number_section",
+   "fieldtype": "Section Break",
+   "label": "Entity Registration Number"
+  },
+  {
+   "fieldname": "enterprise_registration_number",
+   "fieldtype": "Data",
+   "label": "Enterprise Registration Number"
+  },
+  {
+   "fieldname": "entity_proof_section",
+   "fieldtype": "Section Break",
+   "label": "Entity Proof"
+  },
+  {
+   "fieldname": "iec_import__export_code_section",
+   "fieldtype": "Section Break",
+   "label": "IEC (Import / Export Code)"
+  },
+  {
+   "fieldname": "iec_proof_section",
+   "fieldtype": "Section Break",
+   "label": "IEC Proof"
+  },
+  {
+   "fieldname": "manufacturing_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Manufacturing Details"
+  },
+  {
+   "fieldname": "manufacturing_details_section",
+   "fieldtype": "Section Break",
+   "label": "Manufacturing Details"
+  },
+  {
+   "fieldname": "details_of_product_manufactured",
+   "fieldtype": "Data",
+   "label": "Details of Product Manufactured"
+  },
+  {
+   "fieldname": "storage_capacity",
+   "fieldtype": "Data",
+   "label": "Established Capacity (Strage Capacity)"
+  },
+  {
+   "fieldname": "spare_capacity",
+   "fieldtype": "Data",
+   "label": "Spare Capacity"
+  },
+  {
+   "fieldname": "type_of_premises",
+   "fieldtype": "Select",
+   "label": "Type of Premises ",
+   "options": "Lease\nRented\nOwned"
+  },
+  {
+   "fieldname": "working_hours",
+   "fieldtype": "Data",
+   "label": "Working Hours"
+  },
+  {
+   "fieldname": "weekly_holiday",
+   "fieldtype": "Data",
+   "label": "Weekly Holidays"
+  },
+  {
+   "fieldname": "number_of_manpower",
+   "fieldtype": "Data",
+   "label": "No. of Manpower/Strength"
+  },
+  {
+   "fieldname": "annual_revenue",
+   "fieldtype": "Data",
+   "label": "Annual Revenue"
+  },
+  {
+   "fieldname": "google_address_pin",
+   "fieldtype": "Data",
+   "label": "Google Address Pin"
+  },
+  {
+   "fieldname": "column_break_pxos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "organisation_structure_document_section",
+   "fieldtype": "Section Break",
+   "label": "Organisation Structure Document"
+  },
+  {
+   "fieldname": "organisation_structure_document",
+   "fieldtype": "Attach",
+   "label": "Upload Organisation Structure File"
+  },
+  {
+   "fieldname": "contact_details_tab",
+   "fieldtype": "Tab Break",
+   "label": " Contact Details"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "column_break_vokz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "certificate_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Certificate Details"
+  },
+  {
+   "fieldname": "certificate_details_section",
+   "fieldtype": "Section Break",
+   "label": "Certificate Details"
+  },
+  {
+   "fieldname": "certificate_name",
+   "fieldtype": "Link",
+   "label": "Certificate Name",
+   "options": "Certificate Master"
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid till"
+  },
+  {
+   "fieldname": "certificate_proof_section",
+   "fieldtype": "Section Break",
+   "label": "Certificate Proof"
+  },
+  {
+   "fieldname": "certificate_proof",
+   "fieldtype": "Attach",
+   "label": "Upload Certificate File"
+  },
+  {
+   "fieldname": "column_break_uqit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_type",
+   "fieldtype": "Link",
+   "label": "Vendor Type",
+   "options": "Vendor Type Master"
+  },
+  {
+   "fieldname": "cind",
+   "fieldtype": "Date",
+   "label": "CIN Date"
+  },
+  {
+   "fieldname": "gst_registration_type",
+   "fieldtype": "Link",
+   "label": "GST Registration Type",
+   "options": "GST Registration Type Master"
+  },
+  {
+   "fieldname": "contact_person_1_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person 1"
+  },
+  {
+   "fieldname": "contact_person_2_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Person 2"
+  },
+  {
+   "fieldname": "f_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "l_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "dnation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "mail",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_uiru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cnot",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "fieldname": "purchase_team_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Team Approval"
+  },
+  {
+   "fieldname": "accounts_team_approval",
+   "fieldtype": "Data",
+   "label": "Accounts Team Approval",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "purchase_head_approval",
+   "fieldtype": "Data",
+   "label": "Purchase Head Approval"
+  },
+  {
+   "fieldname": "purchasing_data_tab",
+   "fieldtype": "Tab Break",
+   "label": "Purchasing Data"
+  },
+  {
+   "default": "0",
+   "fieldname": "payee_in_document",
+   "fieldtype": "Check",
+   "label": "Payee in Document"
+  },
+  {
+   "default": "0",
+   "fieldname": "gr_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "GR Based Inv Ver"
+  },
+  {
+   "default": "0",
+   "fieldname": "service_based_inv_ver",
+   "fieldtype": "Check",
+   "label": "Service Based Inv Ver"
+  },
+  {
+   "fieldname": "order_currency",
+   "fieldtype": "Link",
+   "label": "Order Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "terms_of_payment",
+   "fieldtype": "Link",
+   "label": "Terms of Payment",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Link",
+   "label": "Incoterms",
+   "options": "Incoterm Master"
+  },
+  {
+   "fieldname": "purchase_group",
+   "fieldtype": "Link",
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "purchase_team_remarks",
+   "fieldtype": "Data",
+   "label": "Purchase Team Remarks"
+  },
+  {
+   "fieldname": "purchase_head_remark",
+   "fieldtype": "Data",
+   "label": "Purchase Head Remark"
+  },
+  {
+   "fieldname": "enterprise",
+   "fieldtype": "Data",
+   "label": "Enterprise"
+  },
+  {
+   "fieldname": "reconciliation_account",
+   "fieldtype": "Link",
+   "label": "Reconciliation Account",
+   "options": "Reconciliation Account"
+  },
+  {
+   "fieldname": "accounts_team_remark",
+   "fieldtype": "Data",
+   "label": "Accounts Team Remark"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_double_invoice",
+   "fieldtype": "Check",
+   "label": "Check Double"
+  },
+  {
+   "fieldname": "onboarding_form_status",
+   "fieldtype": "Data",
+   "label": "Onboarding Form Status"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Link",
+   "label": "Ref no",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "changes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Changes"
+  },
+  {
+   "fieldname": "section_break_anay",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "banker_details",
+   "fieldtype": "Table",
+   "label": "Banker Details",
+   "options": "Banker Details"
+  },
+  {
+   "fieldname": "materials_supplied",
+   "fieldtype": "Table",
+   "label": "Materials Supplied",
+   "options": "Supplied"
+  },
+  {
+   "fieldname": "number_of_employee",
+   "fieldtype": "Table",
+   "label": "Number of Employee",
+   "options": "Employee Number"
+  },
+  {
+   "fieldname": "machinery_detail",
+   "fieldtype": "Table",
+   "label": "Machinery Detail",
+   "options": "Machinery Detail"
+  },
+  {
+   "fieldname": "testing_detail",
+   "fieldtype": "Table",
+   "label": "Testing Detail",
+   "options": "Testing Facility"
+  },
+  {
+   "fieldname": "reputed_partners",
+   "fieldtype": "Table",
+   "label": "Reputed Partners",
+   "options": "Reputed Partners"
+  },
+  {
+   "fieldname": "certificate_code",
+   "fieldtype": "Link",
+   "label": "Certificate Code",
+   "options": "Certificate Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-06 16:18:17.422991",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Vendor Onboarding",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

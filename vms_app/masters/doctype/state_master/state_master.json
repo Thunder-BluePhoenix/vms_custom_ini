@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:22:15.373132",
  "doctype": "DocType",
@@ -7,35 +8,39 @@
  "field_order": [
   "state_code",
   "state_name",
-  "country"
+  "country_name",
+  "sap_state_code"
  ],
  "fields": [
   {
    "fieldname": "state_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "State Code",
-   "reqd": 1
+   "label": "State Code"
   },
   {
    "fieldname": "state_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "State Name",
-   "reqd": 1
+   "label": "State Name"
   },
   {
-   "fieldname": "country",
+   "fieldname": "sap_state_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "SAP State Code"
+  },
+  {
+   "fieldname": "country_name",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Country",
-   "options": "Country Master",
-   "reqd": 1
+   "label": "Country Name",
+   "options": "Country Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:23:00.036543",
+ "modified": "2024-07-12 09:41:03.366065",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "State Master",

@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-10 11:26:16.886607",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "certificate_attach",
+  "certificate_code",
+  "certificate_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "certificate_name",
+   "fieldtype": "Link",
+   "label": "Certificate Name",
+   "options": "Certificate Master"
+  },
+  {
+   "fieldname": "certificate_attach",
+   "fieldtype": "Attach",
+   "label": "Certificate"
+  },
+  {
+   "fieldname": "certificate_code",
+   "fieldtype": "Link",
+   "label": "Certificate Code",
+   "options": "Certificate Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-11 07:40:38.942736",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Onboarding Certificates",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

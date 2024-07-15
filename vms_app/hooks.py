@@ -9,13 +9,15 @@ required_apps = []
 import frappe
 from frappe import hooks
 
-def after_request(response):
-	response.headers["Access-Control-Allow-Origin"] = "*"
-	response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
-	response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-	return response
+# def after_request(response):
+# 	response.headers["Access-Control-Allow-Origin"] = "*"
+# 	response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
+# 	response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+# 	response.headers["Access-Control-Allow-Credentials"] = "true"
 
-hooks.after_request = [after_request]
+# 	return response
+
+# hooks.after_request = [after_request]
 
 
 # def schedule_cron_method():
@@ -34,54 +36,54 @@ response_headers = [
     {"fieldname": "Access-Control-Allow-Origin", "value": "*"}
 ]
 
-fixtures = [ 
-'Export Entry',
-'Export Entry Vendor',
-'Import Entry',
-'Request For Quotation',
-'Vendor Onboarding',
-'Vendor Master',
-'Tax Master',
-'Shipment Type Master',
-'RFQ Type Master',
-'Port Master',
-'Package Type Master',
-'Company Master',
-'City Master',
-'District Master',
-'Certificate Master',
-'Product Master',
-'Vendor Type Master',
-'Department Master',
-'Material Master',
-'Currency Master',
-'Terms Of Payment Master',
-'Purchase Group Master',
-'Account Master',
-'Company Nature Master',
-'Business Nature Master',
-'Pincode Master',
-'State Master',
-'Country Master',
-'Bank Master',
-'GST Registration Type Master',
-'Designation Master',
-'Product Category Master',
-'Brand Master',
-'Product Variant Master',
-'UOM Master',
-'Account Group Master',
-'Incoterm Master',
-'Quotation',
-'Vendor Master',
-'Vendor Onboarding',
-'Request For Quotation', 
-'Import Entry',
-'Quotation',
-'Purchase Order',
-'Export Entry Vendor'
+# fixtures = [ 
+# 'Export Entry',
+# 'Export Entry Vendor',
+# 'Import Entry',
+# 'Request For Quotation',
+# 'Vendor Onboarding',
+# 'Vendor Master',
+# 'Tax Master',
+# 'Shipment Type Master',
+# 'RFQ Type Master',
+# 'Port Master',
+# 'Package Type Master',
+# 'Company Master',
+# 'City Master',
+# 'District Master',
+# 'Certificate Master',
+# 'Product Master',
+# 'Vendor Type Master',
+# 'Department Master',
+# 'Material Master',
+# 'Currency Master',
+# 'Terms Of Payment Master',
+# 'Purchase Group Master',
+# 'Account Master',
+# 'Company Nature Master',
+# 'Business Nature Master',
+# 'Pincode Master',
+# 'State Master',
+# 'Country Master',
+# 'Bank Master',
+# 'GST Registration Type Master',
+# 'Designation Master',
+# 'Product Category Master',
+# 'Brand Master',
+# 'Product Variant Master',
+# 'UOM Master',
+# 'Account Group Master',
+# 'Incoterm Master',
+# 'Quotation',
+# 'Vendor Master',
+# 'Vendor Onboarding',
+# 'Request For Quotation', 
+# 'Import Entry',
+# 'Quotation',
+# 'Purchase Order',
+# 'Export Entry Vendor'
 
-]
+# ]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/vms_app/css/vms_app.css"
@@ -204,24 +206,26 @@ doc_events = {
 
 		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 		#"validate": "vms_app.api.api.send_email"
-		"validate": "vms_app.api.api.send_email",
+		"after_insert": "vms_app.api.api.send_email",
 		#"after_insert": "vms_app.api.api.sap_fetch_token"
 		#"after_insert": "vms_app.api.api.generate_onboarding_link"
 		#"validate": "vms_app.api.api.create_sap_so_from_po"
 	},
+	
 	"Vendor Onboarding": {
 
 	"validate": "vms_app.api.api.send_email_on_onboarding"
 
 	},
+
 	"Request For Quotation":{
 
-		"after_insert": "vms_app.api.api.hitt",
-		#"after_insert": "vms_app.api.api.set_rfq_raisers_name"
+	"after_insert": "vms_app.api.api.hitt",
+		# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
 	},
 	"Import Entry":{
-	#"after_insert": "vms_app.api.api.calculate",
+	"after_insert": "vms_app.api.api.calculate",
 	#"after_insert": "vms_app.api.api.extract_text_from_pdf",
 	#"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
 
@@ -229,12 +233,13 @@ doc_events = {
 	},
 	"Quotation": {
 
-	#iskouncommentkarnahaibadmai"validate": "vms_app.api.api.send_email_on_quotation_creation"
+	"validate": "vms_app.api.api.send_email_on_quotation_creation",
+ 	# "after_insert": "vms_app.api.api.calculate_export_entry"
 
 	},
 	"Purchase Order": {
 
-	#iskouncommentkarnahai"validate": "vms_app.api.api.send_email_on_po_creation"
+	"after_insert": "vms_app.api.api.send_email_on_po_creation"
 
 	},
 

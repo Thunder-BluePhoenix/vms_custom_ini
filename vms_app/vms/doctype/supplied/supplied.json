@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-27 14:42:25.357059",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_description",
+  "column_break_hgfc",
+  "annual_capacity"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_description",
+   "fieldtype": "Data",
+   "label": "Material Description"
+  },
+  {
+   "fieldname": "column_break_hgfc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "annual_capacity",
+   "fieldtype": "Data",
+   "label": "Annual Capacity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-27 14:46:22.341723",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Supplied",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

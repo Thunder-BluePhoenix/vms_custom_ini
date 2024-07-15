@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company_code",
   "terms_of_payment_code",
   "terms_of_payment_name",
   "description"
@@ -14,25 +15,30 @@
    "fieldname": "terms_of_payment_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Terms Of Payment Code",
-   "reqd": 1
+   "label": "Terms Of Payment Code"
   },
   {
    "fieldname": "terms_of_payment_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Terms Of Payment Name",
-   "reqd": 1
+   "label": "Terms Of Payment Name"
   },
   {
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Code",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:38:53.701395",
+ "modified": "2024-07-05 16:03:27.005738",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Terms Of Payment Master",

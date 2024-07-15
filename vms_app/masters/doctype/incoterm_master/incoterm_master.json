@@ -31,8 +31,7 @@
    "fieldname": "delivery_point",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Delivery Point",
-   "reqd": 1
+   "label": "Delivery Point"
   },
   {
    "fieldname": "transportation_costs",
@@ -52,7 +51,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:09:29.866489",
+ "modified": "2024-06-25 15:51:23.979889",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Incoterm Master",

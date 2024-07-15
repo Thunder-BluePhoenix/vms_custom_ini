@@ -29,9 +29,8 @@
   },
   {
    "fieldname": "certificate_type",
-   "fieldtype": "Select",
-   "label": "Certificate Type",
-   "options": "Type 1\nType 2\nType2"
+   "fieldtype": "Data",
+   "label": "Certificate Type"
   },
   {
    "fieldname": "issuing_authority",
@@ -61,7 +60,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-21 14:30:31.546865",
+ "modified": "2024-07-13 10:24:04.719034",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Certificate Master",

@@ -1,0 +1,41 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2024-06-27 14:41:11.205137",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "name1",
+     "column_break_jvdx",
+     "address"
+    ],
+    "fields": [
+     {
+      "fieldname": "name1",
+      "fieldtype": "Data",
+      "label": "Name"
+     },
+     {
+      "fieldname": "column_break_jvdx",
+      "fieldtype": "Column Break"
+     },
+     {
+      "fieldname": "address",
+      "fieldtype": "Data",
+      "label": "Address"
+     }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-06-27 14:41:45.119614",
+    "modified_by": "Administrator",
+    "module": "vms",
+    "name": "Banker Details",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+   }

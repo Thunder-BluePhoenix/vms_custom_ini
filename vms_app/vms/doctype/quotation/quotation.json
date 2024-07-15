@@ -1,174 +1,308 @@
 {
- "actions": [],
- "allow_rename": 1,
- "creation": "2024-04-18 11:55:58.036755",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "quotation_data_section",
-  "rfq_number",
-  "company_name",
-  "vendor_code",
-  "rfq_date",
-  "quotation_deadline",
-  "delivery_date",
-  "vendor_name",
-  "vendor_contact",
-  "contact_person",
-  "quote_amount",
-  "column_break_tiys",
-  "contact_email",
-  "product_code",
-  "product_category",
-  "material_code",
-  "material_category",
-  "material_name",
-  "rfq_quantity",
-  "storage_location",
-  "remark",
-  "status"
- ],
- "fields": [
-  {
-   "fieldname": "quotation_data_section",
-   "fieldtype": "Section Break",
-   "label": "Quotation Data"
-  },
-  {
-   "fieldname": "rfq_number",
-   "fieldtype": "Link",
-   "label": "RFQ Number",
-   "options": "Request For Quotation"
-  },
-  {
-   "fieldname": "vendor_code",
-   "fieldtype": "Link",
-   "label": "Vendor Code",
-   "options": "Vendor Master"
-  },
-  {
-   "fieldname": "rfq_date",
-   "fieldtype": "Date",
-   "label": "RFQ Date"
-  },
-  {
-   "fieldname": "quotation_deadline",
-   "fieldtype": "Date",
-   "label": "Quotation Deadline"
-  },
-  {
-   "fieldname": "delivery_date",
-   "fieldtype": "Date",
-   "label": "Delivery Date"
-  },
-  {
-   "fieldname": "vendor_name",
-   "fieldtype": "Data",
-   "label": "Vendor Name"
-  },
-  {
-   "fieldname": "vendor_contact",
-   "fieldtype": "Data",
-   "label": "Vendor Contact"
-  },
-  {
-   "fieldname": "contact_person",
-   "fieldtype": "Data",
-   "label": "Contact Person"
-  },
-  {
-   "fieldname": "contact_email",
-   "fieldtype": "Data",
-   "label": "Contact Email"
-  },
-  {
-   "fieldname": "company_name",
-   "fieldtype": "Link",
-   "label": "Company Name",
-   "options": "Company Master"
-  },
-  {
-   "fieldname": "product_code",
-   "fieldtype": "Link",
-   "label": "Product Code",
-   "options": "Product Master"
-  },
-  {
-   "fieldname": "product_category",
-   "fieldtype": "Link",
-   "label": "Product Category",
-   "options": "Product Category Master"
-  },
-  {
-   "fieldname": "material_code",
-   "fieldtype": "Link",
-   "label": "Material Code",
-   "options": "Material Master"
-  },
-  {
-   "fieldname": "material_category",
-   "fieldtype": "Link",
-   "label": "Material Category",
-   "options": "Material Category Master"
-  },
-  {
-   "fieldname": "material_name",
-   "fieldtype": "Link",
-   "label": "Material Name",
-   "options": "Material Master"
-  },
-  {
-   "fieldname": "rfq_quantity",
-   "fieldtype": "Data",
-   "label": "RFQ Quantity"
-  },
-  {
-   "fieldname": "storage_location",
-   "fieldtype": "Data",
-   "label": "Storage Location"
-  },
-  {
-   "fieldname": "remark",
-   "fieldtype": "Small Text",
-   "label": "Remark"
-  },
-  {
-   "fieldname": "column_break_tiys",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "quote_amount",
-   "fieldtype": "Data",
-   "label": "Quote Amount"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Data",
-   "label": "Status"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-05-28 15:34:16.111771",
- "modified_by": "Administrator",
- "module": "vms",
- "name": "Quotation",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
-}
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2024-04-18 11:55:58.036755",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+     "quotation_data_section",
+     "rfq_number",
+     "company_name",
+     "vendor_code",
+     "rfq_date",
+     "quotation_deadline",
+     "delivery_date",
+     "vendor_name",
+     "vendor_contact",
+     "contact_person",
+     "quote_amount",
+     "column_break_tiys",
+     "contact_email",
+     "product_code",
+     "product_category",
+     "material_code",
+     "material_category",
+     "material_name",
+     "rfq_quantity",
+     "storage_location",
+     "remark",
+     "status",
+     "logistics_section",
+     "shipment_mode",
+     "airlinevessel_name",
+     "chargeable_weight",
+     "ratekg",
+     "fuel_surcharge",
+     "sc",
+     "xray",
+     "pickuporigin",
+     "ex_works",
+     "transit_days",
+     "column_break_shjr",
+     "total_freight",
+     "from_currency",
+     "to_currency",
+     "exchange_rate",
+     "total_freightinr",
+     "destination_charge",
+     "shipping_line_charge",
+     "cfs_charge",
+     "total_landing_price",
+     "remarks"
+    ],
+    "fields": [
+     {
+      "fieldname": "quotation_data_section",
+      "fieldtype": "Section Break",
+      "label": "Quotation Data"
+     },
+     {
+      "fieldname": "rfq_number",
+      "fieldtype": "Link",
+      "label": "RFQ Number",
+      "options": "Request For Quotation"
+     },
+     {
+      "fieldname": "vendor_code",
+      "fieldtype": "Link",
+      "label": "Vendor Code",
+      "options": "Vendor Master"
+     },
+     {
+      "fieldname": "rfq_date",
+      "fieldtype": "Date",
+      "label": "RFQ Date"
+     },
+     {
+      "fieldname": "quotation_deadline",
+      "fieldtype": "Date",
+      "label": "Quotation Deadline"
+     },
+     {
+      "fieldname": "delivery_date",
+      "fieldtype": "Date",
+      "label": "Delivery Date"
+     },
+     {
+      "fieldname": "vendor_name",
+      "fieldtype": "Data",
+      "label": "Vendor Name"
+     },
+     {
+      "fieldname": "vendor_contact",
+      "fieldtype": "Data",
+      "label": "Vendor Contact"
+     },
+     {
+      "fieldname": "contact_person",
+      "fieldtype": "Data",
+      "label": "Contact Person"
+     },
+     {
+      "fieldname": "contact_email",
+      "fieldtype": "Data",
+      "label": "Contact Email"
+     },
+     {
+      "fieldname": "company_name",
+      "fieldtype": "Link",
+      "label": "Company Name",
+      "options": "Company Master"
+     },
+     {
+      "fieldname": "product_code",
+      "fieldtype": "Link",
+      "label": "Product Code",
+      "options": "Product Master"
+     },
+     {
+      "fieldname": "product_category",
+      "fieldtype": "Link",
+      "label": "Product Category",
+      "options": "Product Category Master"
+     },
+     {
+      "fieldname": "material_code",
+      "fieldtype": "Link",
+      "label": "Material Code",
+      "options": "Material Master"
+     },
+     {
+      "fieldname": "material_category",
+      "fieldtype": "Link",
+      "label": "Material Category",
+      "options": "Material Category Master"
+     },
+     {
+      "fieldname": "material_name",
+      "fieldtype": "Link",
+      "label": "Material Name",
+      "options": "Material Master"
+     },
+     {
+      "fieldname": "rfq_quantity",
+      "fieldtype": "Data",
+      "label": "RFQ Quantity"
+     },
+     {
+      "fieldname": "storage_location",
+      "fieldtype": "Data",
+      "label": "Storage Location"
+     },
+     {
+      "fieldname": "remark",
+      "fieldtype": "Small Text",
+      "label": "Remark"
+     },
+     {
+      "fieldname": "column_break_tiys",
+      "fieldtype": "Column Break"
+     },
+     {
+      "fieldname": "quote_amount",
+      "fieldtype": "Data",
+      "label": "Quote Amount"
+     },
+     {
+      "fieldname": "status",
+      "fieldtype": "Data",
+      "label": "Status"
+     },
+     {
+      "fieldname": "logistics_section",
+      "fieldtype": "Section Break",
+      "label": "Logistics"
+     },
+     {
+      "fieldname": "shipment_mode",
+      "fieldtype": "Select",
+      "label": "Shipment Mode",
+      "options": "Air\nOcean\nRoad"
+     },
+     {
+      "fieldname": "airlinevessel_name",
+      "fieldtype": "Data",
+      "label": "Airline/Vessel Name"
+     },
+     {
+      "fieldname": "chargeable_weight",
+      "fieldtype": "Data",
+      "label": "Chargeable Weight"
+     },
+     {
+      "fieldname": "ratekg",
+      "fieldtype": "Data",
+      "label": "Rate/Kg"
+     },
+     {
+      "fieldname": "fuel_surcharge",
+      "fieldtype": "Data",
+      "label": "Fuel Surcharge"
+     },
+     {
+      "fieldname": "sc",
+      "fieldtype": "Data",
+      "label": "SC"
+     },
+     {
+      "fieldname": "xray",
+      "fieldtype": "Data",
+      "label": "XRay"
+     },
+     {
+      "fieldname": "pickuporigin",
+      "fieldtype": "Data",
+      "label": "Pickup/Origin"
+     },
+     {
+      "fieldname": "ex_works",
+      "fieldtype": "Data",
+      "label": "Ex Works"
+     },
+     {
+      "fieldname": "total_freight",
+      "fieldtype": "Data",
+      "label": "Total Freight"
+     },
+     {
+      "fieldname": "from_currency",
+      "fieldtype": "Link",
+      "label": "From Currency",
+      "options": "Currency Master"
+     },
+     {
+      "fieldname": "to_currency",
+      "fieldtype": "Link",
+      "label": "To Currency",
+      "options": "Currency Master"
+     },
+     {
+      "fieldname": "exchange_rate",
+      "fieldtype": "Data",
+      "label": "Exchange Rate"
+     },
+     {
+      "fieldname": "total_freightinr",
+      "fieldtype": "Data",
+      "label": "Total Freight(INR)"
+     },
+     {
+      "fieldname": "destination_charge",
+      "fieldtype": "Data",
+      "label": "Destination Charge"
+     },
+     {
+      "fieldname": "shipping_line_charge",
+      "fieldtype": "Data",
+      "label": "Shipping Line Charge"
+     },
+     {
+      "fieldname": "cfs_charge",
+      "fieldtype": "Data",
+      "label": "CFS Charge"
+     },
+     {
+      "fieldname": "total_landing_price",
+      "fieldtype": "Data",
+      "label": "Total Landing Price"
+     },
+     {
+      "fieldname": "transit_days",
+      "fieldtype": "Data",
+      "label": "Transit Days"
+     },
+     {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+     },
+     {
+      "fieldname": "column_break_shjr",
+      "fieldtype": "Column Break"
+     }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-06-22 12:34:31.204692",
+    "modified_by": "Administrator",
+    "module": "vms",
+    "name": "Quotation",
+    "owner": "Administrator",
+    "permissions": [
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+     }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+   }

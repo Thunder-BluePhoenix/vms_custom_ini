@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-27 14:43:32.780839",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "production",
+  "qaqc",
+  "logistics",
+  "marketing",
+  "r_and_d",
+  "hse",
+  "other"
+ ],
+ "fields": [
+  {
+   "fieldname": "production",
+   "fieldtype": "Data",
+   "label": "Production"
+  },
+  {
+   "fieldname": "qaqc",
+   "fieldtype": "Data",
+   "label": "QA/QC"
+  },
+  {
+   "fieldname": "logistics",
+   "fieldtype": "Data",
+   "label": "Logistics"
+  },
+  {
+   "fieldname": "marketing",
+   "fieldtype": "Data",
+   "label": "Marketing"
+  },
+  {
+   "fieldname": "r_and_d",
+   "fieldtype": "Data",
+   "label": "R and D"
+  },
+  {
+   "fieldname": "hse",
+   "fieldtype": "Data",
+   "label": "HSE"
+  },
+  {
+   "fieldname": "other",
+   "fieldtype": "Data",
+   "label": "Other"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-27 14:46:17.279831",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Employee Number",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

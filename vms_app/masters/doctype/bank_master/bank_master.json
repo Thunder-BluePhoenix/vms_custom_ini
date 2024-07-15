@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:20:04.983406",
  "doctype": "DocType",
@@ -29,8 +30,7 @@
    "fieldname": "ifsc_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "IFSC Code",
-   "reqd": 1
+   "label": "IFSC Code"
   },
   {
    "fieldname": "description",
@@ -40,7 +40,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:21:02.464212",
+ "modified": "2024-07-12 15:23:56.109284",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Bank Master",
