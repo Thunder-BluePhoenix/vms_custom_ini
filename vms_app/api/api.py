@@ -6909,10 +6909,6 @@ def converttox(name):
 #     #     }
 
 
-
-
-
-
 #     url = "http://10.10.103.133:8000/sap/opu/odata/sap/ZMM_VENDOR_SRV/VENDORSet?sap-client=200"
 #     headers = {
 #     'X-CSRF-TOKEN': 'Fetch',
