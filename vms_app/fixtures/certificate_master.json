@@ -1,0 +1,72 @@
+[
+ {
+  "certificate": null,
+  "certificate_code": "USFDA",
+  "certificate_name": "United States Food and Drug Administration",
+  "certificate_type": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Certificate Master",
+  "expiration_date": null,
+  "issue_date": null,
+  "issuing_authority": null,
+  "modified": "2024-06-28 10:38:01.157981",
+  "name": "tcvbbus5mj"
+ },
+ {
+  "certificate": null,
+  "certificate_code": "ISO 45001",
+  "certificate_name": "Occupational health and safety management systems - Requirements with guidance for use",
+  "certificate_type": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Certificate Master",
+  "expiration_date": null,
+  "issue_date": null,
+  "issuing_authority": null,
+  "modified": "2024-06-28 10:37:25.302096",
+  "name": "tck5bofq7i"
+ },
+ {
+  "certificate": null,
+  "certificate_code": "ISO 13485",
+  "certificate_name": "Medical devices - Quality management systems - Requirements for regulatory purposes",
+  "certificate_type": "Type 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Certificate Master",
+  "expiration_date": null,
+  "issue_date": null,
+  "issuing_authority": null,
+  "modified": "2024-06-28 10:35:25.712009",
+  "name": "ebe1600dfd"
+ },
+ {
+  "certificate": null,
+  "certificate_code": "ISO 14001",
+  "certificate_name": "Environmental management systems - Requirements with guidance for use",
+  "certificate_type": "Type 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Certificate Master",
+  "expiration_date": null,
+  "issue_date": null,
+  "issuing_authority": null,
+  "modified": "2024-06-28 10:36:18.386280",
+  "name": "e7f0d640ec"
+ },
+ {
+  "certificate": null,
+  "certificate_code": "ISO 9001",
+  "certificate_name": "Quality Management Systems - Requirements",
+  "certificate_type": "Type 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Certificate Master",
+  "expiration_date": null,
+  "issue_date": null,
+  "issuing_authority": null,
+  "modified": "2024-06-28 10:34:31.681408",
+  "name": "bc6b3b5d02"
+ }
+]

@@ -1,0 +1,102 @@
+[
+ {
+  "company_code": "30232300",
+  "company_name": "Company11",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-05-27 14:33:42.655841",
+  "name": "VMS/MEPL/0009",
+  "sap_client_code": null
+ },
+ {
+  "company_code": "40232300",
+  "company_name": "Company 2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-05-27 14:33:48.733542",
+  "name": "7f6a8eb2aa",
+  "sap_client_code": null
+ },
+ {
+  "company_code": "50023230",
+  "company_name": "Company 1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-05-27 14:33:55.986246",
+  "name": "368b008a78",
+  "sap_client_code": null
+ },
+ {
+  "company_code": "2023200",
+  "company_name": "Company12",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-05-27 14:33:36.590646",
+  "name": "MSPL",
+  "sap_client_code": null
+ },
+ {
+  "company_code": "3000",
+  "company_name": "Meril India",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.285946",
+  "name": "3000",
+  "sap_client_code": "300"
+ },
+ {
+  "company_code": "8000",
+  "company_name": "Meril Endo Surgery Private Limited",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.339745",
+  "name": "8000",
+  "sap_client_code": "800"
+ },
+ {
+  "company_code": "7000",
+  "company_name": "Meril Diagnostics Private Limited",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.304476",
+  "name": "7000",
+  "sap_client_code": "700"
+ },
+ {
+  "company_code": "9000",
+  "company_name": "Meril Health Care Private Limited",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.380537",
+  "name": "9000",
+  "sap_client_code": "900"
+ },
+ {
+  "company_code": "1000",
+  "company_name": "Bilakhia Holdings Private Limited",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.174442",
+  "name": "1000",
+  "sap_client_code": "100"
+ },
+ {
+  "company_code": "2000",
+  "company_name": "Meril Life Sciences Private Limited",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Company Master",
+  "modified": "2024-06-25 15:34:04.264164",
+  "name": "2000",
+  "sap_client_code": "200"
+ }
+]

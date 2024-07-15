@@ -1,0 +1,1552 @@
+[
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.126616",
+  "name": "kopj6u8hav",
+  "purchase_group_code": "C01       ",
+  "purchase_group_name": "Capex-Equip/Others"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.162521",
+  "name": "kopjsag0sv",
+  "purchase_group_code": "C02       ",
+  "purchase_group_name": "Capex- Proj/Buld"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.188427",
+  "name": "kopjdtj7sf",
+  "purchase_group_code": "C03       ",
+  "purchase_group_name": "Service - Capex"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.213493",
+  "name": "kopke39jj3",
+  "purchase_group_code": "C04       ",
+  "purchase_group_name": "New Building Proje"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.249055",
+  "name": "kopk3qhra5",
+  "purchase_group_code": "G02       ",
+  "purchase_group_name": "Promotional Items"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.282201",
+  "name": "kopkqic261",
+  "purchase_group_code": "G04       ",
+  "purchase_group_name": "Service - Regular"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.301433",
+  "name": "kopl3elgqh",
+  "purchase_group_code": "G05       ",
+  "purchase_group_name": "Consumable-General"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.317108",
+  "name": "koplf3romk",
+  "purchase_group_code": "G06       ",
+  "purchase_group_name": "Service -AMC/Op.SO"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.331875",
+  "name": "koplcun0hu",
+  "purchase_group_code": "IH1       ",
+  "purchase_group_name": "In house Mfg."
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.348135",
+  "name": "kopld6tioh",
+  "purchase_group_code": "J01       ",
+  "purchase_group_name": "Corporate"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.364000",
+  "name": "koplakprtc",
+  "purchase_group_code": "J02       ",
+  "purchase_group_name": "service"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.379634",
+  "name": "koplvb7qqr",
+  "purchase_group_code": "J03       ",
+  "purchase_group_name": "Gen Corp"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.395417",
+  "name": "kopl830tra",
+  "purchase_group_code": "J04       ",
+  "purchase_group_name": "Insurance"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.413738",
+  "name": "kopmu8qs61",
+  "purchase_group_code": "J05       ",
+  "purchase_group_name": "Rental"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.431423",
+  "name": "kopmi0lten",
+  "purchase_group_code": "M01       ",
+  "purchase_group_name": "Engg.Items-Prodn."
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.447158",
+  "name": "kopmsvlcj9",
+  "purchase_group_code": "M02       ",
+  "purchase_group_name": "Engg.Items-Utility"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.460883",
+  "name": "kopm7rkktq",
+  "purchase_group_code": "M04       ",
+  "purchase_group_name": "Engineering - PM"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.476173",
+  "name": "kopm95edj8",
+  "purchase_group_code": "M05       ",
+  "purchase_group_name": "Engineering - PRD"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.491691",
+  "name": "kopmvvv6lq",
+  "purchase_group_code": "P01       ",
+  "purchase_group_name": "Trading/OEM"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.574137",
+  "name": "kopnkih17v",
+  "purchase_group_code": "R01       ",
+  "purchase_group_name": "Raw Material"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.606130",
+  "name": "kopot71vmu",
+  "purchase_group_code": "R02       ",
+  "purchase_group_name": "Packaging Material"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.629018",
+  "name": "kopo2j09q9",
+  "purchase_group_code": "R04       ",
+  "purchase_group_name": "Sub Cont & Jobwork"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.644870",
+  "name": "kopot3utsd",
+  "purchase_group_code": "R05       ",
+  "purchase_group_name": "Cons&Chem - Prodn."
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.662120",
+  "name": "kopo3818eg",
+  "purchase_group_code": "R07       ",
+  "purchase_group_name": "Cons&Chem - Lab"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.679348",
+  "name": "kopo4t339e",
+  "purchase_group_code": "T01       ",
+  "purchase_group_name": "Stock Transfer"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.695439",
+  "name": "kopoqrufnm",
+  "purchase_group_code": "J01       ",
+  "purchase_group_name": "Corporate"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.715460",
+  "name": "koppbqt0h1",
+  "purchase_group_code": "J02       ",
+  "purchase_group_name": "service"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.734938",
+  "name": "kopp88c072",
+  "purchase_group_code": "J03       ",
+  "purchase_group_name": "Gen Corp"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.750702",
+  "name": "kopptts759",
+  "purchase_group_code": "J04       ",
+  "purchase_group_name": "Insurance"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.766433",
+  "name": "koppnh58ir",
+  "purchase_group_code": "J05       ",
+  "purchase_group_name": "Rental"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.786868",
+  "name": "kopp1j9s39",
+  "purchase_group_code": "P01       ",
+  "purchase_group_name": "Raw Materials"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.803965",
+  "name": "kopqigjlp1",
+  "purchase_group_code": "P02       ",
+  "purchase_group_name": "Capex-Equip/Others"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.821335",
+  "name": "kopqulgsve",
+  "purchase_group_code": "P03       ",
+  "purchase_group_name": "Engineering"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.838241",
+  "name": "kopq0no5a6",
+  "purchase_group_code": "P04       ",
+  "purchase_group_name": "General"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.879775",
+  "name": "kopqc8ci6d",
+  "purchase_group_code": "P06       ",
+  "purchase_group_name": "Meril Academy"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.903685",
+  "name": "koprshqlp9",
+  "purchase_group_code": "P07       ",
+  "purchase_group_name": "Meril Unit II"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.954122",
+  "name": "koprbpsqk3",
+  "purchase_group_code": "P09       ",
+  "purchase_group_name": "Consumables"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.980541",
+  "name": "koprt3a0v6",
+  "purchase_group_code": "P10       ",
+  "purchase_group_name": "R&D Materials"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.005338",
+  "name": "kopseqof3f",
+  "purchase_group_code": "P11       ",
+  "purchase_group_name": "Service - Capex"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.024737",
+  "name": "kops50rf2q",
+  "purchase_group_code": "P12       ",
+  "purchase_group_name": "Printing & Stat."
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.046156",
+  "name": "kopsbsmgme",
+  "purchase_group_code": "P13       ",
+  "purchase_group_name": "Promotional Items"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.068083",
+  "name": "kopsps77lr",
+  "purchase_group_code": "P14       ",
+  "purchase_group_name": "Service - Regular"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.098870",
+  "name": "kops7qio1q",
+  "purchase_group_code": "P15       ",
+  "purchase_group_name": "Consumable-General"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.123338",
+  "name": "koptm4du30",
+  "purchase_group_code": "P16       ",
+  "purchase_group_name": "Service -AMC/Op.SO"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.142747",
+  "name": "koptot2sl9",
+  "purchase_group_code": "P17       ",
+  "purchase_group_name": "Engg.Items-Prodn."
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.161737",
+  "name": "koptfgcti0",
+  "purchase_group_code": "P18       ",
+  "purchase_group_name": "Engg.Items-Utility"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.179021",
+  "name": "kopt5hph08",
+  "purchase_group_code": "P19       ",
+  "purchase_group_name": "Trading / OEM Item"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.193166",
+  "name": "koptjj6ih6",
+  "purchase_group_code": "P20       ",
+  "purchase_group_name": "Sub Cont & Jobwork"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.207982",
+  "name": "kopu0ip39p",
+  "purchase_group_code": "P21       ",
+  "purchase_group_name": "Vascular Trading"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.223363",
+  "name": "kopuskp1t2",
+  "purchase_group_code": "P22       ",
+  "purchase_group_name": "Ortho Trading"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.239392",
+  "name": "kopuhefsfu",
+  "purchase_group_code": "P23       ",
+  "purchase_group_name": "General Items"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.254907",
+  "name": "kopuusm48l",
+  "purchase_group_code": "P24       ",
+  "purchase_group_name": "Cons&Chem - Prodn."
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.271236",
+  "name": "kopu1qrl0m",
+  "purchase_group_code": "P25       ",
+  "purchase_group_name": "Cons&Chem - Lab"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.287104",
+  "name": "kopu240pgh",
+  "purchase_group_code": "P26       ",
+  "purchase_group_name": "RM/R&D Mold-Capex"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.302157",
+  "name": "kopvfrqhur",
+  "purchase_group_code": "P27       ",
+  "purchase_group_name": "Engineering - PM"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.320441",
+  "name": "kopvrejvq1",
+  "purchase_group_code": "P28       ",
+  "purchase_group_name": "Engineering - PRD"
+ },
+ {
+  "company_code": "3000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.350951",
+  "name": "kopv2p03fn",
+  "purchase_group_code": "P02       ",
+  "purchase_group_name": "Capex"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.367632",
+  "name": "kopvj5luev",
+  "purchase_group_code": "C01       ",
+  "purchase_group_name": "Capex-Equip/Others"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.384461",
+  "name": "kopvmjkhrt",
+  "purchase_group_code": "C02       ",
+  "purchase_group_name": "Capex- Proj/Buld"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.403410",
+  "name": "koq080bdsa",
+  "purchase_group_code": "C03       ",
+  "purchase_group_name": "Service - Capex"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.427034",
+  "name": "koq02636ea",
+  "purchase_group_code": "C04       ",
+  "purchase_group_name": "New Building Proje"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.475510",
+  "name": "koq0e35oag",
+  "purchase_group_code": "G02       ",
+  "purchase_group_name": "Promotional Items"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.491113",
+  "name": "koq0p6q0fp",
+  "purchase_group_code": "G03       ",
+  "purchase_group_name": "R&D Material"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.529245",
+  "name": "koq14le97v",
+  "purchase_group_code": "G05       ",
+  "purchase_group_name": "Consumable-General"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.543716",
+  "name": "koq1kf3eps",
+  "purchase_group_code": "G06       ",
+  "purchase_group_name": "Service -AMC/Op.SO"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.559358",
+  "name": "koq1hc5ntt",
+  "purchase_group_code": "GI3       ",
+  "purchase_group_name": "R&D Material IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.578980",
+  "name": "koq174dr0c",
+  "purchase_group_code": "GI4       ",
+  "purchase_group_name": "Service IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.597906",
+  "name": "koq1kvl35b",
+  "purchase_group_code": "J01       ",
+  "purchase_group_name": "Corporate"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.619873",
+  "name": "koq28gd90g",
+  "purchase_group_code": "J02       ",
+  "purchase_group_name": "service"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.639841",
+  "name": "koq2e21tlh",
+  "purchase_group_code": "J03       ",
+  "purchase_group_name": "Gen Corp"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.656716",
+  "name": "koq2fpe48d",
+  "purchase_group_code": "J04       ",
+  "purchase_group_name": "Insurance"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.684680",
+  "name": "koq2jbg50g",
+  "purchase_group_code": "J05       ",
+  "purchase_group_name": "Rental"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.704451",
+  "name": "koq3bjjnet",
+  "purchase_group_code": "M01       ",
+  "purchase_group_name": "Engg.Items-Prodn."
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.723384",
+  "name": "koq36o76j1",
+  "purchase_group_code": "M02       ",
+  "purchase_group_name": "Engg.Items-Utility"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.742095",
+  "name": "koq3j7e4bs",
+  "purchase_group_code": "M03       ",
+  "purchase_group_name": "SSS-Others"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.761509",
+  "name": "koq3n6mr6u",
+  "purchase_group_code": "M04       ",
+  "purchase_group_name": "Engineering - PM"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.787598",
+  "name": "koq35r7b5f",
+  "purchase_group_code": "M05       ",
+  "purchase_group_name": "Engineering - PRD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.805315",
+  "name": "koq4rr9dne",
+  "purchase_group_code": "R01       ",
+  "purchase_group_name": "Raw Material"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.824650",
+  "name": "koq4v3evcf",
+  "purchase_group_code": "R02       ",
+  "purchase_group_name": "Packaging Material"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.844966",
+  "name": "koq42i49f9",
+  "purchase_group_code": "R03       ",
+  "purchase_group_name": "Trading / OEM Item"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.865431",
+  "name": "koq474s897",
+  "purchase_group_code": "R04       ",
+  "purchase_group_name": "Sub Cont & Jobwork"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.886556",
+  "name": "koq4j4thke",
+  "purchase_group_code": "R05       ",
+  "purchase_group_name": "Cons&Chem - Prodn."
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.905802",
+  "name": "koq50am2dn",
+  "purchase_group_code": "R06       ",
+  "purchase_group_name": "Cons&Chem - Lab"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.923263",
+  "name": "koq5jgis6l",
+  "purchase_group_code": "RI1       ",
+  "purchase_group_name": "Raw Material IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.948647",
+  "name": "koq5710rbv",
+  "purchase_group_code": "RI2       ",
+  "purchase_group_name": "PacK Mat IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.970739",
+  "name": "koq5q9euq7",
+  "purchase_group_code": "RI3       ",
+  "purchase_group_name": "OEM All IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.988085",
+  "name": "koq59jj4tk",
+  "purchase_group_code": "RI4       ",
+  "purchase_group_name": "Sub Cont IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.039588",
+  "name": "koq6surpqe",
+  "purchase_group_code": "T01       ",
+  "purchase_group_name": "Stock Transfer EX"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.055678",
+  "name": "koq6jp9bl1",
+  "purchase_group_code": "T02       ",
+  "purchase_group_name": "Stock Transfer NEX"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.070195",
+  "name": "koq6dbo50r",
+  "purchase_group_code": "C02       ",
+  "purchase_group_name": "Capex- Proj/Buld"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.086970",
+  "name": "koq6rsom65",
+  "purchase_group_code": "C03       ",
+  "purchase_group_name": "Service - Capex"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.110558",
+  "name": "koq76ktfo0",
+  "purchase_group_code": "C04       ",
+  "purchase_group_name": "New Building Proje"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.136453",
+  "name": "koq7gjlh23",
+  "purchase_group_code": "G01       ",
+  "purchase_group_name": "Printing & Stat."
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.156694",
+  "name": "koq7elnb8f",
+  "purchase_group_code": "G02       ",
+  "purchase_group_name": "Promotional Items"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.174004",
+  "name": "koq70ac5kk",
+  "purchase_group_code": "G03       ",
+  "purchase_group_name": "R&D Material"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.206067",
+  "name": "koq8gs210s",
+  "purchase_group_code": "G05       ",
+  "purchase_group_name": "Consumable-General"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.221536",
+  "name": "koq8r283jn",
+  "purchase_group_code": "G06       ",
+  "purchase_group_name": "Service -AMC/Op.SO"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.263662",
+  "name": "koq8eie9r8",
+  "purchase_group_code": "J02       ",
+  "purchase_group_name": "service"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.297624",
+  "name": "koq8bfbdma",
+  "purchase_group_code": "J04       ",
+  "purchase_group_name": "Insurance"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.311647",
+  "name": "koq960susd",
+  "purchase_group_code": "J05       ",
+  "purchase_group_name": "Rental"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.325546",
+  "name": "koq931a246",
+  "purchase_group_code": "M01       ",
+  "purchase_group_name": "Engg.Items-Prodn."
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.342639",
+  "name": "koq97f3opq",
+  "purchase_group_code": "M02       ",
+  "purchase_group_name": "Engg.Items-Utility"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.361169",
+  "name": "koq9svcdei",
+  "purchase_group_code": "M03       ",
+  "purchase_group_name": "SSS-Others"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.377579",
+  "name": "koq9jsb1tc",
+  "purchase_group_code": "M04       ",
+  "purchase_group_name": "Engineering - PM"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.393187",
+  "name": "koq94p34bq",
+  "purchase_group_code": "M05       ",
+  "purchase_group_name": "Engineering - PRD"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.406737",
+  "name": "koqam86cs8",
+  "purchase_group_code": "R01       ",
+  "purchase_group_name": "Raw Material"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.422181",
+  "name": "koqauiol6q",
+  "purchase_group_code": "R02       ",
+  "purchase_group_name": "Packaging Material"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.437929",
+  "name": "koqanc3pcg",
+  "purchase_group_code": "R03       ",
+  "purchase_group_name": "Trading / OEM Item"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.452453",
+  "name": "koqaiqr9dt",
+  "purchase_group_code": "R04       ",
+  "purchase_group_name": "Sub Cont & Jobwork"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.465913",
+  "name": "koqa0obnns",
+  "purchase_group_code": "R05       ",
+  "purchase_group_name": "Cons&Chem - Prodn."
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.480963",
+  "name": "koqaepo9am",
+  "purchase_group_code": "R06       ",
+  "purchase_group_name": "Extrusion Division"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.496191",
+  "name": "koqaevk4op",
+  "purchase_group_code": "R07       ",
+  "purchase_group_name": "Cons&Chem - Lab"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.513630",
+  "name": "koqba2sog0",
+  "purchase_group_code": "T01       ",
+  "purchase_group_name": "Stock Transfer"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.529766",
+  "name": "koqbcdff0t",
+  "purchase_group_code": "T2        ",
+  "purchase_group_name": "In House Needle"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.542003",
+  "name": "koqba8ah8e",
+  "purchase_group_code": "C02       ",
+  "purchase_group_name": "Capex- Proj/Buld"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.557869",
+  "name": "koqb140akv",
+  "purchase_group_code": "C03       ",
+  "purchase_group_name": "Service - Capex"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.572952",
+  "name": "koqbc2l3gm",
+  "purchase_group_code": "C04       ",
+  "purchase_group_name": "New Building Proje"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.586650",
+  "name": "koqb7g0uav",
+  "purchase_group_code": "G01       ",
+  "purchase_group_name": "Printing & Stat."
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.616485",
+  "name": "koqcvj2g2l",
+  "purchase_group_code": "G03       ",
+  "purchase_group_name": "R&D Material"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.672892",
+  "name": "koqcqdcvsn",
+  "purchase_group_code": "J01       ",
+  "purchase_group_name": "Corporate"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.687561",
+  "name": "koqckjba6l",
+  "purchase_group_code": "J02       ",
+  "purchase_group_name": "service"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.701317",
+  "name": "koqdlihoba",
+  "purchase_group_code": "J03       ",
+  "purchase_group_name": "Gen Corp"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.729906",
+  "name": "koqd6n5hv4",
+  "purchase_group_code": "J05       ",
+  "purchase_group_name": "Rental"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.744002",
+  "name": "koqdvjle5t",
+  "purchase_group_code": "M01       ",
+  "purchase_group_name": "Engg.Items-Prodn."
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.757216",
+  "name": "koqd2hsdr3",
+  "purchase_group_code": "M02       ",
+  "purchase_group_name": "Engg.Items-Utility"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.772333",
+  "name": "koqd4ln9p6",
+  "purchase_group_code": "M03       ",
+  "purchase_group_name": "SSS-Others"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.789120",
+  "name": "koqd1p9ogl",
+  "purchase_group_code": "M04       ",
+  "purchase_group_name": "Engineering - PM"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.803734",
+  "name": "koqeprq7kk",
+  "purchase_group_code": "M05       ",
+  "purchase_group_name": "Engineering - PRD"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.820025",
+  "name": "koqekgsscm",
+  "purchase_group_code": "R01       ",
+  "purchase_group_name": "Raw Material"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.835418",
+  "name": "koqe9fqoma",
+  "purchase_group_code": "R02       ",
+  "purchase_group_name": "Packaging Material"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.850858",
+  "name": "koqe09hsi2",
+  "purchase_group_code": "R03       ",
+  "purchase_group_name": "Trading / OEM Item"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.865929",
+  "name": "koqei5ggq7",
+  "purchase_group_code": "R04       ",
+  "purchase_group_name": "Sub Cont & Jobwork"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.881684",
+  "name": "koqeocmjn2",
+  "purchase_group_code": "R05       ",
+  "purchase_group_name": "Cons&Chem - Prodn."
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.896580",
+  "name": "koqeha851s",
+  "purchase_group_code": "R06       ",
+  "purchase_group_name": "Cons&Chem - Lab"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:32:54.709834",
+  "name": "kpljtfvrbc",
+  "purchase_group_code": "T01       ",
+  "purchase_group_name": "Stock Transfer"
+ },
+ {
+  "company_code": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-03-28 09:45:13.509872",
+  "name": "e9f153c282",
+  "purchase_group_code": "PG1",
+  "purchase_group_name": "PGroup1"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.232364",
+  "name": "kopkj3jrpr",
+  "purchase_group_code": "G01       ",
+  "purchase_group_name": "Printing & Stat."
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.443582",
+  "name": "koq0r8amvc",
+  "purchase_group_code": "CI1       ",
+  "purchase_group_name": "Capex-Equp/Oth IVD"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.512627",
+  "name": "koq17vduv3",
+  "purchase_group_code": "G04       ",
+  "purchase_group_name": "Service - Regular"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.007325",
+  "name": "koq697r61q",
+  "purchase_group_code": "RI5       ",
+  "purchase_group_name": "Cons Prd IVD"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.244794",
+  "name": "koq8lc96a0",
+  "purchase_group_code": "J01       ",
+  "purchase_group_name": "Corporate"
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.280641",
+  "name": "koq8ugs1uh",
+  "purchase_group_code": "J03       ",
+  "purchase_group_name": "Gen Corp"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.629967",
+  "name": "koqc7a0cer",
+  "purchase_group_code": "G04       ",
+  "purchase_group_name": "Service - Regular"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.643247",
+  "name": "koqcau8sk1",
+  "purchase_group_code": "G05       ",
+  "purchase_group_name": "Consumable-General"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.659719",
+  "name": "koqcsdmtcf",
+  "purchase_group_code": "G06       ",
+  "purchase_group_name": "Service -AMC/Op.SO"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.716005",
+  "name": "koqd2lllqt",
+  "purchase_group_code": "J04       ",
+  "purchase_group_name": "Insurance"
+ },
+ {
+  "company_code": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-03-28 09:45:25.220306",
+  "name": "ccab8db87c",
+  "purchase_group_code": "PG2",
+  "purchase_group_name": "PGroup2"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.857578",
+  "name": "kopq776ab2",
+  "purchase_group_code": "P05       ",
+  "purchase_group_name": "Service"
+ },
+ {
+  "company_code": "7000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.458764",
+  "name": "koq06s7sua",
+  "purchase_group_code": "G01       ",
+  "purchase_group_name": "Printing & Stat."
+ },
+ {
+  "company_code": "8000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.190148",
+  "name": "koq7u483lf",
+  "purchase_group_code": "G04       ",
+  "purchase_group_name": "Service - Regular"
+ },
+ {
+  "company_code": "9000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:27.602262",
+  "name": "koqc1402tu",
+  "purchase_group_code": "G02       ",
+  "purchase_group_name": "Promotional Items"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.928690",
+  "name": "kopriqrigm",
+  "purchase_group_code": "P08       ",
+  "purchase_group_name": "Packaging Material"
+ },
+ {
+  "company_code": "1000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:25.266169",
+  "name": "kopkm24s5n",
+  "purchase_group_code": "G03       ",
+  "purchase_group_name": "R&D Material"
+ },
+ {
+  "company_code": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-05 19:43:20.332005",
+  "name": "b919e0566f",
+  "purchase_group_code": "P02",
+  "purchase_group_name": "P02"
+ },
+ {
+  "company_code": "2000",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Purchase Group Master",
+  "modified": "2024-06-25 16:31:26.336422",
+  "name": "kopv7dbgbs",
+  "purchase_group_code": "P29       ",
+  "purchase_group_name": "New Building Proje"
+ }
+]

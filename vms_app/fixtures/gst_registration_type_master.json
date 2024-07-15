@@ -1,0 +1,20 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "GST Registration Type Master",
+  "modified": "2024-05-15 11:59:01.715206",
+  "name": "3422ec8e70",
+  "registration_type_code": "GST2",
+  "registration_type_name": "GSTTYPE2"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "GST Registration Type Master",
+  "modified": "2024-05-15 11:58:48.672012",
+  "name": "e3b5c189cf",
+  "registration_type_code": "GST1",
+  "registration_type_name": "GSTTYPE1"
+ }
+]

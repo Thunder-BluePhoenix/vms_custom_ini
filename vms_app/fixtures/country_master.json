@@ -1,0 +1,1354 @@
+[
+ {
+  "country_code": "CO3",
+  "country_name": "Country 3",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-04-18 12:45:30.029008",
+  "name": "42348d7d21"
+ },
+ {
+  "country_code": "CO5",
+  "country_name": "Country 5",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-04-19 16:26:13.316582",
+  "name": "23d1261948"
+ },
+ {
+  "country_code": "AF",
+  "country_name": "Afghanistan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:31.899355",
+  "name": "1m0nmfln29"
+ },
+ {
+  "country_code": "AL",
+  "country_name": "Albania",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:31.955218",
+  "name": "1m0njj3gh5"
+ },
+ {
+  "country_code": "DZ",
+  "country_name": "Algeria",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:31.980335",
+  "name": "1m0ngtfqa7"
+ },
+ {
+  "country_code": "AI",
+  "country_name": "Anguilla",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.021186",
+  "name": "1m0ootq6jl"
+ },
+ {
+  "country_code": "AR",
+  "country_name": "Argentina",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.046210",
+  "name": "1m0ob981cb"
+ },
+ {
+  "country_code": "AM",
+  "country_name": "Armenia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.068032",
+  "name": "1m0orfgkhi"
+ },
+ {
+  "country_code": "AT",
+  "country_name": "Austria",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.113738",
+  "name": "1m0p4njlkb"
+ },
+ {
+  "country_code": "AZ",
+  "country_name": "Azerbaijan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.132958",
+  "name": "1m0pol9ej2"
+ },
+ {
+  "country_code": "BS",
+  "country_name": "Bahamas",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.150495",
+  "name": "1m0p144mef"
+ },
+ {
+  "country_code": "BH",
+  "country_name": "Bahrain",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.167755",
+  "name": "1m0p0d83pt"
+ },
+ {
+  "country_code": "BD",
+  "country_name": "Bangladesh",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.186273",
+  "name": "1m0pb6ci7a"
+ },
+ {
+  "country_code": "BB",
+  "country_name": "Barbados",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.204895",
+  "name": "1m0qjpem4v"
+ },
+ {
+  "country_code": "BY",
+  "country_name": "Belarus",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.226467",
+  "name": "1m0qlbjt5i"
+ },
+ {
+  "country_code": "BE",
+  "country_name": "Belgium",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.245428",
+  "name": "1m0qjpivoh"
+ },
+ {
+  "country_code": "BJ",
+  "country_name": "Benin",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.265087",
+  "name": "1m0qaf7lc0"
+ },
+ {
+  "country_code": "BT",
+  "country_name": "Bhutan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.281006",
+  "name": "1m0q2vs7b9"
+ },
+ {
+  "country_code": "BO",
+  "country_name": "Bolivia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.295776",
+  "name": "1m0qkgiqgh"
+ },
+ {
+  "country_code": "BA",
+  "country_name": "Bosnia and Herzegovina",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.311772",
+  "name": "1m0r0g6dpq"
+ },
+ {
+  "country_code": "BW",
+  "country_name": "Botswana",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.327740",
+  "name": "1m0rpah2bh"
+ },
+ {
+  "country_code": "BR",
+  "country_name": "Brazil",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.343678",
+  "name": "1m0ros6hei"
+ },
+ {
+  "country_code": "BG",
+  "country_name": "Bulgaria",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.358710",
+  "name": "1m0r1qunrl"
+ },
+ {
+  "country_code": "BF",
+  "country_name": "Burkina Faso",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.372984",
+  "name": "1m0r26mi7h"
+ },
+ {
+  "country_code": "BI",
+  "country_name": "Burundi",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.388791",
+  "name": "1m0rm05g6s"
+ },
+ {
+  "country_code": "KH",
+  "country_name": "Cambodia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.405374",
+  "name": "1m0s1fuo2d"
+ },
+ {
+  "country_code": "CM",
+  "country_name": "Cameroon",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.422166",
+  "name": "1m0s67lhn9"
+ },
+ {
+  "country_code": "CA",
+  "country_name": "Canada",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.442427",
+  "name": "1m0siq2285"
+ },
+ {
+  "country_code": "KY",
+  "country_name": "Cayman Islands",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.460712",
+  "name": "1m0sl6sktc"
+ },
+ {
+  "country_code": "TD",
+  "country_name": "Chad",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.477695",
+  "name": "1m0ss5mr4s"
+ },
+ {
+  "country_code": "CL",
+  "country_name": "Chile",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.496145",
+  "name": "1m0s54o88i"
+ },
+ {
+  "country_code": "CN",
+  "country_name": "China",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.515051",
+  "name": "1m0tsekrcv"
+ },
+ {
+  "country_code": "CO",
+  "country_name": "Colombia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.534884",
+  "name": "1m0t6pa8ar"
+ },
+ {
+  "country_code": "KM",
+  "country_name": "Comoros",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.555015",
+  "name": "1m0trnud2v"
+ },
+ {
+  "country_code": "CR",
+  "country_name": "Costa Rica",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.574545",
+  "name": "1m0tmkicqf"
+ },
+ {
+  "country_code": "CI",
+  "country_name": "Cote d Ivoire",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.594518",
+  "name": "1m0t39aahp"
+ },
+ {
+  "country_code": "HR",
+  "country_name": "Croatia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.613377",
+  "name": "1m0uqru0g9"
+ },
+ {
+  "country_code": "CU",
+  "country_name": "Cuba",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.633155",
+  "name": "1m0u74nbp2"
+ },
+ {
+  "country_code": "CY",
+  "country_name": "Cyprus",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.657382",
+  "name": "1m0up84ter"
+ },
+ {
+  "country_code": "CZ",
+  "country_name": "Czech Republic",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.679925",
+  "name": "1m0ufp7sck"
+ },
+ {
+  "country_code": "CD",
+  "country_name": "Democratic Republic of the Congo",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.697527",
+  "name": "1m0urkart8"
+ },
+ {
+  "country_code": "DK",
+  "country_name": "Denmark",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.716829",
+  "name": "1m0vkdcbuq"
+ },
+ {
+  "country_code": "DO",
+  "country_name": "Dominican Republic",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.736002",
+  "name": "1m0vjetvlq"
+ },
+ {
+  "country_code": "EC",
+  "country_name": "Ecuador",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.755764",
+  "name": "1m0vo2tet2"
+ },
+ {
+  "country_code": "EG",
+  "country_name": "Egypt",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.775080",
+  "name": "1m0v8s6b1t"
+ },
+ {
+  "country_code": "SV",
+  "country_name": "El Salvador",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.794781",
+  "name": "1m0v9doesi"
+ },
+ {
+  "country_code": "ER",
+  "country_name": "Eritrea",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.812844",
+  "name": "1m10bvnslb"
+ },
+ {
+  "country_code": "EE",
+  "country_name": "Estonia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.830100",
+  "name": "1m105dlh7c"
+ },
+ {
+  "country_code": "SZ",
+  "country_name": "Eswatini",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.847441",
+  "name": "1m10de33ol"
+ },
+ {
+  "country_code": "ET",
+  "country_name": "Ethiopia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.866043",
+  "name": "1m104ibfbh"
+ },
+ {
+  "country_code": "FI",
+  "country_name": "Finland",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.882561",
+  "name": "1m10pjvakk"
+ },
+ {
+  "country_code": "FR",
+  "country_name": "France",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.899757",
+  "name": "1m11b1teu9"
+ },
+ {
+  "country_code": "GA",
+  "country_name": "Gabon",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.917689",
+  "name": "1m11lcbj11"
+ },
+ {
+  "country_code": "GE",
+  "country_name": "Georgia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.958570",
+  "name": "1m11q0d7ed"
+ },
+ {
+  "country_code": "DE",
+  "country_name": "Germany",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.979299",
+  "name": "1m115spbe6"
+ },
+ {
+  "country_code": "GH",
+  "country_name": "Ghana",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.000784",
+  "name": "1m12433m2h"
+ },
+ {
+  "country_code": "GR",
+  "country_name": "Greece",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.018669",
+  "name": "1m124qe1nj"
+ },
+ {
+  "country_code": "GT",
+  "country_name": "Guatemala",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.035944",
+  "name": "1m12sa6mt4"
+ },
+ {
+  "country_code": "GN",
+  "country_name": "Guinea",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.053274",
+  "name": "1m124kc7u1"
+ },
+ {
+  "country_code": "GY",
+  "country_name": "Guyana",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.070516",
+  "name": "1m12mluu69"
+ },
+ {
+  "country_code": "HN",
+  "country_name": "Honduras",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.086090",
+  "name": "1m12m05o3t"
+ },
+ {
+  "country_code": "HK",
+  "country_name": "Hong Kong",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.102589",
+  "name": "1m13ld4qm0"
+ },
+ {
+  "country_code": "HU",
+  "country_name": "Hungary",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.120757",
+  "name": "1m13j9s2tv"
+ },
+ {
+  "country_code": "ID",
+  "country_name": "Indonesia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.155543",
+  "name": "1m1385oggp"
+ },
+ {
+  "country_code": "IR",
+  "country_name": "Iran",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.176473",
+  "name": "1m13qq4nhe"
+ },
+ {
+  "country_code": "IQ",
+  "country_name": "Iraq",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.195533",
+  "name": "1m139i1tlj"
+ },
+ {
+  "country_code": "IE",
+  "country_name": "Ireland",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.215164",
+  "name": "1m14gsol6o"
+ },
+ {
+  "country_code": "IL",
+  "country_name": "Israel",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.232847",
+  "name": "1m14mhm7l7"
+ },
+ {
+  "country_code": "IT",
+  "country_name": "Italy",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.252675",
+  "name": "1m14l3tkt1"
+ },
+ {
+  "country_code": "JM",
+  "country_name": "Jamaica",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.278166",
+  "name": "1m14uru99e"
+ },
+ {
+  "country_code": "JP",
+  "country_name": "Japan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.297584",
+  "name": "1m1478jqqs"
+ },
+ {
+  "country_code": "JO",
+  "country_name": "Jordan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.318491",
+  "name": "1m15s5fbt4"
+ },
+ {
+  "country_code": "KZ",
+  "country_name": "Kazakhstan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.336104",
+  "name": "1m15mshs6f"
+ },
+ {
+  "country_code": "KE",
+  "country_name": "Kenya",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.354583",
+  "name": "1m15mg7rf0"
+ },
+ {
+  "country_code": "XK",
+  "country_name": "Kosovo",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.375598",
+  "name": "1m15n0drk7"
+ },
+ {
+  "country_code": "KW",
+  "country_name": "Kuwait",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.394516",
+  "name": "1m15lpb17b"
+ },
+ {
+  "country_code": "KG",
+  "country_name": "Kyrgyzstan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.414526",
+  "name": "1m16dvbnq3"
+ },
+ {
+  "country_code": "LA",
+  "country_name": "Laos",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.432275",
+  "name": "1m162j0s08"
+ },
+ {
+  "country_code": "LV",
+  "country_name": "Latvia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.450221",
+  "name": "1m16l59tph"
+ },
+ {
+  "country_code": "LB",
+  "country_name": "Lebanon",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.470204",
+  "name": "1m163ourjh"
+ },
+ {
+  "country_code": "LY",
+  "country_name": "Libya",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.490500",
+  "name": "1m16678dt4"
+ },
+ {
+  "country_code": "LT",
+  "country_name": "Lithuania",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.513652",
+  "name": "1m17qa5kr6"
+ },
+ {
+  "country_code": "LU",
+  "country_name": "Luxembourg",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.532508",
+  "name": "1m17gu9039"
+ },
+ {
+  "country_code": "MG",
+  "country_name": "Madagascar",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.550069",
+  "name": "1m17kurn78"
+ },
+ {
+  "country_code": "MW",
+  "country_name": "Malawi",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.573886",
+  "name": "1m179b6sq4"
+ },
+ {
+  "country_code": "MY",
+  "country_name": "Malaysia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.599479",
+  "name": "1m173e69sm"
+ },
+ {
+  "country_code": "MV",
+  "country_name": "Maldives",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.620822",
+  "name": "1m18ld4bvq"
+ },
+ {
+  "country_code": "ML",
+  "country_name": "Mali",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.647898",
+  "name": "1m18etijtl"
+ },
+ {
+  "country_code": "MT",
+  "country_name": "Malta",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.670749",
+  "name": "1m18t3f3m7"
+ },
+ {
+  "country_code": "MR",
+  "country_name": "Mauritania",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.693191",
+  "name": "1m18954fdl"
+ },
+ {
+  "country_code": "MU",
+  "country_name": "Mauritius",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.713464",
+  "name": "1m19ififp1"
+ },
+ {
+  "country_code": "MX",
+  "country_name": "Mexico",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.735812",
+  "name": "1m19t4p4jd"
+ },
+ {
+  "country_code": "MD",
+  "country_name": "Moldova",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.754312",
+  "name": "1m198vfhci"
+ },
+ {
+  "country_code": "MN",
+  "country_name": "Mongolia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.773979",
+  "name": "1m195r5cnr"
+ },
+ {
+  "country_code": "ME",
+  "country_name": "Montenegro",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.790247",
+  "name": "1m19d75ph7"
+ },
+ {
+  "country_code": "MA",
+  "country_name": "Morocco",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.808398",
+  "name": "1m1aqbaqh4"
+ },
+ {
+  "country_code": "MZ",
+  "country_name": "Mozambique",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.825729",
+  "name": "1m1a2jioa0"
+ },
+ {
+  "country_code": "MM",
+  "country_name": "Myanmar",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.842296",
+  "name": "1m1ah2lnum"
+ },
+ {
+  "country_code": "NA",
+  "country_name": "Namibia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.859968",
+  "name": "1m1ahr6vh7"
+ },
+ {
+  "country_code": "NP",
+  "country_name": "Nepal",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.875608",
+  "name": "1m1ag0i703"
+ },
+ {
+  "country_code": "NL",
+  "country_name": "Netherlands",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.893979",
+  "name": "1m1au6isfu"
+ },
+ {
+  "country_code": "NZ",
+  "country_name": "New Zealand",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.911325",
+  "name": "1m1bgp67p8"
+ },
+ {
+  "country_code": "NI",
+  "country_name": "Nicaragua",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.932657",
+  "name": "1m1b09so6g"
+ },
+ {
+  "country_code": "NE",
+  "country_name": "Niger",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.951894",
+  "name": "1m1b7fj2i5"
+ },
+ {
+  "country_code": "NG",
+  "country_name": "Nigeria",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.972249",
+  "name": "1m1bt1l4qa"
+ },
+ {
+  "country_code": "MK",
+  "country_name": "North Macedonia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:33.992879",
+  "name": "1m1bm3t04t"
+ },
+ {
+  "country_code": "SD",
+  "country_name": "North Sudan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.014105",
+  "name": "1m1cbrhuro"
+ },
+ {
+  "country_code": "NO",
+  "country_name": "Norway",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.031627",
+  "name": "1m1c448gjp"
+ },
+ {
+  "country_code": "OM",
+  "country_name": "Oman",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.052862",
+  "name": "1m1cnosspi"
+ },
+ {
+  "country_code": "PS",
+  "country_name": "Palestine",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.075172",
+  "name": "1m1co30did"
+ },
+ {
+  "country_code": "PA",
+  "country_name": "Panama",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.097217",
+  "name": "1m1cdisq5k"
+ },
+ {
+  "country_code": "PY",
+  "country_name": "Paraguay",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.117596",
+  "name": "1m1dhe3tm3"
+ },
+ {
+  "country_code": "PE",
+  "country_name": "Peru",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.138637",
+  "name": "1m1d6q86q2"
+ },
+ {
+  "country_code": "PH",
+  "country_name": "Philippines",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.163505",
+  "name": "1m1d023d1l"
+ },
+ {
+  "country_code": "PL",
+  "country_name": "Poland",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.184057",
+  "name": "1m1dtjrh90"
+ },
+ {
+  "country_code": "PT",
+  "country_name": "Portugal",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.205412",
+  "name": "1m1ej5mrdm"
+ },
+ {
+  "country_code": "PR",
+  "country_name": "Puerto Rico",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.227921",
+  "name": "1m1e8masdm"
+ },
+ {
+  "country_code": "QA",
+  "country_name": "Qatar",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.247964",
+  "name": "1m1etc2h0k"
+ },
+ {
+  "country_code": "CG",
+  "country_name": "Republic of the Congo",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.266839",
+  "name": "1m1eqtpadp"
+ },
+ {
+  "country_code": "RO",
+  "country_name": "Romania",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.288610",
+  "name": "1m1ee987oq"
+ },
+ {
+  "country_code": "RU",
+  "country_name": "Russia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.313691",
+  "name": "1m1fiva687"
+ },
+ {
+  "country_code": "RW",
+  "country_name": "Rwanda",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.334113",
+  "name": "1m1fsvs6b0"
+ },
+ {
+  "country_code": "SA",
+  "country_name": "Saudi Arabia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.352822",
+  "name": "1m1f4eed8f"
+ },
+ {
+  "country_code": "SN",
+  "country_name": "Senegal",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.369627",
+  "name": "1m1f7blm0m"
+ },
+ {
+  "country_code": "RS",
+  "country_name": "Serbia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.388855",
+  "name": "1m1f1n6ir8"
+ },
+ {
+  "country_code": "SC",
+  "country_name": "Seychelles",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.404941",
+  "name": "1m1g3kji02"
+ },
+ {
+  "country_code": "SL",
+  "country_name": "Sierra Leone",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.421976",
+  "name": "1m1g29p2kf"
+ },
+ {
+  "country_code": "SG",
+  "country_name": "Singapore",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.450169",
+  "name": "1m1g8f9d8c"
+ },
+ {
+  "country_code": "SK",
+  "country_name": "Slovakia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.467992",
+  "name": "1m1gr8h3rb"
+ },
+ {
+  "country_code": "SI",
+  "country_name": "Slovenia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.481627",
+  "name": "1m1gend8nr"
+ },
+ {
+  "country_code": "ZA",
+  "country_name": "South Africa",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.494890",
+  "name": "1m1guf6p9k"
+ },
+ {
+  "country_code": "KR",
+  "country_name": "South Korea",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.506080",
+  "name": "1m1h8eoia3"
+ },
+ {
+  "country_code": "SS",
+  "country_name": "South Sudan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.520521",
+  "name": "1m1hkrrmv2"
+ },
+ {
+  "country_code": "ES",
+  "country_name": "Spain",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.534939",
+  "name": "1m1h282f8p"
+ },
+ {
+  "country_code": "LK",
+  "country_name": "Sri Lanka",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.552309",
+  "name": "1m1hujpe5g"
+ },
+ {
+  "country_code": "SE",
+  "country_name": "Sweden",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.569268",
+  "name": "1m1hfmkd55"
+ },
+ {
+  "country_code": "CH",
+  "country_name": "Switzerland",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.586356",
+  "name": "1m1h5nig8p"
+ },
+ {
+  "country_code": "SY",
+  "country_name": "Syria",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.601503",
+  "name": "1m1iacltiq"
+ },
+ {
+  "country_code": "TW",
+  "country_name": "Taiwan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.616373",
+  "name": "1m1ie8rd3t"
+ },
+ {
+  "country_code": "TJ",
+  "country_name": "Tajikistan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.630869",
+  "name": "1m1i088l9g"
+ },
+ {
+  "country_code": "TZ",
+  "country_name": "Tanzania",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.647608",
+  "name": "1m1i4ovsh1"
+ },
+ {
+  "country_code": "TH",
+  "country_name": "Thailand",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.666707",
+  "name": "1m1ibtlht5"
+ },
+ {
+  "country_code": "TG",
+  "country_name": "Togo",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.683193",
+  "name": "1m1inbu2fb"
+ },
+ {
+  "country_code": "TO",
+  "country_name": "Tonga",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.702031",
+  "name": "1m1j4p4cbg"
+ },
+ {
+  "country_code": "TT",
+  "country_name": "Trinidad & Tobago",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.720920",
+  "name": "1m1j7k7dud"
+ },
+ {
+  "country_code": "TN",
+  "country_name": "Tunisia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.740127",
+  "name": "1m1jti1i85"
+ },
+ {
+  "country_code": "TR",
+  "country_name": "Turkey",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.758113",
+  "name": "1m1jtg0f5t"
+ },
+ {
+  "country_code": "TM",
+  "country_name": "Turkmenistan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.775755",
+  "name": "1m1jkbp7n3"
+ },
+ {
+  "country_code": "UG",
+  "country_name": "Uganda",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.793152",
+  "name": "1m1jjgq644"
+ },
+ {
+  "country_code": "UA",
+  "country_name": "Ukraine",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.810806",
+  "name": "1m1kqnjhgo"
+ },
+ {
+  "country_code": "AE",
+  "country_name": "United Arab Emirates",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.827336",
+  "name": "1m1k4d57gk"
+ },
+ {
+  "country_code": "GB",
+  "country_name": "United kingdom",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.844985",
+  "name": "1m1kok11mh"
+ },
+ {
+  "country_code": "US",
+  "country_name": "United States of America",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.865033",
+  "name": "1m1krb3jvj"
+ },
+ {
+  "country_code": "UY",
+  "country_name": "Uruguay",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.882695",
+  "name": "1m1kli6tr5"
+ },
+ {
+  "country_code": "UZ",
+  "country_name": "Uzbekistan",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.900374",
+  "name": "1m1lf85fi8"
+ },
+ {
+  "country_code": "VE",
+  "country_name": "Venezuela",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.920415",
+  "name": "1m1lnvku2m"
+ },
+ {
+  "country_code": "VN",
+  "country_name": "Vietnam",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.942236",
+  "name": "1m1lrte9bn"
+ },
+ {
+  "country_code": "ZW",
+  "country_name": "Zimbabwe",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:35.001707",
+  "name": "1m1mr2nolh"
+ },
+ {
+  "country_code": "GQ",
+  "country_name": "Equatorial Guinea",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:35.018791",
+  "name": "1m1m1trlmp"
+ },
+ {
+  "country_code": "LS",
+  "country_name": "Lesotho",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:35.038138",
+  "name": "1m1m3id0u8"
+ },
+ {
+  "country_code": "SO",
+  "country_name": "Somaliland",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:35.056249",
+  "name": "1m1mr0ia8p"
+ },
+ {
+  "country_code": "IN",
+  "country_name": "India",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-07-12 09:31:32.774523",
+  "name": "dagv4gj3qn"
+ },
+ {
+  "country_code": "YE",
+  "country_name": "Yemen",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.963701",
+  "name": "1m1lm5s36c"
+ },
+ {
+  "country_code": "AU",
+  "country_name": "Australia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.090175",
+  "name": "1m0od4uai2"
+ },
+ {
+  "country_code": "AO",
+  "country_name": "Angola",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.000731",
+  "name": "1m0o9973o8"
+ },
+ {
+  "country_code": "CO2",
+  "country_name": "Country 2",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-04-18 12:33:27.101423",
+  "name": "63f86d84f2"
+ },
+ {
+  "country_code": "GM",
+  "country_name": "Gambia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:32.937180",
+  "name": "1m117adrdb"
+ },
+ {
+  "country_code": "ZM",
+  "country_name": "Zambia",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-29 19:39:34.983161",
+  "name": "1m1l42crkt"
+ },
+ {
+  "country_code": "IN",
+  "country_name": "Country 1",
+  "docstatus": 0,
+  "doctype": "Country Master",
+  "modified": "2024-06-05 16:56:14.435920",
+  "name": "ea35686ce8"
+ }
+]

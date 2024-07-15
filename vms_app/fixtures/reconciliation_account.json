@@ -1,0 +1,794 @@
+[
+ {
+  "account_group": "n9d1qp0esq",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:35.114100",
+  "name": "raem4ahug7",
+  "num": "12102020",
+  "reconcil_description": "12102020 - Sundry Creditors - Employees"
+ },
+ {
+  "account_group": "n9d1q3ari4",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:39.031098",
+  "name": "raem615ggu",
+  "num": "12102040",
+  "reconcil_description": "12102040 - Sundry Creditors -Domestic- Services & E"
+ },
+ {
+  "account_group": "n9d1indg2k",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:44.261961",
+  "name": "raenjmt3s8",
+  "num": "12101000",
+  "reconcil_description": "12101000 - Sundry Creditors Domestic"
+ },
+ {
+  "account_group": "n9d1indg2k",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:48.898592",
+  "name": "raenlh48en",
+  "num": "12101020",
+  "reconcil_description": "12101020 - Sundry Creditors -Dom - Stores, Spares"
+ },
+ {
+  "account_group": "n9d1indg2k",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:53.581293",
+  "name": "raeo04hg62",
+  "num": "12102000",
+  "reconcil_description": "12102000 - Sundry Creditors Domestic-Trading"
+ },
+ {
+  "account_group": "n9d1indg2k",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:33:57.383034",
+  "name": "raeoum40mc",
+  "num": "12102050",
+  "reconcil_description": "12102050 - Sundry Creditors- Domestic Capital Goods"
+ },
+ {
+  "account_group": "n9d1umev6a",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:01.030383",
+  "name": "raeov3a2v8",
+  "num": "12102040",
+  "reconcil_description": "12102040 - Sundry Creditors -Domestic- Services & E"
+ },
+ {
+  "account_group": "n9d2331pfk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:39:16.208891",
+  "name": "raeoec99ij",
+  "num": "12101010",
+  "reconcil_description": "12101010 - Sundry Creditors Import"
+ },
+ {
+  "account_group": "n9d2331pfk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:04.563608",
+  "name": "raeoindkkd",
+  "num": "12102010",
+  "reconcil_description": "12102010 - Sundry Creditors Import -Trading"
+ },
+ {
+  "account_group": "n9d2331pfk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:08.181396",
+  "name": "raeo9ol70i",
+  "num": "12102060",
+  "reconcil_description": "12102060 - Sundry Creditors -Import- Capital Goods"
+ },
+ {
+  "account_group": "n9d2dtu5eq",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:11.771052",
+  "name": "raeprrtmdn",
+  "num": "12102020",
+  "reconcil_description": "12102020 - Sundry Creditors - Employees"
+ },
+ {
+  "account_group": "n9d2c2q5h0",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:16.421653",
+  "name": "raep7cgluo",
+  "num": "12102070",
+  "reconcil_description": "12102070 - Sundry Creditors -Import -Services & Exp"
+ },
+ {
+  "account_group": "n9d25pln1d",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:20.253885",
+  "name": "raep9atct8",
+  "num": "12102070",
+  "reconcil_description": "12102070 - Sundry Creditors -Import -Services & Exp"
+ },
+ {
+  "account_group": "n9d20lfhlk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:24.063819",
+  "name": "raepqj5ncq",
+  "num": "12102020",
+  "reconcil_description": "12102020 - Sundry Creditors - Employees"
+ },
+ {
+  "account_group": "n9d28qdqb4",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:27.253054",
+  "name": "raepjfagk3",
+  "num": "12102040",
+  "reconcil_description": "12102040 - Sundry Creditors -Domestic- Services & E"
+ },
+ {
+  "account_group": "n9d2udn3rh",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:34.779561",
+  "name": "raeq69np65",
+  "num": "12101020",
+  "reconcil_description": "12101020 - Sundry Creditors -Dom - Stores, Spares"
+ },
+ {
+  "account_group": "n9d2udn3rh",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:38.817230",
+  "name": "raeqf7kv93",
+  "num": "12102000",
+  "reconcil_description": "12102000 - Sundry Creditors Domestic-Trading"
+ },
+ {
+  "account_group": "n9d23mocl6",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:46.147284",
+  "name": "raer6b9pqh",
+  "num": "12102040",
+  "reconcil_description": "12102040 - Sundry Creditors -Domestic- Services & E"
+ },
+ {
+  "account_group": "n9d33rakle",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:51.072848",
+  "name": "raer1luiro",
+  "num": "12101010",
+  "reconcil_description": "12101010 - Sundry Creditors Import"
+ },
+ {
+  "account_group": "n9d33rakle",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:39:12.977266",
+  "name": "raer31a68k",
+  "num": "12102010",
+  "reconcil_description": "12102010 - Sundry Creditors Import -Trading"
+ },
+ {
+  "account_group": "n9d33rakle",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:39:04.442580",
+  "name": "raerl1376s",
+  "num": "12102060",
+  "reconcil_description": "12102060 - Sundry Creditors -Import- Capital Goods"
+ },
+ {
+  "account_group": "n9d3uvho2q",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:59.346773",
+  "name": "raerns4euu",
+  "num": "12102020",
+  "reconcil_description": "12102020 - Sundry Creditors - Employees"
+ },
+ {
+  "account_group": "n9d3rmah72",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:55.498021",
+  "name": "raesl4ahup",
+  "num": "12102070",
+  "reconcil_description": "12102070 - Sundry Creditors -Import -Services & Exp"
+ },
+ {
+  "account_group": "n9d3v0jvic",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:52.549141",
+  "name": "raes2gglcj",
+  "num": "12102070",
+  "reconcil_description": "12102070 - Sundry Creditors -Import -Services & Exp"
+ },
+ {
+  "account_group": "n9d3pv6v8i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:49.158954",
+  "name": "raesk9k6qc",
+  "num": "16101020",
+  "reconcil_description": "16101020 - Raw Materials & Pac, Consumables"
+ },
+ {
+  "account_group": "n9d3n1070a",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:41.041920",
+  "name": "raespt4k53",
+  "num": "16101060",
+  "reconcil_description": "16101060 - Employees"
+ },
+ {
+  "account_group": "n9d3427mam",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:37.157970",
+  "name": "raetsvlc4r",
+  "num": "16101070",
+  "reconcil_description": "16101070 - Related Party"
+ },
+ {
+  "account_group": "n9d3hdj01e",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:33.768927",
+  "name": "raetql7lg5",
+  "num": "16101010",
+  "reconcil_description": "16101010 - Finished Goods/Trading Goods"
+ },
+ {
+  "account_group": "n9d3hdj01e",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:28.066653",
+  "name": "raetvguosv",
+  "num": "16101020",
+  "reconcil_description": "16101020 - Raw Materials & Pac, Consumables"
+ },
+ {
+  "account_group": "n9d3hdj01e",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:23.901717",
+  "name": "raethvtj21",
+  "num": "16101040",
+  "reconcil_description": "16101040 - Capital Goods"
+ },
+ {
+  "account_group": "n9d4o14eac",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:19.248085",
+  "name": "raetfdv303",
+  "num": "16101050",
+  "reconcil_description": "16101050 - Services & Other Expenses"
+ },
+ {
+  "account_group": "n9d4ms7f2i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:08.717662",
+  "name": "raeta0263k",
+  "num": "16101010",
+  "reconcil_description": "16101010 - Finished Goods/Trading Goods"
+ },
+ {
+  "account_group": "n9d4ms7f2i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:04.222873",
+  "name": "raeuchrvht",
+  "num": "16101020",
+  "reconcil_description": "16101020 - Raw Materials & Pac, Consumables"
+ },
+ {
+  "account_group": "n9d4ms7f2i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:59.303232",
+  "name": "raeumtmufn",
+  "num": "16101040",
+  "reconcil_description": "16101040 - Capital Goods"
+ },
+ {
+  "account_group": "n9d4ms7f2i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:50.287972",
+  "name": "raeugvghlt",
+  "num": "16101050",
+  "reconcil_description": "16101050 - Services & Other Expenses"
+ },
+ {
+  "account_group": "n9d4slbnkd",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:45.302912",
+  "name": "raeulvoctu",
+  "num": "16101060",
+  "reconcil_description": "16101060 - Employees"
+ },
+ {
+  "account_group": "n9d4kav3p7",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:40.599854",
+  "name": "raeuemvmgl",
+  "num": "16101070",
+  "reconcil_description": "16101070 - Related Party"
+ },
+ {
+  "account_group": "n9d48980gc",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:30.594289",
+  "name": "raeu64tfck",
+  "num": "16101010",
+  "reconcil_description": "16101010 - Finished Goods/Trading Goods"
+ },
+ {
+  "account_group": "n9d48980gc",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:26.805201",
+  "name": "raeushrf6j",
+  "num": "16101020",
+  "reconcil_description": "16101020 - Raw Materials & Pac"
+ },
+ {
+  "account_group": "n9d48980gc",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:23.325502",
+  "name": "raev95h6a6",
+  "num": "16101040",
+  "reconcil_description": "16101040 - Capital Goods"
+ },
+ {
+  "account_group": "n9d48980gc",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:19.419431",
+  "name": "raevq0bgei",
+  "num": "16101050",
+  "reconcil_description": "16101050 - Services & Other Expenses"
+ },
+ {
+  "account_group": "n9d40b7h5s",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:15.655818",
+  "name": "raevams5mh",
+  "num": "16101050",
+  "reconcil_description": "16101050 - Services & Other Expenses"
+ },
+ {
+  "account_group": "n9d41dl5cj",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:10.328933",
+  "name": "raevfirbmh",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Employees"
+ },
+ {
+  "account_group": "n9d4i1ckek",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:37:06.618648",
+  "name": "raevev0jbb",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Employees"
+ },
+ {
+  "account_group": "n9d5n36enp",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:36:55.090430",
+  "name": "raevmof82a",
+  "num": "13301500",
+  "reconcil_description": "13301500 - OEM goods/Trading"
+ },
+ {
+  "account_group": "n9d5n36enp",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:38:29.924099",
+  "name": "raf0kik2q3",
+  "num": "13301600",
+  "reconcil_description": "13301600 - RM & PM"
+ },
+ {
+  "account_group": "n9d5n36enp",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:38:24.579961",
+  "name": "raf0ir3a4p",
+  "num": "13301700",
+  "reconcil_description": "13301700 - Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d5n36enp",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:38:20.039957",
+  "name": "raf0gef6hm",
+  "num": "13301800",
+  "reconcil_description": "13301800 - Capital Goods"
+ },
+ {
+  "account_group": "n9d5k98mdp",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:38:15.560012",
+  "name": "raf0gt5usm",
+  "num": "13301900",
+  "reconcil_description": "13301900 - Services & Expenses"
+ },
+ {
+  "account_group": "n9d540sg5u",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:35:23.540755",
+  "name": "raf0aevhl0",
+  "num": "13301000",
+  "reconcil_description": "13301000 - OEM goods/Trading"
+ },
+ {
+  "account_group": "n9d540sg5u",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:35:09.296796",
+  "name": "raf03j7q8v",
+  "num": "13301100",
+  "reconcil_description": "13301100 - RM & PM"
+ },
+ {
+  "account_group": "n9d540sg5u",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:35:05.625118",
+  "name": "raf1tf8lfv",
+  "num": "13301200",
+  "reconcil_description": "13301200 - Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d540sg5u",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:35:01.558977",
+  "name": "raf112iit3",
+  "num": "13301300",
+  "reconcil_description": "13301300 - Capital Goods"
+ },
+ {
+  "account_group": "n9d5tm9o15",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:57.865490",
+  "name": "raf1uqnj72",
+  "num": "13301400",
+  "reconcil_description": "13301400 - Services & Expenses"
+ },
+ {
+  "account_group": "n9d5jsedvu",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:54.382817",
+  "name": "raf1004mo6",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Contract Employees"
+ },
+ {
+  "account_group": "n9d58pvg9e",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:51.046601",
+  "name": "raf1c06mjr",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Meril Employees"
+ },
+ {
+  "account_group": "n9d5ojtda9",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:47.551802",
+  "name": "raf1v6rpmc",
+  "num": "13302200",
+  "reconcil_description": "13302200 - Related Party"
+ },
+ {
+  "account_group": "n9d5et1pn0",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:44.158850",
+  "name": "raf234ojfi",
+  "num": "13301500",
+  "reconcil_description": "13301500 - Dom-OEM goods/Trading"
+ },
+ {
+  "account_group": "n9d5et1pn0",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:40.543067",
+  "name": "raf2pcfpg6",
+  "num": "13301600",
+  "reconcil_description": "13301600 - Dom-RM & PM"
+ },
+ {
+  "account_group": "n9d5et1pn0",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:36.543356",
+  "name": "raf2sru2qh",
+  "num": "13301700",
+  "reconcil_description": "13301700 - Dom-Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d5et1pn0",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:32.860750",
+  "name": "raf27rhjl4",
+  "num": "13301800",
+  "reconcil_description": "13301800 - Dom-Capital Goods"
+ },
+ {
+  "account_group": "n9d62e4pfq",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:29.344776",
+  "name": "raf22s4sns",
+  "num": "13301900",
+  "reconcil_description": "13301900 - Dom-Services & Expenses"
+ },
+ {
+  "account_group": "n9d6hcqk7b",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:26.032987",
+  "name": "raf2ru04nl",
+  "num": "13301000",
+  "reconcil_description": "13301000 - Imp-OEM Goods/Trading"
+ },
+ {
+  "account_group": "n9d6hcqk7b",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:22.414417",
+  "name": "raf392g1cf",
+  "num": "13301100",
+  "reconcil_description": "13301100 - Imp-RM & PM"
+ },
+ {
+  "account_group": "n9d6hcqk7b",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:34:11.877498",
+  "name": "raf3l8e43m",
+  "num": "13301200",
+  "reconcil_description": "13301200 - Imp-Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d6hcqk7b",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:33:11.010482",
+  "name": "raf37avpqk",
+  "num": "13301300",
+  "reconcil_description": "13301300 - Imp-Capital Goods"
+ },
+ {
+  "account_group": "n9d6g9h8jv",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:33:05.925232",
+  "name": "raf365tk6a",
+  "num": "13301400",
+  "reconcil_description": "13301400 - Imp-Services & Expenses"
+ },
+ {
+  "account_group": "n9d6qramj5",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:33:00.553546",
+  "name": "raf3q816u9",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Contract Employees"
+ },
+ {
+  "account_group": "n9d6o0jael",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:52.950605",
+  "name": "raf3v9qte3",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Meril Employees"
+ },
+ {
+  "account_group": "n9d6ia6h5s",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:47.639614",
+  "name": "raf492s3hr",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Contract-Employees"
+ },
+ {
+  "account_group": "n9d63o7tdm",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:42.470008",
+  "name": "raf4u44i33",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Meril-Employees"
+ },
+ {
+  "account_group": "n9d6c97f97",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:31:54.967377",
+  "name": "raf4a4ubbd",
+  "num": "13302200",
+  "reconcil_description": "13302200 - Related Party"
+ },
+ {
+  "account_group": "n9d7brefsk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:34.412215",
+  "name": "raf4uavlnj",
+  "num": "13301500",
+  "reconcil_description": "13301500 - Domestic-OEM Goods/Trading"
+ },
+ {
+  "account_group": "n9d7brefsk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:31.915924",
+  "name": "raf4dj1n6j",
+  "num": "13301600",
+  "reconcil_description": "13301600 - Domestic-RM & PM"
+ },
+ {
+  "account_group": "n9d7brefsk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:30.079999",
+  "name": "raf5m6r13h",
+  "num": "13301700",
+  "reconcil_description": "13301700 - Domestic-Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d7brefsk",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:27.699883",
+  "name": "raf5roe2gj",
+  "num": "13301800",
+  "reconcil_description": "13301800 - Domestic-Capital Goods"
+ },
+ {
+  "account_group": "n9d7co2t16",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:25.856618",
+  "name": "raf5hmcnur",
+  "num": "13301900",
+  "reconcil_description": "13301900 - Domestic-Services & Expenses"
+ },
+ {
+  "account_group": "n9d7eqp1g5",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:22.701440",
+  "name": "raf54p49gc",
+  "num": "13301000",
+  "reconcil_description": "13301000 - Import-OEM Goods/Trading"
+ },
+ {
+  "account_group": "n9d7eqp1g5",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:20.702398",
+  "name": "raf5o0epst",
+  "num": "13301100",
+  "reconcil_description": "13301100 - Import-RM & PM"
+ },
+ {
+  "account_group": "n9d7eqp1g5",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:18.179949",
+  "name": "raf5fo20l7",
+  "num": "13301200",
+  "reconcil_description": "13301200 - Imp-Stores, Spares, Consumable"
+ },
+ {
+  "account_group": "n9d7eqp1g5",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:14.647968",
+  "name": "raf6ld9dfq",
+  "num": "13301300",
+  "reconcil_description": "13301300 - Import-Capital Goods"
+ },
+ {
+  "account_group": "n9d7em9h39",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:11.729402",
+  "name": "raf6qc6kn5",
+  "num": "13301400",
+  "reconcil_description": "13301400 - Import-Services & Expenses"
+ },
+ {
+  "account_group": "n9d79ui5cn",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:07.676473",
+  "name": "raf6tdvafm",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Contract-Employees"
+ },
+ {
+  "account_group": "n9d7qpcbnl",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 11:32:04.307147",
+  "name": "raf6dal1eb",
+  "num": "13302100",
+  "reconcil_description": "13302100 - Meril-Employees"
+ },
+ {
+  "account_group": "n9d2udn3rh",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:42.519781",
+  "name": "raeqqnvuo4",
+  "num": "12102050",
+  "reconcil_description": "12102050 - Sundry Creditors- Domestic Capital Goods"
+ },
+ {
+  "account_group": "n9d3pv6v8i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:38:45.821594",
+  "name": "raes4ojrd4",
+  "num": "16101040",
+  "reconcil_description": "16101040 - Capital Goods"
+ },
+ {
+  "account_group": "n9d2udn3rh",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-12 12:34:30.851947",
+  "name": "raeq6jfj63",
+  "num": "12101000",
+  "reconcil_description": "12101000 - Sundry Creditors Domestic"
+ },
+ {
+  "account_group": "n9d3pv6v8i",
+  "docstatus": 0,
+  "doctype": "Reconciliation Account",
+  "modified": "2024-07-11 10:46:20.206005",
+  "name": "raes9ne4b1",
+  "num": "16101010",
+  "reconcil_description": "16101010 - Finished Goods/Trading Goods"
+ }
+]

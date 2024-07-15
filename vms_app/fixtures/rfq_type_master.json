@@ -1,0 +1,20 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "RFQ Type Master",
+  "modified": "2024-04-18 10:28:17.734010",
+  "name": "e4841053b6",
+  "rfq_code": "RFQ",
+  "rfq_name": "rfqtype2"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "RFQ Type Master",
+  "modified": "2024-04-18 10:28:07.055528",
+  "name": "656428bfe5",
+  "rfq_code": "RFQ1",
+  "rfq_name": "rfqtype1"
+ }
+]

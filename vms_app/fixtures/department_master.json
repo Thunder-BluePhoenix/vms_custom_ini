@@ -1,0 +1,29 @@
+[
+ {
+  "department_code": "DP3",
+  "department_name": "Department3",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Department Master",
+  "modified": "2024-03-28 09:47:20.786028",
+  "name": "cdebb2227d"
+ },
+ {
+  "department_code": "DP2",
+  "department_name": "Department2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Department Master",
+  "modified": "2024-03-28 09:47:11.403944",
+  "name": "28c4c2e55c"
+ },
+ {
+  "department_code": "DP1",
+  "department_name": "Department1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Department Master",
+  "modified": "2024-03-28 09:47:01.986358",
+  "name": "0646a01d4e"
+ }
+]

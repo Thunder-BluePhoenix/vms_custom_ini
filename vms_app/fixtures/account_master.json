@@ -1,0 +1,62 @@
+[
+ {
+  "account_code": "AT1",
+  "account_group": "7477dd9e23",
+  "account_name": "Account name `1",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-03-28 09:49:38.733492",
+  "name": "9cf679da85"
+ },
+ {
+  "account_code": "AT2",
+  "account_group": "7da9e17b7a",
+  "account_name": "Account name2",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-03-28 09:49:54.519423",
+  "name": "a2e982f4a3"
+ },
+ {
+  "account_code": "AT3",
+  "account_group": "c86f7c5e93",
+  "account_name": "Account name 3",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-03-28 09:50:06.671967",
+  "name": "97eb4e9a13"
+ },
+ {
+  "account_code": "AT4",
+  "account_group": "",
+  "account_name": "Account name 4",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-07-05 11:44:36.558634",
+  "name": "79b343a565"
+ },
+ {
+  "account_code": "AT5",
+  "account_group": "7da9e17b7a",
+  "account_name": "Account name 5",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-03-28 09:50:33.237718",
+  "name": "859c36f481"
+ },
+ {
+  "account_code": "AT6",
+  "account_group": "c86f7c5e93",
+  "account_name": "Account name ",
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Account Master",
+  "modified": "2024-03-28 09:50:45.146883",
+  "name": "e633430273"
+ }
+]

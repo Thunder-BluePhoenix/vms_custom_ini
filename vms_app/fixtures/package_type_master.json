@@ -1,0 +1,38 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Package Type Master",
+  "modified": "2024-06-30 18:07:12.692897",
+  "name": "3fa22ba47d",
+  "package_code": "perishable",
+  "package_name": "Perishable +2 to +8 Degree C"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Package Type Master",
+  "modified": "2024-06-30 14:17:20.476375",
+  "name": "2327e2855c",
+  "package_code": "GC",
+  "package_name": "General Cargo"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Package Type Master",
+  "modified": "2024-06-30 18:08:09.838709",
+  "name": "qc7in0tru2",
+  "package_code": "Frozen",
+  "package_name": "Frozen (Dry Ice)"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Package Type Master",
+  "modified": "2024-06-30 18:08:34.110397",
+  "name": "qcf5r56rjh",
+  "package_code": "NS",
+  "package_name": "Non Stackable"
+ }
+]

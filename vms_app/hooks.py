@@ -36,54 +36,55 @@ response_headers = [
     {"fieldname": "Access-Control-Allow-Origin", "value": "*"}
 ]
 
-# fixtures = [ 
-# 'Export Entry',
-# 'Export Entry Vendor',
-# 'Import Entry',
-# 'Request For Quotation',
-# 'Vendor Onboarding',
-# 'Vendor Master',
-# 'Tax Master',
-# 'Shipment Type Master',
-# 'RFQ Type Master',
-# 'Port Master',
-# 'Package Type Master',
-# 'Company Master',
-# 'City Master',
-# 'District Master',
-# 'Certificate Master',
-# 'Product Master',
-# 'Vendor Type Master',
-# 'Department Master',
-# 'Material Master',
-# 'Currency Master',
-# 'Terms Of Payment Master',
-# 'Purchase Group Master',
-# 'Account Master',
-# 'Company Nature Master',
-# 'Business Nature Master',
-# 'Pincode Master',
-# 'State Master',
-# 'Country Master',
-# 'Bank Master',
-# 'GST Registration Type Master',
-# 'Designation Master',
-# 'Product Category Master',
-# 'Brand Master',
-# 'Product Variant Master',
-# 'UOM Master',
-# 'Account Group Master',
-# 'Incoterm Master',
-# 'Quotation',
-# 'Vendor Master',
-# 'Vendor Onboarding',
-# 'Request For Quotation', 
-# 'Import Entry',
-# 'Quotation',
-# 'Purchase Order',
-# 'Export Entry Vendor'
+fixtures = [ 
+'Export Entry',
+'Export Entry Vendor',
+'Import Entry',
+'Request For Quotation',
+'Vendor Onboarding',
+'Vendor Master',
+'Tax Master',
+'Shipment Type Master',
+'RFQ Type Master',
+'Port Master',
+'Package Type Master',
+'Company Master',
+'City Master',
+'District Master',
+'Certificate Master',
+'Product Master',
+'Vendor Type Master',
+'Department Master',
+'Material Master',
+'Currency Master',
+'Terms Of Payment Master',
+'Purchase Group Master',
+'Account Master',
+'Company Nature Master',
+'Business Nature Master',
+'Pincode Master',
+'State Master',
+'Country Master',
+'Bank Master',
+'GST Registration Type Master',
+'Designation Master',
+'Product Category Master',
+'Brand Master',
+'Product Variant Master',
+'UOM Master',
+'Account Group Master',
+'Incoterm Master',
+'Quotation',
+'Vendor Master',
+'Vendor Onboarding',
+'Request For Quotation', 
+'Import Entry',
+'Quotation',
+'Purchase Order',
+'Export Entry Vendor',
+'Reconciliation Account'
 
-# ]
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/vms_app/css/vms_app.css"
@@ -196,58 +197,58 @@ response_headers = [
 # Hook on document methods and events
 
 doc_events = {
-	"*": {
-		# "on_update": "method",
-		# "on_cancel": "method",
-		# "on_trash": "method"
+	# "*": {
+	# 	# "on_update": "method",
+	# 	# "on_cancel": "method",
+	# 	# "on_trash": "method"
 
-	},
-	"Vendor Master": {
+	# },
+	# "Vendor Master": {
 
-		#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
-		#"validate": "vms_app.api.api.send_email"
-		"after_insert": "vms_app.api.api.send_email",
-		#"after_insert": "vms_app.api.api.sap_fetch_token"
-		#"after_insert": "vms_app.api.api.generate_onboarding_link"
-		#"validate": "vms_app.api.api.create_sap_so_from_po"
-	},
+	# 	#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
+	# 	#"validate": "vms_app.api.api.send_email"
+	# 	"after_insert": "vms_app.api.api.send_email",
+	# 	#"after_insert": "vms_app.api.api.sap_fetch_token"
+	# 	#"after_insert": "vms_app.api.api.generate_onboarding_link"
+	# 	#"validate": "vms_app.api.api.create_sap_so_from_po"
+	# },
 	
-	"Vendor Onboarding": {
+	# "Vendor Onboarding": {
 
-	"validate": "vms_app.api.api.send_email_on_onboarding"
+	# "validate": "vms_app.api.api.send_email_on_onboarding"
 
-	},
+	# },
 
-	"Request For Quotation":{
+	# "Request For Quotation":{
 
-	"after_insert": "vms_app.api.api.hitt",
-		# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
+	# "after_insert": "vms_app.api.api.hitt",
+	# 	# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
-	},
-	"Import Entry":{
-	"after_insert": "vms_app.api.api.calculate",
-	#"after_insert": "vms_app.api.api.extract_text_from_pdf",
-	#"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
+	# },
+	# "Import Entry":{
+	# "after_insert": "vms_app.api.api.calculate",
+	# #"after_insert": "vms_app.api.api.extract_text_from_pdf",
+	# #"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
 
 	
-	},
-	"Quotation": {
+	# },
+	# "Quotation": {
 
-	"validate": "vms_app.api.api.send_email_on_quotation_creation",
- 	# "after_insert": "vms_app.api.api.calculate_export_entry"
+	# "validate": "vms_app.api.api.send_email_on_quotation_creation",
+ 	# # "after_insert": "vms_app.api.api.calculate_export_entry"
 
-	},
-	"Purchase Order": {
+	# },
+	# "Purchase Order": {
 
-	"after_insert": "vms_app.api.api.send_email_on_po_creation"
+	# "after_insert": "vms_app.api.api.send_email_on_po_creation"
 
-	},
+	# },
 
-	"Export Entry Vendor": {
+	# "Export Entry Vendor": {
 
-	#"after_insert": "vms_app.api.api.calculate_export_entry"
+	# #"after_insert": "vms_app.api.api.calculate_export_entry"
 
-	}
+	# }
 
 
 }

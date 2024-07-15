@@ -1,0 +1,11 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Shipment Type Master",
+  "modified": "2024-05-28 12:32:54.529585",
+  "name": "847f330038",
+  "shipment_type_code": "ST!",
+  "shipment_type_name": "Shipment type 1"
+ }
+]

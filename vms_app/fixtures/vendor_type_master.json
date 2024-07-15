@@ -1,0 +1,29 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-06-29 10:19:57.753882",
+  "name": "4832a6074a",
+  "vendor_type_code": "VT1",
+  "vendor_type_name": "Services Vendor"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-06-29 10:20:42.037980",
+  "name": "81a01f77d7",
+  "vendor_type_code": "VT2",
+  "vendor_type_name": "Material Vendor"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Vendor Type Master",
+  "modified": "2024-06-29 10:21:07.737967",
+  "name": "b5cf2f7820",
+  "vendor_type_code": "VT1",
+  "vendor_type_name": "Logistics Vendor"
+ }
+]
