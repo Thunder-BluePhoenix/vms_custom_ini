@@ -14,15 +14,13 @@
    "fieldname": "uom_cod",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "UOM Code",
-   "reqd": 1
+   "label": "UOM Code"
   },
   {
    "fieldname": "uom",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "UOM",
-   "reqd": 1
+   "label": "UOM"
   },
   {
    "fieldname": "description",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:12:51.662408",
+ "modified": "2024-07-16 07:04:27.834778",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "UOM Master",

@@ -14,15 +14,13 @@
    "fieldname": "currency_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Currency Code",
-   "reqd": 1
+   "label": "Currency Code"
   },
   {
    "fieldname": "currency_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Currency Name",
-   "reqd": 1
+   "label": "Currency Name"
   },
   {
    "fieldname": "country",
@@ -33,7 +31,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:39:54.104327",
+ "modified": "2024-07-16 07:02:03.310167",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Currency Master",

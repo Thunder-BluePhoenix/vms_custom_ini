@@ -14,15 +14,13 @@
    "fieldname": "vendor_type_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Vendor Type Code",
-   "reqd": 1
+   "label": "Vendor Type Code"
   },
   {
    "fieldname": "vendor_type_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Vendor Type Name",
-   "reqd": 1
+   "label": "Vendor Type Name"
   },
   {
    "fieldname": "description",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:48:47.890293",
+ "modified": "2024-07-16 07:01:40.097207",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Type Master",

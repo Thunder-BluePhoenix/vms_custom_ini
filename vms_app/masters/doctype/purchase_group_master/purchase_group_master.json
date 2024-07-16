@@ -15,15 +15,13 @@
    "fieldname": "purchase_group_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Purchase Group Code",
-   "reqd": 1
+   "label": "Purchase Group Code"
   },
   {
    "fieldname": "purchase_group_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Purchase Group Name",
-   "reqd": 1
+   "label": "Purchase Group Name"
   },
   {
    "fieldname": "description",
@@ -40,7 +38,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-27 15:55:15.582556",
+ "modified": "2024-07-16 07:00:11.855283",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Purchase Group Master",

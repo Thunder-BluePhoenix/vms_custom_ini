@@ -17,15 +17,13 @@
    "fieldname": "incoterm_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Incoterm Code",
-   "reqd": 1
+   "label": "Incoterm Code"
   },
   {
    "fieldname": "incoterm_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Incoterm Name",
-   "reqd": 1
+   "label": "Incoterm Name"
   },
   {
    "fieldname": "delivery_point",
@@ -51,7 +49,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 15:51:23.979889",
+ "modified": "2024-07-16 07:00:21.130764",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Incoterm Master",

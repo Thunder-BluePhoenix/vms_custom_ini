@@ -14,15 +14,13 @@
    "fieldname": "registration_type_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "GST Registration Type Code",
-   "reqd": 1
+   "label": "GST Registration Type Code"
   },
   {
    "fieldname": "registration_type_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "GST Registration Type Name",
-   "reqd": 1
+   "label": "GST Registration Type Name"
   },
   {
    "fieldname": "description",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:19:51.846251",
+ "modified": "2024-07-16 07:03:03.607732",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "GST Registration Type Master",

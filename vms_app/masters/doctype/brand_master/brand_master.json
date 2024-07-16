@@ -14,8 +14,7 @@
    "fieldname": "brand_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Brand Code",
-   "reqd": 1
+   "label": "Brand Code"
   },
   {
    "fieldname": "description",
@@ -26,13 +25,12 @@
    "fieldname": "brand_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Brand Name",
-   "reqd": 1
+   "label": "Brand Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-08 11:57:58.762096",
+ "modified": "2024-07-16 07:01:09.759697",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Brand Master",

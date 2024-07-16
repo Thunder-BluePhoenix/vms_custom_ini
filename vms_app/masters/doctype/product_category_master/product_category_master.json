@@ -14,15 +14,13 @@
    "fieldname": "product_category_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Product Category Code",
-   "reqd": 1
+   "label": "Product Category Code"
   },
   {
    "fieldname": "product_category_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Product Category Name",
-   "reqd": 1
+   "label": "Product Category Name"
   },
   {
    "fieldname": "descripton",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:17:14.065656",
+ "modified": "2024-07-16 07:04:01.703758",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Product Category Master",

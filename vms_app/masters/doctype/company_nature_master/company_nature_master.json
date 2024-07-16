@@ -14,15 +14,13 @@
    "fieldname": "company_nature_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Company Nature Code",
-   "reqd": 1
+   "label": "Company Nature Code"
   },
   {
    "fieldname": "company_nature_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Company Nature name",
-   "reqd": 1
+   "label": "Company Nature name"
   },
   {
    "fieldname": "description",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:33:25.960685",
+ "modified": "2024-07-16 07:02:25.459971",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Nature Master",

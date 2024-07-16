@@ -15,23 +15,20 @@
    "fieldname": "account_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Account Code",
-   "reqd": 1
+   "label": "Account Code"
   },
   {
    "fieldname": "account_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Account Name",
-   "reqd": 1
+   "label": "Account Name"
   },
   {
    "fieldname": "account_group",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Account Group",
-   "options": "Account Group Master",
-   "reqd": 1
+   "options": "Account Group Master"
   },
   {
    "fieldname": "description",
@@ -41,7 +38,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 11:48:13.113032",
+ "modified": "2024-07-16 06:59:30.191689",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Master",

@@ -14,8 +14,7 @@
    "fieldname": "country_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Country Code",
-   "reqd": 1
+   "label": "Country Code"
   },
   {
    "fieldname": "country_name",
@@ -25,7 +24,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-12 09:35:51.175800",
+ "modified": "2024-07-16 06:57:05.679329",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Country Master",

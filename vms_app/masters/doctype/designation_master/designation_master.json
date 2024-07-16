@@ -14,15 +14,13 @@
    "fieldname": "designation_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Designation Code",
-   "reqd": 1
+   "label": "Designation Code"
   },
   {
    "fieldname": "designation_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Designation Name",
-   "reqd": 1
+   "label": "Designation Name"
   },
   {
    "fieldname": "description",
@@ -32,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 11:18:28.082954",
+ "modified": "2024-07-16 07:03:40.105821",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Designation Master",

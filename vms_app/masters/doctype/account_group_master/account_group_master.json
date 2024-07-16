@@ -22,8 +22,7 @@
    "fieldname": "account_group_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Account Group Name",
-   "reqd": 1
+   "label": "Account Group Name"
   },
   {
    "fieldname": "purchase_organisation",
@@ -39,7 +38,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 15:59:57.141346",
+ "modified": "2024-07-16 06:59:19.397164",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Group Master",

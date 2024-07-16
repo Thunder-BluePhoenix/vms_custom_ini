@@ -16,15 +16,13 @@
    "fieldname": "bank_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Bank Code",
-   "reqd": 1
+   "label": "Bank Code"
   },
   {
    "fieldname": "bank_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Bank Name",
-   "reqd": 1
+   "label": "Bank Name"
   },
   {
    "fieldname": "ifsc_code",
@@ -40,7 +38,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-12 15:23:56.109284",
+ "modified": "2024-07-16 06:54:51.308493",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Bank Master",
