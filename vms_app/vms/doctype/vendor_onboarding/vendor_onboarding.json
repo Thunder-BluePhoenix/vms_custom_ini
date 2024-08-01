@@ -7,6 +7,7 @@
  "field_order": [
   "company_details_tab",
   "company_details_section",
+  "vendor_name",
   "company_name",
   "type_of_business",
   "size_of_company",
@@ -73,7 +74,7 @@
   "documents_tab",
   "gst_details_section",
   "gst_number",
-  "cind",
+  "gst_date",
   "gst_registration_type",
   "gst_proof_section",
   "gst_proof",
@@ -94,6 +95,7 @@
   "manufacturing_details_tab",
   "manufacturing_details_section",
   "details_of_product_manufactured",
+  "total_godown",
   "storage_capacity",
   "spare_capacity",
   "type_of_premises",
@@ -103,6 +105,7 @@
   "number_of_manpower",
   "annual_revenue",
   "google_address_pin",
+  "cold_storage",
   "organisation_structure_document_section",
   "organisation_structure_document",
   "contact_details_tab",
@@ -306,7 +309,7 @@
    "fieldname": "type_of_account",
    "fieldtype": "Select",
    "label": "Type of Account",
-   "options": "Account Type 1\nAccount Type 2\nAccount Type 3"
+   "options": "Savings Account\nCurrent Account"
   },
   {
    "fieldname": "currency",
@@ -524,12 +527,12 @@
   {
    "fieldname": "storage_capacity",
    "fieldtype": "Data",
-   "label": "Established Capacity (Strage Capacity)"
+   "label": "Storage Capacity(Sq. Ft.)"
   },
   {
    "fieldname": "spare_capacity",
    "fieldtype": "Data",
-   "label": "Spare Capacity"
+   "label": "Spare Capacity(Sq. Ft.)"
   },
   {
    "fieldname": "type_of_premises",
@@ -650,11 +653,6 @@
    "fieldtype": "Link",
    "label": "Vendor Type",
    "options": "Vendor Type Master"
-  },
-  {
-   "fieldname": "cind",
-   "fieldtype": "Date",
-   "label": "CIN Date"
   },
   {
    "fieldname": "gst_registration_type",
@@ -879,11 +877,32 @@
    "fieldtype": "Link",
    "label": "Purchase Organization",
    "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "total_godown",
+   "fieldtype": "Data",
+   "label": "Total Godown(Sq. Ft.)"
+  },
+  {
+   "default": "0",
+   "fieldname": "cold_storage",
+   "fieldtype": "Check",
+   "label": "Cold Storage"
+  },
+  {
+   "fieldname": "gst_date",
+   "fieldtype": "Date",
+   "label": "GST Registration Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-11 09:57:51.897738",
+ "modified": "2024-07-31 13:47:43.713484",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

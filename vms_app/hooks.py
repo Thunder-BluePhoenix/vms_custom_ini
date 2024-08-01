@@ -81,8 +81,7 @@ fixtures = [
 'Import Entry',
 'Quotation',
 'Purchase Order',
-'Export Entry Vendor',
-'Reconciliation Account'
+'Export Entry Vendor'
 
 ]
 
@@ -197,52 +196,54 @@ fixtures = [
 # Hook on document methods and events
 
 doc_events = {
-	# "*": {
+	"*": {
 	# 	# "on_update": "method",
 	# 	# "on_cancel": "method",
 	# 	# "on_trash": "method"
 
-	# },
-	# "Vendor Master": {
+	},
+	"Vendor Master": {
 
 	# 	#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 	# 	#"validate": "vms_app.api.api.send_email"
-	# 	"after_insert": "vms_app.api.api.send_email",
-	# 	#"after_insert": "vms_app.api.api.sap_fetch_token"
+		"after_insert": "vms_app.api.api.send_email",
+		# "after_insert": "vms_app.api.api.sap_fetch_token"
 	# 	#"after_insert": "vms_app.api.api.generate_onboarding_link"
 	# 	#"validate": "vms_app.api.api.create_sap_so_from_po"
-	# },
+	},
 	
-	# "Vendor Onboarding": {
+	"Vendor Onboarding": {
 
-	# "validate": "vms_app.api.api.send_email_on_onboarding"
+	"validate": "vms_app.api.api.send_email_on_onboarding"
 
-	# },
+	},
 
-	# "Request For Quotation":{
+	"Request For Quotation":{
 
-	# "after_insert": "vms_app.api.api.hitt",
+	"after_insert": "vms_app.api.api.hitt",
 	# 	# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
 
-	# },
-	# "Import Entry":{
+	},
+    
+	"Import Entry":{
 	# "after_insert": "vms_app.api.api.calculate",
 	# #"after_insert": "vms_app.api.api.extract_text_from_pdf",
 	# #"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
 
 	
-	# },
-	# "Quotation": {
+	},
+    
+	"Quotation": {
 
-	# "validate": "vms_app.api.api.send_email_on_quotation_creation",
- 	# # "after_insert": "vms_app.api.api.calculate_export_entry"
+	"validate": "vms_app.api.api.send_email_on_quotation_creation",
+ 	# "after_insert": "vms_app.api.api.calculate_export_entry"
 
-	# },
-	# "Purchase Order": {
+	},
+	"Purchase Order": {
 
-	# "after_insert": "vms_app.api.api.send_email_on_po_creation"
+	"after_insert": "vms_app.api.api.send_email_on_po_creation"
 
-	# },
+	},
 
 	# "Export Entry Vendor": {
 

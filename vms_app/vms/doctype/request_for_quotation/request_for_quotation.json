@@ -19,6 +19,7 @@
   "invoice_date",
   "shipment_date",
   "remarks",
+  "vendor_list",
   "column_break_akhk",
   "consignee_name",
   "sr_no",
@@ -524,11 +525,16 @@
    "fieldname": "table_jsfj",
    "fieldtype": "Table",
    "options": "RFQ Items"
+  },
+  {
+   "fieldname": "vendor_list",
+   "fieldtype": "Text",
+   "label": "Vendor List"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-24 09:58:31.336213",
+ "modified": "2024-07-19 09:51:10.844622",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",
