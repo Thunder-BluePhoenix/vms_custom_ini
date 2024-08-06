@@ -1,14 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:RFQ/{division}/{####}",
+ "autoname": "format:RFQ/{company_name}/{####}",
  "creation": "2024-04-03 11:54:14.564494",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "logistics_section",
   "select_service",
-  "division",
+  "company_name",
   "rfq_cutoff_date",
   "mode_of_shipment",
   "destination_port",
@@ -96,12 +96,6 @@
    "fieldtype": "Link",
    "label": "Select Service",
    "options": "Vendor Type Master"
-  },
-  {
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Company Master"
   },
   {
    "fieldname": "rfq_cutoff_date",
@@ -272,12 +266,6 @@
    "fieldname": "pr_code",
    "fieldtype": "Data",
    "label": "PR Code"
-  },
-  {
-   "fieldname": "company_code",
-   "fieldtype": "Link",
-   "label": "Company Code",
-   "options": "Company Master"
   },
   {
    "fieldname": "purchase_organization",
@@ -530,11 +518,23 @@
    "fieldname": "vendor_list",
    "fieldtype": "Text",
    "label": "Vendor List"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "label": "Company Name",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-19 09:51:10.844622",
+ "modified": "2024-08-02 12:55:33.542961",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

@@ -200,6 +200,7 @@ doc_events = {
 	# 	# "on_update": "method",
 	# 	# "on_cancel": "method",
 	# 	# "on_trash": "method"
+        # "after_insert": "vms_app.api.api.get_vendor_onboarding"
 
 	},
 	"Vendor Master": {
@@ -214,7 +215,7 @@ doc_events = {
 	
 	"Vendor Onboarding": {
 
-	"validate": "vms_app.api.api.send_email_on_onboarding"
+	"after_insert": "vms_app.api.api.send_email_on_onboarding"
 
 	},
 

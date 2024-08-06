@@ -9,7 +9,13 @@
   "bank_code",
   "bank_name",
   "ifsc_code",
-  "description"
+  "company",
+  "description",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_bank_master"
  ],
  "fields": [
   {
@@ -34,14 +40,56 @@
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "parent_bank_master",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Bank Master",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 06:54:51.308493",
+ "modified": "2024-08-01 17:00:44.949196",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Bank Master",
+ "nsm_parent_field": "parent_bank_master",
  "owner": "Administrator",
  "permissions": [
   {

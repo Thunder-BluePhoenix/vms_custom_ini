@@ -1,10 +1,12 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:16:05.626713",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company_name",
   "product_category_code",
   "product_category_name",
   "descripton"
@@ -26,11 +28,17 @@
    "fieldname": "descripton",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "label": "Company Name",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:04:01.703758",
+ "modified": "2024-08-03 11:41:30.767341",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Product Category Master",

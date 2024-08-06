@@ -125,10 +125,10 @@
   "cnot",
   "certificate_details_tab",
   "certificate_details_section",
-  "certificate_name",
-  "certificate_code",
+  "certificate_n",
+  "certificate_c",
   "column_break_uqit",
-  "valid_till",
+  "valid",
   "certificate_proof_section",
   "certificate_proof",
   "purchasing_data_tab",
@@ -624,17 +624,6 @@
    "label": "Certificate Details"
   },
   {
-   "fieldname": "certificate_name",
-   "fieldtype": "Link",
-   "label": "Certificate Name",
-   "options": "Certificate Master"
-  },
-  {
-   "fieldname": "valid_till",
-   "fieldtype": "Date",
-   "label": "Valid till"
-  },
-  {
    "fieldname": "certificate_proof_section",
    "fieldtype": "Section Break",
    "label": "Certificate Proof"
@@ -861,12 +850,6 @@
    "options": "Onboarding Certificates"
   },
   {
-   "fieldname": "certificate_code",
-   "fieldtype": "Link",
-   "label": "Certificate Code",
-   "options": "Certificate Master"
-  },
-  {
    "fieldname": "account_group",
    "fieldtype": "Link",
    "label": "Account Group",
@@ -898,11 +881,28 @@
    "fieldname": "gst_date",
    "fieldtype": "Date",
    "label": "GST Registration Date"
+  },
+  {
+   "fieldname": "certificate_n",
+   "fieldtype": "Data",
+   "label": "Certificate Name",
+   "options": "Certificate Master"
+  },
+  {
+   "fieldname": "certificate_c",
+   "fieldtype": "Data",
+   "label": "Certificate C",
+   "options": "Certificate Master"
+  },
+  {
+   "fieldname": "valid",
+   "fieldtype": "Date",
+   "label": "Valid"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-31 13:47:43.713484",
+ "modified": "2024-08-06 07:14:43.259738",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-08-02 16:15:33.576409",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_vhyq",
+  "doctype_name",
+  "table_cjfk"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_vhyq",
+   "fieldtype": "Section Break",
+   "label": "PR Fields"
+  },
+  {
+   "fieldname": "doctype_name",
+   "fieldtype": "Link",
+   "label": "Doctype Name",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "table_cjfk",
+   "fieldtype": "Table",
+   "options": "SAP Mapper PR Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-02 16:49:50.077627",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "SAP Mapper PR",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

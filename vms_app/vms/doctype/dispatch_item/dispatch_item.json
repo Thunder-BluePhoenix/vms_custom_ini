@@ -10,6 +10,7 @@
   "courier_number",
   "courier_name",
   "attachment",
+  "status",
   "column_break_rtsd",
   "docket_number",
   "dispatch_date",
@@ -71,11 +72,16 @@
    "fieldname": "invoice_number",
    "fieldtype": "Data",
    "label": "Invoice Number"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-03 12:42:23.842485",
+ "modified": "2024-08-01 18:11:59.397287",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Dispatch Item",
