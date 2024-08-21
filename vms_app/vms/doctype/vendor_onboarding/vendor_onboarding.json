@@ -45,8 +45,11 @@
   "address_proofattachment",
   "status_section",
   "purchase_team_approval",
+  "purchase_team_undertaking",
   "accounts_team_approval",
+  "accounts_team_undertaking",
   "purchase_head_approval",
+  "purchase_head_undertaking",
   "ref_no",
   "onboarding_form_status",
   "section_break_anay",
@@ -71,11 +74,38 @@
   "rtgs",
   "column_break_akib",
   "neft",
+  "section_break_ibim",
+  "beneficiary_name",
+  "beneficiary_bank_name",
+  "beneficiary_account_no",
+  "beneficiary_iban_no",
+  "beneficiary_bank_swift_code",
+  "bank_proof_for_beneficiary_bank",
+  "column_break_yvbe",
+  "beneficiary_ach_no",
+  "beneficiary_aba_no",
+  "beneficiary_routing_no",
+  "beneficiary_bank_address",
+  "beneficiary_currency",
+  "section_break_ocgv",
+  "add_intermediate_bank_details",
+  "intermediate_bank_details_section",
+  "intermediate_bank_name",
+  "intermediate_account_no",
+  "intermediate_bank_swift_code",
+  "intermediate_bank_address",
+  "column_break_bxig",
+  "intermediate_iban_no",
+  "intermediate_ach_no",
+  "intermediate_aba_no",
+  "intermediate_routing_no",
+  "bank_proof_for_intermediate_bank",
+  "intermediate_currency",
   "documents_tab",
   "gst_details_section",
   "gst_number",
   "gst_date",
-  "gst_registration_type",
+  "gst_ven_type",
   "gst_proof_section",
   "gst_proof",
   "company_pan_details_section",
@@ -92,6 +122,20 @@
   "iec",
   "iec_proof_section",
   "iec_proof",
+  "msme_details_section",
+  "msme_enterprise_type",
+  "udyam_number",
+  "name_on_udyam_certificate",
+  "msme_proof_section",
+  "msme_proof",
+  "form_10_section",
+  "form_10f_proof",
+  "trc_certificate_section",
+  "trc_certificate_no",
+  "column_break_jdxv",
+  "trc_certificate",
+  "pe_certificate_section",
+  "pe_certificate",
   "manufacturing_details_tab",
   "manufacturing_details_section",
   "details_of_product_manufactured",
@@ -644,12 +688,6 @@
    "options": "Vendor Type Master"
   },
   {
-   "fieldname": "gst_registration_type",
-   "fieldtype": "Link",
-   "label": "GST Registration Type",
-   "options": "GST Registration Type Master"
-  },
-  {
    "fieldname": "contact_person_1_section",
    "fieldtype": "Section Break",
    "label": "Contact Person 1"
@@ -898,11 +936,244 @@
    "fieldname": "valid",
    "fieldtype": "Date",
    "label": "Valid"
+  },
+  {
+   "fieldname": "msme_details_section",
+   "fieldtype": "Section Break",
+   "label": "MSME Details"
+  },
+  {
+   "fieldname": "msme_enterprise_type",
+   "fieldtype": "Select",
+   "label": "MSME Enterprise Type",
+   "options": "MSME - Micro\nMSME - Small\nMSME - Medium"
+  },
+  {
+   "fieldname": "udyam_number",
+   "fieldtype": "Data",
+   "label": "Udyam Number"
+  },
+  {
+   "fieldname": "name_on_udyam_certificate",
+   "fieldtype": "Data",
+   "label": "Name on Udyam Certificate"
+  },
+  {
+   "fieldname": "msme_proof_section",
+   "fieldtype": "Section Break",
+   "label": "MSME Proof"
+  },
+  {
+   "default": "0",
+   "fieldname": "purchase_team_undertaking",
+   "fieldtype": "Check",
+   "label": "Purchase Team Undertaking"
+  },
+  {
+   "default": "0",
+   "fieldname": "purchase_head_undertaking",
+   "fieldtype": "Check",
+   "label": "Purchase Head Undertaking"
+  },
+  {
+   "default": "0",
+   "fieldname": "accounts_team_undertaking",
+   "fieldtype": "Check",
+   "label": "Accounts Team Undertaking"
+  },
+  {
+   "fieldname": "form_10_section",
+   "fieldtype": "Section Break",
+   "label": "Form_10F"
+  },
+  {
+   "fieldname": "trc_certificate_section",
+   "fieldtype": "Section Break",
+   "label": "TRC Certificate"
+  },
+  {
+   "fieldname": "pe_certificate_section",
+   "fieldtype": "Section Break",
+   "label": "P.E Certificate"
+  },
+  {
+   "fieldname": "section_break_ibim",
+   "fieldtype": "Section Break",
+   "label": "International Bank Details"
+  },
+  {
+   "fieldname": "beneficiary_name",
+   "fieldtype": "Data",
+   "label": "Beneficiary Name"
+  },
+  {
+   "fieldname": "beneficiary_bank_name",
+   "fieldtype": "Link",
+   "label": "Beneficiary Bank Name",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "beneficiary_account_no",
+   "fieldtype": "Data",
+   "label": "Beneficiary Account No."
+  },
+  {
+   "fieldname": "beneficiary_iban_no",
+   "fieldtype": "Data",
+   "label": "Beneficiary IBAN No."
+  },
+  {
+   "fieldname": "beneficiary_bank_swift_code",
+   "fieldtype": "Data",
+   "label": "Beneficiary Bank Swift Code"
+  },
+  {
+   "fieldname": "column_break_yvbe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "beneficiary_ach_no",
+   "fieldtype": "Data",
+   "label": "Beneficiary ACH No."
+  },
+  {
+   "fieldname": "beneficiary_aba_no",
+   "fieldtype": "Data",
+   "label": "Beneficiary ABA No."
+  },
+  {
+   "fieldname": "beneficiary_routing_no",
+   "fieldtype": "Data",
+   "label": "Beneficiary Routing No."
+  },
+  {
+   "fieldname": "beneficiary_bank_address",
+   "fieldtype": "Link",
+   "label": "Beneficiary Bank Address",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "intermediate_bank_details_section",
+   "fieldtype": "Section Break",
+   "label": "Intermediate Bank Details"
+  },
+  {
+   "fieldname": "intermediate_bank_name",
+   "fieldtype": "Link",
+   "label": "Intermediate Bank Name",
+   "options": "Bank Master"
+  },
+  {
+   "fieldname": "intermediate_account_no",
+   "fieldtype": "Data",
+   "label": "Intermediate Account No."
+  },
+  {
+   "fieldname": "intermediate_bank_swift_code",
+   "fieldtype": "Data",
+   "label": "Intermediate Bank Swift Code"
+  },
+  {
+   "fieldname": "intermediate_bank_address",
+   "fieldtype": "Link",
+   "label": "Intermediate Bank Address",
+   "options": "Country Master"
+  },
+  {
+   "fieldname": "column_break_bxig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "intermediate_iban_no",
+   "fieldtype": "Data",
+   "label": "Intermediate IBAN No."
+  },
+  {
+   "fieldname": "intermediate_ach_no",
+   "fieldtype": "Data",
+   "label": "Intermediate ACH No."
+  },
+  {
+   "fieldname": "intermediate_aba_no",
+   "fieldtype": "Data",
+   "label": "Intermediate ABA No."
+  },
+  {
+   "fieldname": "intermediate_routing_no",
+   "fieldtype": "Data",
+   "label": "Intermediate Routing No."
+  },
+  {
+   "fieldname": "bank_proof_for_beneficiary_bank",
+   "fieldtype": "Attach",
+   "label": "Bank Proof for Beneficiary Bank"
+  },
+  {
+   "fieldname": "bank_proof_for_intermediate_bank",
+   "fieldtype": "Attach",
+   "label": "Bank Proof for Intermediate Bank"
+  },
+  {
+   "fieldname": "msme_proof",
+   "fieldtype": "Attach",
+   "label": "Upload MSME Proof"
+  },
+  {
+   "fieldname": "trc_certificate",
+   "fieldtype": "Attach",
+   "label": "Upload TRC Certificate"
+  },
+  {
+   "fieldname": "pe_certificate",
+   "fieldtype": "Attach",
+   "label": "Upload P.E Certificate"
+  },
+  {
+   "fieldname": "form_10f_proof",
+   "fieldtype": "Attach",
+   "label": "Upload Form_10F"
+  },
+  {
+   "fieldname": "trc_certificate_no",
+   "fieldtype": "Data",
+   "label": "TRC Certificate No."
+  },
+  {
+   "fieldname": "column_break_jdxv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gst_ven_type",
+   "fieldtype": "Data",
+   "label": "GST Ven. Type",
+   "options": "GST Registration Type Master"
+  },
+  {
+   "fieldname": "intermediate_currency",
+   "fieldtype": "Link",
+   "label": "Intermediate Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "beneficiary_currency",
+   "fieldtype": "Link",
+   "label": "Beneficiary Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "section_break_ocgv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "add_intermediate_bank_details",
+   "fieldtype": "Check",
+   "label": "Add Intermediate Bank Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-06 07:14:43.259738",
+ "modified": "2024-08-14 11:42:33.168933",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

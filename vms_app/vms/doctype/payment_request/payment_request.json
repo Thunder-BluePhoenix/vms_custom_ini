@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-14 21:56:24.504130",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_code",
+  "po_number",
+  "invoice_number",
+  "currency",
+  "terms_of_payment",
+  "request_type",
+  "status",
+  "invoice_date",
+  "advance_payment_request_section",
+  "proforma_invoice_amount",
+  "proforma_invoice_proof",
+  "regular_payment_request_section",
+  "invoice_amount",
+  "invoice_attach_payment",
+  "reminder_section",
+  "first_reminder_date",
+  "second_reminder_date",
+  "third_reminder_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "advance_payment_request_section",
+   "fieldtype": "Section Break",
+   "label": "Advance Payment Request"
+  },
+  {
+   "fieldname": "proforma_invoice_amount",
+   "fieldtype": "Data",
+   "label": "Proforma Invoice Amount"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "regular_payment_request_section",
+   "fieldtype": "Section Break",
+   "label": "Regular Payment Request"
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Data",
+   "label": "Invoice Amount"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
+  },
+  {
+   "fieldname": "terms_of_payment",
+   "fieldtype": "Link",
+   "label": "Terms of Payment",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "label": "Request Type",
+   "options": "Advanced\nNormal"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "reminder_section",
+   "fieldtype": "Section Break",
+   "label": "Reminder"
+  },
+  {
+   "fieldname": "first_reminder_date",
+   "fieldtype": "Date",
+   "label": "1st Reminder"
+  },
+  {
+   "fieldname": "second_reminder_date",
+   "fieldtype": "Date",
+   "label": "2nd Reminder"
+  },
+  {
+   "fieldname": "third_reminder_date",
+   "fieldtype": "Date",
+   "label": "3rd Reminder"
+  },
+  {
+   "fieldname": "invoice_attach_payment",
+   "fieldtype": "Attach",
+   "label": "Invoice"
+  },
+  {
+   "fieldname": "proforma_invoice_proof",
+   "fieldtype": "Attach",
+   "label": "Proforma Invoice"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-20 10:12:51.334262",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Payment Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

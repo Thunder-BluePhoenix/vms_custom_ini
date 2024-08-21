@@ -7,6 +7,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "vendor_title",
   "company_name",
   "vendor_type",
   "account_group",
@@ -26,7 +27,9 @@
   "pan_number",
   "incoterms2",
   "bank1",
+  "country",
   "column_break_azqd",
+  "vendor_code",
   "purchase_organization",
   "type_of_business",
   "size_of_company",
@@ -51,19 +54,19 @@
   "office_address_line_2",
   "city",
   "state",
-  "country",
   "column_break_hboq",
   "office_address_line_3",
   "office_address_line_4",
   "district",
   "pincode",
-  "vendor_code",
   "uuid",
   "section_break_udaq",
   "manufacturing_address_line_1",
   "manufacturing_address_line_2",
   "registered_by",
   "purchase_head_approval",
+  "otp",
+  "otp_expiry_time",
   "column_break_ourn",
   "manufacturing_address_line_3",
   "manufacturing_address_line_4",
@@ -409,11 +412,27 @@
    "fieldname": "payee",
    "fieldtype": "Check",
    "label": "Payee in Document"
+  },
+  {
+   "fieldname": "vendor_title",
+   "fieldtype": "Select",
+   "label": "Vendor Title",
+   "options": "Company\nFirm\nM/S.\nMr.\nMs.\nMrs."
+  },
+  {
+   "fieldname": "otp",
+   "fieldtype": "Data",
+   "label": "OTP"
+  },
+  {
+   "fieldname": "otp_expiry_time",
+   "fieldtype": "Data",
+   "label": "OTP Expiry Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 17:34:11.987419",
+ "modified": "2024-08-16 11:54:18.054297",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

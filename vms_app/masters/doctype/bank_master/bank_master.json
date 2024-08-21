@@ -8,8 +8,9 @@
  "field_order": [
   "bank_code",
   "bank_name",
-  "ifsc_code",
+  "country",
   "company",
+  "ifsc_code",
   "description",
   "lft",
   "rgt",
@@ -81,11 +82,17 @@
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-01 17:00:44.949196",
+ "modified": "2024-08-08 17:44:17.894574",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Bank Master",

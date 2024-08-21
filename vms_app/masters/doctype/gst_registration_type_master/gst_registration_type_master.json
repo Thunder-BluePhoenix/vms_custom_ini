@@ -5,32 +5,32 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "registration_type_code",
-  "registration_type_name",
+  "registration_ven_code",
+  "registration_ven_name",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "registration_type_code",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "GST Registration Type Code"
-  },
-  {
-   "fieldname": "registration_type_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "GST Registration Type Name"
-  },
-  {
    "fieldname": "description",
    "fieldtype": "Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "registration_ven_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GST Registration Ven Code"
+  },
+  {
+   "fieldname": "registration_ven_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GST Registration Ven Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:03:03.607732",
+ "modified": "2024-08-09 15:37:24.385939",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "GST Registration Type Master",

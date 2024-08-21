@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "material_description",
+  "material_images",
   "column_break_hgfc",
   "annual_capacity"
  ],
@@ -13,6 +14,7 @@
   {
    "fieldname": "material_description",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Material Description"
   },
   {
@@ -23,12 +25,18 @@
    "fieldname": "annual_capacity",
    "fieldtype": "Data",
    "label": "Annual Capacity"
+  },
+  {
+   "fieldname": "material_images",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Material Images"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-27 14:46:22.341723",
+ "modified": "2024-08-09 13:15:51.710400",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Supplied",

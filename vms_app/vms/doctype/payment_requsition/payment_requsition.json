@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-20 12:09:57.451737",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "number",
+  "favoring_of",
+  "payable_at",
+  "bank_charges_born_by",
+  "type_of_material",
+  "other_payment_support_details",
+  "column_break_wzoz",
+  "date",
+  "amount",
+  "payment_by",
+  "powo_no",
+  "invoice_no",
+  "special_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Number"
+  },
+  {
+   "fieldname": "favoring_of",
+   "fieldtype": "Data",
+   "label": "Favoring Of"
+  },
+  {
+   "fieldname": "payable_at",
+   "fieldtype": "Data",
+   "label": "Payable At"
+  },
+  {
+   "fieldname": "bank_charges_born_by",
+   "fieldtype": "Data",
+   "label": "Bank Charges Born By"
+  },
+  {
+   "fieldname": "type_of_material",
+   "fieldtype": "Data",
+   "label": "Type Of Material"
+  },
+  {
+   "fieldname": "other_payment_support_details",
+   "fieldtype": "Data",
+   "label": "Other Payment Support Details"
+  },
+  {
+   "fieldname": "column_break_wzoz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Data",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "payment_by",
+   "fieldtype": "Data",
+   "label": "Payment By"
+  },
+  {
+   "fieldname": "powo_no",
+   "fieldtype": "Data",
+   "label": "P.O./W.O. No."
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No."
+  },
+  {
+   "fieldname": "special_remarks",
+   "fieldtype": "Data",
+   "label": "Special Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-20 12:13:39.443906",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Payment Requsition",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

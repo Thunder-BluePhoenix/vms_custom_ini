@@ -15,28 +15,32 @@
   {
    "fieldname": "equipment_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Equipment Name"
   },
   {
    "fieldname": "equipment_qty",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Equipment Qty"
   },
   {
    "fieldname": "capacity",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Capacity"
   },
   {
    "fieldname": "remarks",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
    "label": "Remarks"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-27 14:47:37.658415",
+ "modified": "2024-08-09 13:17:31.484950",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Machinery Detail",

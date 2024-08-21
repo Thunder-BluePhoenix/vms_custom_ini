@@ -100,7 +100,7 @@
    "fieldname": "purchase_organization",
    "fieldtype": "Link",
    "label": "Purchase Organization",
-   "options": "Vendor Master"
+   "options": "Purchase Organization Master"
   },
   {
    "fieldname": "purchase_group",
@@ -364,7 +364,7 @@
   },
   {
    "fieldname": "vendor_code",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Vendor Code",
    "options": "Vendor Master"
   },
@@ -402,7 +402,7 @@
    "fieldname": "dispatch_mode",
    "fieldtype": "Select",
    "label": "Dispatch Mode",
-   "options": "Mode 1\nMode 2\nMode3"
+   "options": "By Ship\nBy Air\nBy Road\nBy Rail"
   },
   {
    "fieldname": "currency",
@@ -530,7 +530,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-03 13:57:17.772228",
+ "modified": "2024-08-20 13:36:44.580165",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

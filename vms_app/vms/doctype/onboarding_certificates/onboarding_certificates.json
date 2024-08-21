@@ -6,6 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "column_break_dxqx",
   "certificate_code",
   "certificate_name",
   "valid_till",
@@ -15,11 +16,13 @@
   {
    "fieldname": "certificate_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Certificate Name"
   },
   {
    "fieldname": "certificate_attach",
    "fieldtype": "Attach",
+   "in_list_view": 1,
    "label": "Certificate"
   },
   {
@@ -31,13 +34,18 @@
   {
    "fieldname": "valid_till",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Valid Till"
+  },
+  {
+   "fieldname": "column_break_dxqx",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-06 07:12:38.510680",
+ "modified": "2024-08-09 13:19:07.489774",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Onboarding Certificates",

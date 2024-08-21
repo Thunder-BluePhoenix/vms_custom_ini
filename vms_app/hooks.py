@@ -36,54 +36,54 @@ response_headers = [
     {"fieldname": "Access-Control-Allow-Origin", "value": "*"}
 ]
 
-fixtures = [ 
-'Export Entry',
-'Export Entry Vendor',
-'Import Entry',
-'Request For Quotation',
-'Vendor Onboarding',
-'Vendor Master',
-'Tax Master',
-'Shipment Type Master',
-'RFQ Type Master',
-'Port Master',
-'Package Type Master',
-'Company Master',
-'City Master',
-'District Master',
-'Certificate Master',
-'Product Master',
-'Vendor Type Master',
-'Department Master',
-'Material Master',
-'Currency Master',
-'Terms Of Payment Master',
-'Purchase Group Master',
-'Account Master',
-'Company Nature Master',
-'Business Nature Master',
-'Pincode Master',
-'State Master',
-'Country Master',
-'Bank Master',
-'GST Registration Type Master',
-'Designation Master',
-'Product Category Master',
-'Brand Master',
-'Product Variant Master',
-'UOM Master',
-'Account Group Master',
-'Incoterm Master',
-'Quotation',
-'Vendor Master',
-'Vendor Onboarding',
-'Request For Quotation', 
-'Import Entry',
-'Quotation',
-'Purchase Order',
-'Export Entry Vendor'
+# fixtures = [ 
+# 'Export Entry',
+# 'Export Entry Vendor',
+# 'Import Entry',
+# 'Request For Quotation',
+# 'Vendor Onboarding',
+# 'Vendor Master',
+# 'Tax Master',
+# 'Shipment Type Master',
+# 'RFQ Type Master',
+# 'Port Master',
+# 'Package Type Master',
+# 'Company Master',
+# 'City Master',
+# 'District Master',
+# 'Certificate Master',
+# 'Product Master',
+# 'Vendor Type Master',
+# 'Department Master',
+# 'Material Master',
+# 'Currency Master',
+# 'Terms Of Payment Master',
+# 'Purchase Group Master',
+# 'Account Master',
+# 'Company Nature Master',
+# 'Business Nature Master',
+# 'Pincode Master',
+# 'State Master',
+# 'Country Master',
+# 'Bank Master',
+# 'GST Registration Type Master',
+# 'Designation Master',
+# 'Product Category Master',
+# 'Brand Master',
+# 'Product Variant Master',
+# 'UOM Master',
+# 'Account Group Master',
+# 'Incoterm Master',
+# 'Quotation',
+# 'Vendor Master',
+# 'Vendor Onboarding',
+# 'Request For Quotation', 
+# 'Import Entry',
+# 'Quotation',
+# 'Purchase Order',
+# 'Export Entry Vendor'
 
-]
+# ]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/vms_app/css/vms_app.css"
@@ -203,12 +203,17 @@ doc_events = {
         # "after_insert": "vms_app.api.api.get_vendor_onboarding"
 
 	},
-	"Vendor Master": {
+    
+    "Payment Request": {
 
+	"after_insert": "vms_app.api.api.send_email_on_payment_request"
+
+	},
+	"Vendor Master": {
 	# 	#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 	# 	#"validate": "vms_app.api.api.send_email"
 		"after_insert": "vms_app.api.api.send_email",
-		# "after_insert": "vms_app.api.api.sap_fetch_token"
+	#	# "after_insert": "vms_app.api.api.sap_fetch_token"
 	# 	#"after_insert": "vms_app.api.api.generate_onboarding_link"
 	# 	#"validate": "vms_app.api.api.create_sap_so_from_po"
 	},
@@ -223,6 +228,12 @@ doc_events = {
 
 	"after_insert": "vms_app.api.api.hitt",
 	# 	# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
+
+	},
+    
+    "Payment Requisition": {
+
+	"after_insert": "vms_app.api.api.send_email_payment_requisition",
 
 	},
     
