@@ -68,7 +68,7 @@
   },
   {
    "fieldname": "terms_of_payment",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Terms of Payment",
    "options": "Terms Of Payment Master"
   },
@@ -121,7 +121,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-20 10:12:51.334262",
+ "modified": "2024-08-23 14:00:11.263989",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Payment Request",

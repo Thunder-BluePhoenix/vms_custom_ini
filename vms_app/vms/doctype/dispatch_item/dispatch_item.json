@@ -9,21 +9,26 @@
   "section_break_vdbp",
   "courier_number",
   "courier_name",
-  "attachment",
   "status",
+  "invoice_amount",
+  "packing_list_attachment",
+  "e_way_bill_attachment",
   "column_break_rtsd",
   "docket_number",
   "dispatch_date",
   "invoice_number",
+  "invoice_attachment",
+  "commercial_attachment",
+  "test_certificates_attachment",
   "section_break_tmxv",
   "items"
  ],
  "fields": [
   {
    "fieldname": "purchase_number",
-   "fieldtype": "Link",
+   "fieldtype": "Table MultiSelect",
    "label": "Purchase Number",
-   "options": "Purchase Order"
+   "options": "Dispatch Purchase No Group"
   },
   {
    "fieldname": "section_break_vdbp",
@@ -38,11 +43,6 @@
    "fieldname": "courier_name",
    "fieldtype": "Data",
    "label": "Courier Name"
-  },
-  {
-   "fieldname": "attachment",
-   "fieldtype": "Attach",
-   "label": "Attachment"
   },
   {
    "fieldname": "column_break_rtsd",
@@ -77,11 +77,41 @@
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status"
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Data",
+   "label": "Invoice Amount"
+  },
+  {
+   "fieldname": "packing_list_attachment",
+   "fieldtype": "Attach Image",
+   "label": "Packing List Attachment"
+  },
+  {
+   "fieldname": "invoice_attachment",
+   "fieldtype": "Attach",
+   "label": "Invoice Attachment"
+  },
+  {
+   "fieldname": "commercial_attachment",
+   "fieldtype": "Attach",
+   "label": "Commercial Invoice Attachment"
+  },
+  {
+   "fieldname": "e_way_bill_attachment",
+   "fieldtype": "Attach",
+   "label": "E-way Bill Attachment"
+  },
+  {
+   "fieldname": "test_certificates_attachment",
+   "fieldtype": "Attach",
+   "label": "Test Certificates Attachment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-01 18:11:59.397287",
+ "modified": "2024-08-23 21:21:09.273979",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Dispatch Item",
