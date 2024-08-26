@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import frappe
 from datetime import datetime, timedelta
 from frappe.utils.file_manager import save_url
+from numpy import convolve
 import requests
 import json
 from frappe.utils.background_jobs import enqueue
@@ -34,6 +35,8 @@ import psycopg2
 from werkzeug.utils import secure_filename
 # import pandas as pd
 from frappe.exceptions import DoesNotExistError
+import logging
+
 
 
 
@@ -1437,7 +1440,9 @@ def change_user_password(email, new_password):
         return {"status": "fail", "message": str(e)}
 
 #======================================================================================================
-
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @frappe.whitelist(allow_guest=True)
 def upload_file(docname, doctype, attachmentFieldName):
@@ -1482,10 +1487,9 @@ def upload_file(docname, doctype, attachmentFieldName):
         doc.certificate_proof =saved_file.file_url
     elif(attachmentFieldName == 'certificate_attach'): 
         doc.certificate_proof =saved_file.file_url
-    elif(attachmentFieldName == 'proforma_invoice_proof'): 
-        doc.certificate_proof =saved_file.file_url
     else:
-        console.log("no field")
+        logger.info("No matching field for attachmentFieldName: %s", attachmentFieldName)
+
 
     doc.save()
 
