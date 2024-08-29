@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:business_nature_name",
  "creation": "2024-03-27 11:30:35.203916",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,7 +22,8 @@
    "fieldname": "business_nature_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Business Nature Name"
+   "label": "Business Nature Name",
+   "unique": 1
   },
   {
    "fieldname": "description",
@@ -30,10 +33,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:02:34.944618",
+ "modified": "2024-08-27 17:27:42.703639",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Business Nature Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

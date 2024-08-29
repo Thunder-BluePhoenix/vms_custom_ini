@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:purchase_organization_code",
  "creation": "2024-05-09 09:52:34.304814",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,15 +32,17 @@
   {
    "fieldname": "purchase_organization_code",
    "fieldtype": "Data",
-   "label": "Purchase Organization Code"
+   "label": "Purchase Organization Code",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-07 11:03:00.794779",
+ "modified": "2024-08-27 14:48:35.836365",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Organization Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

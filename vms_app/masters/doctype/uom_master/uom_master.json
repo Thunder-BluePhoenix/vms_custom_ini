@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:uom_cod",
  "creation": "2024-03-27 11:11:57.734614",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +15,8 @@
    "fieldname": "uom_cod",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "UOM Code"
+   "label": "UOM Code",
+   "unique": 1
   },
   {
    "fieldname": "uom",
@@ -30,10 +32,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:04:27.834778",
+ "modified": "2024-08-27 17:39:42.867155",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "UOM Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

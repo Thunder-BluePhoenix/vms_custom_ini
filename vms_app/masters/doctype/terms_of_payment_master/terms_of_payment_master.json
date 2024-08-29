@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{terms_of_payment_code} - {company_code}",
  "creation": "2024-03-27 11:37:48.063129",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,10 +40,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-05 16:03:27.005738",
+ "modified": "2024-08-27 15:13:56.776002",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Terms Of Payment Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:state_name",
  "creation": "2024-03-27 11:22:15.373132",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -22,7 +23,8 @@
    "fieldname": "state_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "State Name"
+   "label": "State Name",
+   "unique": 1
   },
   {
    "fieldname": "sap_state_code",
@@ -40,10 +42,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-12 09:41:03.366065",
+ "modified": "2024-08-27 15:42:52.757245",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "State Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

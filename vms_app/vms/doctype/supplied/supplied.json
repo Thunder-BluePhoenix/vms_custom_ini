@@ -35,14 +35,14 @@
   },
   {
    "fieldname": "hsnsac_code",
-   "fieldtype": "Date",
+   "fieldtype": "Data",
    "label": "HSN/SAC Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-23 09:38:14.849191",
+ "modified": "2024-08-28 17:40:46.139194",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Supplied",

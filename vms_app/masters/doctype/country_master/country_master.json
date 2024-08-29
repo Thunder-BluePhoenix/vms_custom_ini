@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:country_name",
  "creation": "2024-03-27 11:21:22.121917",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,7 +22,8 @@
   {
    "fieldname": "country_name",
    "fieldtype": "Data",
-   "label": "Country Name"
+   "label": "Country Name",
+   "unique": 1
   },
   {
    "fieldname": "column_break_ficl",
@@ -36,10 +38,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 16:33:33.022131",
+ "modified": "2024-08-27 14:56:14.725284",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Country Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

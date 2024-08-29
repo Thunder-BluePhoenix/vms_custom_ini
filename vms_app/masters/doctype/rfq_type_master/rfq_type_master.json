@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:rfq_code",
  "creation": "2024-04-05 10:56:36.678934",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,7 +14,8 @@
   {
    "fieldname": "rfq_code",
    "fieldtype": "Data",
-   "label": "RFQ Code"
+   "label": "RFQ Code",
+   "unique": 1
   },
   {
    "fieldname": "rfq_name",
@@ -28,10 +30,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-05 10:57:10.647908",
+ "modified": "2024-08-27 18:38:49.778202",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "RFQ Type Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

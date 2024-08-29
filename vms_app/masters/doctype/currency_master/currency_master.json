@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:currency_code",
  "creation": "2024-03-27 11:39:08.192409",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +16,8 @@
    "fieldname": "currency_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Currency Code"
+   "label": "Currency Code",
+   "unique": 1
   },
   {
    "fieldname": "currency_name",
@@ -31,10 +34,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:02:03.310167",
+ "modified": "2024-08-27 15:32:47.605438",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Currency Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

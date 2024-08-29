@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:pincode",
  "creation": "2024-03-27 11:28:09.702832",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -18,7 +19,8 @@
    "fieldname": "pincode",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Pincode"
+   "label": "Pincode",
+   "unique": 1
   },
   {
    "fieldname": "city",
@@ -55,10 +57,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-17 08:28:22.871993",
+ "modified": "2024-08-27 16:11:32.876784",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Pincode Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:company_code",
  "creation": "2024-03-28 13:42:11.353388",
@@ -36,7 +37,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-30 11:49:48.276582",
+ "modified": "2024-08-27 12:52:56.620249",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Master",

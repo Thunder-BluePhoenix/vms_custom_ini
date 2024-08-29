@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{acccount_group_code} - {purchase_organisation}",
  "creation": "2024-03-27 11:10:02.067100",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,10 +39,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 06:59:19.397164",
+ "modified": "2024-08-27 15:06:48.887046",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Group Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

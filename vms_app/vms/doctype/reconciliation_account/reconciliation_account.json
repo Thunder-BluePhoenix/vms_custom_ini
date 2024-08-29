@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{num} - {account_group}",
  "creation": "2024-07-05 11:28:53.725150",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,10 +31,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-11 10:43:34.407106",
+ "modified": "2024-08-27 17:12:47.622458",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Reconciliation Account",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:shipment_type_code",
  "creation": "2024-04-09 15:39:59.464546",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,7 +14,8 @@
   {
    "fieldname": "shipment_type_code",
    "fieldtype": "Data",
-   "label": "Shipment Type Code"
+   "label": "Shipment Type Code",
+   "unique": 1
   },
   {
    "fieldname": "shipment_type_name",
@@ -28,10 +30,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-09 15:40:32.952513",
+ "modified": "2024-08-28 10:51:33.855191",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Shipment Type Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

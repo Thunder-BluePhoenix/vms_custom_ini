@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:district_code",
  "creation": "2024-03-27 11:24:01.041436",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,7 +18,8 @@
    "fieldname": "district_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "District Code"
+   "label": "District Code",
+   "unique": 1
   },
   {
    "fieldname": "district_name",
@@ -46,10 +48,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 06:55:18.913169",
+ "modified": "2024-08-27 15:58:55.309594",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "District Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

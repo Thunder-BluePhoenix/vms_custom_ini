@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{purchase_group_code} - {company_code}",
  "creation": "2024-03-27 11:36:22.816400",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,10 +40,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:00:11.855283",
+ "modified": "2024-08-27 15:11:25.101504",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Purchase Group Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

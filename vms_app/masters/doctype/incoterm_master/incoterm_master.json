@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{incoterm_code} - {incoterm_name}",
  "creation": "2024-03-27 11:07:50.293495",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -49,10 +51,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:00:21.130764",
+ "modified": "2024-08-27 15:22:59.743172",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Incoterm Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

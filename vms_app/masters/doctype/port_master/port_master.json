@@ -2,6 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "format:{port_code} - {port_name}",
  "creation": "2024-04-03 12:03:14.388962",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -29,10 +30,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-01 10:12:47.151100",
+ "modified": "2024-08-27 18:07:52.464527",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Port Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

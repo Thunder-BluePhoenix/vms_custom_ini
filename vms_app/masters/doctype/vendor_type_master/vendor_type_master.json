@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:vendor_type_name",
  "creation": "2024-03-27 11:47:41.231372",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,7 +21,8 @@
    "fieldname": "vendor_type_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Vendor Type Name"
+   "label": "Vendor Type Name",
+   "unique": 1
   },
   {
    "fieldname": "description",
@@ -30,10 +32,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-16 07:01:40.097207",
+ "modified": "2024-08-27 17:06:35.792227",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Type Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

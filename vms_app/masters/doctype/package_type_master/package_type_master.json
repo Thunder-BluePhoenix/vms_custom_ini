@@ -1,6 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:package_code",
  "creation": "2024-04-03 11:50:38.795111",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -13,7 +15,8 @@
   {
    "fieldname": "package_code",
    "fieldtype": "Data",
-   "label": "Package Code"
+   "label": "Package Code",
+   "unique": 1
   },
   {
    "fieldname": "package_name",
@@ -28,10 +31,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-03 11:52:30.018267",
+ "modified": "2024-08-27 18:42:09.195322",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Package Type Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
