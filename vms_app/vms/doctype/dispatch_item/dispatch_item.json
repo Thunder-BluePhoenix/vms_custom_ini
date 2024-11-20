@@ -6,6 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "purchase_number",
+  "column_break_ocsa",
+  "vendor_code",
   "section_break_vdbp",
   "courier_number",
   "courier_name",
@@ -17,6 +19,7 @@
   "docket_number",
   "dispatch_date",
   "invoice_number",
+  "invoice_date",
   "invoice_attachment",
   "commercial_attachment",
   "test_certificates_attachment",
@@ -107,11 +110,25 @@
    "fieldname": "test_certificates_attachment",
    "fieldtype": "Attach",
    "label": "Test Certificates Attachment"
+  },
+  {
+   "fieldname": "column_break_ocsa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 21:21:09.273979",
+ "modified": "2024-09-05 13:18:05.789152",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Dispatch Item",

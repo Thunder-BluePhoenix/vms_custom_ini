@@ -9,7 +9,6 @@
  "field_order": [
   "vendor_title",
   "company_name",
-  "vendor_type",
   "account_group",
   "department",
   "material_to_be_supplied",
@@ -49,7 +48,11 @@
   "account_number",
   "gst_number",
   "company_code",
-  "section_break_qjrl",
+  "vendor_type_table_section",
+  "vendor_types",
+  "multiple_company_data_section",
+  "multiple_company_data",
+  "office_address_section",
   "office_address_line_1",
   "office_address_line_2",
   "city",
@@ -60,7 +63,7 @@
   "district",
   "pincode",
   "uuid",
-  "section_break_udaq",
+  "manufacturing_address_section",
   "manufacturing_address_line_1",
   "manufacturing_address_line_2",
   "registered_by",
@@ -72,6 +75,8 @@
   "manufacturing_address_line_4",
   "purchase_team_approval",
   "accounts_team_approval",
+  "qa_team_approval",
+  "qa_head_approval",
   "status"
  ],
  "fields": [
@@ -81,12 +86,6 @@
    "in_list_view": 1,
    "label": "Company Name",
    "options": "Company Master"
-  },
-  {
-   "fieldname": "vendor_type",
-   "fieldtype": "Link",
-   "label": "Vendor Type",
-   "options": "Vendor Type Master"
   },
   {
    "fieldname": "account_group",
@@ -232,10 +231,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_qjrl",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "office_address_line_1",
    "fieldtype": "Data",
    "label": "Office Address Line 1"
@@ -288,10 +283,6 @@
    "fieldtype": "Link",
    "label": "Pincode",
    "options": "Pincode Master"
-  },
-  {
-   "fieldname": "section_break_udaq",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "manufacturing_address_line_1",
@@ -428,11 +419,53 @@
    "fieldname": "otp_expiry_time",
    "fieldtype": "Data",
    "label": "OTP Expiry Time"
+  },
+  {
+   "fieldname": "qa_team_approval",
+   "fieldtype": "Data",
+   "label": "QA Team Approval"
+  },
+  {
+   "fieldname": "qa_head_approval",
+   "fieldtype": "Data",
+   "label": "QA Head Approval"
+  },
+  {
+   "fieldname": "office_address_section",
+   "fieldtype": "Section Break",
+   "label": "Office Address"
+  },
+  {
+   "fieldname": "manufacturing_address_section",
+   "fieldtype": "Section Break",
+   "label": "Manufacturing Address"
+  },
+  {
+   "fieldname": "vendor_type_table_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Type Table"
+  },
+  {
+   "fieldname": "vendor_types",
+   "fieldtype": "Table",
+   "label": "Vendor Types",
+   "options": "Vendor Type Group"
+  },
+  {
+   "fieldname": "multiple_company_data_section",
+   "fieldtype": "Section Break",
+   "label": "Multiple Company Data"
+  },
+  {
+   "fieldname": "multiple_company_data",
+   "fieldtype": "Table",
+   "label": "Multiple Company Data",
+   "options": "Multiple Company Data"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-16 11:54:18.054297",
+ "modified": "2024-10-10 17:53:35.631398",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

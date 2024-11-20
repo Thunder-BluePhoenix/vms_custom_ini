@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:VO/{ref_no}",
  "creation": "2024-03-27 12:57:53.451043",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -191,7 +192,7 @@
   "enterprise",
   "reconciliation_account",
   "accounts_team_remark",
-  "changes_tab"
+  "qa_team_remarks"
  ],
  "fields": [
   {
@@ -353,7 +354,7 @@
    "fieldname": "type_of_account",
    "fieldtype": "Select",
    "label": "Type of Account",
-   "options": "Savings Account\nCurrent Account"
+   "options": "-Select-\nSavings Account\nCurrent Account"
   },
   {
    "fieldname": "currency",
@@ -582,7 +583,7 @@
    "fieldname": "type_of_premises",
    "fieldtype": "Select",
    "label": "Type of Premises ",
-   "options": "Lease\nRented\nOwned"
+   "options": "-Select-\nLease\nRented\nOwned"
   },
   {
    "fieldname": "working_hours",
@@ -837,11 +838,6 @@
    "options": "Vendor Master"
   },
   {
-   "fieldname": "changes_tab",
-   "fieldtype": "Tab Break",
-   "label": "Changes"
-  },
-  {
    "fieldname": "section_break_anay",
    "fieldtype": "Section Break"
   },
@@ -929,7 +925,7 @@
    "fieldname": "msme_enterprise_type",
    "fieldtype": "Select",
    "label": "MSME Enterprise Type",
-   "options": "MSME - Micro\nMSME - Small\nMSME - Medium"
+   "options": "-Select-\nMSME - Micro\nMSME - Small\nMSME - Medium"
   },
   {
    "fieldname": "udyam_number",
@@ -1169,14 +1165,20 @@
    "fieldname": "valid_till",
    "fieldtype": "Date",
    "label": "Valid"
+  },
+  {
+   "fieldname": "qa_team_remarks",
+   "fieldtype": "Data",
+   "label": "QA Team Remarks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-29 09:49:25.183408",
+ "modified": "2024-10-14 17:11:57.922201",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

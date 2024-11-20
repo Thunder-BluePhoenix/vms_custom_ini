@@ -168,16 +168,32 @@ def show_single_purchase_order_vendor(**kwargs):
 @frappe.whitelist()
 def show_po_count_vendor(**kwargs):
     vendor_code = kwargs.get('vendor_code')
-    print("Vendor Code:", vendor_code)  
+    print("Vendor Code for PO Count:", vendor_code)  
 
     if vendor_code:
-        total_po = frappe.db.sql("""
-            SELECT count(*) as total_count FROM `tabPurchase Order` WHERE vendor_code =%s""", (vendor_code), as_dict=1)
+        po_counts = frappe.db.sql("""
+            SELECT 
+                COUNT(CASE WHEN status = 'Delivered' THEN 1 END) AS delivered_count,
+                COUNT(CASE WHEN status IN ('Pending', 'Shipped') THEN 1 END) AS pending_shipped_count,
+                COUNT(*) AS total_count
+            FROM 
+                `tabPurchase Order` 
+            WHERE 
+                vendor_code = %s
+        """, (vendor_code,), as_dict=1)
     else:
-        total_po = frappe.db.sql("""
-            SELECT count(*) as total_count FROM `tabPurchase Order` WHERE vendor_code IS NULL OR vendor_code = '' """, as_dict=1)
+        po_counts = frappe.db.sql("""
+            SELECT 
+                COUNT(CASE WHEN status = 'Delivered' THEN 1 END) AS delivered_count,
+                COUNT(CASE WHEN status IN ('Pending', 'Shipped') THEN 1 END) AS pending_shipped_count,
+                COUNT(*) AS total_count
+            FROM 
+                `tabPurchase Order` 
+            WHERE 
+                vendor_code IS NULL OR vendor_code = ''
+        """, as_dict=1)
 
-    return total_po
+    return po_counts
 
 # @frappe.whitelist(allow_guest=True)
 # def show_single_purchase_order(**kwargs):
@@ -1136,7 +1152,7 @@ def login(usr, pwd):
 
         return
 
-    # api_generate = generate_keys(frappe.session.user)
+   # api_generate = generate_keys(frappe.session.user)
     user = frappe.get_doc('User', frappe.session.user)
     print("***********************************************")
     user_designation_id = frappe.db.get_value("User", filters={'email': user.email}, fieldname='designation')
@@ -1145,22 +1161,31 @@ def login(usr, pwd):
     print(user_name)
     user_designation_name = frappe.db.get_value("Designation Master", filters={'name': user_designation_id}, fieldname='designation_name')
     print(user_designation_name)
-    
     refno = frappe.db.get_value("Vendor Master", filters={'office_email_primary': user.email}, fieldname='name')
+    print(refno)
     vendor_code = frappe.db.get_value("Vendor Master", filters={'office_email_primary': user.email}, fieldname=['vendor_code'])
-
+    print(vendor_code)
+    company_code = frappe.db.get_value("User", filters={'email': user.email}, fieldname=['user_company'])
+    company_name = frappe.db.get_value("Company Master", filters={'name':company_code}, fieldname=['company_name'] )
+    print(company_name)
+    company_short = frappe.db.get_value("Company Master", filters={'name':company_code }, fieldname=['short_form'])
+    print(company_short)
     frappe.response["message"] = {
 
         "success_key":1,
         "message":"Authentication success",
         "sid":frappe.session.sid,
-      #  "api_key":user.api_key,
-       # "api_secret":api_generate,
+        #"api_key":user.api_key,
+        #"api_secret":api_generate,
         'designation_name': user_designation_name,
         "username":user.username,
         "email":user.email,
         "refno": refno,
-        "vendor_code":vendor_code
+        "vendor_code":vendor_code,
+        "full_name": user_name,
+        "company_code": company_code,
+        "user_company": company_name,
+        "company_short_form": company_short
 
     }
 
@@ -1195,83 +1220,6 @@ def verify_otp(user_name, entered_otp):
     else:
         return "Wrong OTP."
     
-# @frappe.whitelist()
-# def send_otp(**kwargs):
-
-#     reciever_email = kwargs.get('email')
-
-#     # Check whether the user exists or not
-#     user = frappe.get_doc("User", reciever_email)
-#     if not user:
-#         return {"status": "fail", "message": _("User not found.")}
-
-#     # Generate a 6-digit OTP
-#     otp = ''.join(random.choices(string.digits, k=6))
-#     expiry_time = datetime.now() + timedelta(minutes=5)
-
-#     #frappe.db.set_value('Vendor Master', {'office_email_primary': reciever_email}, 'otp', otp)
-
-#     vendor_name = frappe.db.get_value("Vendor Master", filters={'office_email_primary': reciever_email}, fieldname=['vendor_name'])
-#     frappe.db.set_value('Vendor Master', {'office_email_primary': reciever_email}, 'otp', otp)
-#     frappe.db.set_value('Vendor Master', {'office_email_primary': reciever_email}, 'otp_expiry_time', expiry_time)
-   
-#     smtp_server = "smtp.transmail.co.in"
-#     smtp_port = 587
-#     smtp_user = "emailapikey"  
-#     smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
-#     from_address = 'noreply@merillife.com'
-#     to_address = reciever_email  
-#     subject = f""" One Time Password for Password Reset"""
-#     body = f"""
-#     Dear {vendor_name},
-#     Your One-Time Password for the Vendor Manangement System(VMS)-Portal is  + otp.
-#     """
-#     msg = MIMEMultipart()
-#     msg["From"] = from_address
-#     msg["To"] = to_address
-#     msg["Subject"] = subject
-#     msg.attach(MIMEText(body, "plain"))
-#     try:
-#         with smtplib.SMTP(smtp_server, smtp_port) as server:
-#             server.starttls()  
-#             server.login(smtp_user, smtp_password)  
-#             server.sendmail(from_address, to_address, msg.as_string()) 
-#             print("Email sent successfully!")
-#             doc = frappe.get_doc({
-
-#                     'doctype': 'Email Log',        
-#                     'to_email': to_address,
-#                     'from_email': from_address,
-#                     'message': body,
-#                     'status': "Successfully Sent",
-#                     'screen': "Forgot Password",
-#                     'created_by': from_address
-
-
-#                     })
-#             doc.insert(ignore_permissions=True)
-#             frappe.db.commit()
-
-#     except Exception as e:
-#         print(f"Failed to send email: {e}")
-#         msge = f"Failed to send email: {e}"
-#         doc = frappe.get_doc({
-
-#                     'doctype': 'Email Log',
-#                     'to_email': to_address,
-#                     'from_email': from_address,
-#                     'message': body,
-#                     'status': msge,
-#                     'screen': "Forgot Password",
-#                     'created_by': from_address
-
-
-#                     })
-#         doc.insert(ignore_permissions=True)
-#         frappe.db.commit()
-
-#         # return {"status": "fail", "message": _("Failed to send email.")}
-#         return {"status": "fail", "message": str(e)}
 
 @frappe.whitelist()
 def send_otp(**kwargs):
@@ -1368,7 +1316,48 @@ def send_otp(**kwargs):
             "_server_messages": server_message
         }
 
+#============================= NOTIFICATION METHOD ===============================================
+@frappe.whitelist()
+def create_notification(user, message, reference_doctype, reference_name, subject="New Notification"):
+    """
+    Create a notification entry and send it to the specified user.
+    
+    :param user: The recipient user ID (user email or username).
+    :param message: The notification message.
+    :param reference_doctype: The doctype related to the notification.
+    :param reference_name: The document name related to the notification.
+    :param subject: The subject of the notification (default is 'New Notification').
+    """
+    try:
+        # Create a new Notification Log entry
+        notification_doc = frappe.get_doc({
+            "doctype": "Notification Log",
+            "for_user": user,
+            "type": "Alert",
+            "subject": subject,
+            "email_content": message,
+            "document_type": reference_doctype,
+            "document_name": reference_name,
+            "from_user": frappe.session.user,
+            "read": 0,
+        })
 
+        # Save the notification in the database
+        notification_doc.insert(ignore_permissions=True)
+        frappe.db.commit()
+
+        # Push the notification to the user's frontend using WebSocket
+        frappe.publish_realtime(event='realtime_notification', message={
+            "type": "Alert",
+            "message": message,
+            "reference_doctype": reference_doctype,
+            "reference_name": reference_name,
+            "from_user": frappe.session.user
+        }, user=user)
+
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Notification Creation Failed")
+        frappe.throw(_("Could not create notification due to an internal error. Please try again later."))
 
 #================================== CHANGE PASSWORD METHOD ============================================
 @frappe.whitelist()
@@ -1486,6 +1475,8 @@ def upload_file(docname, doctype, attachmentFieldName):
     elif(attachmentFieldName == 'certificate_proof'): 
         doc.certificate_proof =saved_file.file_url
     elif(attachmentFieldName == 'certificate_attach'): 
+        doc.certificate_proof =saved_file.file_url
+    elif(attachmentFieldName == 'material_images'): 
         doc.certificate_proof =saved_file.file_url
     else:
         logger.info("No matching field for attachmentFieldName: %s", attachmentFieldName)
@@ -1639,7 +1630,7 @@ def upload_file(docname, doctype, attachmentFieldName):
 @frappe.whitelist()
 def send_email(data, method):
     name = data.get("name")
-    print("&^$$#$%^&*(*&^%$^&*()*&^%$#^&*())", name)
+    # print("&^$$#$%^&*(*&^%$^&*()*&^%$#^&*())", name)
     # load_dotenv(dotenv_path='/home/rishi_hingad/frappe-bench/.env')
     # onboarding_link = os.getenv('ONBOARDING_LINK')
 
@@ -1655,11 +1646,11 @@ def send_email(data, method):
     current_user = frappe.session.user
     print("***********()()(T&^%@#$%^&*(**CURRENT USER*****", current_user)
     current_user_email = frappe.db.get_value("User", filters={'full_name': current_user}, fieldname='email')
-    current_user_company = frappe.get_all("Users Company",{"parent":current_user_email},"name")
+    # current_user_company = frappe.get_all("Users Company",{"parent":current_user_email},"name")
     current_user_designation = frappe.db.get_value("User", filters={'email': current_user_email}, fieldname='designation')
     # Fetch BCC email based on company and designation
-    bcc_email = frappe.db.get_value("User", filters={["Users Company",'company',current_user_company], current_user_designation}, fieldname='email')    
-    print(current_user_email)
+    # bcc_email = frappe.db.get_value("User", filters={["Users Company",'company',current_user_company], current_user_designation}, fieldname='email')    
+    print(current_user_email,current_user_designation)
     frappe.db.sql(""" UPDATE `tabVendor Master` SET registered_by=%s WHERE name=%s """,(current_user, name))
     frappe.db.commit()
     vendor_name = frappe.db.get_value("Vendor Master", filters={'name': name}, fieldname=['vendor_name'])
@@ -1676,7 +1667,7 @@ def send_email(data, method):
     smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
     from_address = current_user
     to_address = reciever_email  
-    bcc_address = [bcc_email, "rishi.hingad@merillife.com"]
+    # bcc_address = [bcc_email, "rishi.hingad@merillife.com"]
     subject = f"""New Vendor Appointment for {company_name} - {vendor_name} - VMS Ref #: {name}"""
     body = f"""
 Dear Sir/Madam,
@@ -1708,10 +1699,35 @@ Meril Team
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()  
             server.login(smtp_user, smtp_password)  
-            server.sendmail(from_address, [to_address, bcc_address], msg.as_string()) 
+            server.sendmail(from_address, to_address, msg.as_string()) 
             print("Email sent successfully!")
+            doc = frappe.get_doc({
+                'doctype': 'Email Log',
+                'ref_no': name,
+                'to_email': to_address,
+                'from_email': from_address,
+                'message': body,
+                'status': "Successfully Sent",
+                'screen': "Onboarding Link sent successfully.",
+                'created_by': from_address
+            })
+            doc.insert(ignore_permissions=True)
+            frappe.db.commit()
+
     except Exception as e:
         print(f"Failed to send email: {e}")
+        doc = frappe.get_doc({
+            'doctype': 'Email Log',
+            'ref_no': name,
+            'to_email': to_address,
+            'from_email': from_address,
+            'message': body,
+            'status': f"Failed to send email: {e}",
+            'screen': "Onboarding Link send failed",
+            'created_by': from_address
+        })
+        doc.insert(ignore_permissions=True)
+        frappe.db.commit()
 
 
 
@@ -1863,6 +1879,7 @@ def send_email_on_onboarding(data, method):
     name = data.get('office_email_primary')
     print("%%%%%%%%%%%%%%%%%%%%", name)
     refno = frappe.db.get_value("Vendor Master", filters={'office_email_primary': name}, fieldname=['name'])
+    vendor_name = frappe.db.get_value("Vendor Master", filters={'office_email_primary': name}, fieldname=['vendor_name'])
     frappe.db.sql(""" UPDATE `tabVendor Onboarding` SET ref_no=%s WHERE office_email_primary=%s """, (refno, name))
     frappe.db.commit()
     current_user_email = data.get('office_email_primary')
@@ -1882,8 +1899,8 @@ def send_email_on_onboarding(data, method):
     to_address = reciever_email  
     subject = "Vendor Onboarding Submission Confirmation."
     #body = "This is a Test email ...!"
-    #body = "Vendor has successfully submitted the Onboarding form on the VMS Portal. Please check the details  on this link "http://10.120.140.7:3200/purchase-team/vendor-detail?office_email_primary=" " + str(office_email_primary)
-    body = "Vendor has successfully submitted the Onboarding form on the VMS Portal. Please check the details on this link http://10.120.140.7:3200/purchase-team/vendor-detail/" + str(name)
+    #body = "Vendor has successfully submitted the Onboarding form on the VMS Portal. Please check the details  on this link "http://localhost:3000/purchase-team/vendor-detail?office_email_primary=" " + str(office_email_primary)
+    body = "Vendor has successfully submitted the Onboarding form on the VMS Portal. Please check the details on this link http://localhost:3000/purchase-team/vendor-detail/" + str(name)
 
     msg = MIMEMultipart()
     msg["From"] = from_address
@@ -1896,11 +1913,54 @@ def send_email_on_onboarding(data, method):
             server.login(smtp_user, smtp_password)  
             server.sendmail(from_address, to_address, msg.as_string()) 
             print("Email sent successfully!")
-    except Exception as e:
-        print(f"Failed to send email: {e}")
-#
-# Latest Code
+            doc = frappe.get_doc({
 
+                    'doctype': 'Email Log',
+                    'ref_no': refno,
+                    'to_email': to_address,
+                    'from_email': 'from_address',
+                    'message': body,
+                    'status': "Successfully Sent",
+                    'screen': "Onboarding form submitted.",
+                    'created_by': from_address
+                    })
+            doc.insert(ignore_permissions=True)
+            frappe.db.commit()
+
+    except Exception as e:
+        msge = f"Failed to send email to {to_address}: {e}"
+        print(f"Failed to send email to {to_address}: {e}")
+        doc = frappe.get_doc({
+
+                    'doctype': 'Email Log',
+                    'ref_no': refno,
+                    'to_email': to_address,
+                    'from_email': 'from_address',
+                    'message': body,
+                    'status': msge,
+                    'screen': "Onboarding form submitted.",
+                    'created_by': from_address
+                    })
+        doc.insert(ignore_permissions=True)
+        frappe.db.commit()
+   
+    # Create a notification entry in the backend
+    try:
+        vendor_name = data.get('vendor_name')
+        notification_link = f"http://localhost:3000/purchase-team/vendor-detail/{name}"
+        message = f"Vendor {vendor_name} has submitted the onboarding form. Please review it <a href='{notification_link}'>here</a>."
+
+        create_notification(
+            user=reciever_email, 
+            message=message,
+            reference_doctype="Vendor Onboarding",
+            reference_name=name
+        )
+        print("Notification sent successfully!")
+    except Exception as e:
+        print(f"Failed to create notification: {e}")
+
+# Latest Code
 
 
 # @frappe.whitelist()
@@ -2072,63 +2132,55 @@ def hit():
 #     return dispatch_detail
 @frappe.whitelist()
 def show_dispatch_order_detail_vendor(**kwargs):
-    purchase_number = kwargs.get('purchase_number')
     vendor_code = kwargs.get('vendor_code')
 
-    # Check if vendor_code is null or zero
-    if vendor_code in [None, '', 0]:
-        return []
+    # Check if vendor_code is valid
+    if not vendor_code:
+        return {'error': 'Vendor code is not provided or invalid'}
 
-    if purchase_number:
-        vendor_code = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname='vendor_code')
-        vendor_name = frappe.db.get_value("Vendor Master", filters={"vendor_code": vendor_code}, fieldname='vendor_name') if vendor_code else None
-        po_number = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname='po_number')
-        ship_to_company = frappe.db.get_value("Purchase Order", filters={"name": po_number}, fieldname='ship_to_company')
-        dispatch_detail = frappe.db.sql("""SELECT * FROM `tabDispatch Item` WHERE purchase_number=%s""", (purchase_number,), as_dict=1)
-    elif vendor_code:
-        # Fetch purchase orders based on vendor_code
-        purchase_orders = frappe.db.get_list("Purchase Order", filters={"vendor_code": vendor_code}, pluck='name')
-        vendor_name = frappe.db.get_value("Vendor Master", filters={"vendor_code": vendor_code}, fieldname='vendor_name') if vendor_code else None
-        if purchase_orders:
-            dispatch_detail = frappe.db.sql("""SELECT * FROM `tabDispatch Item` WHERE purchase_number IN (%s)""" % ','.join(['%s']*len(purchase_orders)), tuple(purchase_orders), as_dict=1)
-            # Optionally fetch ship_to_company for the first purchase order if needed
-            po_number = purchase_orders[0]
-            ship_to_company = frappe.db.get_value("Purchase Order", filters={"name": po_number}, fieldname='ship_to_company')
-        else:
-            dispatch_detail = []
-            ship_to_company = None
-    else:
-        dispatch_detail = frappe.db.sql("""SELECT * FROM `tabDispatch Item`""", as_dict=1)
-        vendor_name = None
-        po_number = None
-        ship_to_company = None
+    # Fetch dispatch details for the given vendor_code
+    dispatch_details = frappe.db.sql("""
+        SELECT * FROM `tabDispatch Item`
+        WHERE vendor_code = %s
+    """, (vendor_code,), as_dict=1)
 
-    for detail in dispatch_detail:
-        dispatch_order_item = frappe.db.sql("""SELECT * FROM `tabDispatch Order Items` WHERE parent=%s""", (detail['name'],), as_dict=1)
-        detail['dispatch_order_item'] = dispatch_order_item 
+    if not dispatch_details:
+        return {'error': 'No dispatch details found for the given vendor code'}
 
-        if not purchase_number:
-            vendor_code = frappe.db.get_value("Purchase Order", filters={"name": detail['purchase_number']}, fieldname='vendor_code')
-            vendor_name = frappe.db.get_value("Vendor Master", filters={"vendor_code": vendor_code}, fieldname='vendor_name') if vendor_code else None
-            po_number = frappe.db.get_value("Purchase Order", filters={"name": detail['purchase_number']}, fieldname='po_number')
-            ship_to_company = frappe.db.get_value("Purchase Order", filters={"name": detail['purchase_number']}, fieldname='ship_to_company')
-        
-        detail['vendor_name'] = vendor_name
-        detail['po_number'] = po_number
-        detail['ship_to_company'] = ship_to_company
+    # Fetch related purchase orders and company details
+    purchase_numbers = list(set(d['purchase_number'] for d in dispatch_details if d.get('purchase_number')))
+    purchase_orders = frappe.get_all("Purchase Order", filters={"name": ["in", purchase_numbers]}, fields=["name", "po_number", "ship_to_company"])
+    
+    po_details = {po['name']: po for po in purchase_orders}
+    company_ids = list(set(po.get('ship_to_company') for po in po_details.values() if po.get('ship_to_company')))
+    company_names = frappe.get_all("Company Master", filters={"name": ["in", company_ids]}, fields=["name", "company_name"])
+    company_details = {company['name']: company['company_name'] for company in company_names}
 
-        for item in dispatch_order_item:
+    # Enrich dispatch details with additional information
+    for detail in dispatch_details:
+        # Add dispatch order items
+        detail['dispatch_order_item'] = frappe.db.sql("""
+            SELECT * FROM `tabDispatch Order Items`
+            WHERE parent = %s
+        """, (detail['name'],), as_dict=1)
+
+        # Add PO details
+        po_info = po_details.get(detail.get('purchase_number'))
+        if po_info:
+            detail['po_number'] = po_info.get('po_number')
+            ship_to_company_id = po_info.get('ship_to_company')
+            detail['ship_to_company'] = company_details.get(ship_to_company_id, ship_to_company_id)
+
+        # Add product details
+        for item in detail.get('dispatch_order_item', []):
             if item.get('uom'):
-                uom = frappe.db.get_value("UOM Master", item['uom'], "uom")
-                item['uom'] = uom
+                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "uom")
             if item.get('product_code'):
-                product_code = frappe.db.get_value("Product Master", item['product_code'], "product_code")
-                item['product_code'] = product_code
+                item['product_code'] = frappe.db.get_value("Product Master", item['product_code'], "product_code")
             if item.get('product_name'):
-                product_name = frappe.db.get_value("Product Master", item['product_name'], "product_name")
-                item['product_name'] = product_name
+                item['product_name'] = frappe.db.get_value("Product Master", item['product_name'], "product_name")
 
-    return dispatch_detail
+    return dispatch_details
 
 @frappe.whitelist()
 def show_dispatch_order_detail(**kwargs):
@@ -4235,10 +4287,11 @@ def total_in_process_vendors():
 @frappe.whitelist()
 def inprocess_vendor_detail():
     
-    total_in_process_vendors = frappe.db.sql(""" 
+    inprocess_vendor_detail = frappe.db.sql(""" 
         SELECT
             vm.*,
-            cmm.company_name as company_name
+            cmm.company_name as company_name,
+            cmm.company_code AS company_code
                                              
     FROM
         `tabVendor Master` vm
@@ -4246,7 +4299,26 @@ def inprocess_vendor_detail():
         `tabCompany Master` cmm on vm.company_name = cmm.name
     WHERE 
         status='In Process' """,as_dict=1)
-    return total_in_process_vendors
+    return inprocess_vendor_detail
+
+@frappe.whitelist()
+def inprocess_vendor_detail_qa():
+    
+    inprocess_vendor_detail_qa = frappe.db.sql(""" 
+        SELECT
+            vm.*,
+            cmm.company_name as company_name,
+            cmm.company_code AS company_code
+                                             
+    FROM
+        `tabVendor Master` vm
+    LEFT JOIN
+        `tabCompany Master` cmm on vm.company_name = cmm.name
+    WHERE 
+        status='In Process'
+        AND cmm.company_code IN ('2000', '7000')
+     """,as_dict=1)
+    return inprocess_vendor_detail_qa
 
 
 @frappe.whitelist()
@@ -4476,6 +4548,7 @@ def show_payment_request(**kwargs):
     return record
 
 
+
 @frappe.whitelist()
 def show_payment_request_vendor(**kwargs):
 
@@ -4483,17 +4556,49 @@ def show_payment_request_vendor(**kwargs):
     record = frappe.db.sql("""
         SELECT 
             pr.*, 
-            cm.currency_name AS currency_name
+            cm.currency_name AS currency_name,
+            po.bill_to_company AS bill_to_company
+                           
         FROM 
             `tabPayment Request` pr
         LEFT JOIN 
-            `tabCurrency Master` cm 
-        ON 
-            pr.currency = cm.name
+            `tabCurrency Master` cm ON pr.currency = cm.name
+        LEFT JOIN 
+            `tabPurchase Order` po ON pr.po_number = po.name
         WHERE 
             pr.vendor_code=%s
+        ORDER BY 
+            pr.creation DESC
     """, (vendor_code), as_dict=1)
     return record
+
+@frappe.whitelist()
+def show_all_payment_requisition_details():
+    query = """
+        SELECT 
+            pr.*,
+            cm.company_name AS company_name
+            
+        FROM 
+            `tabPayment Requisition` pr
+        LEFT JOIN
+            `tabCompany Master` cm ON pr.company = cm.name
+        
+        ORDER BY 
+            pr.creation DESC
+    """
+    
+    # Execute the SQL query
+    records = frappe.db.sql(query, as_dict=True)
+    
+    # Calculate the total count of records fetched
+    count = len(records)
+    
+    # Return the records and the count
+    return {
+        "records": records,
+        "count": count
+    }
 
 
 @frappe.whitelist()
@@ -4555,12 +4660,12 @@ def send_email_on_payment_request(data, method):
         doc.insert(ignore_permissions=True)
         frappe.db.commit()
 
-
 @frappe.whitelist()
 def send_email_payment_requisition(data, method):
 
     designation = "ab1350ff18"
     account_team_emails = frappe.db.sql("""SELECT email FROM `tabUser` WHERE designation=%s """, (designation,))
+
 
     smtp_server = "smtp.transmail.co.in"
     smtp_port = 587
@@ -4568,10 +4673,69 @@ def send_email_payment_requisition(data, method):
     smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="
     from_address = "noreply@merillife.com"
     subject = f"""Down Payment Request - 2700000322"""
-    
+    html_body = f"""
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Table Example</title>
+            <style>
+                table {{
+                    width: 100%;
+                    border-collapse: collapse;
+                    border: 1px solid black;
+                }}
+
+                td, th {{
+                    border: 1px solid black;
+                    padding: 8px;
+                    text-align: left;
+                }}
+
+                th {{
+                    background-color: #f2f2f2;
+                }}
+
+                .header-table td {{
+                    font-weight: bold;
+                }}
+            </style>
+        </head>
+        <body>
+
+        <table>
+            <tr class="header-table">
+                <td>Company</td>
+                <td>2000/Meril Life Sciences Pvt L</td>
+            </tr>
+            <tr class="header-table">
+                <td>DP Request No.</td>
+                <td>2700000322</td>
+            </tr>
+            <tr>
+                <th>Vendor Code</th>
+                <th>Vendor Name</th>
+                <th>PO No.</th>
+                <th>Currency</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>0000020269</td>
+                <td>Cathmed International</td>
+                <td>4200006661</td>
+                <td>USD</td>
+                <td>29000.00</td>
+            </tr>
+        </table>
+
+        </body>
+        </html>
+        """
+ 
     body = f"""
     Dear Team,
-    Advance Down Payment Request has been generated as per the below details :<br/>
+    Advance Down Payment Request has been generated as per the below details:<br/>
     {html_body}<br/>
 
     """
@@ -4616,6 +4780,127 @@ def send_email_payment_requisition(data, method):
             frappe.db.commit()
 
     print("*************************", account_team_emails)
+# ========================================================================
+
+@frappe.whitelist()
+def on_submit_raise_payment_form(doc, method):
+    # Extract invoice_number and po_number from the paymenthistorydetails
+    invoice_number = doc.get('invoice_number')
+    po_number = doc.get('po_number')
+
+    # Print extracted values for debugging
+    print(f"Submit - Invoice Number: {invoice_number}, PO Number: {po_number}")
+    
+    # Search for the Payment Request using the invoice_number or po_number
+    payment_request = None
+
+    if invoice_number:
+        payment_request = frappe.get_value("Payment Request", {"invoice_number": invoice_number}, "name")
+        print(f"Submit - Payment Request found by invoice_number: {payment_request}")
+
+    if not payment_request and po_number:
+        payment_request = frappe.get_value("Payment Request", {"po_number": po_number}, "name")
+        print(f"Submit - Payment Request found by po_number: {payment_request}")
+
+    # If a matching Payment Request is found, update the Status field to "Pending"
+    if payment_request:
+        print(f"Submit - Updating Payment Request: {payment_request} to Pending")
+        update_payment_request_status(payment_request, "Pending")
+    else:
+        print(f"Submit - No Payment Request found for Invoice: {invoice_number} or PO: {po_number}")
+
+@frappe.whitelist()
+def on_approve_raise_payment_form(doc, method):
+    # Extract invoice_number and po_number from the paymenthistorydetails
+    invoice_number = doc.get('invoice_number')
+    po_number = doc.get('po_number')
+
+    # Print extracted values for debugging
+    print(f"Approve - Invoice Number: {invoice_number}, PO Number: {po_number}")
+    
+    # Search for the Payment Request using the invoice_number or po_number
+    payment_request = None
+
+    if invoice_number:
+        payment_request = frappe.get_value("Payment Request", {"invoice_number": invoice_number}, "name")
+        print(f"Approve - Payment Request found by invoice_number: {payment_request}")
+
+    if not payment_request and po_number:
+        payment_request = frappe.get_value("Payment Request", {"po_number": po_number}, "name")
+        print(f"Approve - Payment Request found by po_number: {payment_request}")
+
+    # If a matching Payment Request is found, update the Status field to "Approved"
+    if payment_request:
+        print(f"Approve - Updating Payment Request: {payment_request} to Approved")
+        update_payment_request_status(payment_request, "Approved")
+    else:
+        print(f"Approve - No Payment Request found for Invoice: {invoice_number} or PO: {po_number}")
+
+@frappe.whitelist()
+def on_release_raise_payment_form(doc, method):
+    # Extract invoice_number and po_number from the paymenthistorydetails
+    invoice_number = doc.get('invoice_number')
+    po_number = doc.get('po_number')
+
+    # Print extracted values for debugging
+    print(f"Release - Invoice Number: {invoice_number}, PO Number: {po_number}")
+
+    # Search for the Payment Request using the invoice_number or po_number
+    payment_request = None
+
+    if invoice_number:
+        payment_request = frappe.get_value("Payment Request", {"invoice_number": invoice_number}, "name")
+        print(f"Release - Payment Request found by invoice_number: {payment_request}")
+
+    if not payment_request and po_number:
+        payment_request = frappe.get_value("Payment Request", {"po_number": po_number}, "name")
+        print(f"Release - Payment Request found by po_number: {payment_request}")
+
+    # If a matching Payment Request is found, update the Status field to "Released"
+    if payment_request:
+        print(f"Release - Updating Payment Request: {payment_request} to Released")
+        update_payment_request_status(payment_request, "Released")
+    else:
+        print(f"Release - No Payment Request found for Invoice: {invoice_number} or PO: {po_number}")
+
+def update_payment_request_status(payment_request_name, status):
+    try:
+        print(f"Updating Status - Fetching Payment Request Doc: {payment_request_name}")
+        payment_request_doc = frappe.get_doc("Payment Request", payment_request_name)
+        print(f"Updating Status - Fetched Payment Request Doc: {payment_request_doc.name}")
+        
+        # Update the status
+        payment_request_doc.status = status
+        payment_request_doc.save(ignore_permissions=True)
+        frappe.db.commit()  # Commit the transaction to ensure the update is saved
+        
+        print(f"Updating Status - Payment Request {payment_request_name} status updated to {status}")
+    except Exception as e:
+        # Print any exception that occurs
+        print(f"Error - Updating Payment Request {payment_request_name} to {status}: {str(e)}")
+
+# =====================================================================================
+
+@frappe.whitelist()
+def total_number_of_payment_request(vendor_code):
+    # If vendor_code is None or empty, return 0
+    if not vendor_code:
+        return 0
+
+    # Query to count dispatch items directly from tabDispatch Item using vendor_code
+    count_result = frappe.db.sql("""
+        SELECT COUNT(*) AS count
+        FROM 
+            `tabPayment Request`
+        WHERE 
+            vendor_code = %s
+    """, (vendor_code,), as_dict=True)
+    
+    # Extract the count from the result dictionary
+    count = count_result[0]['count'] if count_result else 0
+
+    return count
+
 
 # =========================================================================================================
 
@@ -5101,7 +5386,10 @@ def show_all_vendors():
             vm.accounts_team_approval AS accounts_team_approval,
             vm.office_email_primary AS office_email_primary,
             vm.vendor_name AS vendor_name,
-            cm.company_name AS company_name
+            cm.company_name AS company_name,
+            cm.company_code AS company_code,
+            vm.name AS ref_no
+
         FROM 
             `tabVendor Master` vm 
         LEFT JOIN 
@@ -5109,6 +5397,32 @@ def show_all_vendors():
         ORDER BY 
             vm.creation DESC, vm.modified DESC
     """, as_dict=1)
+
+    return all_vendors
+
+@frappe.whitelist(allow_guest=True)
+def show_all_vendors_qa():
+    all_vendors = frappe.db.sql("""
+        SELECT
+            vm.name AS name,
+            vm.status AS status,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            vm.office_email_primary AS office_email_primary,
+            vm.vendor_name AS vendor_name,
+            cm.company_name AS company_name,
+            cm.company_code AS company_code,
+            vm.name AS ref_no
+        FROM 
+            `tabVendor Master` vm 
+        LEFT JOIN 
+            `tabCompany Master` cm ON vm.company_name = cm.name
+        WHERE 
+            cm.company_code IN ('2000', '7000')
+        ORDER BY 
+            vm.creation DESC, vm.modified DESC
+    """, as_dict=True)
 
     return all_vendors
 
@@ -5199,19 +5513,71 @@ def show_all_vendors_current_month():
         SELECT
             vm.name AS name,
             status AS status,
-            purchase_team_approval AS purchase_team_approval,
-            purchase_head_approval AS purchase_head_approval,
-            accounts_team_approval AS accounts_team_approval,
-            office_email_primary AS office_email_primary,
-            vendor_name AS vendor_name,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            vm.office_email_primary AS office_email_primary,
+            co.country_name AS country_name,
+            vm.vendor_name AS vendor_name,
             cm.company_name AS company_name,
-            vm.creation AS creation
+            vm.creation AS creation,
+            vo.registered_office_number AS registered_office_number,
+            vo.gst_number AS gst_number,
+                                vo.ref_no AS ref_no
+                                
         FROM 
             `tabVendor Master` vm 
         LEFT JOIN 
+            `tabVendor Onboarding` vo ON vo.ref_no = vm.name
+        LEFT JOIN 
             `tabCompany Master` cm ON vm.company_name = cm.name
+        LEFT JOIN
+            `tabCountry Master` co ON vm.country = co.name
         WHERE
             vm.creation BETWEEN '{current_month_start}' AND '{current_month_end}'
+    """, as_dict=1)
+
+    return all_vendors
+
+@frappe.whitelist(allow_guest=True)
+def show_all_vendors_current_month_qa():
+    current_month_start = datetime.now().strftime('%Y-%m-01 00:00:00')
+    current_month_end = datetime.now().strftime('%Y-%m-%d 23:59:59')
+
+    all_vendors = frappe.db.sql(f"""
+        SELECT
+            vm.name AS name,
+            vm.status AS status,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            vm.office_email_primary AS office_email_primary,
+            co.country_name AS country_name,
+            vm.vendor_name AS vendor_name,
+            COALESCE(cm.company_name, cm_mt.company_name) AS company_name,
+            cm.company_code AS company_code,
+            mcd.company_name_mt AS company_name_mt,
+            vm.creation AS creation,
+            vo.registered_office_number AS registered_office_number,
+            vo.gst_number AS gst_number,
+            vo.ref_no AS ref_no
+                                
+        FROM 
+            `tabVendor Master` vm 
+        LEFT JOIN 
+            `tabVendor Onboarding` vo ON vo.ref_no = vm.name
+        LEFT JOIN 
+            `tabCompany Master` cm ON vm.company_name = cm.name
+        LEFT JOIN
+            `tabCountry Master` co ON vm.country = co.name
+        LEFT JOIN
+            `tabMultiple Company Data` mcd ON mcd.parent = vm.name
+        LEFT JOIN
+            `tabCompany Master` cm_mt ON cm_mt.company_code = mcd.company_name_mt
+        WHERE
+            vm.creation BETWEEN '{current_month_start}' AND '{current_month_end}'
+            AND (cm.company_code IN ('2000', '7000')
+            OR mcd.company_name_mt IN ('2000', '7000'))
     """, as_dict=1)
 
     return all_vendors
@@ -5655,9 +6021,8 @@ def show_me(**kwargs):
                            vm.bank_proof_for_intermediate_bank AS bank_proof_for_intermediate_bank,
                            vm.add_intermediate_bank_details AS add_intermediate_bank_details,
                            vm.total_godown AS total_godown,
-                           vm.cold_storage AS cold_storage
-
-
+                           vm.cold_storage AS cold_storage,
+                           cm.status AS status
 
 
         FROM 
@@ -5725,6 +6090,12 @@ def show_me(**kwargs):
     machinery_detail = frappe.db.sql(""" SELECT * FROM `tabMachinery Detail` WHERE parent=%s """, (primary_key), as_dict=1)
     testing_facility = frappe.db.sql(""" SELECT * FROM `tabTesting Facility` WHERE parent=%s """, (primary_key), as_dict=1)
     reputed_partners = frappe.db.sql(""" SELECT * FROM `tabReputed Partners` WHERE parent=%s """, (primary_key), as_dict=1)
+
+    primary_key1 = frappe.db.get_value("Vendor Master", filters={'office_email_primary': name}, fieldname=["name"])
+    
+    # Fetch child table data from `multiple_company_data`
+    multiple_company_data = frappe.db.sql(""" SELECT * FROM `tabMultiple Company Data` WHERE parent = %s """, (primary_key1), as_dict=1)
+    vendor_types = frappe.db.sql(""" SELECT * FROM `tabVendor Type Group` WHERE parent = %s """, (primary_key1), as_dict=1)
 
     xyz = frappe.db.get_value("Vendor Onboarding", filters={'name': primary_key}, fieldname=["office_email_primary"])
     gst_date = frappe.db.get_value("Vendor Onboarding", filters={'name': primary_key}, fieldname=['gst_date'])
@@ -5800,7 +6171,10 @@ def show_me(**kwargs):
             "vendor_type": vendor_type_name,
             "gst_date": gst_date,
             "account_group_description": account_group_description,
-            "certificates": certificates
+            "certificates": certificates,
+            "multiple_company_data": multiple_company_data,
+            "vendor_types": vendor_types,
+
         })
 
     return vendor
@@ -5880,6 +6254,169 @@ def get_vendor_onboarding(ref_no):
         return vendor_onboarding
     else:
         return []
+    
+
+@frappe.whitelist(allow_guest=True)
+def get_qms_form(ref_no):
+    # Ensure the user has necessary permissions or handle with admin rights
+    if not frappe.has_permission("Supplier QMS Assessment Form", "read"):
+        frappe.throw("Permission Denied")
+
+    # Fetch QMS form record
+    qms_form = frappe.get_all(
+        'Supplier QMS Assessment Form',
+        filters={'ref_no': ref_no},
+        fields=['*']  # Fetch all fields
+    )
+
+    if qms_form:
+        # Since there are no child tables, simply return the fetched QMS form data
+        return qms_form
+    else:
+        return []
+@frappe.whitelist()
+def get_evaluation_form(vendor_ref_no):
+    if not frappe.has_permission("Evaluation Form", "read"):
+        frappe.throw("Permission Denied")
+
+    evaluation_form = frappe.get_all('Evaluation Form', filters={'vendor_ref_no': vendor_ref_no}, fields=['*'])
+
+    if evaluation_form:
+        return evaluation_form
+    else:
+        return []
+
+
+@frappe.whitelist(allow_guest=True)
+def get_mlspl_assessment_form(vms_ref_no):
+    if not frappe.has_permission("MLSPL Assessment Form", "read"):
+        frappe.throw("Permission Denied")
+
+    mlspl_form = frappe.get_all('MLSPL Assessment Form', filters={'vms_ref_no': vms_ref_no}, fields=['*'])
+
+    if mlspl_form:
+        return mlspl_form
+    else:
+        return []
+
+@frappe.whitelist(allow_guest=True)
+def get_diagno_approval_form(vms_ref_no):
+    if not frappe.has_permission("Diagnostics Approval Form", "read"):
+        frappe.throw("Permission Denied")
+
+    diag_form = frappe.get_all('Diagnostics Approval Form', filters={'vms_ref_no': vms_ref_no}, fields=['*'])
+
+    if diag_form:
+        return diag_form
+    else:
+        return []
+
+@frappe.whitelist()
+def get_qms_counts():
+    inprocess_qms_count = frappe.db.count("Supplier QMS Assessment Form", filters={'status': 'In Process'})
+    approved_qms_count = frappe.db.count("Supplier QMS Assessment Form", filters={'status': 'Approved'})
+
+    return {
+        "inprocess_qms_count": inprocess_qms_count,
+        "approved_qms_count": approved_qms_count
+    }
+
+@frappe.whitelist()
+def fetch_vendor_and_qms_details(ref_no=None):
+    # Query to fetch vendor onboarding details
+    vendor_query = """
+        SELECT
+            vm.name AS name,
+            vm.website AS website,
+            vm.office_email_primary AS office_email_primary,
+            vm.first_name AS first_name,
+            vm.last_name AS last_name,
+            com.company_name AS company_name,
+            com.company_code AS company_code,
+            sm.state_name AS state_name,
+            cnm.company_nature_name AS company_nature_name,
+            bnm.business_nature_name AS business_nature_name,
+            vt.vendor_type_name AS vendor_type_name,
+            cn.country_name AS country_name,
+            vm.type_of_business AS type_of_business,
+            ct.city_name AS city_name,
+            dst.district_name AS district_name,
+            pin.pincode AS pincode,
+            vm.street_1 AS street_1,
+            vm.street_2 AS street_2,
+            mfst.state_name AS manufacturing_state_name,
+            mscty.country_name AS manufacturing_country_name,
+            pi.pincode AS manufacturing_pincode,
+            mfc.city_name AS manufacturing_city,
+            mfd.district_name AS manufacturing_district,
+            vm.purchase_team_approval AS purchase_team_approval,
+            vm.purchase_head_approval AS purchase_head_approval,
+            vm.accounts_team_approval AS accounts_team_approval,
+            crt.certificate_name AS certificate_name,
+            vm.valid_till AS valid_till,
+            cm.status AS status,
+            vm.ref_no AS ref_no,
+            vm.vendor_name AS vendor_name,
+            vm.telephone_number AS telephone_number
+        FROM 
+            `tabVendor Onboarding` vm 
+        LEFT JOIN 
+            `tabVendor Master` cm ON vm.ref_no = cm.name
+        LEFT JOIN
+            `tabCompany Master` com ON cm.company_name = com.name
+        LEFT JOIN
+            `tabState Master` sm ON vm.state = sm.name
+        LEFT JOIN 
+            `tabCompany Nature Master` cnm ON vm.nature_of_company = cnm.name
+        LEFT JOIN
+            `tabBusiness Nature Master` bnm ON vm.nature_of_business = bnm.name
+        LEFT JOIN 
+            `tabVendor Type Master` vt ON vm.vendor_type = vt.name
+        LEFT JOIN
+            `tabCountry Master` cn ON vm.country = cn.name
+        LEFT JOIN
+            `tabCity Master` ct ON vm.city = ct.name
+        LEFT JOIN
+            `tabDistrict Master` dst ON vm.district = dst.name
+        LEFT JOIN 
+            `tabPincode Master` pin ON vm.pincode = pin.name
+        LEFT JOIN
+            `tabState Master` mfst ON vm.manufacturing_state = mfst.name
+        LEFT JOIN
+            `tabCountry Master` mscty ON vm.manufacturing_country = mscty.name
+        LEFT JOIN
+            `tabPincode Master` pi ON vm.manufacturing_pincode = pi.name
+        LEFT JOIN
+            `tabCity Master` mfc ON vm.manufacturing_city = mfc.name
+        LEFT JOIN
+            `tabDistrict Master` mfd ON vm.manufacturing_district = mfd.name
+        LEFT JOIN
+            `tabCertificate Master` crt ON vm.certificate_name = crt.name
+    """
+    
+    # If ref_no is provided, modify the query to filter by ref_no
+    if ref_no:
+        vendor_query += " WHERE vm.ref_no = %s"
+        vendor = frappe.db.sql(vendor_query, ref_no, as_dict=1)
+    else:
+        vendor = frappe.db.sql(vendor_query, as_dict=1)
+
+    # Query to fetch QMS form details
+    qms_query = """
+        SELECT * FROM `tabSupplier QMS Assessment Form`
+    """
+
+    # If ref_no is provided, modify the query to filter by ref_no
+    if ref_no:
+        qms_query += " WHERE ref_no = %s"
+        qms_form = frappe.db.sql(qms_query, ref_no, as_dict=1)
+    else:
+        qms_form = frappe.db.sql(qms_query, as_dict=1)
+
+    return {
+        "vendor_details": vendor,
+        "qms_form_details": qms_form
+    }
 
 
 @frappe.whitelist()
@@ -6926,7 +7463,9 @@ def onboarded_vendors():
     status AS status,
     vendor_code AS vendor_code,
     vendor_name AS vendor_name,
+    office_email_primary AS office_email_primary,
     cm.company_name AS company_name,
+    cm.company_code AS company_code,
     us.full_name AS registered_by,
     country AS country,
     search_term AS search_term
@@ -6939,6 +7478,36 @@ def onboarded_vendors():
         `tabCompany Master` cm ON vm.company_name = cm.name 
     WHERE 
     status='Onboarded'
+    ORDER BY 
+        vm.modified DESC
+
+    """, as_dict=1)
+
+    return all_vendors
+@frappe.whitelist()
+def onboarded_vendors_qa():
+
+    all_vendors = frappe.db.sql(""" SELECT
+    vm.name AS name,
+    status AS status,
+    vendor_code AS vendor_code,
+    vendor_name AS vendor_name,
+    office_email_primary AS office_email_primary,
+    cm.company_name AS company_name,
+    cm.company_code AS company_code,
+    us.full_name AS registered_by,
+    country AS country,
+    search_term AS search_term
+                                
+    FROM 
+        `tabVendor Master` vm
+    LEFT JOIN
+        `tabUser` us ON vm.registered_by = us.email
+    LEFT JOIN 
+        `tabCompany Master` cm ON vm.company_name = cm.name 
+    WHERE 
+    status='Onboarded'
+    AND cm.company_code IN ('2000', '7000')
     ORDER BY 
         vm.modified DESC
 

@@ -237,6 +237,12 @@ doc_events = {
 
 	},
     
+	"Payment Request": {
+    "on_submit": "vms_app.api.api.on_submit_raise_payment_form",
+    "on_approve": "vms_app.api.api.on_approve_raise_payment_form",  
+    "on_release": "vms_app.api.api.on_release_raise_payment_form",
+	},
+    
 	"Import Entry":{
 	# "after_insert": "vms_app.api.api.calculate",
 	# #"after_insert": "vms_app.api.api.extract_text_from_pdf",
@@ -295,9 +301,11 @@ doc_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
+override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "vms_app.event.get_events"
-# }
+    "GET /api/custom/dispatch_item_details": "vms_app.api.api.get_dispatch_item_details"
+
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

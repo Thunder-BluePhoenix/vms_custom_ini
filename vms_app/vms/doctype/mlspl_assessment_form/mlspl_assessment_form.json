@@ -1,0 +1,253 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MLSPL-assess/{vms_ref_no}",
+ "creation": "2024-09-26 11:04:27.376325",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mlspl_supplier_assessment_section",
+  "material_service",
+  "column_break_pqhg",
+  "assessment_category",
+  "column_break_dcaz",
+  "merils_product",
+  "evaluation",
+  "1a_audit",
+  "2a_product_evaluation",
+  "3a_quality_agreement",
+  "4a_qms_certificate",
+  "5a_reputation",
+  "column_break_osgt",
+  "1b_audit_evaluation_outcome",
+  "2b_product_evaluation_outcome",
+  "3b_agreement_evaluation_outcome",
+  "4b_qms_certificate_evaluation_outcome",
+  "5b_reputation_evaluation_outcome",
+  "assessment_done_by_section",
+  "qa_name",
+  "qa_title",
+  "qa_sign",
+  "qa_date",
+  "column_break_fija",
+  "purchase_name",
+  "purchase_title",
+  "purchase_sign",
+  "purchase_date",
+  "final_recommendation_by_head_qa_section",
+  "name1",
+  "sign",
+  "column_break_cnin",
+  "supplier_for_merils_product",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "mlspl_supplier_assessment_section",
+   "fieldtype": "Section Break",
+   "label": "MLSPL Supplier Assessment"
+  },
+  {
+   "default": "0",
+   "fieldname": "merils_product",
+   "fieldtype": "Data",
+   "label": "Meril's Product"
+  },
+  {
+   "fieldname": "assessment_done_by_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment Done By"
+  },
+  {
+   "fieldname": "qa_name",
+   "fieldtype": "Data",
+   "label": "QA Name"
+  },
+  {
+   "fieldname": "qa_title",
+   "fieldtype": "Data",
+   "label": "QA Title"
+  },
+  {
+   "fieldname": "qa_sign",
+   "fieldtype": "Signature",
+   "label": "QA Sign"
+  },
+  {
+   "fieldname": "qa_date",
+   "fieldtype": "Date",
+   "label": "QA Date"
+  },
+  {
+   "fieldname": "column_break_fija",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_name",
+   "fieldtype": "Data",
+   "label": "Purchase Name"
+  },
+  {
+   "fieldname": "purchase_title",
+   "fieldtype": "Data",
+   "label": "Purchase Title"
+  },
+  {
+   "fieldname": "purchase_sign",
+   "fieldtype": "Signature",
+   "label": "Purchase Sign"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "final_recommendation_by_head_qa_section",
+   "fieldtype": "Section Break",
+   "label": "Final Recommendation by Head QA"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "sign",
+   "fieldtype": "Signature",
+   "label": "Sign"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_pqhg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dcaz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "evaluation",
+   "fieldtype": "Section Break",
+   "label": "Evaluation"
+  },
+  {
+   "fieldname": "column_break_osgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cnin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "material_service",
+   "fieldtype": "Select",
+   "label": "Material / Service",
+   "options": "-Select-\nMaterial\nService"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "assessment_category",
+   "fieldtype": "Select",
+   "label": "Assessment Category",
+   "options": "-Select-\nMinor\nMajor\nCritical"
+  },
+  {
+   "fieldname": "1a_audit",
+   "fieldtype": "Data",
+   "label": "1a. Onsite/Ondesk Audit"
+  },
+  {
+   "fieldname": "2a_product_evaluation",
+   "fieldtype": "Data",
+   "label": "2a. Product Evaluation"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "1b_audit_evaluation_outcome",
+   "fieldtype": "Select",
+   "label": "1b. Audit Evaluation Outcome",
+   "options": "-Select-\nSatisfactory\nNot Satisfactory\nNot Applicable"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "2b_product_evaluation_outcome",
+   "fieldtype": "Select",
+   "label": "2b. Product Evaluation Outcome",
+   "options": "-Select-\nSatisfactory\nNot Satisfactory\nNot Applicable"
+  },
+  {
+   "fieldname": "3a_quality_agreement",
+   "fieldtype": "Data",
+   "label": "3a. Supplier Quality Agreement"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "3b_agreement_evaluation_outcome",
+   "fieldtype": "Select",
+   "label": "3b. Quality Agreement Evaluation Outcome",
+   "options": "-Select-\nSatisfactory\nNot Satisfactory\nNot Applicable"
+  },
+  {
+   "fieldname": "5a_reputation",
+   "fieldtype": "Signature",
+   "label": "5a. Supplier's Market reputation"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "4b_qms_certificate_evaluation_outcome",
+   "fieldtype": "Select",
+   "label": "4b. QMS Certificate Evaluation Outcome",
+   "options": "-Select-\nSatisfactory\nNot Satisfactory"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "5b_reputation_evaluation_outcome",
+   "fieldtype": "Select",
+   "label": "5b. Reputation Evaluation Outcome",
+   "options": "-Select-\nSatisfactory\nNot Satisfactory"
+  },
+  {
+   "fieldname": "4a_qms_certificate",
+   "fieldtype": "Data",
+   "label": "4a. Supplier QMS Certificate or license Review/license/Regulatory approval profile review"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "supplier_for_merils_product",
+   "fieldtype": "Select",
+   "label": "Supplier for mentioned Material and Meril's Product",
+   "options": "-Select-\nQualified - can be added in ASL\nDisqualified - cannot be added to ASL"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-14 16:25:21.832704",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "MLSPL Assessment Form",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class PaymentRequsition(Document):
+class DiagnosticsApprovalForm(Document):
 	pass

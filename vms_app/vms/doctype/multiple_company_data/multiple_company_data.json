@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-10 17:47:16.100314",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "multiple_company_child_table_section",
+  "company_name_mt",
+  "purchase_organization_mt",
+  "account_group_mt",
+  "column_break_lbwl",
+  "terms_of_payment_mt",
+  "purchase_group_mt",
+  "reconciliation_account_mt"
+ ],
+ "fields": [
+  {
+   "fieldname": "multiple_company_child_table_section",
+   "fieldtype": "Section Break",
+   "label": "Multiple Company Child Table"
+  },
+  {
+   "fieldname": "column_break_lbwl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_name_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company Name",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "purchase_organization_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Purchase Organization",
+   "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "account_group_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Account Group",
+   "options": "Account Group Master"
+  },
+  {
+   "fieldname": "terms_of_payment_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Terms of Payment",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "purchase_group_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Purchase Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "reconciliation_account_mt",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Reconciliation Account",
+   "options": "Reconciliation Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-10 17:52:05.261287",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Multiple Company Data",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

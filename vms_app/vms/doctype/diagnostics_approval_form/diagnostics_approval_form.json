@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MDPL-Approval/{vms_ref_no}",
+ "creation": "2024-09-26 11:03:09.298544",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier_approval_form_section",
+  "sample_evaluation",
+  "market_reputation",
+  "single_source",
+  "critical",
+  "plant_visit_by_us",
+  "assessment_section",
+  "1a_general",
+  "2a_technical",
+  "3a_quality",
+  "4a_qms_system",
+  "5a_hsem_system",
+  "6a_training",
+  "column_break_nbdi",
+  "1b_general_remarks",
+  "2b_technical_remarks",
+  "3b_quality_remarks",
+  "4b_qms_system_remarks",
+  "5b_hsem_system_remarks",
+  "6b_training_remarks",
+  "assessment_carried_out_by_section",
+  "purchase_name",
+  "purchase_signature",
+  "purchase_date",
+  "purchase_recommendation",
+  "column_break_woqy",
+  "qa_name",
+  "qa_signature",
+  "qa_date",
+  "qa_recommendation"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier_approval_form_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Approval Form"
+  },
+  {
+   "default": "0",
+   "fieldname": "sample_evaluation",
+   "fieldtype": "Check",
+   "label": "Sample Evaluation"
+  },
+  {
+   "default": "0",
+   "fieldname": "market_reputation",
+   "fieldtype": "Check",
+   "label": "Market Reputation"
+  },
+  {
+   "default": "0",
+   "fieldname": "single_source",
+   "fieldtype": "Check",
+   "label": "Single Source"
+  },
+  {
+   "default": "0",
+   "fieldname": "critical",
+   "fieldtype": "Check",
+   "label": "Critical"
+  },
+  {
+   "default": "0",
+   "fieldname": "plant_visit_by_us",
+   "fieldtype": "Check",
+   "label": "Plant Visit By Us"
+  },
+  {
+   "fieldname": "assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment"
+  },
+  {
+   "fieldname": "1a_general",
+   "fieldtype": "Select",
+   "label": "1a. General",
+   "options": "\nPoor\nAverage\nGood\nExcellent"
+  },
+  {
+   "fieldname": "column_break_nbdi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "1b_general_remarks",
+   "fieldtype": "Data",
+   "label": "1b. General Remarks"
+  },
+  {
+   "fieldname": "2b_technical_remarks",
+   "fieldtype": "Data",
+   "label": "2b. Technical Remarks"
+  },
+  {
+   "fieldname": "3b_quality_remarks",
+   "fieldtype": "Data",
+   "label": "3b. Quality Remarks"
+  },
+  {
+   "fieldname": "4b_qms_system_remarks",
+   "fieldtype": "Data",
+   "label": "4b. QMS System Remarks"
+  },
+  {
+   "fieldname": "5b_hsem_system_remarks",
+   "fieldtype": "Data",
+   "label": "5b. HSEM System Remarks"
+  },
+  {
+   "fieldname": "6b_training_remarks",
+   "fieldtype": "Data",
+   "label": "6b. Training Remarks"
+  },
+  {
+   "fieldname": "assessment_carried_out_by_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment Carried Out By"
+  },
+  {
+   "fieldname": "purchase_name",
+   "fieldtype": "Data",
+   "label": "Purchase Name"
+  },
+  {
+   "fieldname": "purchase_signature",
+   "fieldtype": "Signature",
+   "label": "Purchase Signature"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "purchase_recommendation",
+   "fieldtype": "Select",
+   "label": "Purchase Recommendation",
+   "options": "-Select-\nAccept\nReject"
+  },
+  {
+   "fieldname": "column_break_woqy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qa_name",
+   "fieldtype": "Data",
+   "label": "QA Name"
+  },
+  {
+   "fieldname": "qa_signature",
+   "fieldtype": "Signature",
+   "label": "QA Signature"
+  },
+  {
+   "fieldname": "qa_date",
+   "fieldtype": "Date",
+   "label": "QA Date"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "qa_recommendation",
+   "fieldtype": "Select",
+   "label": "QA Recommendation",
+   "options": "-Select-\nAccept\nReject"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "2a_technical",
+   "fieldtype": "Select",
+   "label": "2a. Technical",
+   "options": "-Select-\nPoor\nAverage\nGood\nExcellent"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "3a_quality",
+   "fieldtype": "Select",
+   "label": "3a. Quality",
+   "options": "-Select-\nPoor\nAverage\nGood\nExcellent"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "4a_qms_system",
+   "fieldtype": "Select",
+   "label": "4a. QMS System",
+   "options": "-Select-\nPoor\nAverage\nGood\nExcellent"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "5a_hsem_system",
+   "fieldtype": "Select",
+   "label": "5a. HSEM System",
+   "options": "-Select-\nPoor\nAverage\nGood\nExcellent"
+  },
+  {
+   "default": "-Select-",
+   "fieldname": "6a_training",
+   "fieldtype": "Select",
+   "label": "6a. Training",
+   "options": "-Select-\nPoor\nAverage\nGood\nExcellent"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-14 16:24:39.536487",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Diagnostics Approval Form",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

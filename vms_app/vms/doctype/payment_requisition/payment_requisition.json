@@ -5,19 +5,25 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company",
   "number",
   "favoring_of",
   "payable_at",
   "bank_charges_born_by",
   "type_of_material",
   "other_payment_support_details",
+  "request_type",
+  "raised_by",
+  "status",
   "column_break_wzoz",
   "date",
   "amount",
   "payment_by",
   "powo_no",
   "invoice_no",
-  "special_remarks"
+  "special_remarks",
+  "approved_by",
+  "released_by"
  ],
  "fields": [
   {
@@ -83,14 +89,46 @@
    "fieldname": "special_remarks",
    "fieldtype": "Data",
    "label": "Special Remarks"
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Data",
+   "label": "Raised By"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By"
+  },
+  {
+   "fieldname": "released_by",
+   "fieldtype": "Data",
+   "label": "Released By"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "label": "Request Type",
+   "options": "Advance\nNormal"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-20 12:13:39.443906",
+ "modified": "2024-09-13 15:25:00.202165",
  "modified_by": "Administrator",
  "module": "vms",
- "name": "Payment Requsition",
+ "name": "Payment Requisition",
  "owner": "Administrator",
  "permissions": [
   {

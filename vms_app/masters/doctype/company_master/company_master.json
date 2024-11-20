@@ -10,6 +10,7 @@
   "sap_client_code",
   "company_code",
   "company_name",
+  "short_form",
   "description"
  ],
  "fields": [
@@ -33,11 +34,16 @@
    "fieldname": "sap_client_code",
    "fieldtype": "Data",
    "label": "SAP Client Code"
+  },
+  {
+   "fieldname": "short_form",
+   "fieldtype": "Data",
+   "label": "Company Short Form"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 12:52:56.620249",
+ "modified": "2024-10-10 17:59:16.615368",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Master",

@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-21 14:08:29.680783",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "qms_document_and_format_number_section",
+  "document_no",
+  "issue_no",
+  "rev_no",
+  "column_break_aiar",
+  "format_no",
+  "supersedes_no",
+  "applicable_form"
+ ],
+ "fields": [
+  {
+   "fieldname": "qms_document_and_format_number_section",
+   "fieldtype": "Section Break",
+   "label": "QMS Document and Format Number"
+  },
+  {
+   "fieldname": "document_no",
+   "fieldtype": "Data",
+   "label": "Document No."
+  },
+  {
+   "fieldname": "issue_no",
+   "fieldtype": "Data",
+   "label": "Issue No."
+  },
+  {
+   "fieldname": "column_break_aiar",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "format_no",
+   "fieldtype": "Data",
+   "label": "Format No."
+  },
+  {
+   "fieldname": "rev_no",
+   "fieldtype": "Data",
+   "label": "Rev. No."
+  },
+  {
+   "fieldname": "supersedes_no",
+   "fieldtype": "Data",
+   "label": "Supersedes No."
+  },
+  {
+   "fieldname": "applicable_form",
+   "fieldtype": "Date",
+   "label": "Applicable form"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-21 14:10:45.240094",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "QMS Number",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
