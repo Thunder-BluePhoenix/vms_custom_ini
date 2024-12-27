@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-26 10:47:29.043516",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "change_in_delivery_date_section",
+  "vendor_code",
+  "purchase_num",
+  "old_po_date",
+  "new_po_date",
+  "meril_email_address",
+  "column_break_uebr",
+  "remarks",
+  "vendor_remark",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "change_in_delivery_date_section",
+   "fieldtype": "Section Break",
+   "label": "Change in delivery date"
+  },
+  {
+   "fieldname": "old_po_date",
+   "fieldtype": "Date",
+   "label": "Old PO Date"
+  },
+  {
+   "fieldname": "column_break_uebr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "new_po_date",
+   "fieldtype": "Date",
+   "label": "New PO date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Purchase Team Remarks"
+  },
+  {
+   "fieldname": "meril_email_address",
+   "fieldtype": "Data",
+   "label": "Meril Email Address"
+  },
+  {
+   "fieldname": "purchase_num",
+   "fieldtype": "Link",
+   "label": "Purchase Number",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
+  },
+  {
+   "fieldname": "vendor_remark",
+   "fieldtype": "Small Text",
+   "label": "Vendor Remark"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-26 18:44:04.877418",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Delivery Date Change",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

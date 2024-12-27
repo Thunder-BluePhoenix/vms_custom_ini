@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:VMS/{company_name}/{####}",
+ "autoname": "format:VMS//{####}",
  "creation": "2024-03-27 12:14:35.611299",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -26,6 +26,7 @@
   "pan_number",
   "incoterms2",
   "bank1",
+  "company_code",
   "country",
   "column_break_azqd",
   "vendor_code",
@@ -47,37 +48,25 @@
   "mobile_number",
   "account_number",
   "gst_number",
-  "company_code",
+  "uuid",
   "vendor_type_table_section",
   "vendor_types",
   "multiple_company_data_section",
   "multiple_company_data",
-  "office_address_section",
-  "office_address_line_1",
-  "office_address_line_2",
-  "city",
-  "state",
-  "column_break_hboq",
-  "office_address_line_3",
-  "office_address_line_4",
-  "district",
-  "pincode",
-  "uuid",
-  "manufacturing_address_section",
-  "manufacturing_address_line_1",
-  "manufacturing_address_line_2",
+  "registration_details_section",
   "registered_by",
-  "purchase_head_approval",
-  "otp",
-  "otp_expiry_time",
-  "column_break_ourn",
-  "manufacturing_address_line_3",
-  "manufacturing_address_line_4",
   "purchase_team_approval",
+  "purchase_head_approval",
   "accounts_team_approval",
   "qa_team_approval",
+  "rejection_comment",
+  "column_break_hdft",
   "qa_head_approval",
-  "status"
+  "otp",
+  "otp_expiry_time",
+  "status",
+  "onboarding_ref_no",
+  "onboarding_form_status"
  ],
  "fields": [
   {
@@ -231,82 +220,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "office_address_line_1",
-   "fieldtype": "Data",
-   "label": "Office Address Line 1"
-  },
-  {
-   "fieldname": "office_address_line_2",
-   "fieldtype": "Data",
-   "label": "Office Address Line 2"
-  },
-  {
-   "fieldname": "city",
-   "fieldtype": "Link",
-   "label": "City",
-   "options": "City Master"
-  },
-  {
-   "fieldname": "state",
-   "fieldtype": "Link",
-   "label": "State",
-   "options": "State Master"
-  },
-  {
    "fieldname": "country",
    "fieldtype": "Link",
    "label": "Country",
    "options": "Country Master"
-  },
-  {
-   "fieldname": "column_break_hboq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "office_address_line_3",
-   "fieldtype": "Data",
-   "label": "Office Address Line 3"
-  },
-  {
-   "fieldname": "office_address_line_4",
-   "fieldtype": "Data",
-   "label": "Office Address Line 4"
-  },
-  {
-   "fieldname": "district",
-   "fieldtype": "Link",
-   "label": "District",
-   "options": "District Master"
-  },
-  {
-   "fieldname": "pincode",
-   "fieldtype": "Link",
-   "label": "Pincode",
-   "options": "Pincode Master"
-  },
-  {
-   "fieldname": "manufacturing_address_line_1",
-   "fieldtype": "Data",
-   "label": "Manufacturing Address Line 1"
-  },
-  {
-   "fieldname": "manufacturing_address_line_2",
-   "fieldtype": "Data",
-   "label": "Manufacturing Address Line 2"
-  },
-  {
-   "fieldname": "column_break_ourn",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "manufacturing_address_line_3",
-   "fieldtype": "Data",
-   "label": "Manufacturing Address Line 3"
-  },
-  {
-   "fieldname": "manufacturing_address_line_4",
-   "fieldtype": "Data",
-   "label": "Manufacturing Address Line 4"
   },
   {
    "fieldname": "material_to_be_supplied",
@@ -431,16 +348,6 @@
    "label": "QA Head Approval"
   },
   {
-   "fieldname": "office_address_section",
-   "fieldtype": "Section Break",
-   "label": "Office Address"
-  },
-  {
-   "fieldname": "manufacturing_address_section",
-   "fieldtype": "Section Break",
-   "label": "Manufacturing Address"
-  },
-  {
    "fieldname": "vendor_type_table_section",
    "fieldtype": "Section Break",
    "label": "Vendor Type Table"
@@ -461,11 +368,36 @@
    "fieldtype": "Table",
    "label": "Multiple Company Data",
    "options": "Multiple Company Data"
+  },
+  {
+   "fieldname": "registration_details_section",
+   "fieldtype": "Section Break",
+   "label": "Registration Details"
+  },
+  {
+   "fieldname": "column_break_hdft",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "onboarding_form_status",
+   "fieldtype": "Data",
+   "label": "Onboarding Form Status"
+  },
+  {
+   "fieldname": "onboarding_ref_no",
+   "fieldtype": "Link",
+   "label": "Onboarding Ref No",
+   "options": "Vendor Onboarding"
+  },
+  {
+   "fieldname": "rejection_comment",
+   "fieldtype": "Data",
+   "label": "Rejection Comment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-10 17:53:35.631398",
+ "modified": "2024-12-14 11:35:03.361651",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",
@@ -487,5 +419,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

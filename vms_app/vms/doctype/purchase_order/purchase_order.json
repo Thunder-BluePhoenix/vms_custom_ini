@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{po_number}-{##}",
  "creation": "2024-04-24 10:05:09.997484",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -18,25 +19,12 @@
   "dispatch_mode",
   "currency",
   "supplier_quote_ref",
-  "po_number",
-  "purchase_group",
   "po_date",
-  "ref_pr_no",
-  "ref_pr_date",
   "ref_pr_person",
-  "contact_person2",
   "phone_no",
-  "email2",
   "dl_no",
-  "gstin_no",
-  "msme_no",
-  "total_gross_amount",
-  "total_input_cgst",
-  "total_input_sgst",
   "total_value_of_po__so",
   "total_value_in_words",
-  "terms_of_payment",
-  "delivery_schedule",
   "other_note",
   "column_break_ynic",
   "purchase_order_type",
@@ -48,6 +36,14 @@
   "material_category",
   "delivery_date",
   "short_text",
+  "po_number",
+  "purchase_group",
+  "ref_pr_no",
+  "contact_person2",
+  "total_gross_amount",
+  "email2",
+  "gstin_no",
+  "terms_of_payment",
   "column_break_aeka",
   "vendor_code",
   "product_variants",
@@ -62,6 +58,11 @@
   "total_order_pricing",
   "rfq_date",
   "status",
+  "ref_pr_date",
+  "total_input_cgst",
+  "msme_no",
+  "total_input_sgst",
+  "delivery_schedule",
   "billing_address_section",
   "street_1",
   "street_4",
@@ -87,7 +88,7 @@
   "shipping_pincode",
   "instructions",
   "section_break_mqft",
-  "table_jsfj"
+  "po_items"
  ],
  "fields": [
   {
@@ -245,25 +246,25 @@
   },
   {
    "fieldname": "city",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "City",
    "options": "City Master"
   },
   {
    "fieldname": "district",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "District",
    "options": "District Master"
   },
   {
    "fieldname": "state",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "State",
    "options": "State Master"
   },
   {
    "fieldname": "country",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Country",
    "options": "Country Master"
   },
@@ -300,25 +301,25 @@
   },
   {
    "fieldname": "shipping_city",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "City",
    "options": "City Master"
   },
   {
    "fieldname": "shipping_district",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "District",
    "options": "District Master"
   },
   {
    "fieldname": "shipping_state",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "State",
    "options": "State Master"
   },
   {
    "fieldname": "shipping_country",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Country",
    "options": "Country Master"
   },
@@ -350,11 +351,6 @@
    "fieldname": "section_break_mqft",
    "fieldtype": "Section Break",
    "label": "Add Items"
-  },
-  {
-   "fieldname": "table_jsfj",
-   "fieldtype": "Table",
-   "options": "Purchase Order Item"
   },
   {
    "fieldname": "purchase_order_type",
@@ -517,23 +513,29 @@
   },
   {
    "fieldname": "bill_to_company",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Bill To Company",
    "options": "Company Master"
   },
   {
    "fieldname": "ship_to_company",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Ship To Company",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "po_items",
+   "fieldtype": "Table",
+   "options": "Purchase Order Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-20 13:36:44.580165",
+ "modified": "2024-12-26 17:04:30.868016",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

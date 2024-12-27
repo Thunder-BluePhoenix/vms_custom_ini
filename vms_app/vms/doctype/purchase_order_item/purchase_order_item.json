@@ -1,92 +1,178 @@
 {
-    "actions": [],
-    "allow_rename": 1,
-    "creation": "2024-04-30 10:55:07.003683",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": [
-     "product_code",
-     "product_name",
-     "column_break_wqns",
-     "description",
-     "price",
-     "quantity",
-     "hsnsac",
-     "uom",
-     "amount",
-     "dispatch_qty",
-     "pending_qty"
-    ],
-    "fields": [
-     {
-      "fieldname": "product_code",
-      "fieldtype": "Link",
-      "label": "Product Code",
-      "options": "Product Master"
-     },
-     {
-      "fieldname": "product_name",
-      "fieldtype": "Link",
-      "label": "Product Name",
-      "options": "Product Master"
-     },
-     {
-      "fieldname": "quantity",
-      "fieldtype": "Data",
-      "label": "Quantity"
-     },
-     {
-      "fieldname": "price",
-      "fieldtype": "Data",
-      "label": "Rate"
-     },
-     {
-      "fieldname": "column_break_wqns",
-      "fieldtype": "Column Break",
-      "label": "Main Fields"
-     },
-     {
-      "fieldname": "description",
-      "fieldtype": "Text",
-      "label": "Description"
-     },
-     {
-      "fieldname": "hsnsac",
-      "fieldtype": "Data",
-      "label": "HSN/SAC"
-     },
-     {
-      "fieldname": "uom",
-      "fieldtype": "Link",
-      "label": "UOM",
-      "options": "UOM Master"
-     },
-     {
-      "fieldname": "amount",
-      "fieldtype": "Data",
-      "label": "Amount"
-     },
-     {
-      "fieldname": "dispatch_qty",
-      "fieldtype": "Data",
-      "label": "Dispatch Qty"
-     },
-     {
-      "fieldname": "pending_qty",
-      "fieldtype": "Data",
-      "label": "Pending Qty"
-     }
-    ],
-    "index_web_pages_for_search": 1,
-    "istable": 1,
-    "links": [],
-    "modified": "2024-06-27 15:18:13.389303",
-    "modified_by": "Administrator",
-    "module": "vms",
-    "name": "Purchase Order Item",
-    "owner": "Administrator",
-    "permissions": [],
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "states": []
-   }
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-30 10:55:07.003683",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "product_code",
+  "product_name",
+  "hsnsac",
+  "rate",
+  "quantity",
+  "price",
+  "delivery_date",
+  "product_category",
+  "total_input_sgst",
+  "total_input_cgst",
+  "currency",
+  "vendor_code",
+  "material_code",
+  "po_date",
+  "column_break_wqns",
+  "short_text",
+  "uom",
+  "dispatch_qty",
+  "pending_qty",
+  "purchase_organization",
+  "plant",
+  "company_code",
+  "total_gross_amount",
+  "supplier_name",
+  "material_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_code",
+   "fieldtype": "Data",
+   "label": "Product Code",
+   "options": "Product Master"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "label": "Product Name",
+   "options": "Product Master"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Data",
+   "label": "Net Amount"
+  },
+  {
+   "fieldname": "column_break_wqns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hsnsac",
+   "fieldtype": "Data",
+   "label": "HSN/SAC"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM Master"
+  },
+  {
+   "fieldname": "dispatch_qty",
+   "fieldtype": "Data",
+   "label": "Dispatch Qty"
+  },
+  {
+   "fieldname": "pending_qty",
+   "fieldtype": "Data",
+   "label": "Pending Qty"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Data",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Data",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "label": "Product Category"
+  },
+  {
+   "fieldname": "total_input_sgst",
+   "fieldtype": "Data",
+   "label": "Total Input SGST"
+  },
+  {
+   "fieldname": "total_input_cgst",
+   "fieldtype": "Data",
+   "label": "Total Input CGST"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency",
+   "options": "Currency Master"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  },
+  {
+   "fieldname": "short_text",
+   "fieldtype": "Text",
+   "label": "Short Text"
+  },
+  {
+   "fieldname": "purchase_organization",
+   "fieldtype": "Link",
+   "label": "Purchase Organization",
+   "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Data",
+   "label": "Plant"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "total_gross_amount",
+   "fieldtype": "Data",
+   "label": "Total Gross Amount"
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name"
+  },
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Data",
+   "label": "Material Category"
+  },
+  {
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "label": "PO Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-12-11 17:44:50.573381",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Purchase Order Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

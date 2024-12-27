@@ -1,8 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:QMS/{ref_no}",
- "creation": "2024-09-11 18:38:42.678241",
+ "autoname": "format:{QMS}/{ref_no}",
+ "creation": "2024-09-10 11:35:57.890583",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -14,10 +14,11 @@
   "date1",
   "name_of_parent_company",
   "name_of_manufacturer_of_supplied_material",
-  "column_break_jhxm",
+  "column_break_agez",
   "mobile_number",
   "status",
   "vendor_signature",
+  "qms_form_status",
   "qas_tab",
   "quality_assurance_systems_and_procedures_section",
   "quality_control_system",
@@ -25,7 +26,7 @@
   "have_documentsprocedure",
   "if_yes_for_prior_notification",
   "regular_review_of_quality_system",
-  "column_break_jmwb",
+  "column_break_vcos",
   "sites_inspected_by",
   "inspected_by_others",
   "prior_notification",
@@ -36,7 +37,7 @@
   "organizational_chart",
   "maintain_training_records",
   "written_authority",
-  "column_break_mchk",
+  "column_break_idmq",
   "procedure_for_training",
   "effectiveness_of_training",
   "building_tab",
@@ -47,7 +48,7 @@
   "pest_control",
   "clean_rooms",
   "safety_committee",
-  "column_break_wljl",
+  "column_break_qyfj",
   "no_of_employees",
   "license_registrations_attach",
   "humidity",
@@ -58,14 +59,14 @@
   "approved_supplierlist",
   "control_and_inspection",
   "inspection_reports",
-  "column_break_uasb",
+  "column_break_fyzu",
   "agreements",
   "defined_areas",
   "quality_tab",
   "quality_control_section",
   "qc_independent_of_production",
   "testing_laboratories",
-  "column_break_sefj",
+  "column_break_rwes",
   "analytical_methods_validated",
   "failure_investigation",
   "production_tab",
@@ -77,7 +78,7 @@
   "traceability",
   "testing_or_inspection",
   "details_of_batch_records",
-  "column_break_zknl",
+  "column_break_vdzs",
   "nonconforming_materials_removed",
   "manufacturing",
   "storage_of_approved_finished_products",
@@ -90,29 +91,29 @@
   "customer_complaints",
   "reviews_customer_complaints",
   "reporting_environmental_accident",
-  "column_break_qzxg",
+  "column_break_eure",
   "retain_complaints_records",
   "any_recalls",
   "supplement_tab",
-  "supplemental_information_section",
+  "supplement_information_section",
   "additional_or_supplement_information",
   "quality_manual",
-  "column_break_vnpt",
+  "column_break_qrgf",
   "name1",
   "title",
   "date",
   "ssignature",
   "signature",
   "conclusion_tab",
-  "final_conclusion_section",
+  "final_conclusion_to_be_filled_by_meril_section",
   "conclusion_by_meril",
-  "column_break_lkby",
+  "column_break_cbnj",
   "assessment_outcome",
   "assessment_performed_by_section",
   "performer_name",
   "performer_signature",
   "performer_esignature",
-  "column_break_lwai",
+  "column_break_jgfy",
   "performer_title",
   "performent_date"
  ],
@@ -184,10 +185,6 @@
    "options": "Vendor Master"
   },
   {
-   "fieldname": "column_break_jhxm",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
@@ -208,39 +205,30 @@
    "label": "1a.Others certificates"
   },
   {
-   "default": "-Select-",
    "fieldname": "quality_control_system",
    "fieldtype": "Small Text",
    "label": "1.Quality Control System is derived to comply",
-   "options": "-Select-\nISO 9001\nISO 13485\nGMP\nISO/IEC 17025:2005\nISO 14001\nISO 45001\nOthers:"
+   "options": "ISO 9001\nISO 13485\nGMP\nISO/IEC 17025:2005\nISO 14001\nISO 45001\nOthers:"
   },
   {
-   "default": "-Select-",
    "fieldname": "have_documentsprocedure",
-   "fieldtype": "Select",
+   "fieldtype": "Small Text",
    "label": "3.Have Documents/procedure",
-   "options": "-Select-\nQuality Management Manual\nInternal Quality Audit\nChange Control\nCorrective and Preventive Action\nEnvironmental Monitoring\nRisk Management\nCalibration\nEmergency Mitigation plan"
+   "options": "Quality Management Manual\nInternal Quality Audit\nChange Control\nCorrective and Preventive Action\nEnvironmental Monitoring\nRisk Management\nCalibration\nEmergency Mitigation plan"
   },
   {
-   "default": "-Select-",
    "fieldname": "prior_notification",
    "fieldtype": "Select",
    "label": "4.Prior Notification",
    "options": "-Select-\nYes\nNo"
   },
   {
-   "default": "-Select-",
    "fieldname": "calibrations_performed",
    "fieldtype": "Select",
    "label": "5.Calibrations Performed",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "fieldname": "column_break_jmwb",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "sites_inspected_by",
    "fieldtype": "Select",
    "label": "2.Sites Inspected by",
@@ -252,14 +240,12 @@
    "label": "2a.Inspected By Others"
   },
   {
-   "default": "-Select-",
    "fieldname": "if_yes_for_prior_notification",
-   "fieldtype": "Select",
+   "fieldtype": "Small Text",
    "label": "4a.If yes for prior notification",
-   "options": "-Select-\nChange in the method of manufacturing\nChange in the manufacturing site\nChange in the registration / licensing status of the site\nChange in the Raw Material specification"
+   "options": "Change in the method of manufacturing\nChange in the manufacturing site\nchange in the registration / licensing status of the site\nChange in the Raw Material specification"
   },
   {
-   "default": "-Select-",
    "fieldname": "regular_review_of_quality_system",
    "fieldtype": "Select",
    "label": "6.Regular review of Quality System",
@@ -271,39 +257,30 @@
    "label": "6a.If yes provide the review frequency"
   },
   {
-   "default": "-Select-",
    "fieldname": "organizational_chart",
    "fieldtype": "Select",
    "label": "1.Organizational Chart",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "maintain_training_records",
    "fieldtype": "Select",
    "label": "3.Maintain Training Records",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "written_authority",
    "fieldtype": "Select",
    "label": "5.Written Authority",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "fieldname": "column_break_mchk",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "procedure_for_training",
    "fieldtype": "Select",
    "label": "2.Procedure for Training",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "effectiveness_of_training",
    "fieldtype": "Select",
    "label": "4.Effectiveness of Training",
@@ -320,29 +297,22 @@
    "label": "3.Valid License/Registrations"
   },
   {
-   "default": "-Select-",
    "fieldname": "humidity",
    "fieldtype": "Select",
    "label": "5.Humidity",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "adequate_sizes",
    "fieldtype": "Select",
    "label": "7.Adequate Sizes",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "water_disposal",
    "fieldtype": "Select",
    "label": "9.Water Disposal",
    "options": "-Select-\nYes\nNo\nN/A"
-  },
-  {
-   "fieldname": "column_break_wljl",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "no_of_employees",
@@ -350,92 +320,72 @@
    "label": "2.Number of Employees"
   },
   {
-   "default": "-Select-",
    "fieldname": "air_handling_unit",
    "fieldtype": "Select",
    "label": "4.Air Handling Unit",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "pest_control",
    "fieldtype": "Select",
    "label": "6.Pest Control",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "clean_rooms",
    "fieldtype": "Select",
    "label": "8.Clean Rooms",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "safety_committee",
    "fieldtype": "Select",
    "label": "10.Safety Committee",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "approved_supplierlist",
    "fieldtype": "Select",
    "label": "1.Approved SupplierList",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "control_and_inspection",
    "fieldtype": "Select",
    "label": "3.Control and Inspection",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "inspection_reports",
    "fieldtype": "Select",
    "label": "5.Inspection Reports",
-   "options": "-Select-\nYes\nNo\nN/A"
+   "options": "-Select-\nIn-house lot Identity\nSuppliers Lot No\nDate of Receipt\nSuppliers name\nQuantity\nShelf life Test Results\nDetails whether the lot is Accepted / Rejected"
   },
   {
-   "fieldname": "column_break_uasb",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "agreements",
    "fieldtype": "Select",
    "label": "2.Agreements ",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "defined_areas",
    "fieldtype": "Select",
    "label": "4.Defined Areas",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "qc_independent_of_production",
    "fieldtype": "Select",
    "label": "1.QC independent of Production",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "testing_laboratories",
    "fieldtype": "Select",
    "label": "3.Testing Laboratories",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "fieldname": "column_break_sefj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "analytical_methods_validated",
    "fieldtype": "Select",
    "label": "2.Analytical methods validated",
@@ -445,98 +395,81 @@
    "fieldname": "failure_investigation",
    "fieldtype": "Select",
    "label": "4.Failure investigation",
-   "options": "\nYes\nNo\nN/A"
+   "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "manufactruing_process_validate",
    "fieldtype": "Select",
    "label": "1.Manufactruing process validate",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "handling_of_start_materials",
    "fieldtype": "Select",
    "label": "3a.Handling of start materials",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "quarantined_finish_products",
    "fieldtype": "Select",
    "label": "3c.Quarantined finish products",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "identification_number",
    "fieldtype": "Select",
    "label": "4.Identification number",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "traceability",
    "fieldtype": "Select",
    "label": "6.Traceability",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "testing_or_inspection",
    "fieldtype": "Select",
    "label": "8.Testing or Inspection",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "details_of_batch_records",
-   "fieldtype": "Select",
+   "fieldtype": "Small Text",
    "label": "9a.Details of batch records",
-   "options": "-Select-\nYes\nNo\nN/A"
+   "options": "Description, Lot Number & Quantities of Material used\nProcessing Conditions - Temperature, Time, etc\nThe identification of the personnel who performed the particular step\nResults of any In-process tests\nDetails of deviations from standard conditions"
   },
   {
-   "fieldname": "column_break_zknl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "nonconforming_materials_removed",
    "fieldtype": "Select",
    "label": "2.Nonconforming materials removed",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "manufacturing",
    "fieldtype": "Select",
    "label": "3b.Manufacturing",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "storage_of_approved_finished_products",
    "fieldtype": "Select",
    "label": "3d.Storage of approved finished products",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "product_identifiable",
    "fieldtype": "Select",
    "label": "5.Product Identifiable",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "prevent_cross_contamination",
    "fieldtype": "Select",
    "label": "7.Prevent cross contamination",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "batch_record",
    "fieldtype": "Select",
    "label": "9.Batch record",
@@ -548,39 +481,30 @@
    "label": "10.Duration of batch records"
   },
   {
-   "default": "-Select-",
    "fieldname": "customer_complaints",
    "fieldtype": "Select",
    "label": "1.Customer Complaints",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "reviews_customer_complaints",
    "fieldtype": "Select",
    "label": "3.Reviews customer complaints",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "reporting_environmental_accident",
    "fieldtype": "Select",
    "label": "5.Reporting Environmental accident",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "fieldname": "column_break_qzxg",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "-Select-",
    "fieldname": "retain_complaints_records",
    "fieldtype": "Select",
    "label": "2.Retain Complaints records",
    "options": "-Select-\nYes\nNo\nN/A"
   },
   {
-   "default": "-Select-",
    "fieldname": "any_recalls",
    "fieldtype": "Select",
    "label": "4.Any Recalls",
@@ -607,14 +531,9 @@
    "label": "Title"
   },
   {
-   "fieldname": "column_break_vnpt",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date",
-   "options": "dd-mm-yyyy"
+   "label": "Date"
   },
   {
    "fieldname": "ssignature",
@@ -632,20 +551,15 @@
    "label": "Conclusion By Meril"
   },
   {
-   "default": "-Select-",
    "fieldname": "assessment_outcome",
    "fieldtype": "Select",
    "label": "Assessment outcome",
-   "options": "-Select-\nSatisfactory\nNot Satisfactory"
+   "options": "Satisfactory\nNot Satisfactory"
   },
   {
    "fieldname": "performer_name",
    "fieldtype": "Data",
    "label": "Performer Name"
-  },
-  {
-   "fieldname": "column_break_lkby",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "performer_signature",
@@ -660,8 +574,7 @@
   {
    "fieldname": "performent_date",
    "fieldtype": "Date",
-   "label": "Performent Date",
-   "options": "dd-mm-yyyy"
+   "label": "Performent Date"
   },
   {
    "fieldname": "organizational_structure_and_training_section",
@@ -692,16 +605,6 @@
    "fieldname": "complaint_and_recalls_section",
    "fieldtype": "Section Break",
    "label": "Complaint and Recalls"
-  },
-  {
-   "fieldname": "supplemental_information_section",
-   "fieldtype": "Section Break",
-   "label": "Supplemental Information"
-  },
-  {
-   "fieldname": "final_conclusion_section",
-   "fieldtype": "Section Break",
-   "label": "Final Conclusion (To be filled by Meril)"
   },
   {
    "fieldname": "performer_esignature",
@@ -741,16 +644,71 @@
   {
    "fieldname": "assessment_performed_by_section",
    "fieldtype": "Section Break",
-   "label": "Assessment Performed by"
+   "label": "Assessment performed by"
   },
   {
-   "fieldname": "column_break_lwai",
+   "fieldname": "column_break_agez",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vcos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_idmq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qyfj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fyzu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rwes",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vdzs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_eure",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplement_information_section",
+   "fieldtype": "Section Break",
+   "label": "Supplement Information"
+  },
+  {
+   "fieldname": "column_break_qrgf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "final_conclusion_to_be_filled_by_meril_section",
+   "fieldtype": "Section Break",
+   "label": "Final Conclusion (To be filled by Meril)"
+  },
+  {
+   "fieldname": "column_break_cbnj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jgfy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qms_form_status",
+   "fieldtype": "Data",
+   "label": "QMS Form Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-11 10:29:03.640625",
+ "modified": "2024-12-16 03:09:58.951847",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Supplier QMS Assessment Form",

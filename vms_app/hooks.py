@@ -197,44 +197,44 @@ response_headers = [
 
 doc_events = {
 	"*": {
-	# 	# "on_update": "method",
-	# 	# "on_cancel": "method",
-	# 	# "on_trash": "method"
-        # "after_insert": "vms_app.api.api.get_vendor_onboarding"
-
+	# "on_update": "method",
+	# "on_cancel": "method",
+	# "on_trash": "method"
+	# "after_insert": "vms_app.api.api.get_vendor_onboarding"
 	},
     
     "Payment Request": {
-
 	"after_insert": "vms_app.api.api.send_email_on_payment_request"
-
 	},
+    
 	"Vendor Master": {
-	# 	#"validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
-	# 	#"validate": "vms_app.api.api.send_email"
-		"after_insert": "vms_app.api.api.send_email",
-	#	# "after_insert": "vms_app.api.api.sap_fetch_token"
-	# 	#"after_insert": "vms_app.api.api.generate_onboarding_link"
-	# 	#"validate": "vms_app.api.api.create_sap_so_from_po"
+	# "validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
+	# "validate": "vms_app.api.api.send_email"
+	"after_insert": "vms_app.api.api.send_email",
+	# "after_insert": "vms_app.api.api.sap_fetch_token"
+	# "after_insert": "vms_app.api.api.generate_onboarding_link"
+	# "validate": "vms_app.api.api.create_sap_so_from_po"
 	},
 	
 	"Vendor Onboarding": {
-
-	"after_insert": "vms_app.api.api.send_email_on_onboarding"
-
+	"on_update": "vms_app.api.api.send_email_on_onboarding",
+	},
+    
+	"Delivery Date Change": {
+    "after_insert":"vms_app.api.api.set_changed_delivery_date_status",
 	},
 
 	"Request For Quotation":{
-
 	"after_insert": "vms_app.api.api.hitt",
-	# 	# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
-
+	# "after_insert": "vms_app.api.api.set_rfq_raisers_name"
 	},
     
     "Payment Requisition": {
-
 	"after_insert": "vms_app.api.api.send_email_payment_requisition",
-
+	},
+    
+	"Dispatch Item" : {
+    "on_update": "vms_app.api.api.send_email_on_dispatch", 
 	},
     
 	"Payment Request": {
@@ -245,30 +245,22 @@ doc_events = {
     
 	"Import Entry":{
 	# "after_insert": "vms_app.api.api.calculate",
-	# #"after_insert": "vms_app.api.api.extract_text_from_pdf",
-	# #"after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method"
-
-	
+	# "after_insert": "vms_app.api.api.extract_text_from_pdf",
+	# "after_insert": "vms_app.vms.doctype.import_entry.import_entry.test_method",
 	},
     
 	"Quotation": {
-
 	"validate": "vms_app.api.api.send_email_on_quotation_creation",
  	# "after_insert": "vms_app.api.api.calculate_export_entry"
-
 	},
+    
 	"Purchase Order": {
-
 	"after_insert": "vms_app.api.api.send_email_on_po_creation"
-
 	},
 
 	# "Export Entry Vendor": {
-
-	# #"after_insert": "vms_app.api.api.calculate_export_entry"
-
+	# "after_insert": "vms_app.api.api.calculate_export_entry"
 	# }
-
 
 }
 
@@ -301,11 +293,12 @@ doc_events = {
 # Overriding Methods
 # ------------------------------
 #
+
 override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "vms_app.event.get_events"
     "GET /api/custom/dispatch_item_details": "vms_app.api.api.get_dispatch_item_details"
-
 }
+
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
