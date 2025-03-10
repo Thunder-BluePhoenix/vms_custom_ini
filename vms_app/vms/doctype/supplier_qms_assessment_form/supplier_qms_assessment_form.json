@@ -104,6 +104,30 @@
   "date",
   "ssignature",
   "signature",
+  "quality_agreement_tab",
+  "mdpl_quality_agreement_section",
+  "mdpl_qa_date",
+  "supplier_company_name",
+  "mdpl_qa_vendor_name",
+  "name_of_person",
+  "designation_of_person",
+  "person_signature",
+  "signed_date",
+  "column_break_kdya",
+  "meril_signature",
+  "meril_signed_date",
+  "supplier_contact_person_2",
+  "supplier_contact_person_1",
+  "list_of_products_in_the_qa_section",
+  "products_in_qa",
+  "mlspl_quality_agreement_section",
+  "tissue_supplier",
+  "new_supplier",
+  "column_break_hqnt",
+  "technical_agreement_labs",
+  "amendment_existing_supplier",
+  "section_break_mcsc",
+  "mlspl_qa_list",
   "conclusion_tab",
   "final_conclusion_to_be_filled_by_meril_section",
   "conclusion_by_meril",
@@ -704,11 +728,130 @@
    "fieldname": "qms_form_status",
    "fieldtype": "Data",
    "label": "QMS Form Status"
+  },
+  {
+   "fieldname": "quality_agreement_tab",
+   "fieldtype": "Tab Break",
+   "label": "Quality Agreement"
+  },
+  {
+   "fieldname": "mdpl_quality_agreement_section",
+   "fieldtype": "Section Break",
+   "label": "MDPL Quality Agreement"
+  },
+  {
+   "fieldname": "mdpl_qa_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "supplier_company_name",
+   "fieldtype": "Data",
+   "label": "Supplier Company Name"
+  },
+  {
+   "fieldname": "designation_of_person",
+   "fieldtype": "Data",
+   "label": "Designation of Person"
+  },
+  {
+   "fieldname": "signed_date",
+   "fieldtype": "Date",
+   "label": "Signed Date"
+  },
+  {
+   "fieldname": "mdpl_qa_vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "name_of_person",
+   "fieldtype": "Data",
+   "label": "Name of Person"
+  },
+  {
+   "fieldname": "person_signature",
+   "fieldtype": "Signature",
+   "label": "Person Signature"
+  },
+  {
+   "fieldname": "mlspl_quality_agreement_section",
+   "fieldtype": "Section Break",
+   "label": "MLSPL Quality Agreement"
+  },
+  {
+   "fieldname": "tissue_supplier",
+   "fieldtype": "Attach",
+   "label": "Tissue Supplier"
+  },
+  {
+   "fieldname": "new_supplier",
+   "fieldtype": "Attach",
+   "label": "New Supplier"
+  },
+  {
+   "fieldname": "column_break_hqnt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amendment_existing_supplier",
+   "fieldtype": "Attach",
+   "label": "Amendment Existing Supplier"
+  },
+  {
+   "fieldname": "technical_agreement_labs",
+   "fieldtype": "Attach",
+   "label": "Technical Agreement Labs"
+  },
+  {
+   "fieldname": "column_break_kdya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "list_of_products_in_the_qa_section",
+   "fieldtype": "Section Break",
+   "label": "List of Products in the QA"
+  },
+  {
+   "fieldname": "products_in_qa",
+   "fieldtype": "Table",
+   "label": "Products in QA",
+   "options": "QA List of Products"
+  },
+  {
+   "fieldname": "section_break_mcsc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mlspl_qa_list",
+   "fieldtype": "Table",
+   "label": "MLSPL QA List",
+   "options": "MLSPL QA Table"
+  },
+  {
+   "fieldname": "supplier_contact_person_1",
+   "fieldtype": "Small Text",
+   "label": "Supplier Contact Person 1"
+  },
+  {
+   "fieldname": "supplier_contact_person_2",
+   "fieldtype": "Small Text",
+   "label": "Supplier Contact Person 2"
+  },
+  {
+   "fieldname": "meril_signature",
+   "fieldtype": "Signature",
+   "label": "Meril Signature"
+  },
+  {
+   "fieldname": "meril_signed_date",
+   "fieldtype": "Date",
+   "label": "Meril Signed Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-16 03:09:58.951847",
+ "modified": "2025-02-19 11:44:39.723868",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Supplier QMS Assessment Form",

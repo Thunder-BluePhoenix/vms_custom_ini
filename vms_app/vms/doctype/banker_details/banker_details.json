@@ -7,10 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "meril_company",
-  "bank_name",
+  "bd_bank_name",
   "ifsc_code",
   "account_number",
-  "bank_proof",
+  "bd_bank_proof",
   "rtgs",
   "neft",
   "column_break_jvdx",
@@ -44,12 +44,6 @@
   {
    "fieldname": "column_break_jvdx",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "bank_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Bank Name"
   },
   {
    "fieldname": "bank_address",
@@ -88,12 +82,6 @@
    "in_list_view": 1,
    "label": "Type of Account",
    "options": "Savings Account\nCurrent Account"
-  },
-  {
-   "fieldname": "bank_proof",
-   "fieldtype": "Attach",
-   "in_list_view": 1,
-   "label": "Bank Proof"
   },
   {
    "default": "0",
@@ -212,16 +200,28 @@
   },
   {
    "fieldname": "meril_company",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Meril Company",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "bd_bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "bd_bank_proof",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Bank Proof"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-02 11:23:49.242077",
+ "modified": "2025-01-17 15:46:04.095086",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Banker Details",

@@ -14,7 +14,7 @@
   {
    "fieldname": "section_break_vhyq",
    "fieldtype": "Section Break",
-   "label": "PR Fields"
+   "label": "Fields"
   },
   {
    "fieldname": "doctype_name",
@@ -30,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-02 16:49:50.077627",
+ "modified": "2025-01-04 10:08:37.835622",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "SAP Mapper PR",

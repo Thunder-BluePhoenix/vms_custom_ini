@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:team_name",
+ "creation": "2025-01-15 11:15:12.560030",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "team_details_section",
+  "team_name",
+  "purchase_group_multiselect",
+  "column_break_lgpw",
+  "reporting_head"
+ ],
+ "fields": [
+  {
+   "fieldname": "team_details_section",
+   "fieldtype": "Section Break",
+   "label": "Team Details"
+  },
+  {
+   "fieldname": "team_name",
+   "fieldtype": "Data",
+   "label": "Team Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_lgpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reporting_head",
+   "fieldtype": "Data",
+   "label": "Reporting Head"
+  },
+  {
+   "fieldname": "purchase_group_multiselect",
+   "fieldtype": "Table MultiSelect",
+   "label": "Purchase Group Multiselect",
+   "options": "Purchase Group MultiSelect"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-15 11:22:06.724256",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Team Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

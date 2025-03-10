@@ -1,0 +1,172 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-04 10:28:01.679808",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uiou",
+  "meril_company_name",
+  "beneficiary_name",
+  "beneficiary_swift_code",
+  "beneficiary_iban_no",
+  "beneficiary_aba_no",
+  "beneficiary_bank_address",
+  "column_break_tksn",
+  "beneficiary_bank_name",
+  "beneficiary_account_no",
+  "beneficiary_ach_no",
+  "beneficiary_routing_no",
+  "section_break_wddr",
+  "intermediate_bank_name",
+  "intermediate_swift_code",
+  "intermediate_ach_no",
+  "intermediate_routing_no",
+  "column_break_khja",
+  "intermediate_account_no",
+  "intermediate_iban_no",
+  "intermediate_aba_no",
+  "intermediate_bank_address"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_uiou",
+   "fieldtype": "Section Break",
+   "label": "Beneficiary Bank Details"
+  },
+  {
+   "fieldname": "beneficiary_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary Name"
+  },
+  {
+   "fieldname": "beneficiary_swift_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary SWIFT Code"
+  },
+  {
+   "fieldname": "beneficiary_iban_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary IBAN No."
+  },
+  {
+   "fieldname": "beneficiary_aba_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary ABA No."
+  },
+  {
+   "fieldname": "beneficiary_bank_address",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Beneficiary Bank Address"
+  },
+  {
+   "fieldname": "column_break_tksn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "beneficiary_bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary Bank Name"
+  },
+  {
+   "fieldname": "beneficiary_account_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary Account No."
+  },
+  {
+   "fieldname": "beneficiary_ach_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary ACH No."
+  },
+  {
+   "fieldname": "beneficiary_routing_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Beneficiary Routing No."
+  },
+  {
+   "fieldname": "section_break_wddr",
+   "fieldtype": "Section Break",
+   "label": "Intermediate Bank Details"
+  },
+  {
+   "fieldname": "intermediate_bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate Bank Name"
+  },
+  {
+   "fieldname": "intermediate_swift_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate SWIFT Code"
+  },
+  {
+   "fieldname": "intermediate_ach_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate ACH No."
+  },
+  {
+   "fieldname": "intermediate_routing_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate Routing No."
+  },
+  {
+   "fieldname": "column_break_khja",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "intermediate_account_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate Account No."
+  },
+  {
+   "fieldname": "intermediate_iban_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate IBAN No."
+  },
+  {
+   "fieldname": "intermediate_aba_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Intermediate ABA No."
+  },
+  {
+   "fieldname": "intermediate_bank_address",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Intermediate Bank Address"
+  },
+  {
+   "fieldname": "meril_company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Meril Company Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-04 10:30:54.118319",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "International Bank Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

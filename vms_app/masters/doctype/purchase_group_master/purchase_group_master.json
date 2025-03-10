@@ -1,14 +1,14 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{purchase_group_code} - {company_code}",
  "creation": "2024-03-27 11:36:22.816400",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "company_code",
   "purchase_group_code",
+  "team",
+  "column_break_uexi",
   "purchase_group_name",
   "description"
  ],
@@ -36,15 +36,23 @@
    "in_list_view": 1,
    "label": "Company Code",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Data",
+   "label": "Team"
+  },
+  {
+   "fieldname": "column_break_uexi",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 15:11:25.101504",
+ "modified": "2025-01-15 12:54:18.550448",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Purchase Group Master",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

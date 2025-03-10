@@ -8,20 +8,22 @@
   "company",
   "number",
   "favoring_of",
+  "vendor_code",
   "payable_at",
   "bank_charges_born_by",
   "type_of_material",
   "other_payment_support_details",
   "request_type",
   "raised_by",
-  "status",
   "column_break_wzoz",
   "date",
+  "currency",
   "amount",
   "payment_by",
   "powo_no",
   "invoice_no",
   "special_remarks",
+  "status",
   "approved_by",
   "released_by"
  ],
@@ -118,14 +120,24 @@
   },
   {
    "fieldname": "company",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Company",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "label": "Vendor Code"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-13 15:25:00.202165",
+ "modified": "2024-12-31 10:51:55.850450",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Payment Requisition",
@@ -146,5 +158,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

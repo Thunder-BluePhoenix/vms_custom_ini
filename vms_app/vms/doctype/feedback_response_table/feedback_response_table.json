@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-01 03:03:44.454690",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "response_section",
+  "vendor_response_date",
+  "vendor_response",
+  "column_break_idba",
+  "meril_response_date",
+  "meril_response"
+ ],
+ "fields": [
+  {
+   "fieldname": "response_section",
+   "fieldtype": "Section Break",
+   "label": "Response"
+  },
+  {
+   "fieldname": "vendor_response",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Vendor Response"
+  },
+  {
+   "fieldname": "column_break_idba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meril_response",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Meril Response"
+  },
+  {
+   "fieldname": "vendor_response_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Vendor Response Date"
+  },
+  {
+   "fieldname": "meril_response_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Meril Response Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-03-01 03:06:05.251914",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Feedback Response Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

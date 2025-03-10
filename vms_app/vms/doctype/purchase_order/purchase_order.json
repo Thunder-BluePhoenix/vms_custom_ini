@@ -44,6 +44,7 @@
   "email2",
   "gstin_no",
   "terms_of_payment",
+  "vendors_reason_to_reject",
   "column_break_aeka",
   "vendor_code",
   "product_variants",
@@ -63,6 +64,8 @@
   "msme_no",
   "total_input_sgst",
   "delivery_schedule",
+  "vendor_status",
+  "vendors_tentative_delivery_date",
   "billing_address_section",
   "street_1",
   "street_4",
@@ -449,7 +452,7 @@
   {
    "fieldname": "email2",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "PO Email"
   },
   {
    "fieldname": "dl_no",
@@ -527,11 +530,27 @@
    "fieldname": "po_items",
    "fieldtype": "Table",
    "options": "Purchase Order Item"
+  },
+  {
+   "fieldname": "vendor_status",
+   "fieldtype": "Select",
+   "label": "Vendor Status",
+   "options": "Pending\nAccepted\nRejected"
+  },
+  {
+   "fieldname": "vendors_tentative_delivery_date",
+   "fieldtype": "Date",
+   "label": "Vendor's Tentative Delivery Date"
+  },
+  {
+   "fieldname": "vendors_reason_to_reject",
+   "fieldtype": "Small Text",
+   "label": "Vendor's Reason to Reject"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-26 17:04:30.868016",
+ "modified": "2025-01-24 18:13:11.758873",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

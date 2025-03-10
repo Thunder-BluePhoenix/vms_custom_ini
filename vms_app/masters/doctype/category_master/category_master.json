@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:category_name",
+ "creation": "2025-01-21 10:57:18.434209",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "category_details_section",
+  "category_name",
+  "column_break_wzvf",
+  "category_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "category_details_section",
+   "fieldtype": "Section Break",
+   "label": "Category Details"
+  },
+  {
+   "fieldname": "category_name",
+   "fieldtype": "Data",
+   "label": "Category Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_wzvf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category_email",
+   "fieldtype": "Data",
+   "label": "Category Email"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-21 10:58:29.184620",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Category Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

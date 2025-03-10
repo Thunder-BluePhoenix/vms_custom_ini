@@ -7,16 +7,18 @@
  "field_order": [
   "vendor_code",
   "po_number",
-  "invoice_number",
   "currency",
   "terms_of_payment",
   "request_type",
   "status",
-  "invoice_date",
   "advance_payment_request_section",
+  "proforma_invoice_number",
+  "proforma_invoice_date",
   "proforma_invoice_amount",
   "proforma_invoice_proof",
   "regular_payment_request_section",
+  "invoice_number",
+  "invoice_date",
   "invoice_amount",
   "invoice_attach_payment",
   "reminder_section",
@@ -76,7 +78,7 @@
    "fieldname": "request_type",
    "fieldtype": "Select",
    "label": "Request Type",
-   "options": "Advanced\nNormal"
+   "options": "-Select-\nAdvance\nNormal"
   },
   {
    "fieldname": "status",
@@ -117,11 +119,21 @@
    "fieldname": "proforma_invoice_proof",
    "fieldtype": "Attach",
    "label": "Proforma Invoice"
+  },
+  {
+   "fieldname": "proforma_invoice_date",
+   "fieldtype": "Date",
+   "label": "Proforma Invoice Date"
+  },
+  {
+   "fieldname": "proforma_invoice_number",
+   "fieldtype": "Data",
+   "label": "Proforma Invoice Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-23 14:00:11.263989",
+ "modified": "2024-12-29 10:00:02.198845",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Payment Request",

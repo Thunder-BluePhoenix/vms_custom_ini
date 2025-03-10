@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:user_email",
+ "creation": "2025-02-21 12:55:15.682886",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user_details_section",
+  "user_email",
+  "designation",
+  "user_company",
+  "team",
+  "reporting_head",
+  "column_break_lifs",
+  "contact_number",
+  "user_signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "user_details_section",
+   "fieldtype": "Section Break",
+   "label": "User Details"
+  },
+  {
+   "fieldname": "user_email",
+   "fieldtype": "Data",
+   "label": "User Email",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_lifs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "user_email.designation",
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation Master"
+  },
+  {
+   "fieldname": "user_company",
+   "fieldtype": "Link",
+   "label": "User Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Link",
+   "label": "Team",
+   "options": "Team Master"
+  },
+  {
+   "fieldname": "reporting_head",
+   "fieldtype": "Data",
+   "label": "Reporting Head"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "user_signature",
+   "fieldtype": "Signature",
+   "label": "User Signature"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-21 13:04:17.103532",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "User Details",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

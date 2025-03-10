@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-01 03:01:51.641765",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "feedback_title",
+  "feedback_raised_by",
+  "feedback_open_date",
+  "feedback_for",
+  "column_break_wkbj",
+  "feedback_description",
+  "feedback_close_date",
+  "feedback_status",
+  "response_table_section",
+  "feedback_chat"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "feedback_title",
+   "fieldtype": "Data",
+   "label": "Feedback Title"
+  },
+  {
+   "fieldname": "feedback_open_date",
+   "fieldtype": "Date",
+   "label": "Feedback Open Date"
+  },
+  {
+   "fieldname": "feedback_close_date",
+   "fieldtype": "Date",
+   "label": "Feedback Close Date"
+  },
+  {
+   "fieldname": "feedback_raised_by",
+   "fieldtype": "Link",
+   "label": "Feedback Raised By",
+   "options": "Vendor Master"
+  },
+  {
+   "fieldname": "column_break_wkbj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "response_table_section",
+   "fieldtype": "Section Break",
+   "label": "Response Table"
+  },
+  {
+   "fieldname": "feedback_chat",
+   "fieldtype": "Table",
+   "label": "Feedback Chat",
+   "options": "Feedback Response Table"
+  },
+  {
+   "fieldname": "feedback_status",
+   "fieldtype": "Select",
+   "label": "Feedback Status",
+   "options": "Open\nClosed"
+  },
+  {
+   "fieldname": "feedback_description",
+   "fieldtype": "Small Text",
+   "label": "Feedback Description"
+  },
+  {
+   "fieldname": "feedback_for",
+   "fieldtype": "Data",
+   "label": "Feedback For"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-03 18:14:58.630395",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "FeedBack",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Open"
+  },
+  {
+   "color": "Green",
+   "title": "Closed"
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-03 20:39:47.175355",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "grn_details_section",
+  "grn_no",
+  "column_break_wynz",
+  "grn_date",
+  "grn_items_section",
+  "grn_items_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "grn_details_section",
+   "fieldtype": "Section Break",
+   "label": "GRN Details"
+  },
+  {
+   "fieldname": "grn_no",
+   "fieldtype": "Data",
+   "label": "GRN No."
+  },
+  {
+   "fieldname": "grn_items_section",
+   "fieldtype": "Section Break",
+   "label": "GRN Items"
+  },
+  {
+   "fieldname": "grn_items_table",
+   "fieldtype": "Table",
+   "label": "GRN Items Table",
+   "options": "GRN Items"
+  },
+  {
+   "fieldname": "column_break_wynz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grn_date",
+   "fieldtype": "Date",
+   "label": "GRN Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-09 04:47:11.471557",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "GRN",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

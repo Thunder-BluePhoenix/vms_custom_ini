@@ -7,6 +7,9 @@
  "field_order": [
   "purchase_requisition_number",
   "purchase_requisition_type",
+  "column_break_okwh",
+  "pr_plant",
+  "pr_items_section",
   "pr_items"
  ],
  "fields": [
@@ -25,11 +28,25 @@
    "fieldname": "purchase_requisition_type",
    "fieldtype": "Data",
    "label": "Purchase Requisition Type"
+  },
+  {
+   "fieldname": "column_break_okwh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pr_plant",
+   "fieldtype": "Data",
+   "label": "PR Plant"
+  },
+  {
+   "fieldname": "pr_items_section",
+   "fieldtype": "Section Break",
+   "label": "PR Items"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 15:34:43.142643",
+ "modified": "2025-01-27 16:03:30.349748",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Requisition",

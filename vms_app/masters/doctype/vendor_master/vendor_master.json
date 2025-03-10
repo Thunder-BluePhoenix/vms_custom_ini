@@ -19,7 +19,7 @@
   "service_based_inv_ver",
   "check_double_invoice",
   "order_currency",
-  "terms_of_payment",
+  "terms_of_payments",
   "incoterms",
   "purchase_groupm",
   "registered_date",
@@ -28,6 +28,7 @@
   "bank1",
   "company_code",
   "country",
+  "qa_required",
   "column_break_azqd",
   "vendor_code",
   "purchase_organization",
@@ -122,12 +123,6 @@
    "fieldtype": "Link",
    "label": "Order Currency",
    "options": "Currency Master"
-  },
-  {
-   "fieldname": "terms_of_payment",
-   "fieldtype": "Link",
-   "label": "Terms Of Payment ",
-   "options": "Terms Of Payment Master"
   },
   {
    "fieldname": "incoterms",
@@ -393,11 +388,23 @@
    "fieldname": "rejection_comment",
    "fieldtype": "Data",
    "label": "Rejection Comment"
+  },
+  {
+   "fieldname": "terms_of_payments",
+   "fieldtype": "Link",
+   "label": "Terms Of Payments",
+   "options": "Terms Of Payment Master"
+  },
+  {
+   "fieldname": "qa_required",
+   "fieldtype": "Select",
+   "label": "QA Required",
+   "options": "-Select-\nNo\nYes"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-14 11:35:03.361651",
+ "modified": "2025-02-03 17:15:39.178575",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

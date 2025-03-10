@@ -1,12 +1,6 @@
 import frappe
 import secrets
 
-
-
-
-
-
-
 @frappe.whitelist(allow_guest=True)
 def create_rfq(select_service, consignee_name, division):
     token = secrets.token_hex(16)

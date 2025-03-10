@@ -5,19 +5,34 @@ app_description = "vms"
 app_email = "vms@vms.com"
 app_license = "mit"
 required_apps = []
+
 # from vms_app.api.api import cron_method
 import frappe
 from frappe import hooks
 
 # def after_request(response):
-# 	response.headers["Access-Control-Allow-Origin"] = "*"
-# 	response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
-# 	response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-# 	response.headers["Access-Control-Allow-Credentials"] = "true"
+#     allowed_origins = ["http://localhost:3000"]  # Add your allowed origins here
+#     origin = frappe.local.request.headers.get("Origin")
 
-# 	return response
+#     if origin in allowed_origins:
+#         response.headers["Access-Control-Allow-Origin"] = origin
+#     else:
+#         response.headers["Access-Control-Allow-Origin"] = "null"
 
-# hooks.after_request = [after_request]
+#     response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
+#     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+#     response.headers["Access-Control-Allow-Credentials"] = "true"
+
+#     # Handle OPTIONS preflight
+#     if frappe.local.request.method == "OPTIONS":
+#         response.status_code = 200
+#         response.headers["Content-Length"] = "0"
+
+#     return response
+
+# override_after_request = ["vms_app.hooks.after_request"]
+
+
 
 
 # def schedule_cron_method():
@@ -203,14 +218,10 @@ doc_events = {
 	# "after_insert": "vms_app.api.api.get_vendor_onboarding"
 	},
     
-    "Payment Request": {
-	"after_insert": "vms_app.api.api.send_email_on_payment_request"
-	},
-    
 	"Vendor Master": {
 	# "validate": "vms_app.masters.doctype.vendor_master.vendor_master.hit"
 	# "validate": "vms_app.api.api.send_email"
-	"after_insert": "vms_app.api.api.send_email",
+	"after_insert": "vms_app.api.api.send_email_on_vendor_register",
 	# "after_insert": "vms_app.api.api.sap_fetch_token"
 	# "after_insert": "vms_app.api.api.generate_onboarding_link"
 	# "validate": "vms_app.api.api.create_sap_so_from_po"
@@ -221,7 +232,7 @@ doc_events = {
 	},
     
 	"Delivery Date Change": {
-    "after_insert":"vms_app.api.api.set_changed_delivery_date_status",
+    "on_update":"vms_app.api.api.set_changed_delivery_date_status",
 	},
 
 	"Request For Quotation":{
@@ -230,7 +241,7 @@ doc_events = {
 	},
     
     "Payment Requisition": {
-	"after_insert": "vms_app.api.api.send_email_payment_requisition",
+	"on_update": "vms_app.api.api.send_email_payment_requisition",
 	},
     
 	"Dispatch Item" : {
@@ -238,6 +249,7 @@ doc_events = {
 	},
     
 	"Payment Request": {
+    "after_insert": "vms_app.api.api.send_email_on_payment_request",
     "on_submit": "vms_app.api.api.on_submit_raise_payment_form",
     "on_approve": "vms_app.api.api.on_approve_raise_payment_form",  
     "on_release": "vms_app.api.api.on_release_raise_payment_form",
@@ -255,13 +267,12 @@ doc_events = {
 	},
     
 	"Purchase Order": {
-	"after_insert": "vms_app.api.api.send_email_on_po_creation"
+	"after_insert": "vms_app.api.api.send_email_on_po_creation",
 	},
 
 	# "Export Entry Vendor": {
 	# "after_insert": "vms_app.api.api.calculate_export_entry"
 	# }
-
 }
 
 # Scheduled Tasks
@@ -363,70 +374,3 @@ override_whitelisted_methods = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
-
-
-
-#     data =  {
-#     "Bukrs": company_code,
-#     "Ekorg": data.get("purchase_organization"),
-#     "Ktokk": "ZDOM",
-#     "Title": data.get("ZDOM"),
-#     "Name1": data.get('Name1'),
-#     "Name2": "",
-#     "Sort1": data.get('Sort1'),
-#     "Street": data.get('Street'),
-#     "StrSuppl1": data.get('StrSuppl1'),
-#     "StrSuppl2": data.get('StrSuppl2'),
-#     "StrSuppl3": data.get('StrSuppl3'),
-#     "PostCode1": pincode,
-#     "City1": city,
-#     "Country": country,
-#     "J1kftind": "",
-#     "Region": state,
-#     "TelNumber": "",
-#     "MobNumber": "1256651",
-#     "SmtpAddr": "hitesh.mahto@merillife.com",
-#     "SmtpAddr1": "hitesh@gmail.com",
-#     "Zuawa": "",
-#     "Akont": "16101020",
-#     "Waers": currency,
-#     "Zterm": terms_of_payment,
-#     "Inco1": incoterms1,
-#     "Inco2": incoterms2,
-#     "Kalsk": "",
-#     "Ekgrp": purchasing_group,
-#     "Xzemp": "X",
-#     "Reprf": "X",
-#     "Webre": "X",
-#     "Lebre": "",
-#     "Stcd3": "GST12345",
-#     "J1ivtyp": vendor_type,
-#     "J1ipanno": data.get('J1ipanno'),
-#     "J1ipanref": "Hitesh Mahto",
-#     "Namev": "Hitesh",
-#     "Name11": "Mahto",
-#     "Bankl": "HDFC0000170",
-#     "Bankn": "ac91201001898261",
-#     "Bkref": "2001",
-#     "Banka": "UTIB0019191",
-#     "Xezer": "",
-#     "Refno": "VMS/368b008a78/0101",
-#     "Vedno": "",
-#     "Zmsg": ""
-# }
-
-   # company_code = frappe.db.get_value("Company Master", filters={'name': data.get('Bukrs')}, fieldname='company_code')
-   #  purchase_organization = frappe.db.get_value("Company Master", filters={'name': data.get('Ekorg')}, fieldname='company_code')
-   #  pincode = frappe.db.get_value("Pincode Master", filters={'name': data.get('PostCode1')}, fieldname='pincode')
-   #  city = frappe.db.get_value("City Master", filters={'name': data.get('City1')}, fieldname='city_name')
-   #  country = frappe.db.get_value("Country Master", filters={'name': data.get('country')}, fieldname='country_name')
-   #  state = frappe.db.get_value("State Master", filters={'name': data.get('Region')}, fieldname='state_name')
-   #  currency = frappe.db.get_value("Currency Master", filters={'name': data.get('Waers')}, fieldname='currency_code')
-   #  terms_of_payment = frappe.db.get_value("Terms Of Payment Master", filters={'name': data.get('Zterm')}, fieldname='terms_of_payment_name')
-   #  incoterms1 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('Inco1')}, fieldname='incoterm_name')
-   #  incoterms2 = frappe.db.get_value("Incoterm Master", filters={'name': data.get('Inco1')}, fieldname='incoterm_name')
-   #  #purchase_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('purchase_group')}, fieldname='purchase_group_name')
-   #  vendor_type = frappe.db.get_value("Vendor Type Master", filters={'name': data.get('J1ivtyp')}, fieldname='vendor_type_name')
-   #  purchasing_group = frappe.db.get_value("Purchase Group Master", filters={'name': data.get('Ekgrp')},fieldname='' )
-
