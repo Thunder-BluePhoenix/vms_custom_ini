@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:class_type",
+ "creation": "2025-05-17 12:26:23.357553",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mataerial_class_details_section",
+  "class_type",
+  "column_break_fnha",
+  "class_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "mataerial_class_details_section",
+   "fieldtype": "Section Break",
+   "label": "Mataerial Class Details"
+  },
+  {
+   "fieldname": "class_type",
+   "fieldtype": "Data",
+   "label": "Class Type",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_fnha",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "class_number",
+   "fieldtype": "Data",
+   "label": "Class Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 15:35:30.418569",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Class Type Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

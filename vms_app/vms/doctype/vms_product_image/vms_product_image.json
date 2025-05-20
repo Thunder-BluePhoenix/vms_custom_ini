@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-21 09:27:46.523317",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "multiple_image_section",
+  "product_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "multiple_image_section",
+   "fieldtype": "Section Break",
+   "label": "Multiple Image"
+  },
+  {
+   "fieldname": "product_image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Product Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-03-21 09:28:41.943907",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "VMS Product Image",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

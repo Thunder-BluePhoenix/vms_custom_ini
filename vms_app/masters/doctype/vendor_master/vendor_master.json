@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:VMS//{####}",
+ "autoname": "format:VMS/{####}",
  "creation": "2024-03-27 12:14:35.611299",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -57,17 +57,21 @@
   "registration_details_section",
   "registered_by",
   "purchase_team_approval",
+  "approved_by_purchase_team",
   "purchase_head_approval",
+  "approved_by_purchase_head",
   "accounts_team_approval",
+  "approved_by_accounts_team",
   "qa_team_approval",
-  "rejection_comment",
+  "approved_by_qa_team",
   "column_break_hdft",
+  "rejection_comment",
   "qa_head_approval",
-  "otp",
-  "otp_expiry_time",
   "status",
   "onboarding_ref_no",
-  "onboarding_form_status"
+  "onboarding_form_status",
+  "otp",
+  "otp_expiry_time"
  ],
  "fields": [
   {
@@ -224,7 +228,7 @@
    "fieldname": "material_to_be_supplied",
    "fieldtype": "Link",
    "label": "Material to be Supplied",
-   "options": "Material Master"
+   "options": "Old Material Master"
   },
   {
    "fieldname": "registered_by",
@@ -320,7 +324,7 @@
    "fieldname": "vendor_title",
    "fieldtype": "Select",
    "label": "Vendor Title",
-   "options": "Company\nFirm\nM/S.\nMr.\nMs.\nMrs."
+   "options": "-Select-\nCompany\nFirm\nM/S.\nMr.\nMs.\nMrs."
   },
   {
    "fieldname": "otp",
@@ -400,11 +404,31 @@
    "fieldtype": "Select",
    "label": "QA Required",
    "options": "-Select-\nNo\nYes"
+  },
+  {
+   "fieldname": "approved_by_purchase_team",
+   "fieldtype": "Data",
+   "label": "Approved by (Purchase Team)"
+  },
+  {
+   "fieldname": "approved_by_purchase_head",
+   "fieldtype": "Data",
+   "label": "Approved by (Purchase Head)"
+  },
+  {
+   "fieldname": "approved_by_accounts_team",
+   "fieldtype": "Data",
+   "label": "Approved by (Accounts Team)"
+  },
+  {
+   "fieldname": "approved_by_qa_team",
+   "fieldtype": "Data",
+   "label": "Approved by (QA Team)"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-03 17:15:39.178575",
+ "modified": "2025-05-19 10:38:22.909325",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

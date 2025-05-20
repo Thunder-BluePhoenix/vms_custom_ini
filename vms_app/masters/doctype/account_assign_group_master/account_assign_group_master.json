@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:account_assign_group",
+ "creation": "2025-05-17 12:35:42.506374",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "account_assign_group_details_section",
+  "account_assign_group",
+  "column_break_krfz",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "account_assign_group_details_section",
+   "fieldtype": "Section Break",
+   "label": "Account Assign Group Details"
+  },
+  {
+   "fieldname": "account_assign_group",
+   "fieldtype": "Data",
+   "label": "Account Assign Group",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_krfz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-17 12:36:38.202437",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Account Assign Group Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

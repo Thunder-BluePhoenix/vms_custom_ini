@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{full_name} - {employee_code}",
+ "creation": "2025-04-24 11:46:22.728342",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee_details_section",
+  "employee_code",
+  "company",
+  "first_name",
+  "last_name",
+  "full_name",
+  "designation",
+  "otp",
+  "is_hod",
+  "column_break_qleh",
+  "department_name",
+  "sub_department_name",
+  "reporting_head",
+  "hod",
+  "contact_number",
+  "email",
+  "otp_expiry_time",
+  "role"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "employee_code",
+   "fieldtype": "Data",
+   "label": "Employee Code"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "column_break_qleh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "reporting_head",
+   "fieldtype": "Link",
+   "label": "Reporting Head",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "otp",
+   "fieldtype": "Data",
+   "label": "OTP"
+  },
+  {
+   "fieldname": "otp_expiry_time",
+   "fieldtype": "Data",
+   "label": "OTP Expiry Time"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation Master"
+  },
+  {
+   "fieldname": "department_name",
+   "fieldtype": "Link",
+   "label": "Department Name",
+   "options": "Department Master"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_hod",
+   "fieldtype": "Check",
+   "label": "Is HOD?"
+  },
+  {
+   "fieldname": "hod",
+   "fieldtype": "Link",
+   "label": "Head of Department",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "sub_department_name",
+   "fieldtype": "Data",
+   "label": "Sub-Department Name"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Data",
+   "label": "Role"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-24 15:22:05.704476",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Employee Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

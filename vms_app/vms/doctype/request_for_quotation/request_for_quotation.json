@@ -21,6 +21,7 @@
   "remarks",
   "vendor_list",
   "column_break_akhk",
+  "rfq_type",
   "consignee_name",
   "sr_no",
   "rfq_date",
@@ -32,14 +33,15 @@
   "actual_weight",
   "invoice_no",
   "shipment_type",
-  "file",
-  "rfq_type",
+  "logistics_rfq_file",
   "raised_by",
   "status",
   "material",
   "quantity",
   "required_by",
   "meril_invoice_date",
+  "shipper_name",
+  "invoice_value",
   "material_section",
   "pr_code",
   "company_code",
@@ -216,11 +218,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "file",
-   "fieldtype": "Attach",
-   "label": "File"
-  },
-  {
    "fieldname": "rfq_type",
    "fieldtype": "Link",
    "label": "RFQ Type",
@@ -240,7 +237,7 @@
    "fieldname": "material",
    "fieldtype": "Link",
    "label": "Material",
-   "options": "Material Master"
+   "options": "Old Material Master"
   },
   {
    "fieldname": "quantity",
@@ -530,11 +527,26 @@
    "fieldtype": "Link",
    "label": "Company Code",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "shipper_name",
+   "fieldtype": "Data",
+   "label": "Shipper Name"
+  },
+  {
+   "fieldname": "invoice_value",
+   "fieldtype": "Data",
+   "label": "Invoice Value"
+  },
+  {
+   "fieldname": "logistics_rfq_file",
+   "fieldtype": "Attach",
+   "label": "Logistics RFQ File"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-02 12:55:33.542961",
+ "modified": "2025-05-19 10:38:22.577929",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Request For Quotation",

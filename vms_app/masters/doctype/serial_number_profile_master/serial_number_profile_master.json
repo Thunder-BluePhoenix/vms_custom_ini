@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:serial_no_profile",
+ "creation": "2025-05-19 15:04:03.477313",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "serial_no_profile",
+  "column_break_rqsb",
+  "serialization_level"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "serial_no_profile",
+   "fieldtype": "Data",
+   "label": "Serial No. Profile",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_rqsb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "serialization_level",
+   "fieldtype": "Data",
+   "label": "Serialization Level"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 15:06:03.373027",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Serial Number Profile Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

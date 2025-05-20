@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:availability_check",
+ "creation": "2025-05-17 12:39:22.150028",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "availability_check_details_section",
+  "availability_check",
+  "column_break_mlrq",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "availability_check_details_section",
+   "fieldtype": "Section Break",
+   "label": "Availability Check Details"
+  },
+  {
+   "fieldname": "availability_check",
+   "fieldtype": "Data",
+   "label": "Availability Check",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_mlrq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-17 12:41:55.531435",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Availability Check Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

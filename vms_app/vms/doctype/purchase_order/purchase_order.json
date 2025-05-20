@@ -133,7 +133,7 @@
    "fieldname": "material_code",
    "fieldtype": "Link",
    "label": "Material Code",
-   "options": "Material Master"
+   "options": "Old Material Master"
   },
   {
    "fieldname": "material_category",
@@ -550,7 +550,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-24 18:13:11.758873",
+ "modified": "2025-05-19 10:38:22.259521",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

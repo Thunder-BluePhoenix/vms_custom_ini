@@ -270,6 +270,11 @@ doc_events = {
 	"after_insert": "vms_app.api.api.send_email_on_po_creation",
 	},
 
+	"Material Onboarding": {
+	"after_insert": "vms_app.api.api.send_email_on_material_onboarding",
+    "on_update": "vms_app.api.api.send_email_on_material_approval",
+	},
+
 	# "Export Entry Vendor": {
 	# "after_insert": "vms_app.api.api.calculate_export_entry"
 	# }
@@ -307,7 +312,8 @@ doc_events = {
 
 override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "vms_app.event.get_events"
-    "GET /api/custom/dispatch_item_details": "vms_app.api.api.get_dispatch_item_details"
+    "GET /api/custom/dispatch_item_details": "vms_app.api.api.get_dispatch_item_details",
+    "vms_app.api.api.verify_current_password": "vms_app.api.api.verify_current_password"
 }
 
 #

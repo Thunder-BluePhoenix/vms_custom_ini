@@ -1,13 +1,21 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "field:plant_name",
  "creation": "2024-04-24 10:29:35.178650",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "plant_code",
   "plant_name",
-  "description"
+  "plant_code",
+  "description",
+  "company",
+  "column_break_hlao",
+  "purchase_organisation",
+  "city",
+  "zone",
+  "plant_address"
  ],
  "fields": [
   {
@@ -18,20 +26,55 @@
   {
    "fieldname": "plant_name",
    "fieldtype": "Data",
-   "label": "Plant Name"
+   "label": "Plant Name",
+   "unique": 1
   },
   {
    "fieldname": "description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "purchase_organisation",
+   "fieldtype": "Link",
+   "label": "Purchase Organisation",
+   "options": "Purchase Organization Master"
+  },
+  {
+   "fieldname": "column_break_hlao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone",
+   "options": "Zone Master"
+  },
+  {
+   "fieldname": "plant_address",
+   "fieldtype": "Small Text",
+   "label": "Plant Address"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 10:30:14.383418",
+ "modified": "2025-05-12 14:48:55.705631",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Plant Master",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

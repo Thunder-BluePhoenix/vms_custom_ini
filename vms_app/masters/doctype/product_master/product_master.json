@@ -90,7 +90,7 @@
    "fieldname": "material_type",
    "fieldtype": "Link",
    "label": "Material Type",
-   "options": "Material Master"
+   "options": "Old Material Master"
   },
   {
    "fieldname": "established_year",
@@ -132,7 +132,7 @@
    "fieldname": "material_used",
    "fieldtype": "Link",
    "label": "Materials Used",
-   "options": "Material Master"
+   "options": "Old Material Master"
   },
   {
    "fieldname": "product_variants",
@@ -206,7 +206,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-19 10:35:47.523492",
+ "modified": "2025-05-19 10:38:21.692126",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Product Master",

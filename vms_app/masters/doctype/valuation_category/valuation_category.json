@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:valuation_category_code",
+ "creation": "2025-04-25 10:13:34.066325",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "valuation_category_details_section",
+  "valuation_category_code",
+  "column_break_gdsm",
+  "valuation_category_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "valuation_category_details_section",
+   "fieldtype": "Section Break",
+   "label": "Valuation Category Details"
+  },
+  {
+   "fieldname": "valuation_category_code",
+   "fieldtype": "Data",
+   "label": "Valuation Category Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_gdsm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_category_name",
+   "fieldtype": "Data",
+   "label": "Valuation Category Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-25 10:14:29.116754",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Valuation Category",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

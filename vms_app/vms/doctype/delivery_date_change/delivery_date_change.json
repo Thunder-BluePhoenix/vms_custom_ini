@@ -47,12 +47,6 @@
    "label": "Meril Email Address"
   },
   {
-   "fieldname": "purchase_num",
-   "fieldtype": "Link",
-   "label": "Purchase Number",
-   "options": "Purchase Order"
-  },
-  {
    "fieldname": "vendor_code",
    "fieldtype": "Data",
    "label": "Vendor Code"
@@ -66,11 +60,17 @@
    "fieldname": "status",
    "fieldtype": "Data",
    "label": "Status"
+  },
+  {
+   "fieldname": "purchase_num",
+   "fieldtype": "Link",
+   "label": "Purchase Number",
+   "options": "Purchase Order"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-03 18:30:14.794167",
+ "modified": "2025-03-22 10:12:30.580530",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Delivery Date Change",

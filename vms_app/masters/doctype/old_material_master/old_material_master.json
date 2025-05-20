@@ -6,8 +6,9 @@
  "engine": "InnoDB",
  "field_order": [
   "material_code",
-  "material_name",
   "material_category",
+  "column_break_dkgp",
+  "material_name",
   "description"
  ],
  "fields": [
@@ -21,11 +22,11 @@
    "fieldname": "material_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "material_name"
+   "label": "Material Name"
   },
   {
    "fieldname": "description",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Description"
   },
@@ -34,14 +35,18 @@
    "fieldtype": "Link",
    "label": "Material Category",
    "options": "Material Category Master"
+  },
+  {
+   "fieldname": "column_break_dkgp",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 17:21:14.109379",
+ "modified": "2025-05-19 10:32:26.328889",
  "modified_by": "Administrator",
  "module": "Masters",
- "name": "Material Master",
+ "name": "Old Material Master",
  "owner": "Administrator",
  "permissions": [
   {

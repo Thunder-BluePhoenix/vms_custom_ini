@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:mrp_controller",
+ "creation": "2025-05-17 12:51:22.029233",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mrp_controller_details_section",
+  "mrp_controller",
+  "column_break_zomc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "mrp_controller_details_section",
+   "fieldtype": "Section Break",
+   "label": "MRP Controller Details"
+  },
+  {
+   "fieldname": "mrp_controller",
+   "fieldtype": "Data",
+   "label": "MRP Controller",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_zomc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-17 12:53:52.023393",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "MRP Controller Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

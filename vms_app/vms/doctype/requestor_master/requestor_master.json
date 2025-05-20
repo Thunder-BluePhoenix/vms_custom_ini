@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-19 10:57:31.824286",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_onboarding_details_section",
+  "material_master_ref_no",
+  "material_code_default",
+  "column_break_ibjr",
+  "material_onboarding_ref_no",
+  "material_code_new",
+  "requestor_information_section",
+  "request_date",
+  "requestor_company",
+  "sub_department",
+  "immediate_reporting_head",
+  "contact_information_phone",
+  "column_break_jvrr",
+  "requested_by",
+  "requestor_department",
+  "requestor_hod",
+  "contact_information_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_onboarding_details_section",
+   "fieldtype": "Section Break",
+   "label": "Material Onboarding Details"
+  },
+  {
+   "fieldname": "column_break_ibjr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requestor_information_section",
+   "fieldtype": "Section Break",
+   "label": "Requestor Information"
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Request Date"
+  },
+  {
+   "fetch_from": "requested_by.sub_department_name",
+   "fieldname": "sub_department",
+   "fieldtype": "Data",
+   "label": "Sub - Department"
+  },
+  {
+   "fetch_from": "requested_by.reporting_head",
+   "fieldname": "immediate_reporting_head",
+   "fieldtype": "Data",
+   "label": "Immediate Reporting Head"
+  },
+  {
+   "fetch_from": "requested_by.contact_number",
+   "fieldname": "contact_information_phone",
+   "fieldtype": "Data",
+   "label": "Contact Information - Phone"
+  },
+  {
+   "fieldname": "column_break_jvrr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "Employee Master"
+  },
+  {
+   "fetch_from": "requested_by.email",
+   "fieldname": "contact_information_email",
+   "fieldtype": "Data",
+   "label": "Contact Information - Email"
+  },
+  {
+   "fieldname": "material_onboarding_ref_no",
+   "fieldtype": "Link",
+   "label": "Material Onboarding Ref No",
+   "options": "Material Onboarding"
+  },
+  {
+   "fieldname": "material_master_ref_no",
+   "fieldtype": "Link",
+   "label": "Material Master Ref No",
+   "options": "Material Master"
+  },
+  {
+   "fetch_from": "requested_by.company",
+   "fieldname": "requestor_company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fetch_from": "requested_by.department_name",
+   "fieldname": "requestor_department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fetch_from": "requested_by.hod",
+   "fieldname": "requestor_hod",
+   "fieldtype": "Data",
+   "label": "HOD"
+  },
+  {
+   "fetch_from": "material_master_ref_no.material_code_revised",
+   "fieldname": "material_code_default",
+   "fieldtype": "Data",
+   "label": "Material Code - Revised"
+  },
+  {
+   "fetch_from": "material_master_ref_no.material_code",
+   "fieldname": "material_code_new",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 12:15:15.149472",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Requestor Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

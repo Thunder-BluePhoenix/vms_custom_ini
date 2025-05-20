@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:hsn_code",
+ "creation": "2025-05-16 14:47:27.038747",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hsn_details_section",
+  "material_code_revised_hsn",
+  "material_code_hsn",
+  "cgst",
+  "igst",
+  "column_break_xqov",
+  "hsn_code",
+  "sgst"
+ ],
+ "fields": [
+  {
+   "fieldname": "hsn_details_section",
+   "fieldtype": "Section Break",
+   "label": "HSN Details"
+  },
+  {
+   "fieldname": "cgst",
+   "fieldtype": "Data",
+   "label": "CGST"
+  },
+  {
+   "fieldname": "igst",
+   "fieldtype": "Data",
+   "label": "IGST"
+  },
+  {
+   "fieldname": "column_break_xqov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "sgst",
+   "fieldtype": "Data",
+   "label": "SGST"
+  },
+  {
+   "fieldname": "material_code_revised_hsn",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Material Code Revised",
+   "options": "Material Onboarding"
+  },
+  {
+   "fetch_from": "material_code_revised.material_code",
+   "fieldname": "material_code_hsn",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-16 14:50:29.880719",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "HSN Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

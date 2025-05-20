@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-21 16:51:45.099533",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_code_section",
+  "material_code_old",
+  "material_master_ref_no",
+  "column_break_fqvm",
+  "material_code_latest",
+  "requestor_ref_no",
+  "characteristics_and_specifications_section",
+  "material_specifications",
+  "intended_usage_application",
+  "hazardous_material",
+  "column_break_apvq",
+  "purchase_order_text",
+  "storage_requirements",
+  "procurement_and_inventory_information_section",
+  "procurement_type",
+  "reorder_point",
+  "lead_time",
+  "column_break_mefu",
+  "valuation_class",
+  "lot_size",
+  "hsn_code",
+  "hsn_status",
+  "additional_information_section",
+  "special_instructionsnotes",
+  "approvals_section",
+  "requested_by_name",
+  "requested_by_place",
+  "approval_date",
+  "column_break_ungy",
+  "approved_by_name",
+  "approved_by_place",
+  "approval_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "characteristics_and_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Characteristics & Specifications"
+  },
+  {
+   "fieldname": "material_specifications",
+   "fieldtype": "Small Text",
+   "label": "Material Specifications"
+  },
+  {
+   "fieldname": "procurement_and_inventory_information_section",
+   "fieldtype": "Section Break",
+   "label": "Procurement and Inventory Information"
+  },
+  {
+   "fieldname": "additional_information_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "special_instructionsnotes",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions/Notes"
+  },
+  {
+   "fieldname": "column_break_apvq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_order_text",
+   "fieldtype": "Small Text",
+   "label": "Purchase Order Text"
+  },
+  {
+   "fieldname": "storage_requirements",
+   "fieldtype": "Small Text",
+   "label": "Storage Requirements"
+  },
+  {
+   "fieldname": "lead_time",
+   "fieldtype": "Data",
+   "label": "Lead Time"
+  },
+  {
+   "fieldname": "column_break_mefu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_class",
+   "fieldtype": "Link",
+   "label": "Valuation Class",
+   "options": "Valuation Class Master"
+  },
+  {
+   "fieldname": "lot_size",
+   "fieldtype": "Link",
+   "label": "Lot Size",
+   "options": "Lot Size Master"
+  },
+  {
+   "fieldname": "hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code"
+  },
+  {
+   "fieldname": "approvals_section",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "fieldname": "requested_by_name",
+   "fieldtype": "Data",
+   "label": "Requested By - Name"
+  },
+  {
+   "fieldname": "column_break_ungy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by_name",
+   "fieldtype": "Data",
+   "label": "Approved By - Name"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "intended_usage_application",
+   "fieldtype": "Data",
+   "label": "Intended Usage / Application"
+  },
+  {
+   "fieldname": "hazardous_material",
+   "fieldtype": "Select",
+   "label": "Hazardous Material (Y/N)",
+   "options": "-Select-\nYes\nNo"
+  },
+  {
+   "fieldname": "procurement_type",
+   "fieldtype": "Link",
+   "label": "Procurement Type (if applicable)",
+   "options": "Procurement Type Master"
+  },
+  {
+   "fieldname": "reorder_point",
+   "fieldtype": "Data",
+   "label": "Reorder Point (if applicable)"
+  },
+  {
+   "fieldname": "requested_by_place",
+   "fieldtype": "Data",
+   "label": "Requested By - Place"
+  },
+  {
+   "fieldname": "approved_by_place",
+   "fieldtype": "Data",
+   "label": "Approved By - Place"
+  },
+  {
+   "fieldname": "material_code_section",
+   "fieldtype": "Section Break",
+   "label": "Material Code"
+  },
+  {
+   "fieldname": "column_break_fqvm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "hsn_status",
+   "fieldtype": "Select",
+   "label": "HSN Status",
+   "options": "Pending\nRejected\nVerified"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval Status",
+   "options": "Pending\nRejected\nApproved\nSubmitted by Purchase"
+  },
+  {
+   "fieldname": "material_master_ref_no",
+   "fieldtype": "Link",
+   "label": "Material Master Ref No.",
+   "options": "Material Master"
+  },
+  {
+   "fetch_from": "material_master_ref_no.material_code_revised",
+   "fieldname": "material_code_old",
+   "fieldtype": "Data",
+   "label": "Material Code - Revised"
+  },
+  {
+   "fetch_from": "material_master_ref_no.material_code",
+   "fieldname": "material_code_latest",
+   "fieldtype": "Data",
+   "label": "Material Code"
+  },
+  {
+   "fieldname": "requestor_ref_no",
+   "fieldtype": "Link",
+   "label": "Requestor Ref No.",
+   "options": "Requestor Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 17:29:11.324206",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "Material Onboarding",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

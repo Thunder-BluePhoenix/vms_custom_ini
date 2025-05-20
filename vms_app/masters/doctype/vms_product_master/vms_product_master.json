@@ -17,7 +17,9 @@
   "column_break_lget",
   "specifications",
   "uom",
-  "use"
+  "use",
+  "multiple_image_section",
+  "multiple_product_image"
  ],
  "fields": [
   {
@@ -72,13 +74,24 @@
    "fieldtype": "Select",
    "label": "Use",
    "options": "-Select-\nEmployee\nCompany"
+  },
+  {
+   "fieldname": "multiple_image_section",
+   "fieldtype": "Section Break",
+   "label": "Multiple Image"
+  },
+  {
+   "fieldname": "multiple_product_image",
+   "fieldtype": "Table",
+   "label": "Multiple Product Image",
+   "options": "VMS Product Image"
   }
  ],
  "image_field": "product_image",
  "index_web_pages_for_search": 1,
  "links": [],
  "make_attachments_public": 1,
- "modified": "2025-02-21 12:07:23.081399",
+ "modified": "2025-03-21 09:29:24.588942",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "VMS Product Master",

@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:price_control_code",
+ "creation": "2025-05-17 14:29:37.487291",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "price_control_details_section",
+  "price_control_code",
+  "column_break_hjyb",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "price_control_details_section",
+   "fieldtype": "Section Break",
+   "label": "Price Control Details"
+  },
+  {
+   "fieldname": "price_control_code",
+   "fieldtype": "Data",
+   "label": "Price Control Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_hjyb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-17 14:30:20.659839",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Price Control Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:material_type_name",
+ "creation": "2025-05-17 11:46:12.322386",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_type_details_section",
+  "material_type_name",
+  "material_type",
+  "column_break_cypw",
+  "description",
+  "company"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_type_details_section",
+   "fieldtype": "Section Break",
+   "label": "Material Type Details"
+  },
+  {
+   "fieldname": "material_type",
+   "fieldtype": "Data",
+   "label": "Material Type"
+  },
+  {
+   "fieldname": "column_break_cypw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "material_type_name",
+   "fieldtype": "Data",
+   "label": "Material Type Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-19 12:46:18.742329",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Material Type Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

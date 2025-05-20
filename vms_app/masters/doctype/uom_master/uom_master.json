@@ -1,38 +1,37 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:uom_cod",
+ "autoname": "field:uom_code",
  "creation": "2024-03-27 11:11:57.734614",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "uom_cod",
-  "uom",
+  "uom_code",
+  "column_break_onyy",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "uom_cod",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_onyy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom_code",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "UOM Code",
    "unique": 1
-  },
-  {
-   "fieldname": "uom",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "UOM"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 17:39:42.867155",
+ "modified": "2025-05-17 12:07:00.285094",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "UOM Master",

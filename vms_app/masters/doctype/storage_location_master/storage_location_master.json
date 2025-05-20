@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:storage_name",
+ "creation": "2025-05-17 11:49:43.915692",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "storage_location_details_section",
+  "storage_name",
+  "storage_location",
+  "storage_location_name",
+  "column_break_qklz",
+  "company",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "storage_location_details_section",
+   "fieldtype": "Section Break",
+   "label": "Storage Location Details"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Storage Location"
+  },
+  {
+   "fieldname": "column_break_qklz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "storage_location_name",
+   "fieldtype": "Data",
+   "label": "Storage Location Name"
+  },
+  {
+   "fieldname": "storage_name",
+   "fieldtype": "Data",
+   "label": "Storage Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-05-17 17:23:06.078854",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Storage Location Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

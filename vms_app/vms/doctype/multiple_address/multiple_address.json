@@ -7,8 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "multiple_address_within_the_state_section",
-  "address_line_1",
-  "address_line_2",
+  "ma_address_line_1",
+  "ma_address_line_2",
   "ma_pincode",
   "ma_district",
   "column_break_vcbj",
@@ -21,18 +21,6 @@
    "fieldname": "multiple_address_within_the_state_section",
    "fieldtype": "Section Break",
    "label": "Multiple Address within the State"
-  },
-  {
-   "fieldname": "address_line_1",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Address Line 1"
-  },
-  {
-   "fieldname": "address_line_2",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Address Line 2"
   },
   {
    "fieldname": "ma_pincode",
@@ -72,12 +60,24 @@
    "in_list_view": 1,
    "label": "MA District",
    "options": "District Master"
+  },
+  {
+   "fieldname": "ma_address_line_1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "ma_address_line_2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address Line 2"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-25 16:50:54.299519",
+ "modified": "2025-04-07 15:55:22.569127",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Multiple Address",

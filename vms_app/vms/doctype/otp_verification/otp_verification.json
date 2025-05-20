@@ -7,6 +7,7 @@
  "field_order": [
   "otp_details_section",
   "email",
+  "is_verified",
   "column_break_qhly",
   "otp"
  ],
@@ -29,11 +30,17 @@
   {
    "fieldname": "column_break_qhly",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_verified",
+   "fieldtype": "Check",
+   "label": "Is Verified?"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-23 10:24:44.440538",
+ "modified": "2025-03-11 14:02:12.782825",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "OTP Verification",
