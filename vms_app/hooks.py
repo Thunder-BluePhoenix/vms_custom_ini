@@ -271,8 +271,8 @@ doc_events = {
 	},
 
 	"Material Onboarding": {
-	"after_insert": "vms_app.api.api.send_email_on_material_onboarding",
-    "on_update": "vms_app.api.api.send_email_on_material_approval",
+	# "after_insert": "vms_app.api.api.send_email_on_material_onboarding",
+    # "on_update": "vms_app.api.api.send_email_on_material_approval",
 	},
 
 	# "Export Entry Vendor": {

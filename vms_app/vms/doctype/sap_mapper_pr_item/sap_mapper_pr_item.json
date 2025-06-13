@@ -6,8 +6,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "sap_field",
-  "erp_field"
+  "erp_doctype",
+  "erp_field",
+  "sap_field"
  ],
  "fields": [
   {
@@ -21,12 +22,19 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Erp Field"
+  },
+  {
+   "fieldname": "erp_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "ERP DocType",
+   "options": "DocType"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-02 16:28:44.266851",
+ "modified": "2025-05-27 15:11:55.704998",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "SAP Mapper PR Item",

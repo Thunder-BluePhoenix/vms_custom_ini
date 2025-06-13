@@ -7,10 +7,8 @@
  "field_order": [
   "material_onboarding_details_section",
   "material_master_ref_no",
-  "material_code_default",
   "column_break_ibjr",
   "material_onboarding_ref_no",
-  "material_code_new",
   "requestor_information_section",
   "request_date",
   "requestor_company",
@@ -21,7 +19,9 @@
   "requested_by",
   "requestor_department",
   "requestor_hod",
-  "contact_information_email"
+  "contact_information_email",
+  "user_material_reqeust_details_section",
+  "material_request"
  ],
  "fields": [
   {
@@ -108,21 +108,20 @@
    "label": "HOD"
   },
   {
-   "fetch_from": "material_master_ref_no.material_code_revised",
-   "fieldname": "material_code_default",
-   "fieldtype": "Data",
-   "label": "Material Code - Revised"
+   "fieldname": "user_material_reqeust_details_section",
+   "fieldtype": "Section Break",
+   "label": "User Material Reqeust Details"
   },
   {
-   "fetch_from": "material_master_ref_no.material_code",
-   "fieldname": "material_code_new",
-   "fieldtype": "Data",
-   "label": "Material Code"
+   "fieldname": "material_request",
+   "fieldtype": "Table",
+   "label": "Material Request",
+   "options": "Material Request Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 12:15:15.149472",
+ "modified": "2025-05-31 01:40:26.743189",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Requestor Master",

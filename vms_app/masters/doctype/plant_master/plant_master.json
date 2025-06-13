@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:plant_name",
+ "autoname": "format:{plant_code} - {plant_name}",
  "creation": "2024-04-24 10:29:35.178650",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -70,11 +70,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 14:48:55.705631",
+ "modified": "2025-05-29 15:11:33.512636",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Plant Master",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

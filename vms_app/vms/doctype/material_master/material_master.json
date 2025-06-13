@@ -15,10 +15,10 @@
   "plant_code",
   "division",
   "material_group",
-  "material_name__description",
+  "material_name_description",
   "base_unit_of_measure",
   "profit_center",
-  "valuation_class",
+  "valuation_class_material",
   "availability_check",
   "storage_location",
   "production_storage_location",
@@ -26,7 +26,7 @@
   "class_number",
   "gr_processing_time",
   "minimum_remaining_shelf_life",
-  "period_indicator_for_shelf_life_expiration_date",
+  "expiration_date",
   "serial_number_profile",
   "purchase_uom",
   "do_not_cost",
@@ -36,7 +36,7 @@
   "material_sub_group",
   "brand_make",
   "batch_requirements_yn",
-  "price_controal",
+  "price_control",
   "industry",
   "mrp_type",
   "mrp_group",
@@ -122,11 +122,6 @@
    "options": "Material Group"
   },
   {
-   "fieldname": "material_name__description",
-   "fieldtype": "Small Text",
-   "label": "Material Name / Description"
-  },
-  {
    "fieldname": "material_sub_group",
    "fieldtype": "Data",
    "label": "Material Sub - Group"
@@ -155,22 +150,10 @@
    "options": "Profit Center Master"
   },
   {
-   "fieldname": "price_controal",
-   "fieldtype": "Link",
-   "label": "Price Controal",
-   "options": "Price Control Master"
-  },
-  {
    "fieldname": "industry",
    "fieldtype": "Link",
    "label": "Industry",
    "options": "Industry Master"
-  },
-  {
-   "fieldname": "valuation_class",
-   "fieldtype": "Link",
-   "label": "Valuation Class",
-   "options": "Valuation Class Master"
   },
   {
    "fieldname": "availability_check",
@@ -263,18 +246,12 @@
    "label": "Total Shelf life"
   },
   {
-   "fieldname": "period_indicator_for_shelf_life_expiration_date",
-   "fieldtype": "Data",
-   "label": "Period Indicator for Shelf Life Expiration Date"
-  },
-  {
    "fieldname": "serial_number_profile",
    "fieldtype": "Link",
    "label": "Serial Number Profile",
    "options": "Serial Number Profile Master"
   },
   {
-   "depends_on": "depends_on: \"eval:doc.serial_number_profile\"\r\n",
    "fieldname": "serialization_level",
    "fieldtype": "Data",
    "label": "Serialization Level"
@@ -301,11 +278,33 @@
    "fieldname": "do_not_cost",
    "fieldtype": "Data",
    "label": "Do not cost"
+  },
+  {
+   "fieldname": "price_control",
+   "fieldtype": "Link",
+   "label": "Price Control",
+   "options": "Price Control Master"
+  },
+  {
+   "fieldname": "material_name_description",
+   "fieldtype": "Small Text",
+   "label": "Material Name / Description"
+  },
+  {
+   "fieldname": "expiration_date",
+   "fieldtype": "Data",
+   "label": "Period Indicator for Shelf Life Expiration Date"
+  },
+  {
+   "fieldname": "valuation_class_material",
+   "fieldtype": "Link",
+   "label": "Valuation Class",
+   "options": "Valuation Class Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 15:45:27.115990",
+ "modified": "2025-05-23 09:47:04.280064",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Material Master",

@@ -8,7 +8,7 @@
  "field_order": [
   "section_break_vhyq",
   "doctype_name",
-  "table_cjfk"
+  "sap_mapper_pr_item"
  ],
  "fields": [
   {
@@ -23,14 +23,15 @@
    "options": "DocType"
   },
   {
-   "fieldname": "table_cjfk",
+   "fieldname": "sap_mapper_pr_item",
    "fieldtype": "Table",
+   "label": "SAP Mapper Item",
    "options": "SAP Mapper PR Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-04 10:08:37.835622",
+ "modified": "2025-05-27 11:27:17.469109",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "SAP Mapper PR",
