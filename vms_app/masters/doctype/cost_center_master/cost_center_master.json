@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-16 17:32:35.904159",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "cost_center_details_section",
+  "company_code",
+  "name1",
+  "cost_center_short_text",
+  "valid_to",
+  "person_responsible",
+  "department",
+  "column_break_anlz",
+  "cost_center_code",
+  "description",
+  "valid_from",
+  "cost_center_category",
+  "profit_center"
+ ],
+ "fields": [
+  {
+   "fieldname": "cost_center_details_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Center Details"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "cost_center_short_text",
+   "fieldtype": "Data",
+   "label": "Cost Center Short Text"
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Valid To"
+  },
+  {
+   "fieldname": "person_responsible",
+   "fieldtype": "Data",
+   "label": "Person Responsible",
+   "options": "Employee Master"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "column_break_anlz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center_code",
+   "fieldtype": "Data",
+   "label": "Cost Center Code"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "fieldname": "cost_center_category",
+   "fieldtype": "Link",
+   "label": "Cost Center Category",
+   "options": "Cost Center Category Master"
+  },
+  {
+   "fieldname": "profit_center",
+   "fieldtype": "Link",
+   "label": "Profit Center",
+   "options": "Profit Center Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-16 18:02:04.553796",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Cost Center Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

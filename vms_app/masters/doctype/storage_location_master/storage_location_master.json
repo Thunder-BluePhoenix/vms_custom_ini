@@ -13,7 +13,8 @@
   "storage_location_name",
   "column_break_qklz",
   "company",
-  "description"
+  "description",
+  "plant_code"
  ],
  "fields": [
   {
@@ -51,11 +52,17 @@
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company Master"
+  },
+  {
+   "fieldname": "plant_code",
+   "fieldtype": "Link",
+   "label": "Plant Code",
+   "options": "Plant Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-17 17:23:06.078854",
+ "modified": "2025-06-19 00:38:16.067702",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Storage Location Master",

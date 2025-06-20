@@ -1169,6 +1169,252 @@ def verify_material_onboarding_otp(user_name, entered_otp):
     }
 
 
+@frappe.whitelist(allow_guest=True)
+def custom_employee_login(usr, pwd):
+    if not usr.endswith("@merillife.com"):
+        return {"status": "fail", "message": "Only @merillife.com emails are allowed."}
+
+    employee = frappe.db.get("Employee Master", {"email": usr})
+    if not employee:
+        return {"status": "fail", "message": "User not found in Employee Master."}
+
+    if not frappe.db.exists("User", usr):
+        new_user = frappe.get_doc({
+            "doctype": "User",
+            "email": usr,
+            "first_name": employee.full_name,
+            "enabled": 1,
+            "new_password": pwd,
+            "send_welcome_email": 0,
+            "roles": [{"role": "System Manager"}]
+        })
+        new_user.flags.ignore_permissions = True
+        new_user.insert(ignore_permissions=True)
+
+    # Login using Frappe LoginManager
+    try:
+        frappe.local.login_manager = LoginManager()
+        frappe.local.login_manager.authenticate(usr, pwd)
+        frappe.local.login_manager.post_login()
+    except frappe.AuthenticationError:
+        return {"status": "fail", "message": "Invalid username or password."}
+
+    company_code = employee.company
+    company_name = frappe.db.get_value("Company Master", {'name': company_code}, 'company_name')
+    company_short = frappe.db.get_value("Company Master", {'name': company_code}, 'short_form')
+
+    return {
+        "status": "success",
+        "message": "Logged in",
+        "sid": frappe.session.sid,
+        "email": usr,
+        "full_name": employee.full_name,
+        "role": employee.role,
+        "company_code": company_code,
+        "user_company": company_name,
+        "company_short_form": company_short
+    }
+
+
+# @frappe.whitelist()
+# def get_all_material_type_master_details():
+#     try:
+#         material_type_masters = frappe.get_all(
+#             "Material Type Master",
+#             fields=["*"],
+#         )
+
+#         result = []
+
+#         for mt in material_type_masters:
+#             doc = frappe.get_doc("Material Type Master", mt.name)
+
+#             valuation_rows = []
+#             for row in doc.valuation_and_profit:
+#                 valuation_rows.append({
+#                     "valuation_class": row.valuation_class,
+#                     "profit_center": row.profit_center,
+#                     "division": row.division,
+#                 })
+
+#             result.append({
+#                 "name": doc.name,
+#                 "material_type_name": doc.material_type_name,
+#                 "description": doc.description,
+#                 "company": doc.company,
+#                 "valuation_and_profit": valuation_rows
+#             })
+
+#         return result
+
+#     except Exception as e:
+#         frappe.log_error(frappe.get_traceback(), "get_all_material_type_master_details_error")
+#         return frappe.throw(_("Failed to fetch Material Type Master details: {0}").format(str(e)))
+
+@frappe.whitelist()
+def get_all_material_type_master_details():
+    try:
+        material_type_masters = frappe.get_all(
+            "Material Type Master",
+            fields=["*"],
+        )
+
+        result = []
+
+        for mt in material_type_masters:
+            doc = frappe.get_doc("Material Type Master", mt.name)
+
+            valuation_rows = []
+            for row in doc.valuation_and_profit:
+                valuation_class_description = ""
+                if row.valuation_class:
+                    vc = frappe.get_value("Valuation Class Master",row.valuation_class,"valuation_class_name")
+                    valuation_class_description = vc or ""
+                
+                profit_center_description = ""
+                if row.profit_center:
+                    pc = frappe.get_value("Profit Center Master",row.profit_center,"description")
+                    profit_center_description = pc or ""
+
+                valuation_rows.append({
+                    "valuation_class": row.valuation_class,
+                    "valuation_class_description": valuation_class_description,
+                    "profit_center": row.profit_center,
+                    "profit_center_description": profit_center_description,
+                    "division": row.division,
+                })
+
+            result.append({
+                "name": doc.name,
+                "material_type_name": doc.material_type_name,
+                "description": doc.description,
+                "company": doc.company,
+                "valuation_and_profit": valuation_rows
+            })
+
+        return result
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "get_all_material_type_master_details_error")
+        return frappe.throw(_("Failed to fetch Material Type Master details: {0}").format(str(e)))
+
+@frappe.whitelist(allow_guest=True)
+def erp_to_sap_material_code(doc_name):
+    try:
+        requestor = frappe.get_doc("Requestor Master", doc_name)
+        material_master = frappe.get_doc("Material Master", requestor.material_master_ref_no)
+        onboarding = frappe.get_doc("Material Onboarding", requestor.material_onboarding_ref_no)
+        sap_settings = frappe.get_doc("SAP Settings")
+
+        # Unique Request ID for this material (if needed)
+        request_id = f"MAT{datetime.now().strftime('%y%m%d%H%M%S')}"
+
+        # Prepare payload
+        data = {
+            "Reqno": request_id,
+            "Matnr": material_master.material_code or "",
+            "Maktx": material_master.material_name or "",
+            "Zmsg": "",
+            "Ztext": "",
+            "Bukrs": onboarding.company_code or "",
+            "Adrnr": request_id,
+            "Matkey": onboarding.material_category or "",
+            "Mat": onboarding.material_category or "",
+            "Mtart": onboarding.material_type or "",
+            "Mbrsh": onboarding.industry_sector or "",
+            "Werks": onboarding.plant_code or "",
+            "Lgort": onboarding.storage_location or "",
+            "Meins": onboarding.unit_of_measure or "",
+            "Matkl": onboarding.material_group or "",
+            "Spart": onboarding.division or "",
+            "Brgew": onboarding.gross_weight or "",
+            "Ntgew": onboarding.net_weight or "",
+            "Gewei": onboarding.weight_unit or "",
+            "Bmatnr": onboarding.basic_material or "",
+            "Xchpf": onboarding.batch_management_indicator or "",
+            "Mtvfp": onboarding.availability_check or "",
+            "Ekgrp": onboarding.purchase_group or "",
+            "Bstme": onboarding.purchase_order_unit or "",
+            "Umrez": onboarding.numerator_for_conversion or "",
+            "Umren": onboarding.denominator_for_conversion or "",
+            "Webaz": onboarding.goods_receipt_time or "",
+            "Dismm": onboarding.mrp_type or "",
+            "Dispo": onboarding.mrp_controller or "",
+            "Disls": onboarding.lot_size or "",
+            "Bstma": onboarding.max_lot_size or "",
+            "Mabst": onboarding.max_stock_level or "",
+            "Beskz": onboarding.procurement_type or "",
+            "Lgortep": onboarding.storage_location_ep or "",
+            "Plifz": onboarding.planned_delivery_days or "",
+            "Fhori": onboarding.scheduling_margin_key or "",
+            "Eisbe": onboarding.safety_stock or "",
+            "Mhdrz": onboarding.min_shelf_life or "",
+            "Mhdhb": onboarding.total_shelf_life or "",
+            "Iprkz": onboarding.period_indicator or "",
+            "Prctr": onboarding.profit_center or "",
+            "Ausme": onboarding.unit_of_issue or "",
+            "Umren1": onboarding.umren1 or "",
+            "Umrez1": onboarding.umrez1 or "",
+            "Qmatv": onboarding.inspection_setup or "",
+            "Qminst": onboarding.inspection_type or "",
+            "Qminst1": onboarding.inspection_type_1 or "",
+            "Prfrq": onboarding.recurring_inspection_interval or "",
+            "Bklas": onboarding.valuation_class or "",
+            "Vprsv": onboarding.price_control or "",
+            "Ncost": onboarding.do_not_cost or "",
+            "Ekalr": onboarding.costed_with_quantity_structure or "",
+            "Hkmat": onboarding.material_related_origin or "",
+            "Oldmat": onboarding.old_material_code or "",
+            "Sernp": onboarding.serial_number_profile or "",
+            "Taxim": "",  # intentionally blank
+            "Steuc": "",  # intentionally blank
+            "Aedat": onboarding.modified_on.strftime("%Y%m%d") if onboarding.modified_on else "",
+            "Aezet": onboarding.modified_time.strftime("%H%M%S") if onboarding.modified_time else "",
+            "Aenam": onboarding.modified_by or "",
+            "Emailid": onboarding.email_id or "",
+            "Storecom": onboarding.store_text or "",
+            "Purcom": onboarding.purchase_text or "",
+            "Taxcom": "",  # intentionally blank
+            "Div": onboarding.division or "",
+            "Ygroup": "",  # blank
+            "Sgroup": "",  # blank
+            "Tcode": "",   # blank
+            "Ekwsl": onboarding.purchasing_value_key or "",
+            "Mstcom": onboarding.master_text or "",
+            "Qacom": onboarding.qa_text or "",
+            "Class": onboarding.class_number or "",
+            "Klart": onboarding.class_type or "",
+            "Disgr": onboarding.mrp_group or "",
+            "Lgpro": onboarding.issue_storage_location or "",
+            "Serlv": onboarding.serial_level or ""
+        }
+
+        # Send to SAP
+        url = f"{sap_settings.sap_material_code_url}{onboarding.sap_client_code}"
+        headers = {
+            'x-csrf-token': 'fetch',
+            'Authorization': f"{sap_settings.authorization_type} {sap_settings.authorization_key}",
+            'Content-Type': 'application/json'
+        }
+        auth = HTTPBasicAuth(sap_settings.auth_user_name, sap_settings.auth_user_pass)
+        response = requests.get(url, headers=headers, auth=auth)
+
+        if response.status_code == 200:
+            csrf_token = response.headers.get('x-csrf-token')
+            key1 = response.cookies.get(f'SAP_SESSIONID_BHD_{onboarding.sap_client_code}')
+            key2 = response.cookies.get('sap-usercontext')
+
+            # Send data
+            send_material_detail(csrf_token, data, key1, key2, url)
+            return {"status": "success", "data_sent": data}
+        else:
+            frappe.log_error(f"Failed to fetch CSRF token: {response.status_code}", "ERP to SAP Material Code")
+            return {"status": "fail", "error": "Could not fetch CSRF token"}
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "ERP to SAP Material Code Error")
+        return {"status": "error", "message": str(e)}
+
 
 # @frappe.whitelist(allow_guest=False)
 # def create_material_onboarding():
@@ -1660,10 +1906,12 @@ def create_requestor_details():
                         "material_code_revised": entry.get("material_code_revised"),
                         "company_name": entry.get("material_company_code"),
                         "plant_name": entry.get("plant_name"),
+                        "material_category":entry.get("material_category"),
                         "material_group": entry.get("material_group"),
                         "material_type": entry.get("material_type"),
                         "base_unit_of_measure": entry.get("base_unit_of_measure"),
-                        "comment_by_user": entry.get("comment_by_user", "")
+                        "comment_by_user": entry.get("comment_by_user", ""),
+                        "material_specifications": entry.get("material_specifications","")
                     })
             except Exception as parse_err:
                 frappe.log_error(frappe.get_traceback(), "Material JSON Parsing Failed")
@@ -1684,51 +1932,106 @@ def create_requestor_details():
 
 @frappe.whitelist()
 def send_email_on_requestor_creation(requestor_name):
+    # Email to Reporting Head keeping Store and CP in CC
     print("=== START send_email_on_requestor_creation ===", requestor_name)
-
-    requestor_doc = frappe.get_doc("Requestor Master", requestor_name)
+    try:
+        requestor_doc = frappe.get_doc("Requestor Master", requestor_name)
+    except Exception as e:
+        print("Error fetching Requestor Master:", str(e))
+        return {"status": "fail", "message": "Could not fetch Requestor Master"}
     requestor_email = requestor_doc.contact_information_email
     requestor_person = requestor_doc.requested_by
-
+    child_records = requestor_doc.get("material_request")
     if not requestor_email:
+        print("No email found in requestor doc")
         frappe.throw("Requestor email not found.")
-
-    # Fetch all Employee Master entries with Role = "Requestor"
-    requestor_emps = frappe.get_all("Employee Master", filters={"role": "Requestor"}, fields=["email", "full_name"])
-    recipient_emails = ", ".join([emp["email"] for emp in requestor_emps if emp["email"]])
-    recipient_names = ", ".join([emp["full_name"] for emp in requestor_emps if emp["full_name"]])
-    bcc_address = 'rishi.hingad@merillife.com'
-
-    subject = "New Requestor Entry Created"
-    body = f"""
-    Dear {recipient_names or 'Requestor'},
-
-    A new Requestor Master entry "{requestor_name}" has been successfully created by {requestor_person}.
-
-    Please review the entry for further actions if necessary.
-
-    Regards,  
-    Meril VMS Team
+    requestor_emps_cp = frappe.get_all("Employee Master", filters={"role": "CP"}, fields=["email", "full_name"])
+    requestor_emps_store = frappe.get_all("Employee Master", filters={"role": "Store"}, fields=["email", "full_name"])
+    unique_emps = {}
+    for emp in requestor_emps_cp + requestor_emps_store:
+        if emp["email"]:
+            unique_emps[emp["email"]] = emp["full_name"]
+    table_rows = ""
+    for row in child_records:
+        table_rows += f"""
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.company_name}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.plant_name}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.material_category}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.material_type}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.material_code_revised}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.material_name_description}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.base_unit_of_measure}</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">{row.comment_by_user}</td>
+            </tr>
+        """
+    table_html = f"""
+        <table style="border-collapse: collapse; width: 100%; margin-top: 10px;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ccc; padding: 8px;">Company Name</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Plant Name</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Material Category</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Material Type</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Material Code (Revised)</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Material Description</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Base UOM</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {table_rows}
+            </tbody>
+        </table>
     """
+    recipient_emails = list(unique_emps.keys())
+    recipient_names = ", ".join(unique_emps.values())
+    print("Final Recipient Emails:", recipient_emails)
+    print("Final Recipient Names:", recipient_names)
+    requestor_head = frappe.get_value("Employee Master", requestor_person, "reporting_head")
+    requestor_head_email = frappe.get_value("Employee Master", requestor_head, "email")
+    requestor_head_name = frappe.get_value("Employee Master", requestor_head, "full_name")
+    bcc_address = 'rishi.hingad@merillife.com'
+    subject = "Request to Generate New Material Code Submitted"
+    body = f"""
+    <p>Dear {requestor_head_name},</p>
 
+    <p>
+        A request to generate a new material code "<strong>{requestor_name}</strong>" has been successfully submitted by <strong>{requestor_person}</strong>.
+    </p>
+
+    <p>Preview the details:</p>
+    {table_html}
+    <p>Regards,<br>
+    Meril VMS Team</p>
+    """
     msg = MIMEMultipart()
     msg["From"] = requestor_email
-    msg["To"] = recipient_emails
+    msg["To"] = requestor_head_email or ""
     msg["Subject"] = subject
+    msg["Cc"] = ", ".join(recipient_emails)
     msg["Bcc"] = bcc_address
-    msg.attach(MIMEText(body, "plain"))
+    msg.attach(MIMEText(body, "html"))
 
     try:
         conf = frappe.conf
-        with smtplib.SMTP(conf.get("smtp_server"), conf.get("smtp_port")) as server:
+        smtp_server = conf.get("smtp_server")
+        smtp_port = conf.get("smtp_port")
+        smtp_user = conf.get("smtp_user")
+        smtp_password = conf.get("smtp_password")
+        all_recipients = recipient_emails + [bcc_address]
+        if requestor_head_email:
+            all_recipients.append(requestor_head_email)
+
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()
-            server.login(conf.get("smtp_user"), conf.get("smtp_password"))
-            server.sendmail(requestor_email, [recipient_emails.split(","),bcc_address], msg.as_string())
+            server.login(smtp_user, smtp_password)
+            server.sendmail(requestor_email, all_recipients, msg.as_string())
             print("Email sent successfully!")
 
         frappe.get_doc({
             'doctype': 'Email Log',
-            'to_email': recipient_emails,
+            'to_email': ", ".join(recipient_emails),
             'from_email': requestor_email,
             'message': body,
             'status': "Successfully Sent",
@@ -1740,9 +2043,11 @@ def send_email_on_requestor_creation(requestor_name):
         return {"status": "success", "message": _("Email sent successfully.")}
 
     except Exception as e:
+        print("EMAIL SEND ERROR:", str(e))
+
         frappe.get_doc({
             'doctype': 'Email Log',
-            'to_email': recipient_emails,
+            'to_email': ", ".join(recipient_emails),
             'from_email': requestor_email,
             'message': body,
             'status': f"Failed: {e}",
@@ -1751,8 +2056,118 @@ def send_email_on_requestor_creation(requestor_name):
         }).insert(ignore_permissions=True)
 
         frappe.db.commit()
+        print("Email failure log saved.")
         return {"status": "fail", "message": _("Failed to send email.")}
 
+
+# @frappe.whitelist()
+# def create_material_onboarding():
+#     print("=== START create_material_onboarding ===")
+
+#     files = frappe.request.files
+#     form_dict = dict(frappe.form_dict)
+
+#     print("Received form data:", form_dict.keys())
+#     print("Received file keys:", files.keys())
+
+#     if "material_information" in files:
+#         file = files["material_information"]
+#         if file and getattr(file, 'filename', None) and file.filename != "undefined":
+#             print("Uploading file:", file.filename)
+#             file_doc = frappe.get_doc({
+#                 "doctype": "File",
+#                 "file_name": file.filename,
+#                 "content": file.read(),
+#                 "is_private": 1
+#             })
+#             file_doc.save()
+#             form_dict["material_information"] = file_doc.file_url
+#             print("File saved at:", file_doc.file_url)
+
+#     def map_data(form, mapping):
+#         return {doc_field: form[form_key] for doc_field, form_key in mapping.items() if form_key in form}
+
+#     MATERIAL_FIELDS = {
+#         "material_information": "material_information",
+#         "plant_code": "plant_code",
+#         "price_control": "price_control",
+#         "material_company_code": "material_company_code",
+#         "division": "division",
+#         "material_type": "material_type",
+#         "material_group": "material_group",
+#         "material_sub_group": "material_sub_group",
+#         "material_name_description": "material_name_description",
+#         "brand_make": "brand_make",
+#         "batch_requirements_yn": "batch_requirements_yn",
+#         "base_unit_of_measure": "base_unit_of_measure",
+#         "industry": "industry",
+#         "profit_center": "profit_center",
+#         "mrp_type": "mrp_type",
+#         "availability_check": "availability_check",
+#         "mrp_group": "mrp_group",
+#         "mrp_controller_revised": "mrp_controller_revised",
+#         "storage_location": "storage_location",
+#         "production_storage_location": "production_storage_location",
+#         "valuation_category": "valuation_category",
+#         "storage_location_for_ep": "storage_location_for_ep",
+#         "class_number": "class_number",
+#         "class_type": "class_type",
+#         "gr_processing_time": "gr_processing_time",
+#         "purchasing_group": "purchasing_group",
+#         "valuation_class": "valuation_class",
+#         "minimum_remaining_shelf_life": "minimum_remaining_shelf_life",
+#         "expiration_date": "expiration_date",
+#         "serial_number_profile": "serial_number_profile",
+#         "purchase_uom": "purchase_uom",
+#         "do_not_cost": "do_not_cost",
+#         "inspection_type": "inspection_type",
+#         "issue_unit": "issue_unit",
+#         "total_shelf_life": "total_shelf_life",
+#         "scheduling_margin_key": "scheduling_margin_key",
+#         "serialization_level": "serialization_level",
+#         "material_code_revised":"material_code_revised",
+#         "valuation_class_material":"valuation_class_material",
+#         "material_code":"material_code"
+#     }
+
+#     ONBOARDING_FIELDS = {
+#         "material_specifications": "material_specifications",
+#         "purchase_order_text": "purchase_order_text",
+#         "intended_usage_application": "intended_usage_application",
+#         "hazardous_material": "hazardous_material",
+#         "storage_requirements": "storage_requirements",
+#         "procurement_type": "procurement_type",
+#         "valuation_class": "valuation_class",
+#         "lot_size": "lot_size",
+#         "lead_time": "lead_time",
+#         "hsn_code": "hsn_code",
+#         "hsn_status": "hsn_status",
+#         "special_instructionsnotes": "special_instructionsnotes",
+#         "requested_by_name": "requested_by_name",
+#         "approved_by_name": "approved_by_name",
+#         "requested_by_place": "requested_by_place",
+#         "approved_by_place": "approved_by_place",
+#         "approval_date": "approval_date",
+#         "approval_status": "approval_status",
+#     }
+
+#     mat_data  = map_data(form_dict, MATERIAL_FIELDS)
+#     onb_data  = map_data(form_dict, ONBOARDING_FIELDS)
+
+#     material_doc  = frappe.new_doc("Material Master")
+#     material_doc.update(mat_data)
+#     material_doc.insert()
+
+#     onboarding_doc = frappe.new_doc("Material Onboarding")
+#     onboarding_doc.update(onb_data)
+#     onboarding_doc.material_master  = material_doc.name
+#     onboarding_doc.material_code    = form_dict.get("material_code")
+#     onboarding_doc.insert()
+
+#     send_email_on_material_onboarding(onboarding_doc.name)
+
+#     print("=== END create_material_onboarding ===")
+#     return {"status": "created", "name": onboarding_doc.name}
 
 @frappe.whitelist()
 def create_material_onboarding():
@@ -1760,140 +2175,168 @@ def create_material_onboarding():
 
     files = frappe.request.files
     form_dict = dict(frappe.form_dict)
-
-    print("Received form data:", form_dict.keys())
-    print("Received file keys:", files.keys())
+    print("Form data:", form_dict.keys())
 
     if "material_information" in files:
         file = files["material_information"]
-        if file and getattr(file, 'filename', None) and file.filename != "undefined":
-            print("Uploading file:", file.filename)
+        if file and getattr(file, "filename", None) and file.filename != "undefined":
             file_doc = frappe.get_doc({
                 "doctype": "File",
                 "file_name": file.filename,
                 "content": file.read(),
                 "is_private": 1
-            })
-            file_doc.save()
+            }).save()
             form_dict["material_information"] = file_doc.file_url
-            print("File saved at:", file_doc.file_url)
+            print("Uploaded:", file_doc.file_url)
 
-    def map_data(form, mapping):
-        return {doc_field: form[form_key] for doc_field, form_key in mapping.items() if form_key in form}
+    def map_fields(mapping):
+        return {
+            doc_field: form_dict.get(form_key)
+            for doc_field, form_key in mapping.items()
+            if form_dict.get(form_key) is not None
+        }
 
-    REQUESTOR_FIELDS = {
-        "request_date": "request_date",
-        "contact_information_email": "contact_information_email",
-        "contact_information_phone": "contact_information_phone",
-        "requested_by": "requested_by",
-        "requestor_department": "requestor_department",
-        "requestor_hod": "requestor_hod",
-        "sub-department": "sub_department",
-        "immediate_reporting_head": "immediate_reporting_head",
-        "requestor_company": "requestor_company",
-    }
-
+    # Define field mappings
     MATERIAL_FIELDS = {
-        "material_information": "material_information",
-        "plant_code": "plant_code",
-        "price_control": "price_control",
-        "material_company_code": "material_company_code",
+        "storage_location": "storage_location",
         "division": "division",
-        "material_type": "material_type",
+        "material_category": "material_category",
         "material_group": "material_group",
-        "material_sub_group": "material_sub_group",
-        "material_name_description": "material_name_description",
-        "brand_make": "brand_make",
         "batch_requirements_yn": "batch_requirements_yn",
-        "base_unit_of_measure": "base_unit_of_measure",
-        "industry": "industry",
-        "profit_center": "profit_center",
-        "mrp_type": "mrp_type",
+        "brand_make": "brand_make",
         "availability_check": "availability_check",
+        "class_type": "class_type",
+        "class_number": "class_number",
+        "serial_number_profile": "serial_number_profile",
+        "serialization_level": "serialization_level",
+        "purchase_uom": "purchase_uom",
+        "lead_time": "lead_time",
+        "mrp_type": "mrp_type",
         "mrp_group": "mrp_group",
         "mrp_controller_revised": "mrp_controller_revised",
-        "storage_location": "storage_location",
-        "production_storage_location": "production_storage_location",
-        "valuation_category": "valuation_category",
-        "storage_location_for_ep": "storage_location_for_ep",
-        "class_number": "class_number",
-        "class_type": "class_type",
-        "gr_processing_time": "gr_processing_time",
-        "purchasing_group": "purchasing_group",
-        "valuation_class": "valuation_class",
-        "minimum_remaining_shelf_life": "minimum_remaining_shelf_life",
-        "expiration_date": "expiration_date",
-        "serial_number_profile": "serial_number_profile",
-        "purchase_uom": "purchase_uom",
-        "do_not_cost": "do_not_cost",
-        "inspection_type": "inspection_type",
-        "issue_unit": "issue_unit",
-        "total_shelf_life": "total_shelf_life",
+        "lot_size_key": "lot_size_key",
+        "procurement_type": "procurement_type",
         "scheduling_margin_key": "scheduling_margin_key",
-        "serialization_level": "serialization_level",
-        "material_code_revised":"material_code_revised",
-        "valuation_class_material":"valuation_class_material",
-        "material_code":"material_code"
+        "issue_unit": "issue_unit",
+        "conversion_issue_uom": "conversion_issue_uom",
+        "conversion_purchase_uom": "conversion_purchase_uom",
+        "material_code_revised": "material_code_revised",
+        "material_code": "material_code",
+        "industry": "industry",
+        "purchase_order_text": "purchase_order_text",
+        "purchasing_group": "purchasing_group",
+        "gr_processing_time": "gr_processing_time",
+        "purchasing_value_key": "purchasing_value_key",
+        "min_lot_size": "min_lot_size",
+        
     }
 
     ONBOARDING_FIELDS = {
+        "material_information": "material_information",
+        "minimum_remaining_shell_life": "minimum_remaining_shell_life",
+        "total_shell_life": "total_shell_life",
+        "expiration_date": "expiration_date",
+        "inspection_interval": "inspection_interval",
         "material_specifications": "material_specifications",
-        "purchase_order_text": "purchase_order_text",
-        "intended_usage_application": "intended_usage_application",
-        "hazardous_material": "hazardous_material",
-        "storage_requirements": "storage_requirements",
-        "procurement_type": "procurement_type",
         "valuation_class": "valuation_class",
-        "lot_size": "lot_size",
-        "lead_time": "lead_time",
+        "profit_center": "profit_center",
+        "price_control": "price_control",
         "hsn_code": "hsn_code",
-        "hsn_status": "hsn_status",
-        "special_instructionsnotes": "special_instructionsnotes",
-        "requested_by_name": "requested_by_name",
-        "approved_by_name": "approved_by_name",
-        "requested_by_place": "requested_by_place",
-        "approved_by_place": "approved_by_place",
+        "do_not_cost": "do_not_cost",
+        "store_comment": "store_comment",
+        "intended_usage_application": "intended_usage_application",
+        "storage_requirements": "storage_requirements",
+        "hazardous_material": "hazardous_material",
+        "inspection_type": "inspection_type",
         "approval_date": "approval_date",
         "approval_status": "approval_status",
+        "requested_by_name": "requested_by_name",
+        "requested_by_place": "requested_by_place",
+        "approved_by_name": "approved_by_name",
+        "approved_by_place": "approved_by_place",
+        "hsn_status": "hsn_status",
+        "special_instructionsnotes": "special_instructionsnotes",
+        "lot_size": "lot_size",
+        "lead_time": "lead_time",
+        "purchase_order_text": "purchase_order_text"
     }
 
-    req_data  = map_data(form_dict, REQUESTOR_FIELDS)
-    mat_data  = map_data(form_dict, MATERIAL_FIELDS)
-    onb_data  = map_data(form_dict, ONBOARDING_FIELDS)
+    # Map fields to dicts
+    mat_data = map_fields(MATERIAL_FIELDS)
+    onb_data = map_fields(ONBOARDING_FIELDS)
 
-    requestor_doc = frappe.new_doc("Requestor Master")
-    requestor_doc.update(req_data)
-    requestor_doc.insert()
+    # Get reference fields from form
+    req_name = form_dict.get("requestor_ref_no") or form_dict.get("requestor_name")
 
-    material_doc  = frappe.new_doc("Material Master")
-    material_doc.update(mat_data)
-    material_doc.insert()
+    # Set mandatory link fields
+    mat_data.update({
+        "requestor_ref_no": req_name,
+        "basic_data_ref_no": req_name
+    })
+    onb_data.update({
+        "requestor_ref_no": req_name
+    })
 
-    onboarding_doc = frappe.new_doc("Material Onboarding")
-    onboarding_doc.update(onb_data)
-    onboarding_doc.requestor_master = requestor_doc.name
-    onboarding_doc.material_master  = material_doc.name
-    onboarding_doc.material_code    = form_dict.get("material_code")
-    onboarding_doc.insert()
+    # Create Material Master
+    material = frappe.new_doc("Material Master")
+    material.update(mat_data)
+    material.insert()
+    print("Material Master created:", material.name)
 
-    send_email_on_material_onboarding(onboarding_doc.name)
+    # Link Material Onboarding
+    onb_data.update({
+        "material_master_ref_no": material.name,
+        "material_code_latest": form_dict.get("material_code"),
+    })
+
+    onboarding = frappe.new_doc("Material Onboarding")
+    onboarding.update(onb_data)
+    onboarding.insert()
+    print("Material Onboarding created:", onboarding.name)
+
+    material.material_onboarding_ref_no = onboarding.name
+    material.save()
+    print("Updated Material Master with onboarding ref:", onboarding.name)
+
+    if req_name:
+        try:
+            requestor = frappe.get_doc("Requestor Master", req_name)
+            requestor.material_master_ref_no = material.name
+            requestor.material_onboarding_ref_no = onboarding.name
+            requestor.save()
+            print("Updated Requestor Master with references.")
+        except Exception as e:
+            frappe.log_error(f"Failed to update Requestor Master '{req_name}'", str(e))
+
+    send_email_on_material_onboarding(onboarding.name)
 
     print("=== END create_material_onboarding ===")
-    return {"status": "created", "name": onboarding_doc.name}
+    return {"status": "created", "name": onboarding.name}
+
 
 
 @frappe.whitelist(allow_guest=True)
 def send_email_on_material_onboarding(onboarding_doc):
     print("***************send_email_on_material_onboarding***************", onboarding_doc)
 
+    try:
+        onboarding_doc = frappe.get_doc("Material Onboarding", onboarding_doc)
+    except Exception as e:
+        frappe.throw(f"Failed to fetch Material Onboarding doc: {str(e)}")
+
+    print("***************requestor_ref_no***************", onboarding_doc.requestor_ref_no)
+
     if onboarding_doc.requestor_ref_no:
-        requestor_email = frappe.db.get_value("Requestor Master", {"name": onboarding_doc.requestor_ref_no}, "contact_information_email")
+        requestor_email = frappe.db.get_value(
+            "Requestor Master",
+            {"name": onboarding_doc.requestor_ref_no},
+            "contact_information_email"
+        )
     else:
         frappe.throw("Requestor Reference Number is missing from Material Onboarding.")
 
     if not requestor_email:
-        print("Requestor email not found in Requestor Master")
-        frappe.throw("Requestor email not found in Requestor Master")
+        frappe.throw("Requestor email not found in Requestor Master.")
 
     cp_emails = frappe.get_all("Employee Master", filters={"role": "CP"}, fields=["email"])
     cp_addresses = ", ".join([emp["email"] for emp in cp_emails if emp["email"]])
@@ -2601,47 +3044,6 @@ def send_email_on_vendor_register(data, method):
         doc.insert(ignore_permissions=True)
         frappe.db.commit()
 
-# @frappe.whitelist()
-# def get_material_onboarding_details(name):
-#     if not name:
-#         frappe.throw("Document name is required")
-
-#     doc = frappe.get_doc("Material Onboarding", name)
-#     onboarding_data = doc.as_dict()
-
-#     if doc.company:
-#         company_name = frappe.db.get_value("Company Master", doc.company, "company_name")
-#         onboarding_data["company_name"] = company_name
-#     else:
-#         onboarding_data["company_name"] = None
-
-#     return onboarding_data
-
-# @frappe.whitelist()
-# def get_all_material_descriptions_and_codes():
-#     results = []
-
-#     material_master_entries = frappe.get_all(
-#         "Material Master",
-#         fields=["material_name_description", "material_code_revised"]
-#     )
-#     for entry in material_master_entries:
-#         results.append({
-#             "material_name_description": entry.material_name_description,
-#             "material_code_revised": entry.material_code_revised
-#         })
-
-#     requestor_names = frappe.get_all("Requestor Master", fields=["name"])
-#     for item in requestor_names:
-#         doc = frappe.get_doc("Requestor Master", item.name)
-#         for child in doc.material_request:
-#             results.append({
-#                 "material_name_description": child.material_name_description,
-#                 "material_code_revised": child.material_code_revised
-#             })
-
-#     return results
-
 @frappe.whitelist()
 def get_all_material_descriptions_and_codes():
     results = []
@@ -2708,46 +3110,6 @@ def show_requestor_master_list():
 
     return requestor_master_list
 
-
-# @frappe.whitelist()
-# def show_material_onboarding_list():
-#     material_onboarding_list = []
-
-#     onboarding_names = frappe.get_all(
-#         "Material Onboarding", 
-#         fields=["name"], 
-#         order_by="request_date DESC, creation DESC"
-#     )
-
-#     for item in onboarding_names:
-#         doc = frappe.get_doc("Material Onboarding", item.name)
-#         doc_dict = doc.as_dict()
-
-#         # Flatten: Add fields from Material Master directly
-#         if doc.material_master_ref_no:
-#             material_doc = frappe.get_doc("Material Master", doc.material_master_ref_no)
-#             doc_dict["plant_code"] = material_doc.plant_code
-#             doc_dict["division"] = material_doc.division
-#             doc_dict["material_type"] = material_doc.material_type
-#             doc_dict["material_group"] = material_doc.material_group
-#             doc_dict["material_company_code"] = material_doc.material_company_code
-
-#             if material_doc.material_company_code:
-#                 company_name = frappe.db.get_value("Company Master", material_doc.material_company_code, "company_name")
-#                 doc_dict["material_company_name"] = company_name
-#         # Flatten: Add fields from Requestor Master directly
-#         if doc.requestor_ref_no:
-#             requestor_doc = frappe.get_doc("Requestor Master", doc.requestor_ref_no)
-#             doc_dict["requested_by"] = requestor_doc.requested_by
-#             doc_dict["request_date"] = requestor_doc.request_date
-#             doc_dict["requestor_company"] = requestor_doc.company
-#             doc_dict["contact_information_email"] = requestor_doc.contact_information_email
-
-#         # Add fully flattened record
-#         material_onboarding_list.append(doc_dict)
-
-#     return material_onboarding_list
-
 @frappe.whitelist()
 def show_material_onboarding_list():
     material_onboarding_list = []
@@ -2784,99 +3146,49 @@ def show_material_onboarding_list():
     return material_onboarding_list
 
 
-# @frappe.whitelist()
-# def get_material_onboarding_details(name):
-#     if not name:
-#         frappe.throw("Document name is required")
-
-#     doc = frappe.get_doc("Material Onboarding", name)
-#     onboarding_data = doc.as_dict()
-
-#     material_onboarding_data = {key: onboarding_data.get(key) for key in onboarding_data if key != "name"}
-
-#     if doc.company:
-#         material_onboarding_data["company_name"] = frappe.db.get_value("Company Master", doc.company, "company_name")
-#     else:
-#         material_onboarding_data["company_name"] = None
-
-#     if doc.material_master_ref_no:
-#         try:
-#             material_doc = frappe.get_doc("Material Master", doc.material_master_ref_no)
-#             material_data = material_doc.as_dict()
-#             for field in [
-#                 "requestor_ref_no", "material_code_revised", "material_onboarding_ref_no", "material_code", "plant_code", "division", "material_group", "material_name_description", "base_unit_of_measure", "profit_center", "valuation_class", "availability_check", "storage_location", "production_storage_location", "storage_location_for_ep", "class_number", "gr_processing_time", "minimum_remaining_shelf_life", "expiration_date", "serial_number_profile", "purchase_uom", "do_not_cost", "material_company_code", "material_type", "material_sub_group", "brand_make", "batch_requirements_yn", "price_control", "industry", "mrp_type", "mrp_group", "mrp_controller_revised", "valuation_category", "material_information", "class_type", "purchasing_group", "scheduling_margin_key", "total_shelf_life", "serialization_level", "issue_unit", "inspection_type"
-#             ]:
-#                 material_onboarding_data[field] = material_data.get(field)
-#         except frappe.DoesNotExistError:
-#             frappe.log_error("Material Master not found: " + doc.material_master_ref_no)
-#     else:
-#         frappe.log_error("No Material Master Ref No in onboarding")
-
-#     if doc.requestor_ref_no:
-#         try:
-#             requestor_doc = frappe.get_doc("Requestor Master", doc.requestor_ref_no)
-#             requestor_data = requestor_doc.as_dict()
-#             for field in [
-#                 "request_date", "contact_information_email", "contact_information_phone", "requested_by",
-#                 "requestor_department", "requestor_hod", "sub_department", "immediate_reporting_head",
-#                 "requestor_company"
-#             ]:
-#                 material_onboarding_data[field] = requestor_data.get(field)
-
-#             if requestor_data.get("requestor_company"):
-#                 requestor_company_name = frappe.db.get_value("Company Master", requestor_data["requestor_company"], "company_name")
-#                 material_onboarding_data["requestor_company_name"] = requestor_company_name
-#             else:
-#                 material_onboarding_data["requestor_company_name"] = None
-
-#         except frappe.DoesNotExistError:
-#             frappe.log_error("Requestor Master not found: " + doc.requestor_ref_no)
-#     else:
-#         frappe.log_error("No Requestor Ref No in onboarding")
-
-#     return material_onboarding_data
-
 @frappe.whitelist()
 def get_material_onboarding_details(name, material_name):
     if not name:
         frappe.throw("Requestor Master document name is required")
 
-    # 1. Fetch Requestor Master
     try:
         requestor_doc = frappe.get_doc("Requestor Master", name)
     except frappe.DoesNotExistError:
         frappe.throw(f"Requestor Master with name '{name}' not found")
 
-    # 2. Convert to dict
     requestor_dict = requestor_doc.as_dict()
 
-    # 3. Add company name
     if requestor_doc.requestor_company:
         requestor_dict["requestor_company_name"] = frappe.db.get_value(
             "Company Master", requestor_doc.requestor_company, "company_name"
         )
 
-    # 4. Filter child table for selected `material_name` (which is actually child row's .name)
     selected_row = next(
         (row for row in requestor_doc.material_request if row.name == material_name),
         None
     )
-
-    # 5. Fetch Material Master (with children)
+    # Fetch Material Master (with children)
     material_master_data = {}
     mm_ref = requestor_doc.get("material_master_ref_no")
     if mm_ref:
         try:
-            material_master_data = frappe.get_doc("Material Master", mm_ref).as_dict()
+            # material_master_data = frappe.get_doc("Material Master", mm_ref).as_dict()
+            material_doc = frappe.get_doc("Material Master", mm_ref)
+            material_master_data = material_doc.as_dict()
+            material_master_data["children"] = [d.as_dict() for d in material_doc.get_all_children()]
+
         except Exception as e:
             frappe.log_error(f"Failed to get Material Master '{mm_ref}'", str(e))
 
-    # 6. Fetch Material Onboarding (with children)
+    # Fetch Material Onboarding (with children)
     material_onboarding_data = {}
     mo_ref = requestor_doc.get("material_onboarding_ref_no")
     if mo_ref:
         try:
+            # mo_doc = frappe.get_doc("Material Onboarding", mo_ref)
             mo_doc = frappe.get_doc("Material Onboarding", mo_ref)
+            material_onboarding_data = mo_doc.as_dict()
+            material_onboarding_data["children"] = [d.as_dict() for d in mo_doc.get_all_children()]
             material_onboarding_data = mo_doc.as_dict()
             if mo_doc.company:
                 material_onboarding_data["company_name"] = frappe.db.get_value(
@@ -2885,14 +3197,12 @@ def get_material_onboarding_details(name, material_name):
         except Exception as e:
             frappe.log_error(f"Failed to get Material Onboarding '{mo_ref}'", str(e))
 
-    # ✅ Final structure
     return {
         "requestor_master": requestor_dict,
         "material_request_item": selected_row.as_dict() if selected_row else {},
         "material_master": material_master_data,
         "material_onboarding": material_onboarding_data
     }
-
 
 
 @frappe.whitelist()

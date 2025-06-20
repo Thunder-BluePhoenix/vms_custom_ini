@@ -1,27 +1,37 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:material_category_code",
- "creation": "2024-04-18 17:14:53.262220",
+ "autoname": "field:expiration_date_code",
+ "creation": "2025-06-19 01:47:03.934075",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "material_category_code",
-  "material_category_name",
+  "details_section",
+  "expiration_date_code",
+  "expiration_date_name",
+  "column_break_rdiw",
   "description"
  ],
  "fields": [
   {
-   "fieldname": "material_category_code",
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "expiration_date_code",
    "fieldtype": "Data",
-   "label": "Material Category Code",
+   "label": "Expiration Date Code",
    "unique": 1
   },
   {
-   "fieldname": "material_category_name",
+   "fieldname": "expiration_date_name",
    "fieldtype": "Data",
-   "label": "Material Category Name",
-   "unique": 1
+   "label": "Expiration Date Name"
+  },
+  {
+   "fieldname": "column_break_rdiw",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "description",
@@ -31,10 +41,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-16 17:21:30.150192",
+ "modified": "2025-06-19 01:48:24.562748",
  "modified_by": "Administrator",
  "module": "Masters",
- "name": "Material Category Master",
+ "name": "Expiration Date Master",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

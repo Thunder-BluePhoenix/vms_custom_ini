@@ -9,8 +9,9 @@
  "field_order": [
   "price_control_details_section",
   "price_control_code",
+  "description",
   "column_break_hjyb",
-  "description"
+  "do_not_cost"
  ],
  "fields": [
   {
@@ -32,11 +33,16 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "do_not_cost",
+   "fieldtype": "Data",
+   "label": "Do Not Cost"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-17 14:30:20.659839",
+ "modified": "2025-06-20 11:02:10.802922",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Price Control Master",

@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-19 00:58:50.371511",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "child_table_section",
+  "material_type",
+  "column_break_cpcu",
+  "valuation_class"
+ ],
+ "fields": [
+  {
+   "fieldname": "child_table_section",
+   "fieldtype": "Section Break",
+   "label": "Child Table"
+  },
+  {
+   "fieldname": "material_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Material Type",
+   "options": "Material Type Master"
+  },
+  {
+   "fieldname": "column_break_cpcu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_class",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Valuation Class",
+   "options": "Valuation Class Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-19 00:59:55.288233",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Division Child Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

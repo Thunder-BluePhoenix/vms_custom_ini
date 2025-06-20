@@ -9,11 +9,14 @@
   "user_material_request_section",
   "company_name",
   "plant_name",
+  "material_category",
   "material_type",
   "base_unit_of_measure",
+  "material_code_revised",
   "column_break_ndcu",
   "material_name_description",
-  "comment_by_user"
+  "comment_by_user",
+  "material_specifications"
  ],
  "fields": [
   {
@@ -64,12 +67,28 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Comment By User"
+  },
+  {
+   "fieldname": "material_code_revised",
+   "fieldtype": "Data",
+   "label": "Material Code Revised"
+  },
+  {
+   "fieldname": "material_category",
+   "fieldtype": "Link",
+   "label": "Material Category",
+   "options": "Material Category Master"
+  },
+  {
+   "fieldname": "material_specifications",
+   "fieldtype": "Small Text",
+   "label": "Material Specifications"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-04 19:06:12.772169",
+ "modified": "2025-06-19 02:10:54.614510",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Material Request Description",

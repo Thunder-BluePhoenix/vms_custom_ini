@@ -11,9 +11,11 @@
   "division_name",
   "division_code",
   "description",
+  "type_and_valuation",
   "column_break_cnhq",
   "company",
-  "sap_reference"
+  "sap_reference",
+  "profit_center"
  ],
  "fields": [
   {
@@ -51,11 +53,23 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "profit_center",
+   "fieldtype": "Link",
+   "label": "Profit Center",
+   "options": "Profit Center Master"
+  },
+  {
+   "fieldname": "type_and_valuation",
+   "fieldtype": "Table",
+   "label": "Type & Valuation",
+   "options": "Division Child Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 14:39:52.951681",
+ "modified": "2025-06-19 01:01:07.824842",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Division Master",

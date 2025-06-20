@@ -1,32 +1,46 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:MO-{requestor_ref_no}",
  "creation": "2025-04-21 16:51:45.099533",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "reference_tab",
   "material_code_section",
-  "material_master_ref_no",
-  "material_code_latest",
-  "column_break_fqvm",
   "requestor_ref_no",
+  "material_master_ref_no",
+  "column_break_fqvm",
+  "material_code_latest",
+  "qaqc_tab",
+  "qaqc_data_section",
+  "minimum_remaining_shell_life",
+  "total_shell_life",
+  "expiration_date",
+  "column_break_nchb",
+  "inspection_type",
+  "inspection_interval",
+  "specifications_tab",
   "characteristics_and_specifications_section",
   "material_specifications",
   "intended_usage_application",
-  "hazardous_material",
   "column_break_apvq",
-  "purchase_order_text",
   "storage_requirements",
+  "hazardous_material",
+  "others_tab",
   "procurement_and_inventory_information_section",
-  "procurement_type",
-  "reorder_point",
-  "lead_time",
-  "column_break_mefu",
+  "profit_center",
   "valuation_class",
-  "lot_size",
+  "price_control",
   "hsn_code",
+  "column_break_mefu",
+  "do_not_cost",
+  "material_information",
   "hsn_status",
+  "approval_tab",
   "additional_information_section",
+  "store_comment",
+  "column_break_zioz",
   "special_instructionsnotes",
   "approvals_section",
   "requested_by_name",
@@ -51,12 +65,12 @@
   {
    "fieldname": "procurement_and_inventory_information_section",
    "fieldtype": "Section Break",
-   "label": "Procurement and Inventory Information"
+   "label": "Others Data"
   },
   {
    "fieldname": "additional_information_section",
    "fieldtype": "Section Break",
-   "label": "Additional Information"
+   "label": "Comment & Additional Information"
   },
   {
    "fieldname": "special_instructionsnotes",
@@ -68,19 +82,9 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "purchase_order_text",
-   "fieldtype": "Small Text",
-   "label": "Purchase Order Text"
-  },
-  {
    "fieldname": "storage_requirements",
    "fieldtype": "Small Text",
    "label": "Storage Requirements"
-  },
-  {
-   "fieldname": "lead_time",
-   "fieldtype": "Data",
-   "label": "Lead Time"
   },
   {
    "fieldname": "column_break_mefu",
@@ -91,12 +95,6 @@
    "fieldtype": "Link",
    "label": "Valuation Class",
    "options": "Valuation Class Master"
-  },
-  {
-   "fieldname": "lot_size",
-   "fieldtype": "Link",
-   "label": "Lot Size",
-   "options": "Lot Size Master"
   },
   {
    "fieldname": "hsn_code",
@@ -129,7 +127,7 @@
   },
   {
    "fieldname": "intended_usage_application",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Intended Usage / Application"
   },
   {
@@ -137,17 +135,6 @@
    "fieldtype": "Select",
    "label": "Hazardous Material (Y/N)",
    "options": "-Select-\nYes\nNo"
-  },
-  {
-   "fieldname": "procurement_type",
-   "fieldtype": "Link",
-   "label": "Procurement Type (if applicable)",
-   "options": "Procurement Type Master"
-  },
-  {
-   "fieldname": "reorder_point",
-   "fieldtype": "Data",
-   "label": "Reorder Point (if applicable)"
   },
   {
    "fieldname": "requested_by_place",
@@ -199,14 +186,107 @@
    "fieldtype": "Link",
    "label": "Requestor Ref No.",
    "options": "Requestor Master"
+  },
+  {
+   "fieldname": "profit_center",
+   "fieldtype": "Link",
+   "label": "Profit Center",
+   "options": "Profit Center Master"
+  },
+  {
+   "fieldname": "price_control",
+   "fieldtype": "Link",
+   "label": "Price Control",
+   "options": "Price Control Master"
+  },
+  {
+   "fieldname": "material_information",
+   "fieldtype": "Attach",
+   "label": "Material Information"
+  },
+  {
+   "fieldname": "specifications_tab",
+   "fieldtype": "Tab Break",
+   "label": "Specifications"
+  },
+  {
+   "fieldname": "qaqc_tab",
+   "fieldtype": "Tab Break",
+   "label": "QA/QC"
+  },
+  {
+   "fieldname": "qaqc_data_section",
+   "fieldtype": "Section Break",
+   "label": "QA/QC Data"
+  },
+  {
+   "fieldname": "minimum_remaining_shell_life",
+   "fieldtype": "Data",
+   "label": "Minimum Remaining Shell Life"
+  },
+  {
+   "fieldname": "others_tab",
+   "fieldtype": "Tab Break",
+   "label": "Others"
+  },
+  {
+   "fieldname": "approval_tab",
+   "fieldtype": "Tab Break",
+   "label": "Comment & Approval"
+  },
+  {
+   "fieldname": "total_shell_life",
+   "fieldtype": "Data",
+   "label": "Total Shell Life"
+  },
+  {
+   "fieldname": "expiration_date",
+   "fieldtype": "Link",
+   "label": "Period Indicator for Shell Life Expiration Date",
+   "options": "Expiration Date Master"
+  },
+  {
+   "fieldname": "column_break_nchb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Link",
+   "label": "Inspection Type",
+   "options": "Inspection Type Master"
+  },
+  {
+   "fieldname": "inspection_interval",
+   "fieldtype": "Data",
+   "label": "Inspection Interval"
+  },
+  {
+   "fieldname": "do_not_cost",
+   "fieldtype": "Data",
+   "label": "Do Not Cost"
+  },
+  {
+   "fieldname": "store_comment",
+   "fieldtype": "Small Text",
+   "label": "Store Comment"
+  },
+  {
+   "fieldname": "column_break_zioz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reference"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-30 16:01:58.030454",
+ "modified": "2025-06-19 17:31:35.436019",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Material Onboarding",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

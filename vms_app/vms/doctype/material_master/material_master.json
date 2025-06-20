@@ -1,10 +1,51 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:MM-{requestor_ref_no}",
  "creation": "2025-05-19 10:55:20.233020",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "basic_tab",
+  "basic_data_section",
+  "basic_data_ref_no",
+  "storage_location",
+  "column_break_ffhd",
+  "division",
+  "store_tab",
+  "store_data_section",
+  "material_group",
+  "batch_requirements_yn",
+  "brand_make",
+  "column_break_xalo",
+  "availability_check",
+  "class_type",
+  "class_number",
+  "serial_number_profile",
+  "serialization_level",
+  "purchase_tab",
+  "purchasing_data_section",
+  "purchasing_group",
+  "gr_processing_time",
+  "purchase_uom",
+  "lead_time",
+  "column_break_uawn",
+  "purchasing_value_key",
+  "min_lot_size",
+  "purchase_order_text",
+  "conversion_purchase_uom",
+  "mrp_tab",
+  "mrp_data_section",
+  "mrp_type",
+  "mrp_group",
+  "mrp_controller_revised",
+  "lot_size_key",
+  "column_break_foqc",
+  "procurement_type",
+  "scheduling_margin_key",
+  "issue_unit",
+  "conversion_issue_uom",
+  "refrence_tab",
   "material_code_section",
   "requestor_ref_no",
   "material_code_revised",
@@ -12,44 +53,7 @@
   "material_onboarding_ref_no",
   "material_code",
   "material_information_section",
-  "plant_code",
-  "division",
-  "material_group",
-  "material_name_description",
-  "base_unit_of_measure",
-  "profit_center",
-  "valuation_class_material",
-  "availability_check",
-  "storage_location",
-  "production_storage_location",
-  "storage_location_for_ep",
-  "class_number",
-  "gr_processing_time",
-  "minimum_remaining_shelf_life",
-  "expiration_date",
-  "serial_number_profile",
-  "purchase_uom",
-  "do_not_cost",
-  "column_break_lkei",
-  "material_company_code",
-  "material_type",
-  "material_sub_group",
-  "brand_make",
-  "batch_requirements_yn",
-  "price_control",
-  "industry",
-  "mrp_type",
-  "mrp_group",
-  "mrp_controller_revised",
-  "valuation_category",
-  "material_information",
-  "class_type",
-  "purchasing_group",
-  "scheduling_margin_key",
-  "total_shelf_life",
-  "serialization_level",
-  "issue_unit",
-  "inspection_type"
+  "industry"
  ],
  "fields": [
   {
@@ -89,42 +93,16 @@
    "label": "Material Information"
   },
   {
-   "fieldname": "plant_code",
-   "fieldtype": "Link",
-   "label": "Plant Code",
-   "options": "Plant Master"
-  },
-  {
    "fieldname": "division",
    "fieldtype": "Link",
    "label": "Division",
    "options": "Division Master"
   },
   {
-   "fieldname": "column_break_lkei",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "material_company_code",
-   "fieldtype": "Data",
-   "label": "Company Code"
-  },
-  {
-   "fieldname": "material_type",
-   "fieldtype": "Link",
-   "label": "Material Type",
-   "options": "Material Type Master"
-  },
-  {
    "fieldname": "material_group",
    "fieldtype": "Link",
    "label": "Material Group",
    "options": "Material Group"
-  },
-  {
-   "fieldname": "material_sub_group",
-   "fieldtype": "Data",
-   "label": "Material Sub - Group"
   },
   {
    "fieldname": "brand_make",
@@ -136,18 +114,6 @@
    "fieldtype": "Select",
    "label": "Batch Requirements (Y/N)",
    "options": "No\nYes"
-  },
-  {
-   "fieldname": "base_unit_of_measure",
-   "fieldtype": "Link",
-   "label": "Base Unit of Measure",
-   "options": "UOM Master"
-  },
-  {
-   "fieldname": "profit_center",
-   "fieldtype": "Link",
-   "label": "Profit Center",
-   "options": "Profit Center Master"
   },
   {
    "fieldname": "industry",
@@ -168,17 +134,6 @@
    "options": "MRP Type Master"
   },
   {
-   "fieldname": "valuation_category",
-   "fieldtype": "Link",
-   "label": "Valuation Category",
-   "options": "Valuation Category"
-  },
-  {
-   "fieldname": "material_information",
-   "fieldtype": "Attach",
-   "label": "Material Information"
-  },
-  {
    "fieldname": "storage_location",
    "fieldtype": "Link",
    "label": "Storage Location",
@@ -186,9 +141,8 @@
   },
   {
    "fieldname": "class_number",
-   "fieldtype": "Link",
-   "label": "Class Number",
-   "options": "Class Type Master"
+   "fieldtype": "Data",
+   "label": "Class Number"
   },
   {
    "fieldname": "class_type",
@@ -219,31 +173,10 @@
    "options": "MRP Controller Master"
   },
   {
-   "fieldname": "production_storage_location",
-   "fieldtype": "Link",
-   "label": "Production Storage Location",
-   "options": "Storage Location Master"
-  },
-  {
-   "fieldname": "storage_location_for_ep",
-   "fieldtype": "Link",
-   "label": "Storage location for EP",
-   "options": "Storage Location Master"
-  },
-  {
    "fieldname": "scheduling_margin_key",
-   "fieldtype": "Data",
-   "label": "Scheduling Margin Key"
-  },
-  {
-   "fieldname": "minimum_remaining_shelf_life",
-   "fieldtype": "Data",
-   "label": "Minimum Remaining Shelf Life"
-  },
-  {
-   "fieldname": "total_shelf_life",
-   "fieldtype": "Data",
-   "label": "Total Shelf life"
+   "fieldtype": "Link",
+   "label": "Scheduling Margin Key",
+   "options": "Scheduling Margin Key"
   },
   {
    "fieldname": "serial_number_profile",
@@ -252,6 +185,7 @@
    "options": "Serial Number Profile Master"
   },
   {
+   "default": "1",
    "fieldname": "serialization_level",
    "fieldtype": "Data",
    "label": "Serialization Level"
@@ -269,45 +203,125 @@
    "options": "UOM Master"
   },
   {
-   "fieldname": "inspection_type",
-   "fieldtype": "Link",
-   "label": "Inspection Type",
-   "options": "Inspection Type Master"
+   "fieldname": "refrence_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reference"
   },
   {
-   "fieldname": "do_not_cost",
+   "fieldname": "basic_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic"
+  },
+  {
+   "fieldname": "basic_data_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Data"
+  },
+  {
+   "fieldname": "basic_data_ref_no",
+   "fieldtype": "Link",
+   "label": "Basic Data Ref. No.",
+   "options": "Requestor Master"
+  },
+  {
+   "fieldname": "column_break_ffhd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_tab",
+   "fieldtype": "Tab Break",
+   "label": "Purchase"
+  },
+  {
+   "fieldname": "purchasing_data_section",
+   "fieldtype": "Section Break",
+   "label": "Purchasing Data"
+  },
+  {
+   "fieldname": "lead_time",
    "fieldtype": "Data",
-   "label": "Do not cost"
+   "label": "Lead Time"
   },
   {
-   "fieldname": "price_control",
+   "fieldname": "column_break_uawn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchasing_value_key",
+   "fieldtype": "Data",
+   "label": "Purchasing Value Key"
+  },
+  {
+   "fieldname": "min_lot_size",
    "fieldtype": "Link",
-   "label": "Price Control",
-   "options": "Price Control Master"
+   "label": "Min Lot Size",
+   "options": "Lot Size Master"
   },
   {
-   "fieldname": "material_name_description",
+   "fieldname": "purchase_order_text",
    "fieldtype": "Small Text",
-   "label": "Material Name / Description"
+   "label": "Purchase Order Text"
   },
   {
-   "fieldname": "expiration_date",
-   "fieldtype": "Data",
-   "label": "Period Indicator for Shelf Life Expiration Date"
+   "fieldname": "store_tab",
+   "fieldtype": "Tab Break",
+   "label": "Store"
   },
   {
-   "fieldname": "valuation_class_material",
+   "fieldname": "store_data_section",
+   "fieldtype": "Section Break",
+   "label": "Store Data"
+  },
+  {
+   "fieldname": "column_break_xalo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mrp_tab",
+   "fieldtype": "Tab Break",
+   "label": "MRP"
+  },
+  {
+   "fieldname": "mrp_data_section",
+   "fieldtype": "Section Break",
+   "label": "MRP Data"
+  },
+  {
+   "fieldname": "lot_size_key",
    "fieldtype": "Link",
-   "label": "Valuation Class",
-   "options": "Valuation Class Master"
+   "label": "Lot Size Key",
+   "options": "Lot Size Master"
+  },
+  {
+   "fieldname": "column_break_foqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "procurement_type",
+   "fieldtype": "Link",
+   "label": "Procurement Type",
+   "options": "Procurement Type Master"
+  },
+  {
+   "fieldname": "conversion_issue_uom",
+   "fieldtype": "Link",
+   "label": "Conversion Issue UOM",
+   "options": "UOM Master"
+  },
+  {
+   "fieldname": "conversion_purchase_uom",
+   "fieldtype": "Link",
+   "label": "Conversion Purchase UOM",
+   "options": "UOM Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-23 09:47:04.280064",
+ "modified": "2025-06-19 17:32:18.860385",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Material Master",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
