@@ -8,7 +8,10 @@
  "field_order": [
   "material_category_code",
   "material_category_name",
-  "description"
+  "description",
+  "column_break_mnqc",
+  "material_category_key",
+  "sap_key"
  ],
  "fields": [
   {
@@ -27,11 +30,25 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "column_break_mnqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_category_key",
+   "fieldtype": "Data",
+   "label": "Material Category Key"
+  },
+  {
+   "fieldname": "sap_key",
+   "fieldtype": "Data",
+   "label": "SAP Key"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-16 17:21:30.150192",
+ "modified": "2025-06-20 19:12:41.250582",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Material Category Master",

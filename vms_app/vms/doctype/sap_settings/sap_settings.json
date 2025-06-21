@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-20 15:57:31.178160",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sap_authorization_section",
+  "authorization_type",
+  "authorization_key",
+  "column_break_ihpb",
+  "auth_user_name",
+  "auth_user_pass",
+  "material_onboarding_section_section",
+  "url"
+ ],
+ "fields": [
+  {
+   "fieldname": "sap_authorization_section",
+   "fieldtype": "Section Break",
+   "label": "SAP Authorization"
+  },
+  {
+   "fieldname": "authorization_type",
+   "fieldtype": "Data",
+   "label": "Authorization Type"
+  },
+  {
+   "fieldname": "authorization_key",
+   "fieldtype": "Data",
+   "label": "Authorization Key"
+  },
+  {
+   "fieldname": "column_break_ihpb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auth_user_name",
+   "fieldtype": "Data",
+   "label": "Auth User Name"
+  },
+  {
+   "fieldname": "auth_user_pass",
+   "fieldtype": "Data",
+   "label": "Auth User Pass"
+  },
+  {
+   "fieldname": "material_onboarding_section_section",
+   "fieldtype": "Section Break",
+   "label": "Material Onboarding Section"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-06-20 16:00:06.613110",
+ "modified_by": "Administrator",
+ "module": "vms",
+ "name": "SAP Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
