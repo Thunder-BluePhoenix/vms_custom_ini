@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2025-06-16 17:32:35.904159",
  "doctype": "DocType",
@@ -91,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-16 18:02:04.553796",
+ "modified": "2025-06-23 11:09:06.140084",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Cost Center Master",
