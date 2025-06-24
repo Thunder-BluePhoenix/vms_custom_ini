@@ -1518,7 +1518,6 @@ def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc
 
         print("SAP Response Content:", mo_sap_code)
 
-        # Save to logs
         sap_log = frappe.new_doc("Material SAP Logs")
         sap_log.requestor_ref_no = doc_name
         sap_log.erp_to_sap_data = json.dumps(data_list, indent=2)
@@ -1528,6 +1527,7 @@ def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc
 
         if response.status_code == 201:
             print("Material Onboarding posted successfully.")
+            send_sap_team_email(doc_name)
         else:
             print(f"SAP POST returned status: {response.status_code}")
 
@@ -1541,12 +1541,114 @@ def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc
 
         return {"status": "error", "message": str(e)}
 
+@frappe.whitelist()
+def send_sap_team_email(doc_name):
+    try:
+        requestor = frappe.get_doc("Requestor Master", doc_name)
+        requestor_name = requestor.requested_by
+        request_id = requestor.request_id
+        email = requestor.contact_information_email
+        cc_2 = requestor.immediate_reporting_head
+
+        sap_email = frappe.get_value("Employee Master", {"role": "SAP"}, "email")
+
+        mo_doc_name = requestor.material_onboarding_ref_no
+        mo_details = frappe.get_doc("Material Onboarding", mo_doc_name)
+
+        cc_team = mo_details.approved_by_name
+        cc_email = frappe.get_value("Employee Master", {"name": cc_team}, "email")
+        cp_name = frappe.get_value("Employee Master", {"name": cc_team}, "full_name")
+        cc_email2 = frappe.get_value("Employee Master", {"name": cc_2}, "email")
+
+        cc_list = list(filter(None, [email, cc_email, cc_email2]))
+        bcc_address = "rishi.hingad@merillife.com"
+
+        if not requestor.material_request_item:
+            frappe.throw("No material items found in the request.")
+
+        material_row = requestor.material_request_item[0]
+        company_name = material_row.company_name or "-"
+        plant_name = material_row.plant_name or "-"
+        material_type = material_row.material_type or "-"
+        material_description = material_row.material_name_description or "-"
+
+        conf = frappe.conf
+        smtp_server = conf.get("smtp_server")
+        smtp_port = conf.get("smtp_port")
+        smtp_user = conf.get("smtp_user")
+        smtp_password = conf.get("smtp_password")
+
+        if not all([smtp_server, smtp_port, smtp_user, smtp_password]):
+            frappe.log_error("SMTP settings missing in site_config", "SAP Email Error")
+            return {"status": "fail", "message": _("SMTP settings are not configured.")}
+
+        subject = f"Request for Creating New Material Code in {company_name}"
+        message = f"""
+            <p>Dear SAP Team,</p>
+            <p>The following request to generate or create a new material code has been submitted by <strong>{cp_name}</strong>, which was initially requested by <strong>{requestor_name}</strong>.</p>
+            <ul>
+                <li><strong>Request ID:</strong> {request_id}</li>
+                <li><strong>Company:</strong> {company_name}</li>
+                <li><strong>Plant:</strong> {plant_name}</li>
+                <li><strong>Material Type:</strong> {material_type}</li>
+                <li><strong>Material Description:</strong> {material_description}</li>
+            </ul>
+            <p>Regards,<br>ERP System</p>
+        """
+
+        msg = MIMEMultipart()
+        msg['From'] = smtp_user
+        msg['To'] = sap_email
+        msg['Subject'] = subject
+        msg['Cc'] = ", ".join(cc_list)
+        msg['Bcc'] = bcc_address
+        msg.attach(MIMEText(message, 'html'))
+
+        recipients = [sap_email] + cc_list + [bcc_address]
+
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(smtp_user, smtp_password)
+        server.sendmail(smtp_user, recipients, msg.as_string())
+        server.quit()
+
+        frappe.get_doc({
+            'doctype': 'Email Log',
+            'to_email': sap_email,
+            'from_email': smtp_user,
+            'message': message,
+            'status': "Successfully Sent",
+            'screen': "Material Onboarding",
+            'created_by': smtp_user
+        }).insert(ignore_permissions=True)
+
+        frappe.db.commit()
+        return {"status": "success", "message": _("Email sent successfully.")}
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "SAP Email Send Failed")
+        try:
+            frappe.get_doc({
+                'doctype': 'Email Log',
+                'to_email': sap_email if 'sap_email' in locals() else "",
+                'from_email': smtp_user if 'smtp_user' in locals() else "",
+                'message': f"Error: {str(e)}",
+                'status': f"Failed: {e}",
+                'screen': "Material Onboarding",
+                'created_by': smtp_user if 'smtp_user' in locals() else ""
+            }).insert(ignore_permissions=True)
+            frappe.db.commit()
+        except:
+            pass
+        return {"status": "fail", "message": _("Failed to send email.")}
+
+
 @frappe.whitelist(allow_guest = True)
 def get_material_code_from_sap():
     print("--------------------API GOT HIT IN SAP---------------")
     try:
         data = frappe.request.get_json()
-        print("SAP Data=====>",data)
+        # print("SAP Data=====>",data)
         if not data:
             return {"status": "fail", "message": "No JSON body received"}
 
@@ -1583,7 +1685,7 @@ def get_material_code_from_sap():
         log.save(ignore_permissions=True)
 
         frappe.db.commit()
-        send_sap_update_email(requestor_doc, matnr, maktx, zmsg, ztext)
+        send_email_from_sap(requestor_doc, matnr, maktx, zmsg, ztext)
 
         return {
             "status": "success",
@@ -1597,7 +1699,7 @@ def get_material_code_from_sap():
 
 
 @frappe.whitelist()
-def send_sap_update_email(requestor_doc, matnr, maktx, zmsg, ztext):
+def send_email_from_sap(requestor_doc, matnr, maktx, zmsg, ztext):
     try:
         print("Email Function Hit")
 
@@ -1628,10 +1730,9 @@ def send_sap_update_email(requestor_doc, matnr, maktx, zmsg, ztext):
             <li><b>Message:</b> {zmsg}</li>
             <li><b>Details:</b> {ztext}</li>
         </ul>
-        <p>Thank you,<br/>ERP System</p>
+        <p>Thank you,<br/></p>
         """
 
-        # 💡 Pull SMTP Config Manually
         conf = frappe.conf
         smtp_server = conf.get("smtp_server")
         smtp_port = conf.get("smtp_port")
@@ -1660,12 +1761,32 @@ def send_sap_update_email(requestor_doc, matnr, maktx, zmsg, ztext):
 
         print("Email sent successfully.")
 
+        frappe.get_doc({
+            'doctype': 'Email Log',
+            'to_email': to_email,
+            'from_email': from_email,
+            'message': message,
+            'status': "Successfully Sent",
+            'screen': "Material Onboarding",
+            'created_by': from_email
+        }).insert(ignore_permissions=True)
+
+        frappe.db.commit()
+        return {"status": "success", "message": _("Email sent successfully.")}
+
     except Exception as e:
-        frappe.log_error(frappe.get_traceback(), "SAP Update Email Failure")
-        print("Email failed:", str(e))
+        frappe.get_doc({
+            'doctype': 'Email Log',
+            'to_email': to_email,
+            'from_email': from_email,
+            'message': message,
+            'status': f"Failed: {e}",
+            'screen': "Material Onboarding",
+            'created_by': from_email
+        }).insert(ignore_permissions=True)
 
-
-
+        frappe.db.commit()
+        return {"status": "fail", "message": _("Failed to send email.")}
 
 # @frappe.whitelist(allow_guest=False)
 # def create_material_onboarding():
