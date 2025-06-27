@@ -1170,7 +1170,7 @@ def verify_material_onboarding_otp(user_name, entered_otp):
 
 
 @frappe.whitelist(allow_guest=True)
-def custom_employee_login(usr, pwd):
+def custom_employee_login_abc(usr, pwd):
     if not usr.endswith("@merillife.com"):
         return {"status": "fail", "message": "Only @merillife.com emails are allowed."}
 

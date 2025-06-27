@@ -1,7 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{mrp_code} - {mrp_name}",
+ "autoname": "field:mrp_code",
  "creation": "2025-04-24 16:44:47.812345",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,7 +21,8 @@
   {
    "fieldname": "mrp_code",
    "fieldtype": "Data",
-   "label": "MRP Code"
+   "label": "MRP Code",
+   "unique": 1
   },
   {
    "fieldname": "column_break_vhir",
@@ -34,11 +36,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-24 16:47:44.741879",
+ "modified": "2025-06-27 12:36:48.313730",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "MRP Type Master",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

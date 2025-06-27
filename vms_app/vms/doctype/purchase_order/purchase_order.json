@@ -251,7 +251,7 @@
    "fieldname": "city",
    "fieldtype": "Data",
    "label": "City",
-   "options": "City Master"
+   "options": "Old City Master"
   },
   {
    "fieldname": "district",
@@ -306,7 +306,7 @@
    "fieldname": "shipping_city",
    "fieldtype": "Data",
    "label": "City",
-   "options": "City Master"
+   "options": "Old City Master"
   },
   {
    "fieldname": "shipping_district",
@@ -550,7 +550,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 10:38:22.259521",
+ "modified": "2025-06-27 12:16:53.397493",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Order",

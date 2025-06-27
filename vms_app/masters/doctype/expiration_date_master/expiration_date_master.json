@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:expiration_date_code",
  "creation": "2025-06-19 01:47:03.934075",
@@ -41,7 +42,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-19 01:48:24.562748",
+ "modified": "2025-06-27 15:00:23.694214",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Expiration Date Master",

@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:material_code",
+ "creation": "2025-06-27 12:41:55.882965",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "company_code",
+  "plant",
+  "material_type",
+  "material_code",
+  "material_description",
+  "base_uom",
+  "material_group",
+  "mrp_type",
+  "column_break_gcns",
+  "valuation_class",
+  "price_control",
+  "created_by",
+  "valuation_type",
+  "purchasing_group",
+  "price_unit",
+  "currency"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "company_code",
+   "fieldtype": "Link",
+   "label": "Company Code",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "label": "Material Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "material_description",
+   "fieldtype": "Data",
+   "label": "Material Description"
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Link",
+   "label": "Plant",
+   "options": "Plant Master"
+  },
+  {
+   "fieldname": "material_type",
+   "fieldtype": "Link",
+   "label": "Material Type",
+   "options": "Material Type Master"
+  },
+  {
+   "fieldname": "base_uom",
+   "fieldtype": "Link",
+   "label": "Base UOM",
+   "options": "UOM Master"
+  },
+  {
+   "fieldname": "material_group",
+   "fieldtype": "Link",
+   "label": "Material Group",
+   "options": "Material Group"
+  },
+  {
+   "fieldname": "mrp_type",
+   "fieldtype": "Link",
+   "label": "MRP Type",
+   "options": "MRP Type Master"
+  },
+  {
+   "fieldname": "column_break_gcns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_class",
+   "fieldtype": "Link",
+   "label": "Valuation Class",
+   "options": "Valuation Class Master"
+  },
+  {
+   "fieldname": "price_control",
+   "fieldtype": "Link",
+   "label": "Price Control",
+   "options": "Price Control Master"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "label": "Created by"
+  },
+  {
+   "fieldname": "valuation_type",
+   "fieldtype": "Data",
+   "label": "Valuation Type"
+  },
+  {
+   "fieldname": "purchasing_group",
+   "fieldtype": "Link",
+   "label": "Purchasing Group",
+   "options": "Purchase Group Master"
+  },
+  {
+   "fieldname": "price_unit",
+   "fieldtype": "Data",
+   "label": "Price Unit"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency Master"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-27 12:47:23.940640",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Material Code Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

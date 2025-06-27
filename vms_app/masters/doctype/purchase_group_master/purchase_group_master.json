@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-03-27 11:36:22.816400",
  "doctype": "DocType",
@@ -49,7 +50,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-15 12:54:18.550448",
+ "modified": "2025-06-27 12:28:18.408688",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Purchase Group Master",

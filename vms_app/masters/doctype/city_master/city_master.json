@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:city_name",
- "creation": "2024-03-27 11:26:21.742006",
+ "creation": "2025-06-27 12:17:02.570835",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -35,7 +35,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 16:06:34.496574",
+ "modified": "2025-06-27 12:17:02.570835",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "City Master",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:material_category_code",
  "creation": "2024-04-18 17:14:53.262220",
@@ -48,7 +49,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-20 19:12:41.250582",
+ "modified": "2025-06-27 12:51:38.061761",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Material Category Master",

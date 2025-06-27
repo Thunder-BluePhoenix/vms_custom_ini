@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:serial_no_profile",
  "creation": "2025-05-19 15:04:03.477313",
@@ -35,7 +36,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 15:06:03.373027",
+ "modified": "2025-06-27 12:32:06.116196",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Serial Number Profile Master",

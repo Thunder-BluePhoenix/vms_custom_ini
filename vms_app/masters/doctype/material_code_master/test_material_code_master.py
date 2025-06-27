@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestCityMaster(FrappeTestCase):
+class TestMaterialCodeMaster(FrappeTestCase):
 	pass

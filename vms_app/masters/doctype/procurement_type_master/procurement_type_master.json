@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:procurement_type_code",
  "creation": "2025-04-25 10:05:59.055311",
@@ -35,7 +36,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-25 10:07:35.152331",
+ "modified": "2025-06-27 12:25:21.235095",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Procurement Type Master",

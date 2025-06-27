@@ -1,7 +1,8 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{industry_code} - {industry_name}",
+ "autoname": "field:industry_code",
  "creation": "2025-04-24 16:08:32.771199",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,7 +21,8 @@
   {
    "fieldname": "industry_code",
    "fieldtype": "Data",
-   "label": "Industry Code"
+   "label": "Industry Code",
+   "unique": 1
   },
   {
    "fieldname": "column_break_wtki",
@@ -34,11 +36,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-24 16:09:35.252337",
+ "modified": "2025-06-27 15:05:40.734548",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Industry Master",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

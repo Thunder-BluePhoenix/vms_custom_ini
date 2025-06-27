@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:cost_center_category_code",
  "creation": "2025-06-16 17:59:45.810615",
@@ -41,7 +42,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-16 18:00:51.688699",
+ "modified": "2025-06-27 11:11:41.145891",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Cost Center Category Master",

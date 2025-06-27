@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:zone_name",
  "creation": "2025-05-12 12:31:30.472829",
@@ -29,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-12 12:32:07.837871",
+ "modified": "2025-06-27 11:22:07.152739",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Zone Master",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{full_name} - {employee_code}",
  "creation": "2025-04-24 11:46:22.728342",
@@ -124,7 +125,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-24 15:22:05.704476",
+ "modified": "2025-06-27 15:03:36.996496",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Employee Master",

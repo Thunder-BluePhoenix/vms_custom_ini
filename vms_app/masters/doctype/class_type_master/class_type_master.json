@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:class_type",
  "creation": "2025-05-17 12:26:23.357553",
@@ -35,7 +36,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 15:35:30.418569",
+ "modified": "2025-06-27 11:09:39.238071",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Class Type Master",
