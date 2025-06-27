@@ -3,7 +3,7 @@ from frappe import _
 from frappe.auth import LoginManager
 
 @frappe.whitelist(allow_guest=True)
-def employee_login_abc(data):
+def custom_employee_login(data):
     usr = data.get("usr")
     pwd = data.get("pwd")
     if not usr.endswith("@merillife.com"):

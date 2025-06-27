@@ -6,6 +6,7 @@ from frappe.model.document import Document
 
 
 class MaterialOnboarding(Document):
-	def on_update(self):
-		# Custom logic to be executed on update
-		frappe.msgprint("Material Onboarding document has been updated.")
+	# def on_update(self):
+	# 	# Custom logic to be executed on update
+	# 	frappe.msgprint("Material Onboarding document has been updated.")
+	pass
