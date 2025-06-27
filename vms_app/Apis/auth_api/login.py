@@ -1,9 +1,15 @@
+import json
 import frappe
 from frappe import _
 from frappe.auth import LoginManager
 
 @frappe.whitelist(allow_guest=True)
-def custom_employee_login(data):
+def custom_employee_login():
+    try:
+        data = json.loads(frappe.request.data)
+    except Exception as e:
+        return {"status": "fail", "message": "Invalid request data."}
+
     usr = data.get("usr")
     pwd = data.get("pwd")
     if not usr.endswith("@merillife.com"):
