@@ -3594,7 +3594,7 @@ def show_dispatch_order_detail_vendor(**kwargs):
 
         for item in detail.get('dispatch_order_item', []):
             if item.get('uom'):
-                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "uom")
+                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "name")
             if item.get('product_code'):
                 item['product_code'] = frappe.db.get_value("Product Master", item['product_code'], "product_code")
             if item.get('product_name'):
@@ -3615,19 +3615,25 @@ def show_dispatch_order_detail(**kwargs):
     purchase_numbers_list = []
 
     if pno:
-        vendor_code = frappe.db.get_value("Purchase Order", filters={"name": pno}, fieldname='vendor_code')
+        vendor_code = frappe.db.get_value("Purchase Order", {"name": pno}, "vendor_code")
         vendor_name = frappe.db.get_value("Vendor Master", vendor_code, "vendor_name") if vendor_code else "Unknown Vendor"
         registered_by = frappe.db.get_value("Vendor Master", vendor_code, "registered_by") if vendor_code else "Unknown Vendor"
-        po_number = frappe.db.get_value("Purchase Order", filters={"name": pno}, fieldname='po_number') or "Not Available"
-        bill_to_company = frappe.db.get_value("Purchase Order", filters={"name": pno}, fieldname='bill_to_company')
-        ship_to_company = frappe.db.get_value("Purchase Order", filters={"name": pno}, fieldname='ship_to_company')
-        
+        po_number = frappe.db.get_value("Purchase Order", {"name": pno}, "po_number") or "Not Available"
+
+        bill_to_company_code = frappe.db.get_value("Purchase Order", {"name": pno}, "bill_to_company")
+        bill_to_company = frappe.db.get_value("Company Master", bill_to_company_code, "company_name") if bill_to_company_code else None
+
+        ship_to_company_code = frappe.db.get_value("Purchase Order", {"name": pno}, "ship_to_company")
+        ship_to_company = frappe.db.get_value("Company Master", ship_to_company_code, "company_name") if ship_to_company_code else None
+
         dispatch_detail = frappe.db.sql("""SELECT * FROM `tabDispatch Item` WHERE purchase_number=%s""", (pno,), as_dict=1)
     else:
         dispatch_detail = frappe.db.sql("""SELECT * FROM `tabDispatch Item`""", as_dict=1)
 
     for detail in dispatch_detail:
-        dispatch_order_item = frappe.db.sql("""SELECT * FROM `tabDispatch Order Items` WHERE parent=%s""", (detail['name'],), as_dict=1)
+        dispatch_order_item = frappe.db.sql(
+            """SELECT * FROM `tabDispatch Order Items` WHERE parent=%s""", (detail['name'],), as_dict=1
+        )
         detail['dispatch_order_item'] = dispatch_order_item
 
         if not pno:
@@ -3645,15 +3651,19 @@ def show_dispatch_order_detail(**kwargs):
                 purchase_number = purchase_numbers_list[0]
                 print("**** Extracted Purchase Number ****", purchase_number)
 
-                vendor_code = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname=['vendor_code'])
-                vendor_name = frappe.db.get_value("Vendor Master", filters={"vendor_code": vendor_code}, fieldname=["vendor_name"]) if vendor_code else "Unknown Vendor"
-                registered_by = frappe.db.get_value("Vendor Master", filters={"vendor_code": vendor_code}, fieldname=["registered_by"]) if vendor_code else "Unknown Vendor"
-                po_number = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname='po_number') or "Not Available"
-                bill_to_company_code = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname='bill_to_company')
+                vendor_code = frappe.db.get_value("Purchase Order", {"name": purchase_number}, "vendor_code")
+                vendor_name = frappe.db.get_value("Vendor Master", vendor_code, "vendor_name") if vendor_code else "Unknown Vendor"
+                registered_by = frappe.db.get_value("Vendor Master", vendor_code, "registered_by") if vendor_code else "Unknown Vendor"
+                po_number = frappe.db.get_value("Purchase Order", {"name": purchase_number}, "po_number") or "Not Available"
+
+                bill_to_company_code = frappe.db.get_value("Purchase Order", {"name": purchase_number}, "bill_to_company")
                 bill_to_company = frappe.db.get_value("Company Master", bill_to_company_code, "company_name") if bill_to_company_code else None
-                ship_to_company_code = frappe.db.get_value("Purchase Order", filters={"name": purchase_number}, fieldname='ship_to_company')
+
+                ship_to_company_code = frappe.db.get_value("Purchase Order", {"name": purchase_number}, "ship_to_company")
                 ship_to_company = frappe.db.get_value("Company Master", ship_to_company_code, "company_name") if ship_to_company_code else None
-                print("Registered_by---->",vendor_code,vendor_name,registered_by)
+
+                print("Registered_by ---->", vendor_code, vendor_name, registered_by)
+
         detail['vendor_name'] = vendor_name
         detail['registered_by'] = registered_by
         detail['po_number'] = po_number
@@ -3662,14 +3672,15 @@ def show_dispatch_order_detail(**kwargs):
 
         for item in dispatch_order_item:
             if item.get('uom'):
-                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "uom_code")
+                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "name")  # correct field!
+
             if item.get('product_code'):
                 item['product_code'] = frappe.db.get_value("Product Master", item['product_code'], "product_code")
+
             if item.get('product_name'):
                 item['product_name'] = frappe.db.get_value("Product Master", item['product_name'], "product_name")
 
     return dispatch_detail
-
 
 @frappe.whitelist()
 def total_number_of_dispatch_details(vendor_code):
