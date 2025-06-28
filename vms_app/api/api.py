@@ -3025,7 +3025,7 @@ def show_material_onboarding_list():
                 "comment_by_user": material.comment_by_user,
                 "requested_by": requestor_doc.requested_by,
                 "request_date": requestor_doc.request_date,
-                "requestor_company": requestor_doc.company,
+                "requestor_company": requestor_doc.requestor_company,
                 "contact_information_email": requestor_doc.contact_information_email, 
                 "approval_status": requestor_doc.approval_status,  
             }
@@ -3048,14 +3048,10 @@ def get_material_onboarding_details(name, material_name):
     requestor_dict = requestor_doc.as_dict()
 
     if requestor_doc.requestor_company:
-        requestor_dict["requestor_company_name"] = frappe.db.get_value(
-            "Company Master", requestor_doc.requestor_company, "company_name"
-        )
+        requestor_dict["requestor_company_name"] = frappe.db.get_value("Company Master", requestor_doc.requestor_company, "company_name")
 
     selected_row = next(
-        (row for row in requestor_doc.material_request if row.name == material_name),
-        None
-    )
+        (row for row in requestor_doc.material_request if row.name == material_name), None)
     # Fetch Material Master (with children)
     material_master_data = {}
     mm_ref = requestor_doc.get("material_master_ref_no")
@@ -3080,9 +3076,7 @@ def get_material_onboarding_details(name, material_name):
             material_onboarding_data["children"] = [d.as_dict() for d in mo_doc.get_all_children()]
             material_onboarding_data = mo_doc.as_dict()
             if mo_doc.company:
-                material_onboarding_data["company_name"] = frappe.db.get_value(
-                    "Company Master", mo_doc.company, "company_name"
-                )
+                material_onboarding_data["company_name"] = frappe.db.get_value("Company Master", mo_doc.company, "company_name")
         except Exception as e:
             frappe.log_error(f"Failed to get Material Onboarding '{mo_ref}'", str(e))
 

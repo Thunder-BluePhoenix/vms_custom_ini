@@ -12,7 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 from email.message import EmailMessage
-#import fitz
+import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 
@@ -22,6 +22,7 @@ class SendEmail:
 
     def __init__(self):
         pass
+    
     @frappe.whitelist(allow_guest=True)
     def send_email(self, from_address, to_address, subject):
 
