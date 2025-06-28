@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-08-20 12:09:57.451737",
  "doctype": "DocType",
@@ -137,7 +138,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-31 10:51:55.850450",
+ "modified": "2025-06-28 02:46:46.655900",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Payment Requisition",

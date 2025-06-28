@@ -278,7 +278,7 @@
   },
   {
    "fieldname": "incoterms2",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Incoterms2",
    "options": "Incoterm Master"
   },
@@ -384,7 +384,7 @@
   },
   {
    "fieldname": "onboarding_ref_no",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Onboarding Ref No",
    "options": "Vendor Onboarding"
   },
@@ -428,7 +428,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-19 10:38:22.909325",
+ "modified": "2025-06-27 18:39:30.991573",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Master",

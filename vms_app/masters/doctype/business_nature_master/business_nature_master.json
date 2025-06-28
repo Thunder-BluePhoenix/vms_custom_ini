@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:business_nature_name",
  "creation": "2024-03-27 11:30:35.203916",
@@ -32,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 10:03:37.235326",
+ "modified": "2025-06-27 18:43:25.048846",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Business Nature Master",

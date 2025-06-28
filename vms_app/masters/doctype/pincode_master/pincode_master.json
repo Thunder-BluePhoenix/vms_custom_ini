@@ -24,10 +24,10 @@
   },
   {
    "fieldname": "city",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "City",
-   "options": "Old City Master"
+   "options": "City Master"
   },
   {
    "fieldname": "district",
@@ -57,7 +57,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-27 12:16:55.186494",
+ "modified": "2025-06-28 02:16:50.736043",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Pincode Master",

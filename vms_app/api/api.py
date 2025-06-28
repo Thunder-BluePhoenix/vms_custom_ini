@@ -2945,10 +2945,9 @@ def get_all_material_descriptions_and_codes():
                 "material_name_description": child.material_name_description,
                 "material_code_revised": child.material_code_revised
             })
-
     return results
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def get_all_material_codes():
     try:
         materials = frappe.get_all(

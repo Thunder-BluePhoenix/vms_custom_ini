@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-06-27 14:27:28.321585",
  "doctype": "DocType",
@@ -128,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-05 13:18:05.789152",
+ "modified": "2025-06-28 02:24:28.699312",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Dispatch Item",

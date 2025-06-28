@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:vendor_type_name",
  "creation": "2024-03-27 11:47:41.231372",
@@ -32,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-27 17:06:35.792227",
+ "modified": "2025-06-27 18:39:53.532172",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Vendor Type Master",

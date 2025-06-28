@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:VO/{ref_no}",
  "creation": "2024-03-27 12:57:53.451043",
@@ -1174,7 +1175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-27 14:32:13.419320",
+ "modified": "2025-06-28 01:55:27.054083",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Vendor Onboarding",

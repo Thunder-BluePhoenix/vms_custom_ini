@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:company_nature_name",
  "creation": "2024-03-27 11:32:08.471685",
@@ -32,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 10:04:03.744296",
+ "modified": "2025-06-27 18:43:18.989354",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Company Nature Master",

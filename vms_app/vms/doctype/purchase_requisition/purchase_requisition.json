@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2024-07-05 10:52:02.670269",
  "doctype": "DocType",
@@ -46,7 +47,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-27 16:03:30.349748",
+ "modified": "2025-06-28 01:59:04.853343",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Purchase Requisition",
