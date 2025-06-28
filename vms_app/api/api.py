@@ -3662,7 +3662,7 @@ def show_dispatch_order_detail(**kwargs):
 
         for item in dispatch_order_item:
             if item.get('uom'):
-                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "uom")
+                item['uom'] = frappe.db.get_value("UOM Master", item['uom'], "uom_code")
             if item.get('product_code'):
                 item['product_code'] = frappe.db.get_value("Product Master", item['product_code'], "product_code")
             if item.get('product_name'):
