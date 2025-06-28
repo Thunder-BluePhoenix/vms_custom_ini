@@ -12,7 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 from email.message import EmailMessage
-#import fitz
+import fitz
 import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail
@@ -26,7 +26,7 @@ from vms_app.api.config.api import SAP_BASE_URL
 from vms_app.utils.utils import get_token_from_sap, send_request
 import uuid
 from frappe.utils.file_manager import save_file
-# import pandas as pd
+import pandas as pd
 
 
 @frappe.whitelist(allow_guest=True)

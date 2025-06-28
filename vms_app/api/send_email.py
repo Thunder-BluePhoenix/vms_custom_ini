@@ -26,10 +26,11 @@ class SendEmail:
     @frappe.whitelist(allow_guest=True)
     def send_email(self, from_address, to_address, subject):
 
-        smtp_server = "smtp.transmail.co.in"
-        smtp_port = 587
-        smtp_user = "emailapikey"  
-        smtp_password = "PHtE6r1cF7jiim598RZVsPW9QMCkMN96/uNveQUTt4tGWPNRTk1U+tgokDO0rRx+UKZAHKPInos5tbqZtbiHdz6/Z2dED2qyqK3sx/VYSPOZsbq6x00as1wSc0TfUILscdds1CLfutnYNA=="  
+        conf = frappe.conf
+        smtp_server = conf.get("smtp_server")
+        smtp_port = conf.get("smtp_port")
+        smtp_user = conf.get("smtp_user")
+        smtp_password = conf.get("smtp_password")
         self.from_address = from_address 
         self.to_address = to_address
         self.subject = subject
