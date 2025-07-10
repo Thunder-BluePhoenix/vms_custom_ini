@@ -1,9 +1,8 @@
 import frappe
-import requests
+import requests # type: ignore
 import json
 from frappe import _
-from frappe.utils import getdate
-from requests.auth import HTTPBasicAuth
+from requests.auth import HTTPBasicAuth # type: ignore
 from vms_app.sap_api.send_sap_team_email import send_sap_team_email
 
 
