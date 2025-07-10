@@ -9,8 +9,11 @@
  "field_order": [
   "category_details_section",
   "category_name",
+  "name_of_person",
+  "category_email",
   "column_break_wzvf",
-  "category_email"
+  "alternative_name",
+  "alternative_email_id"
  ],
  "fields": [
   {
@@ -32,11 +35,26 @@
    "fieldname": "category_email",
    "fieldtype": "Data",
    "label": "Category Email"
+  },
+  {
+   "fieldname": "alternative_email_id",
+   "fieldtype": "Data",
+   "label": "Alternative Email ID"
+  },
+  {
+   "fieldname": "name_of_person",
+   "fieldtype": "Data",
+   "label": "Name of Person"
+  },
+  {
+   "fieldname": "alternative_name",
+   "fieldtype": "Data",
+   "label": "Alternative Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-21 10:58:29.184620",
+ "modified": "2025-07-03 19:48:01.223724",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Category Master",

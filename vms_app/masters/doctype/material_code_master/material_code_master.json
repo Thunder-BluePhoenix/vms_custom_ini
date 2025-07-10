@@ -23,7 +23,8 @@
   "valuation_type",
   "purchasing_group",
   "price_unit",
-  "currency"
+  "currency",
+  "profit_center"
  ],
  "fields": [
   {
@@ -120,11 +121,17 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency Master"
+  },
+  {
+   "fieldname": "profit_center",
+   "fieldtype": "Link",
+   "label": "Profit Center",
+   "options": "Profit Center Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-27 12:47:23.940640",
+ "modified": "2025-07-08 16:28:12.100247",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Material Code Master",

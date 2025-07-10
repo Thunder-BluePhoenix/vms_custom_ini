@@ -2,13 +2,14 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:account_assign_group",
+ "autoname": "format:{account_assign_group} - {company}",
  "creation": "2025-05-17 12:35:42.506374",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "account_assign_group_details_section",
   "account_assign_group",
+  "company",
   "column_break_krfz",
   "description"
  ],
@@ -21,8 +22,7 @@
   {
    "fieldname": "account_assign_group",
    "fieldtype": "Data",
-   "label": "Account Assign Group",
-   "unique": 1
+   "label": "Account Assign Group"
   },
   {
    "fieldname": "column_break_krfz",
@@ -32,15 +32,21 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-17 12:36:38.202437",
+ "modified": "2025-07-03 10:29:14.367813",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Account Assign Group Master",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

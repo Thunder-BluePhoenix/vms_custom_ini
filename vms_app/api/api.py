@@ -16,7 +16,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 from email.message import EmailMessage
-#import fitz
+import fitz # type: ignore
 import os
 from frappe.utils.file_manager import get_files_path
 from vms_app.api.send_email import SendEmail
@@ -1218,41 +1218,6 @@ def employee_login_abc(data):
     }
 
 
-# @frappe.whitelist()
-# def get_all_material_type_master_details():
-#     try:
-#         material_type_masters = frappe.get_all(
-#             "Material Type Master",
-#             fields=["*"],
-#         )
-
-#         result = []
-
-#         for mt in material_type_masters:
-#             doc = frappe.get_doc("Material Type Master", mt.name)
-
-#             valuation_rows = []
-#             for row in doc.valuation_and_profit:
-#                 valuation_rows.append({
-#                     "valuation_class": row.valuation_class,
-#                     "profit_center": row.profit_center,
-#                     "division": row.division,
-#                 })
-
-#             result.append({
-#                 "name": doc.name,
-#                 "material_type_name": doc.material_type_name,
-#                 "description": doc.description,
-#                 "company": doc.company,
-#                 "valuation_and_profit": valuation_rows
-#             })
-
-#         return result
-
-#     except Exception as e:
-#         frappe.log_error(frappe.get_traceback(), "get_all_material_type_master_details_error")
-#         return frappe.throw(_("Failed to fetch Material Type Master details: {0}").format(str(e)))
-
 @frappe.whitelist()
 def get_all_material_type_master_details():
     try:
@@ -1278,12 +1243,42 @@ def get_all_material_type_master_details():
                     pc = frappe.get_value("Profit Center Master",row.profit_center,"description")
                     profit_center_description = pc or ""
 
+                division_description = ""
+                division_code = ""
+                if row.division:
+                    division_code = frappe.get_value( "Division Master", row.division, "division_code") or ""
+                    dd = frappe.get_value( "Division Master", row.division, "description")
+                    division_description = dd or ""
+
                 valuation_rows.append({
                     "valuation_class": row.valuation_class,
                     "valuation_class_description": valuation_class_description,
                     "profit_center": row.profit_center,
                     "profit_center_description": profit_center_description,
                     "division": row.division,
+                    # "division_name": f"{division_code} - {division_description}".strip(" -"),
+                    "division_name": " - ".join(filter(None, [division_code, division_description])),
+                    "company": row.company,
+                })
+
+            company_rows = []
+            for row in doc.multiple_company:
+                company_name = ""
+                if row.code_of_company:
+                    company_name = frappe.get_value("Company Master", row.code_of_company, "company_name") or ""
+                company_rows.append({
+                    "company": row.code_of_company,
+                    "company_name": company_name,
+                })
+
+            storage_rows = []
+            for row in doc.storage_table:
+                storage_desc = ""
+                if row.storage_location:
+                    storage_desc = frappe.get_value("Storage Location Master",row.storage_location,"storage_location_name") or ""
+                storage_rows.append({
+                    "storage_location": row.storage_location,
+                    "storage_name": storage_desc,
                 })
 
             result.append({
@@ -1291,7 +1286,10 @@ def get_all_material_type_master_details():
                 "material_type_name": doc.material_type_name,
                 "description": doc.description,
                 "company": doc.company,
-                "valuation_and_profit": valuation_rows
+                "material_category_type": doc.material_category_type,
+                "valuation_and_profit": valuation_rows,
+                "multiple_company": company_rows,
+                "storage_table": storage_rows,
             })
 
         return result
@@ -1545,10 +1543,14 @@ def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc
         frappe.db.commit()
 
         if response.status_code == 201:
-            print("Material Onboarding posted successfully.")
-            frappe.db.set_value("Requestor Master", doc_name, "approval_status", "Sent to SAP")
-            frappe.db.commit()
-            send_sap_team_email(doc_name)
+            if isinstance(mo_sap_code, dict):
+                ztext = mo_sap_code.get("d", {}).get("Ztext", "").strip().lower()
+            if ztext == "record insreated.":
+                frappe.msgprint("✅ Material record successfully sent to SAP.", alert=True)
+                print("Material Onboarding posted successfully.")
+                frappe.db.set_value("Requestor Master", doc_name, "approval_status", "Sent to SAP")
+                frappe.db.commit()
+                send_sap_team_email(doc_name)
         else:
             print(f"SAP POST returned status: {response.status_code}")
 
@@ -1947,7 +1949,7 @@ def create_requestor_details():
                 for entry in material_list:
                     requestor_doc.append("material_request", {
                         "material_name_description": entry.get("material_name_description"),
-                        # "material_code_revised": entry.get("material_code_revised"),
+                        "material_code_revised": entry.get("material_code_revised"),
                         "company_name": entry.get("material_company_code"),
                         "plant_name": entry.get("plant_name"),
                         "material_category":entry.get("material_category"),
@@ -3091,14 +3093,10 @@ def show_requestor_master_list():
     return requestor_master_list
 
 @frappe.whitelist()
-def show_material_onboarding_list():
+def show_material_onboarding_lists():
     material_onboarding_list = []
 
-    requestors = frappe.get_all(
-        "Requestor Master",
-        fields=["name"],
-        order_by="request_date DESC, creation DESC"
-    )
+    requestors = frappe.get_all("Requestor Master", fields=["*"], order_by="request_date DESC, creation DESC")
 
     for requestor in requestors:
         requestor_doc = frappe.get_doc("Requestor Master", requestor.name)
@@ -3137,18 +3135,29 @@ def get_material_onboarding_details(name, material_name):
         frappe.throw(f"Requestor Master with name '{name}' not found")
 
     requestor_dict = requestor_doc.as_dict()
+    # Patch material_type_name in each row of material_request
+    for row in requestor_dict.get("material_request", []):
+        if row.get("material_type"):
+            row["material_type_name"] = frappe.db.get_value("Material Type Master",row["material_type"],"material_type") or ""
 
     if requestor_doc.requestor_company:
         requestor_dict["requestor_company_name"] = frappe.db.get_value("Company Master", requestor_doc.requestor_company, "company_name")
 
-    selected_row = next(
-        (row for row in requestor_doc.material_request if row.name == material_name), None)
+    selected_row = next((row for row in requestor_doc.material_request if row.name == material_name), None)
+
+    material_type_name = ""
+    if selected_row and selected_row.material_type:
+        material_type_name = frappe.db.get_value("Material Type Master",selected_row.material_type,"material_type") or ""
+
+    material_request_item = selected_row.as_dict() if selected_row else {}
+    if material_type_name:
+        material_request_item["material_type_name"] = material_type_name
+
     # Fetch Material Master (with children)
     material_master_data = {}
     mm_ref = requestor_doc.get("material_master_ref_no")
     if mm_ref:
         try:
-            # material_master_data = frappe.get_doc("Material Master", mm_ref).as_dict()
             material_doc = frappe.get_doc("Material Master", mm_ref)
             material_master_data = material_doc.as_dict()
             material_master_data["children"] = [d.as_dict() for d in material_doc.get_all_children()]
@@ -3161,7 +3170,6 @@ def get_material_onboarding_details(name, material_name):
     mo_ref = requestor_doc.get("material_onboarding_ref_no")
     if mo_ref:
         try:
-            # mo_doc = frappe.get_doc("Material Onboarding", mo_ref)
             mo_doc = frappe.get_doc("Material Onboarding", mo_ref)
             material_onboarding_data = mo_doc.as_dict()
             material_onboarding_data["children"] = [d.as_dict() for d in mo_doc.get_all_children()]
@@ -3173,7 +3181,7 @@ def get_material_onboarding_details(name, material_name):
 
     return {
         "requestor_master": requestor_dict,
-        "material_request_item": selected_row.as_dict() if selected_row else {},
+        "material_request_item": material_request_item,
         "material_master": material_master_data,
         "material_onboarding": material_onboarding_data
     }

@@ -8,10 +8,10 @@
  "engine": "InnoDB",
  "field_order": [
   "profit_center_details_section",
-  "company_code",
+  "profit_center_code",
   "description",
   "column_break_fmbc",
-  "profit_center_code"
+  "company_code"
  ],
  "fields": [
   {
@@ -43,7 +43,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-17 17:26:19.713572",
+ "modified": "2025-07-03 10:33:20.305858",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Profit Center Master",

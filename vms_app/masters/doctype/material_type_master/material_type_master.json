@@ -12,6 +12,8 @@
   "material_type",
   "material_category_type",
   "description",
+  "multiple_company",
+  "storage_table",
   "column_break_cypw",
   "company",
   "storage_location",
@@ -73,11 +75,23 @@
    "fieldtype": "Table",
    "label": "Valuation & Profit",
    "options": "Valuation and Profit"
+  },
+  {
+   "fieldname": "multiple_company",
+   "fieldtype": "Table",
+   "label": "Multiple Company",
+   "options": "Meril Company Table"
+  },
+  {
+   "fieldname": "storage_table",
+   "fieldtype": "Table",
+   "label": "Storage Table",
+   "options": "Storage Location Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-19 10:25:33.022783",
+ "modified": "2025-07-03 13:01:09.585260",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Material Type Master",

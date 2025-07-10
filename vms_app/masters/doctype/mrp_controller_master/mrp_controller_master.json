@@ -9,6 +9,7 @@
  "field_order": [
   "mrp_controller_details_section",
   "mrp_controller",
+  "company",
   "column_break_zomc",
   "description"
  ],
@@ -32,11 +33,17 @@
    "fieldname": "description",
    "fieldtype": "Data",
    "label": "Description"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-05-17 12:53:52.023393",
+ "modified": "2025-07-03 10:37:34.532005",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "MRP Controller Master",
