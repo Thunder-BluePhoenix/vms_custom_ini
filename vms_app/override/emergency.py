@@ -176,9 +176,9 @@ def force_delete_material_master_workflow():
         
         # Get exact table names first to avoid SQL errors
         try:
-            # Check if tables exist
-            mcm_exists = frappe.db.sql("SHOW TABLES LIKE 'tabMaterial Code Master'")
-            mtm_exists = frappe.db.sql("SHOW TABLES LIKE 'tabMaterial Type Master'")
+            # Check if tables exist (database-agnostic way)
+            mcm_exists = frappe.db.table_exists("Material Code Master")
+            mtm_exists = frappe.db.table_exists("Material Type Master")
             
             # First clear material_type field in Material Code Master
             if mcm_exists:
@@ -275,14 +275,22 @@ def check_table_structure():
         
         for table in tables_to_check:
             try:
-                # Check table existence
-                table_exists = frappe.db.sql(f"SHOW TABLES LIKE 'tab{table}'")
-                results[f"{table}_exists"] = len(table_exists) > 0
+                # Check table existence (database-agnostic)
+                table_exists = frappe.db.table_exists(table)
+                results[f"{table}_exists"] = table_exists
                 
-                if len(table_exists) > 0:
-                    # Get table structure
-                    structure = frappe.db.sql(f"DESCRIBE `tab{table}`", as_dict=True)
-                    results[f"{table}_structure"] = [col.Field for col in structure]
+                if table_exists:
+                    # Get table structure using Frappe's method
+                    try:
+                        # Get a sample document to understand structure
+                        sample_doc = frappe.get_all(table, limit=1)
+                        if sample_doc:
+                            doc_fields = frappe.get_meta(table).get_field_names()
+                            results[f"{table}_fields"] = doc_fields
+                        else:
+                            results[f"{table}_fields"] = "No documents found"
+                    except:
+                        results[f"{table}_fields"] = "Could not get fields"
                     
                     # Get count
                     count = frappe.db.count(table)
