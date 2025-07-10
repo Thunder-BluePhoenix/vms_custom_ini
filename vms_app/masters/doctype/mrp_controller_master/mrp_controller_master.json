@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:mrp_controller",
+ "autoname": "format:{mrp_controller} - {company}",
  "creation": "2025-05-17 12:51:22.029233",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -43,11 +43,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-03 10:37:34.532005",
+ "modified": "2025-07-10 10:32:42.812518",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "MRP Controller Master",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
