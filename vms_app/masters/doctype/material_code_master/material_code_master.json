@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:material_code",
+ "autoname": "field:material_code_name",
  "creation": "2025-06-27 12:41:55.882965",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -11,6 +11,7 @@
   "company_code",
   "plant",
   "material_type",
+  "material_code_name",
   "material_code",
   "material_description",
   "base_uom",
@@ -41,8 +42,7 @@
   {
    "fieldname": "material_code",
    "fieldtype": "Data",
-   "label": "Material Code",
-   "unique": 1
+   "label": "Material Code"
   },
   {
    "fieldname": "material_description",
@@ -127,11 +127,17 @@
    "fieldtype": "Link",
    "label": "Profit Center",
    "options": "Profit Center Master"
+  },
+  {
+   "fieldname": "material_code_name",
+   "fieldtype": "Data",
+   "label": "Material Code Name",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-08 16:28:12.100247",
+ "modified": "2025-07-10 10:14:17.448209",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Material Code Master",
@@ -153,5 +159,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "material_code"
 }
