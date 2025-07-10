@@ -10,7 +10,8 @@
   "valuation_class",
   "division",
   "column_break_zhvc",
-  "profit_center"
+  "profit_center",
+  "company"
  ],
  "fields": [
   {
@@ -45,12 +46,20 @@
    "in_preview": 1,
    "label": "Division",
    "options": "Division Master"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Company",
+   "options": "Company Master"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-19 11:30:13.626106",
+ "modified": "2025-07-08 10:18:26.755392",
  "modified_by": "Administrator",
  "module": "Masters",
  "name": "Valuation and Profit",

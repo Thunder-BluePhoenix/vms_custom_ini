@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:distribution_channel_code",
+ "creation": "2025-07-02 17:30:20.744448",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_section",
+  "company",
+  "distribution_channel_code",
+  "distribution_channel_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company Master"
+  },
+  {
+   "fieldname": "distribution_channel_code",
+   "fieldtype": "Data",
+   "label": "Distribution Channel Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "distribution_channel_name",
+   "fieldtype": "Data",
+   "label": "Distribution Channel Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-02 17:32:13.286506",
+ "modified_by": "Administrator",
+ "module": "Masters",
+ "name": "Distribution Channel Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

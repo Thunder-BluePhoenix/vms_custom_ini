@@ -23,6 +23,7 @@
   "requestor_department",
   "requestor_hod",
   "contact_information_email",
+  "requested_by_place",
   "user_material_reqeust_details_section",
   "material_request",
   "sap_tab",
@@ -166,11 +167,16 @@
    "fieldname": "sap_response_section",
    "fieldtype": "Section Break",
    "label": "SAP Response"
+  },
+  {
+   "fieldname": "requested_by_place",
+   "fieldtype": "Data",
+   "label": "Requested Place"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-28 15:16:03.172092",
+ "modified": "2025-07-07 17:28:12.244638",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Requestor Master",
