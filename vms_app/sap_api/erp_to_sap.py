@@ -79,6 +79,7 @@ def erp_to_sap_material_code(doc_name):
         mrp_code = frappe.get_value("MRP Type Master", {"name": material_master.mrp_type}, "mrp_code")
         valuation_class_code = frappe.get_value("Valuation Class Master", {"name": onboarding.valuation_class}, "valuation_class_code")
         material_code = frappe.get_value("Material Master", {"name": requestor.material_master_ref_no}, "material_code_revised")
+        mrp_controller_name = frappe.get_value("MRP Controller Master", {"name": material_master.mrp_controller_revised}, "mrp_controller")
 
         data_list = {
             "Reqno": "",
@@ -115,7 +116,7 @@ def erp_to_sap_material_code(doc_name):
             "Umren": material_master.denominator_purchase_uom or "",
             "Webaz": material_master.gr_processing_time or "",
             "Dismm": mrp_code or "",
-            "Dispo": material_master.mrp_controller_revised or "",
+            "Dispo": mrp_controller_name or "",
             "Disls": material_master.lot_size_key or "",
             "Bstma": "",
             "Mabst": "",
