@@ -40,6 +40,7 @@ import pandas as pd # type: ignore
 from frappe.exceptions import DoesNotExistError
 import logging
 import mimetypes
+from frappe.utils import get_fullname
 
 @frappe.whitelist()
 def show_single_purchase_order_vendor(**kwargs):
@@ -1066,50 +1067,6 @@ def send_material_onboarding_otp(**kwargs):
 
 from frappe.auth import LoginManager
 
-# @frappe.whitelist(allow_guest=True)
-# def verify_material_onboarding_otp(user_name, entered_otp):
-#     stored_otp = frappe.db.get_value('Employee Master', {'email': user_name}, 'otp')
-#     otp_expiry_time_str = frappe.db.get_value('Employee Master', {'email': user_name}, 'otp_expiry_time')
-
-#     if not stored_otp or not otp_expiry_time_str:
-#         return {"status": "fail", "message": "OTP not found. Please request again."}
-
-#     otp_expiry_time = datetime.fromisoformat(otp_expiry_time_str)
-
-#     if datetime.now() > otp_expiry_time:
-#         return {"status": "fail", "message": "OTP expired. Please request a new one."}
-
-#     if stored_otp == entered_otp:
-#         frappe.set_user("Guest")
-#         frappe.local.login_manager = LoginManager()
-#         frappe.local.login_manager.login_as(user_name)
-
-#         user = frappe.get_doc('Employee Master', user_name)
-#         user_role_id = frappe.db.get_value("Employee Master", {'email': user.email}, 'role')
-#         user_name_full = frappe.db.get_value("Employee Master", {'email': user.email}, 'full_name')
-#         # user_designation_name = frappe.db.get_value("Designation Master", {'name': user_designation_id}, 'designation_name')
-#         # refno = frappe.db.get_value("Vendor Master", {'office_email_primary': user.email}, 'name')
-#         vendor_code = frappe.db.get_value("Vendor Master", {'office_email_primary': user.email}, 'vendor_code')
-#         company_code = frappe.db.get_value("Employee Master", {'email': user.email}, 'company')
-#         company_name = frappe.db.get_value("Company Master", {'name': company_code}, 'company_name')
-#         company_short = frappe.db.get_value("Company Master", {'name': company_code}, 'short_form')
-
-#         return {
-#             "status": "success",
-#             "message": "OTP verified. Access granted.",
-#             "email": user.email,
-#             "full_name": user_name_full,
-#             "role": user_role_id,
-#             "vendor_code": vendor_code,
-#             "company_code": company_code,
-#             "user_company": company_name,
-#             "company_short_form": company_short,
-#             "sid": frappe.session.sid,
-#         }
-
-#     return {"status": "fail", "message": "Invalid OTP"}
-
-
 @frappe.whitelist(allow_guest=True)
 def verify_material_onboarding_otp(user_name, entered_otp):
     stored_otp = frappe.db.get_value('Employee Master', {'email': user_name}, 'otp')
@@ -1820,16 +1777,13 @@ def send_email_from_sap(requestor_doc, matnr, maktx, zmsg, ztext):
         frappe.db.commit()
         return {"status": "fail", "message": _("Failed to send email.")}
 
-from frappe.utils import get_fullname
-from frappe import _
-
 @frappe.whitelist()
 def send_email_to_user(doc_name):
     try:
         print("+++++++Approval Status is Ticket Closed++++++")
 
         requestor_doc = frappe.get_doc("Requestor Master", doc_name)
-        requestor_doc.approval_status = "Ticket Closed"
+        requestor_doc.approval_status = "Use Existing Code"
         requestor_doc.save(ignore_permissions=True)
         frappe.db.commit()
         print(f"Set approval_status to 'Ticket Closed' for {doc_name}")
@@ -1861,6 +1815,90 @@ def send_email_to_user(doc_name):
             f"The material code <b>{revised_code}</b> for material description "
             f"<b>{material_description}</b> already exists.<br><br>"
             f"Therefore, closing the following ticket for <b>{doc_name}</b>.<br><br>"
+            f"Regards,<br>"
+            f"{get_fullname(from_address)}"
+        )
+        bcc_address = "rishi.hingad@merillife.com"
+        msg = MIMEMultipart()
+        msg["From"] = from_full_email
+        msg["To"] = to_address
+        msg["Subject"] = subject
+        msg["Cc"] = cc_address
+        msg["Bcc"] = bcc_address
+        msg.attach(MIMEText(body, "html"))
+
+        smtp_conf = frappe.conf
+        with smtplib.SMTP(smtp_conf.get("smtp_server"), smtp_conf.get("smtp_port")) as server:
+            server.starttls()
+            server.login(smtp_conf.get("smtp_user"), smtp_conf.get("smtp_password"))
+            server.sendmail(from_address, [to_address, cc_address, bcc_address], msg.as_string())
+            print("Email sent successfully!")
+
+        frappe.get_doc({
+            'doctype': 'Email Log',
+            'to_email': to_address,
+            'from_email': from_address,
+            'message': body,
+            'status': "Successfully Sent",
+            'screen': "Material Onboarding",
+            'created_by': from_address
+        }).insert(ignore_permissions=True)
+        frappe.db.commit()
+
+        return {"status": "success", "message": _("Email sent successfully.")}
+
+    except Exception as e:
+        frappe.get_doc({
+            'doctype': 'Email Log',
+            'to_email': to_address if 'to_address' in locals() else '',
+            'from_email': from_address if 'from_address' in locals() else '',
+            'message': str(e),
+            'status': f"Failed: {e}",
+            'screen': "Material Onboarding",
+            'created_by': from_address if 'from_address' in locals() else 'System'
+        }).insert(ignore_permissions=True)
+        frappe.db.commit()
+        frappe.log_error(frappe.get_traceback(), "send_email_to_user Error")
+
+        return {"status": "fail", "message": _("Failed to send email.")}
+    
+@frappe.whitelist()
+def send_email_to_user_on_revert(doc_name, remark):
+    try:
+        print("+++++++Approval Status is Re-open due to Revert++++++")
+
+        requestor_doc = frappe.get_doc("Requestor Master", doc_name)
+        requestor_doc.approval_status = "Re-Opened by CP"
+        requestor_doc.revert_remark = remark
+        requestor_doc.save(ignore_permissions=True)
+        frappe.db.commit()
+        print(f"Set approval_status to 'Re-open' and revert_remark for {doc_name}")
+
+        to_address = requestor_doc.contact_information_email
+
+        if not to_address:
+            raise Exception("No contact_email found in Requestor Master")
+
+        from_address = frappe.session.user
+        if from_address == "Guest":
+            raise Exception("Guest user cannot send email")
+
+        from_full_email = f"{get_fullname(from_address)} <{from_address}>"
+
+        employee_doc = frappe.get_doc("Employee Master", requestor_doc.immediate_reporting_head)
+        cc_address = employee_doc.email or "" if employee_doc else ""
+
+        item = requestor_doc.material_request[0] if requestor_doc.material_request else None
+        revised_code = item.material_code_revised if item else "N/A"
+        material_description = item.material_name_description if item else "N/A"
+
+        subject = f"Ticket Re-opened: Action Required on Material Code"
+        body = (
+            f"The ticket <b>{doc_name}</b> has been <b>re-opened</b> by the CP/Store team.<br><br>"
+            f"<b>Material Code:</b> {revised_code}<br>"
+            f"<b>Material Description:</b> {material_description}<br><br>"
+            f"<b>Revert Remark:</b> {remark}<br><br>"
+            f"Please take necessary action.<br><br>"
             f"Regards,<br>"
             f"{get_fullname(from_address)}"
         )
@@ -1906,7 +1944,7 @@ def send_email_to_user(doc_name):
             'created_by': from_address if 'from_address' in locals() else 'System'
         }).insert(ignore_permissions=True)
         frappe.db.commit()
-        frappe.log_error(frappe.get_traceback(), "send_email_to_user Error")
+        frappe.log_error(frappe.get_traceback(), "send_email_to_user_on_revert Error")
 
         return {"status": "fail", "message": _("Failed to send email.")}
 
@@ -2107,7 +2145,7 @@ def send_email_on_requestor_creation(requestor_name):
         return {"status": "fail", "message": _("Failed to send email.")}
 
 
-@frappe.whitelist()
+@frappe.whitelist() 
 def create_material_onboarding():
     print("=== START create_material_onboarding ===")
 
@@ -2204,6 +2242,7 @@ def create_material_onboarding():
 
     mat_data = map_fields(MATERIAL_FIELDS)
     onb_data = map_fields(ONBOARDING_FIELDS)
+
     for checkbox_field in ["incoming_inspection_01", "incoming_inspection_09"]:
         onb_data[checkbox_field] = 1 if form_dict.get(checkbox_field) in ["on", "1", 1, True, "true", "True"] else 0
 
@@ -2218,13 +2257,41 @@ def create_material_onboarding():
     onb_data.update({
         "requestor_ref_no": req_name
     })
+    onboarding = None
     try:
-        if (form_dict.get("approval_status") or "").strip().lower() == "updated by cp":
-            print("Form approval_status is 'Updated by CP'. Updating existing Material Master and Onboarding.")
+        if not requestor.material_master_ref_no and not requestor.material_onboarding_ref_no:
+            print("Material Master and Onboarding do not exist. Creating new ones...")
+
+            material = frappe.new_doc("Material Master")
+            material.update(mat_data)
+            material.insert()
+            print("Material Master created:", material.name)
+
+            onb_data.update({
+                "material_master_ref_no": material.name,
+                "material_code_latest": form_dict.get("material_code")
+            })
+
+            onboarding = frappe.new_doc("Material Onboarding")
+            onboarding.update(onb_data)
+            onboarding.insert()
+            print("Material Onboarding created:", onboarding.name)
+
+            material.material_onboarding_ref_no = onboarding.name
+            material.save()
+
+            requestor.material_master_ref_no = material.name
+            requestor.material_onboarding_ref_no = onboarding.name
+            requestor.approval_status = "Sent to SAP"
+            requestor.save()
+            print("Requestor Master updated with new references.")
+        else:
+            print("Material Master or Onboarding already exists. Updating existing records...")
+
             material = frappe.get_doc("Material Master", requestor.material_master_ref_no)
             material.update(mat_data)
             material.save()
-            print("Updated existing Material Master:", material.name)
+            print("Updated Material Master:", material.name)
 
             onboarding = frappe.get_doc("Material Onboarding", requestor.material_onboarding_ref_no)
             onb_data.update({
@@ -2233,44 +2300,13 @@ def create_material_onboarding():
             })
             onboarding.update(onb_data)
             onboarding.save()
-            print("Updated existing Material Onboarding:", onboarding.name)
+            print("Updated Material Onboarding:", onboarding.name)
 
-            requestor.approval_status = "Updated by CP"
             requestor.material_master_ref_no = material.name
             requestor.material_onboarding_ref_no = onboarding.name
+            requestor.approval_status = "Updated by CP"
             requestor.save()
-            print("Updated Requestor Master approval_status to 'Updated by CP'.")
-        else:
-            if not requestor.material_master_ref_no and not requestor.material_onboarding_ref_no:
-                print("Material Master and Onboarding do not exist for requestor. Creating new ones...")
-
-                material = frappe.new_doc("Material Master")
-                material.update(mat_data)
-                material.insert()
-                print("Material Master created:", material.name)
-
-                onb_data.update({
-                    "material_master_ref_no": material.name,
-                    "material_code_latest": form_dict.get("material_code"),
-                })
-
-                onboarding = frappe.new_doc("Material Onboarding")
-                onboarding.update(onb_data)
-                onboarding.insert()
-                print("Material Onboarding created:", onboarding.name)
-
-                material.material_onboarding_ref_no = onboarding.name
-                material.save()
-                print("Updated Material Master with onboarding ref:", onboarding.name)
-
-                requestor.material_master_ref_no = material.name
-                requestor.material_onboarding_ref_no = onboarding.name
-                requestor.approval_status = "Sent to SAP"
-                requestor.save()
-                print("Updated Requestor Master with references and approval status.")
-            else:
-                print("Material Master or Onboarding already exists. Skipping creation.")
-                onboarding = None 
+            print("Requestor Master updated.")
 
     except Exception as e:
         frappe.log_error(f"Failed to update Requestor Master '{req_name}'", str(e))
@@ -2384,6 +2420,158 @@ def send_email_on_material_onboarding(onboarding_doc):
 
         frappe.db.commit()
         return {"status": "fail", "message": _("Failed to send email.")}
+
+@frappe.whitelist()
+def save_material_onboarding_draft():
+    print("=== SAVE AS DRAFT: Material Onboarding ===")
+    form_dict = dict(frappe.form_dict)
+
+    MATERIAL_FIELDS = {
+        "storage_location": "storage_location",
+        "division": "division",
+        "old_material_code": "old_material_code",
+        "material_group": "material_group",
+        "batch_requirements_yn": "batch_requirements_yn",
+        "brand_make": "brand_make",
+        "availability_check": "availability_check",
+        "class_type": "class_type",
+        "class_number": "class_number",
+        "serial_number_profile": "serial_number_profile",
+        "serialization_level": "serialization_level",
+        "purchase_uom": "purchase_uom",
+        "numerator_purchase_uom": "numerator_purchase_uom",
+        "denominator_purchase_uom": "denominator_purchase_uom",
+        "lead_time": "lead_time",
+        "mrp_type": "mrp_type",
+        "mrp_group": "mrp_group",
+        "mrp_controller_revised": "mrp_controller_revised",
+        "lot_size_key": "lot_size_key",
+        "procurement_type": "procurement_type",
+        "scheduling_margin_key": "scheduling_margin_key",
+        "issue_unit": "issue_unit",
+        "numerator_issue_uom": "numerator_issue_uom",
+        "denominator_issue_uom": "denominator_issue_uom",
+        "material_code_revised": "material_code_revised",
+        "material_code": "material_code",
+        "industry": "industry",
+        "purchase_order_text": "purchase_order_text",
+        "purchasing_group": "purchasing_group",
+        "gr_processing_time": "gr_processing_time",
+        "purchasing_value_key": "purchasing_value_key",
+        "min_lot_size": "min_lot_size",
+        
+    }
+
+    ONBOARDING_FIELDS = {
+        "material_information": "material_information",
+        "minimum_remaining_shell_life": "minimum_remaining_shell_life",
+        "total_shell_life": "total_shell_life",
+        "expiration_date": "expiration_date",
+        "inspection_interval": "inspection_interval",
+        "incoming_inspection_01": "incoming_inspection_01",
+        "incoming_inspection_09": "incoming_inspection_09",
+        "material_specifications": "material_specifications",
+        "valuation_class": "valuation_class",
+        "profit_center": "profit_center",
+        "price_control": "price_control",
+        "hsn_code": "hsn_code",
+        "do_not_cost": "do_not_cost",
+        "comment_by_store": "comment_by_store",
+        "intended_usage_application": "intended_usage_application",
+        "storage_requirements": "storage_requirements",
+        "hazardous_material": "hazardous_material",
+        "inspection_require": "inspection_require",
+        "approval_date": "approval_date",
+        "approval_status": "approval_status",
+        "requested_by_name": "requested_by_name",
+        "requested_by_place": "requested_by_place",
+        "approved_by_name": "approved_by_name",
+        "approved_by_place": "approved_by_place",
+        "hsn_status": "hsn_status",
+        "special_instructionsnotes": "special_instructionsnotes",
+        "lot_size": "lot_size",
+        "lead_time": "lead_time",
+        "purchase_order_text": "purchase_order_text"
+    }
+    
+    def map_fields(mapping):
+        return {
+            doc_field: form_dict.get(form_key)
+            for doc_field, form_key in mapping.items()
+            if form_dict.get(form_key) is not None
+        }
+
+    mat_data = map_fields(MATERIAL_FIELDS)
+    onb_data = map_fields(ONBOARDING_FIELDS)
+
+    for checkbox_field in ["incoming_inspection_01", "incoming_inspection_09"]:
+        onb_data[checkbox_field] = 1 if form_dict.get(checkbox_field) in ["on", "1", 1, True, "true", "True"] else 0
+
+    req_name = form_dict.get("requestor_ref_no") or form_dict.get("requestor_name")
+    if not req_name:
+        frappe.throw("Requestor reference missing!")
+
+    requestor = frappe.get_doc("Requestor Master", req_name)
+
+    mat_data.update({
+        "requestor_ref_no": req_name,
+        "basic_data_ref_no": req_name
+    })
+
+    onb_data.update({
+        "requestor_ref_no": req_name
+    })
+
+    try:
+        if not requestor.material_master_ref_no:
+            material = frappe.new_doc("Material Master")
+            material.update(mat_data)
+            material.insert()
+            print("Material Master draft created:", material.name)
+        else:
+            material = frappe.get_doc("Material Master", requestor.material_master_ref_no)
+            material.update(mat_data)
+            material.save()
+            print("Material Master draft updated:", material.name)
+
+        if not requestor.material_onboarding_ref_no:
+            onb_data.update({
+                "material_master_ref_no": material.name,
+                "material_code_latest": form_dict.get("material_code"),
+                "approval_status": "Draft"
+            })
+            onboarding = frappe.new_doc("Material Onboarding")
+            onboarding.update(onb_data)
+            onboarding.insert()
+            print("Material Onboarding draft created:", onboarding.name)
+        else:
+            onboarding = frappe.get_doc("Material Onboarding", requestor.material_onboarding_ref_no)
+            onb_data.update({
+                "material_master_ref_no": material.name,
+                "material_code_latest": form_dict.get("material_code"),
+                "approval_status": "Draft"
+            })
+            onboarding.update(onb_data)
+            onboarding.save()
+            print("Material Onboarding draft updated:", onboarding.name)
+
+        requestor.material_master_ref_no = material.name
+        requestor.material_onboarding_ref_no = onboarding.name
+        requestor.approval_status = "Draft"
+        requestor.save()
+
+        frappe.db.commit()
+
+        return {
+            "status": "draft_saved",
+            "material_master": material.name,
+            "material_onboarding": onboarding.name
+        }
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Save Draft Error")
+        return {"status": "fail", "message": str(e)}
+
 
 # @frappe.whitelist()
 # def update_material_onboarding():

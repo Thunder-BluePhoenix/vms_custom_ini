@@ -4,6 +4,10 @@ import json
 from frappe import _
 from requests.auth import HTTPBasicAuth # type: ignore
 from vms_app.sap_api.send_sap_team_email import send_sap_team_email
+from vms_app.sap_api.send_sap_team_email import get_changed_fields, send_sap_duplicate_change_email
+from vms_app.api.material_master_onboarding import MATERIAL_FIELDS, ONBOARDING_FIELDS
+
+
 
 
 @frappe.whitelist()
@@ -44,22 +48,39 @@ def erp_to_sap_material_code(doc_name):
         if not company_code:
             frappe.throw("Company Code is missing from material request item.")
 
-        last_request_id = frappe.db.sql("""
-            SELECT request_id FROM `tabRequestor Master`
-            WHERE request_id LIKE %s AND LENGTH(request_id) = 7
-            ORDER BY request_id DESC LIMIT 1
-        """, (f"{company_code}%",), as_dict=True)
+        # last_request_id = frappe.db.sql("""
+        #     SELECT request_id FROM `tabRequestor Master`
+        #     WHERE request_id LIKE %s AND LENGTH(request_id) = 7
+        #     ORDER BY request_id DESC LIMIT 1
+        # """, (f"{company_code}%",), as_dict=True)
 
-        if last_request_id:
-            last_number = int(last_request_id[0]['request_id'][-3:])
-            new_suffix = f"{last_number + 1:03d}"
+        # if last_request_id:
+        #     last_number = int(last_request_id[0]['request_id'][-3:])
+        #     new_suffix = f"{last_number + 1:03d}"
+        # else:
+        #     new_suffix = "001"
+
+        if requestor.request_id:
+            request_id = requestor.request_id
+            print(f"Existing Request ID found: {request_id}")
         else:
-            new_suffix = "001"
+            last_request_id = frappe.db.sql("""
+                SELECT request_id FROM `tabRequestor Master`
+                WHERE request_id LIKE %s AND LENGTH(request_id) = 7
+                ORDER BY request_id DESC LIMIT 1
+            """, (f"{company_code}%",), as_dict=True)
 
-        request_id = f"{company_code}{new_suffix}"
-        requestor.request_id = request_id
-        print("Request ID--->",request_id)
-        requestor.save(ignore_permissions=True)
+            if last_request_id:
+                last_number = int(last_request_id[0]['request_id'][-3:])
+                new_suffix = f"{last_number + 1:03d}"
+            else:
+                new_suffix = "001"
+
+            request_id = f"{company_code}{new_suffix}"
+            requestor.request_id = request_id
+            requestor.save(ignore_permissions=True)
+            frappe.db.commit()
+            print(f"Generated new Request ID: {request_id}")
 
         bukrs = material_items[0]["company_code"] if material_items else ""
         batch_value = material_master.batch_requirements_yn
@@ -174,6 +195,21 @@ def erp_to_sap_material_code(doc_name):
         #         "data_list": data_list
         #     }
 
+        # Create mat_data from MATERIAL_FIELDS
+        mat_data_dict = {
+            field: str(getattr(material_master, field) or "")
+            for field in MATERIAL_FIELDS
+        }
+
+        onb_data_dict = {
+            field: str(getattr(onboarding, field) or "")
+            for field in ONBOARDING_FIELDS
+        }
+        print("MATERIAL FIELDS COMPARISON DICT:")
+        print(json.dumps(mat_data_dict, indent=2))
+
+        print("ONBOARDING FIELDS COMPARISON DICT:")
+        print(json.dumps(onb_data_dict, indent=2))
         # Send to SAP
         url = f"{sap_settings.url}{sap_client_code}"
         headers = {
@@ -190,7 +226,7 @@ def erp_to_sap_material_code(doc_name):
             key2 = response.cookies.get('sap-usercontext')
 
             # Send data
-            send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc_name)
+            send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc_name, mat_data_dict, onb_data_dict)
             return {"status": "success", "data_sent": data_list}
         else:
             frappe.log_error(f"Failed to fetch CSRF token: {response.status_code}", "ERP to SAP Material Code")
@@ -207,7 +243,7 @@ def safe_get(obj, list_name, index, attr, default=""):
         return default
 
 @frappe.whitelist(allow_guest=True)
-def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc_name):
+def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc_name, mat_data_dict=None, onb_data_dict=None):
     print("************* Entered send_material_detail *************")
     try:
         sap_settings = frappe.get_doc("SAP Settings")
@@ -259,6 +295,23 @@ def send_material_detail(csrf_token, data_list, key1, key2, sap_client_code, doc
                 frappe.db.set_value("Requestor Master", doc_name, "approval_status", "Sent to SAP")
                 frappe.db.commit()
                 send_sap_team_email(doc_name)
+            elif ztext == "record already found.":
+                print("Record already exists in SAP, sending duplicate change email.")
+                # Get the ERP doc again
+                requestor = frappe.get_doc("Requestor Master", doc_name)
+                material = frappe.get_doc("Material Master", requestor.material_master_ref_no)
+                onboarding = frappe.get_doc("Material Onboarding", requestor.material_onboarding_ref_no)
+
+                # Compare ERP doc vs what you just sent to SAP (data_list["ZMATSet"][0])
+                mat_data_sent_to_sap = data_list["ZMATSet"][0]
+
+                changed_mat = get_changed_fields(material, mat_data_sent_to_sap, MATERIAL_FIELDS.keys())
+                changed_onb = get_changed_fields(onboarding, mat_data_sent_to_sap, ONBOARDING_FIELDS.keys())
+                all_changes = changed_mat + changed_onb
+
+                if all_changes:
+                    send_sap_duplicate_change_email(doc_name, all_changes)
+
         else:
             print(f"SAP POST returned status: {response.status_code}")
 
