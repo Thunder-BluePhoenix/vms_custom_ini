@@ -13,6 +13,7 @@
   "material_type",
   "base_unit_of_measure",
   "material_code_revised",
+  "is_revised_code_new",
   "column_break_ndcu",
   "material_name_description",
   "comment_by_user",
@@ -83,12 +84,18 @@
    "fieldname": "material_specifications",
    "fieldtype": "Small Text",
    "label": "Material Specifications"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_revised_code_new",
+   "fieldtype": "Check",
+   "label": "Is Revised Code New"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-19 02:10:54.614510",
+ "modified": "2025-07-16 18:27:01.743677",
  "modified_by": "Administrator",
  "module": "vms",
  "name": "Material Request Description",
