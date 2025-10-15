@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from frappe.utils import get_fullname
 
-@frappe.whitelist() 
+@frappe.whitelist(allow_guest=True) 
 def create_material_onboarding():
     print("=== START create_material_onboarding ===")
 
@@ -281,7 +281,7 @@ def send_email_on_material_onboarding(onboarding_doc):
         frappe.db.commit()
         return {"status": "fail", "message": _("Failed to send email.")}
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def save_material_onboarding_draft():
     print("=== SAVE AS DRAFT: Material Onboarding ===")
     form_dict = dict(frappe.form_dict)
