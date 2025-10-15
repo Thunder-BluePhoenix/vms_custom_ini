@@ -3,14 +3,14 @@ import requests # type: ignore
 import json
 from frappe import _
 from requests.auth import HTTPBasicAuth # type: ignore
-from vms_app.sap_api.send_sap_team_email import send_sap_team_email
-from vms_app.sap_api.send_sap_team_email import get_changed_fields, send_sap_duplicate_change_email
+from vms_app.api.sap_api.send_sap_team_email import send_sap_team_email
+from vms_app.api.sap_api.send_sap_team_email import get_changed_fields, send_sap_duplicate_change_email
 from vms_app.api.material_master_onboarding import MATERIAL_FIELDS, ONBOARDING_FIELDS
 
 
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def erp_to_sap_material_code(doc_name):
     print("****Calling ERP TO SAP API******",doc_name)
     try:
