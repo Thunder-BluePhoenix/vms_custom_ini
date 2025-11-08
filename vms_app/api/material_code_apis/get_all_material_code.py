@@ -30,15 +30,42 @@ def get_all_material_descriptions_and_codes():
             })
     return results
 
-@frappe.whitelist()
+# @frappe.whitelist()
+# def get_all_material_codes():
+#     try:
+#         materials = frappe.get_all(
+#             "Material Code Master",
+#             fields=["name", "material_description", "material_type", "material_group", "plant", "company_code"]
+#         )
+#         frappe.response["type"] = "json"
+#         frappe.response["data"] = materials
+#     except Exception as e:
+#         frappe.log_error(frappe.get_traceback(), "Material Code Fetch Error")
+#         frappe.response["http_status_code"] = 500
+#         frappe.response["data"] = {"error": str(e)}
+
+@frappe.whitelist(allow_guest=True)
 def get_all_material_codes():
     try:
+        data = frappe.form_dict  # Gets POST body (JSON)
+        company_code = data.get("material_company_code")
+        material_type = data.get("material_type")
+
+        filters = {}
+        if company_code:
+            filters["company_code"] = company_code
+        if material_type:
+            filters["material_type"] = material_type
+
         materials = frappe.get_all(
             "Material Code Master",
-            fields=["name", "material_description", "material_type", "material_group", "plant", "company_code"]
+            filters=filters,
+            fields=["name", "material_description", "material_type", "material_group", "plant", "company_code"],
         )
+
         frappe.response["type"] = "json"
         frappe.response["data"] = materials
+
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "Material Code Fetch Error")
         frappe.response["http_status_code"] = 500
